@@ -1,0 +1,38 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}The purpose of MathML in NLB's EPUB files}{3}% 
+\contentsline {section}{\numberline {2}The fundamental requirements}{3}% 
+\contentsline {subsection}{\numberline {2.1}The display attribute}{4}% 
+\contentsline {section}{\numberline {3}Additional requirements and examples}{8}% 
+\contentsline {subsection}{\numberline {3.1}Use of invisible operators}{8}% 
+\contentsline {subsection}{\numberline {3.2}Markup of less than, less than or equal, greater than and greater than or equal}{9}% 
+\contentsline {subsection}{\numberline {3.3}Markup of parenthesis}{9}% 
+\contentsline {subsection}{\numberline {3.4}Markup of the absolute value}{11}% 
+\contentsline {subsection}{\numberline {3.5}Markup of number of degrees}{12}% 
+\contentsline {subsection}{\numberline {3.6}Markup of square roots and higher-order roots}{16}% 
+\contentsline {subsection}{\numberline {3.7}Markup of exponentiation}{17}% 
+\contentsline {subsection}{\numberline {3.8}Markup of vectors}{17}% 
+\contentsline {subsection}{\numberline {3.9}Markup of fractions}{19}% 
+\contentsline {subsection}{\numberline {3.10}Lower indices}{20}% 
+\contentsline {subsection}{\numberline {3.11}Markup of functions with one argument}{22}% 
+\contentsline {subsection}{\numberline {3.12}Markup of functions with two or more arguments}{23}% 
+\contentsline {subsection}{\numberline {3.13}Markup of named functions}{24}% 
+\contentsline {subsection}{\numberline {3.14}Markup of limits and the derivative}{26}% 
+\contentsline {subsubsection}{\numberline {3.14.1}The \emph {Lagrange notation}}{28}% 
+\contentsline {subsubsection}{\numberline {3.14.2}The \emph {Leibniz notation}}{32}% 
+\contentsline {subsection}{\numberline {3.15}Markup of the integral}{35}% 
+\contentsline {subsection}{\numberline {3.16}Markup of matrices}{40}% 
+\contentsline {subsection}{\numberline {3.17}Markup of set delimiters}{40}% 
+\contentsline {subsection}{\numberline {3.18}Markup of multiline formulas}{41}% 
+\contentsline {subsection}{\numberline {3.19}Markup of chemistry}{41}% 
+\contentsline {subsubsection}{\numberline {3.19.1}Superscript in upper left to denote isotope}{43}% 
+\contentsline {subsection}{\numberline {3.20}Markup of physics}{43}% 
+\contentsline {subsection}{\numberline {3.21}Markup of math elements within code blocks}{44}% 
+\contentsline {section}{\numberline {4}Issues and clarifications}{44}% 
+\contentsline {subsection}{\numberline {4.1}AsciiMath should be mirroring MathML}{44}% 
+\contentsline {subsection}{\numberline {4.2}Dividing obvious words into single letters}{44}% 
+\contentsline {subsection}{\numberline {4.3}Spaces}{45}% 
+\contentsline {subsubsection}{\numberline {4.3.1}Mtext elements with spaces}{45}% 
+\contentsline {subsection}{\numberline {4.4}Decimals}{45}% 
+\contentsline {subsection}{\numberline {4.5}Thousand separator}{46}% 
+\contentsline {subsection}{\numberline {4.6}Union}{46}% 
+\contentsline {subsection}{\numberline {4.7}Intersection}{46}% 

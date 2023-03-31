@@ -100,7 +100,7 @@ Except for the first bullet point, which relies on the math knowledge of a  huma
 
 \begin{itemize}
 	\item All mathematical expressions --~both inline and block~-- shall be marked up, along with the general EPUB markup, using \emph{MathML Presentation Markup}, as specified in ''Mathematical Markup Language (MathML) Version 3.0 2nd Edition''\footnote{See~\url{https://www.w3.org/TR/MathML3/}}.
-	\item The language of the generated text is reliant on which \emph{xml:lang}-attribute is set. Thus there must exist an ancestor of the expression with the \emph{xml:lang}-attribute, for example: \element{<html xml:lang="en">} or \element{<html xml:lang="en"><body><div xml:lang="no"><m:math>...</m:math></div></body></html>}. A math element itself cannot contain a \element{xml:lang} attribute.
+	\item The language of the generated text is reliant on which \emph{xml:lang}-attribute is set. Thus there must exist an ancestor of the expression with the \emph{xml:lang}-attribute, for example: \element{<html xml:lang="en">} or \element{<html xml:lang="en"><body><div xml:lang="no"><math>...</math></div></body></html>}. A math element itself cannot contain a \element{xml:lang} attribute.
 	\item Whenever applicable, the requirements in this document must be respected.
 	
 	\textbf{For mathematical expressions that are not covered in this document, the personnel involved in the markup process is encouraged to do MathML markup based on a good understanding of mathematics, combined with a solid knowledge of the set of MathML elements and attributes.}
@@ -110,16 +110,16 @@ Except for the first bullet point, which relies on the math knowledge of a  huma
 	\item All MathML markup must be annotated with an AsciiMath expression that represents the mathematical expression printed in the book. Thus, the complete markup of any given mathematical expression must be coded according to the following scheme:
 
 \begin{lstlisting}[language=HTML, caption={Default MathML markup}]
-<m:math xmlns:m="http://www.w3.org/1998/Math/MathML"
+<math xmlns:m="http://www.w3.org/1998/Math/MathML"
 	alttext="[AsciiMath markup]" 
 	altimg="[Image path]" 
 	display="[block|inline]">
-	<m:semantics>
-		<m:mrow>
+	<semantics>
+		<mrow>
 			[MathML markup]
-		</m:mrow>
-	</m:semantics>
-</m:math>
+		</mrow>
+	</semantics>
+</math>
 \end{lstlisting}
 
 	The \markup{[MathML markup]} is, obviously, the MathML markup that represents the mathematical expression in question, and \markup{[AsciiMath markup]} is the AciiMath version of the same expression.
@@ -178,13 +178,13 @@ Please note that, in all of the examples to follow, the markup discussed is the 
 \begin{kodeblokk}
 \footnotesize
 \begin{verbatimtab}[3]
-<m:math ...>
-	<m:mi>x</m:mi>
-	<m:mo>=</m:mo>
-	<m:msqrt>
-		<m:mn>2</m:mn>
-	</m:msqrt>
-</m:math>
+<math ...>
+	<mi>x</mi>
+	<mo>=</mo>
+	<msqrt>
+		<mn>2</mn>
+	</msqrt>
+</math>
 \end{verbatimtab}
 \end{kodeblokk}
 };
@@ -215,48 +215,48 @@ One interpretation of this expression is that it represents a variable, $a$, tha
 A completely different interpretation is that the expression represents a function, $a$, with one argument, namely the sum of $t$ and $\varphi$.
 
 It is extremely important that the interpretation is clearly indicated in the MathML markup. If the expression represents a multiplication operation, this should be clarified by use of the MathML operator
-\verb|<m:mo>&#8290;</m:mo>|. And similar, the representation of a function must be clarified by using
-\verb|<m:mo>&#8289;</m:mo>|.
+\verb|<mo>&#8290;</mo>|. And similar, the representation of a function must be clarified by using
+\verb|<mo>&#8289;</mo>|.
 
 
 So, even though this:
 \begin{lstlisting}[language=HTML]
-<m:math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-	<m:mi>a</m:mi>
-	<m:mo>(</m:mo>
-	<m:mi>t</m:mi>
-	<m:mo>+</m:mo>
-	<m:mi>&#966;</m:mi>
-	<m:mo>)</m:mo>
-</m:math>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+	<mi>a</mi>
+	<mo>(</mo>
+	<mi>t</mi>
+	<mo>+</mo>
+	<mi>&#966;</mi>
+	<mo>)</mo>
+</math>
 \end{lstlisting}
 in many cases would be perfectly good markup of the expression above, NLB require the markup to be either
 \begin{lstlisting}[language=HTML]
-<m:math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-	<m:mi>a</m:mi>
-	<m:mo>&#8290;</m:mo>
-	<m:mfenced open="(" close=")">
-		<m:mrow>
-			<m:mi>t</m:mi>
-			<m:mo>+</m:mo>
-			<m:mi>&#966;</m:mi>
-		</m:mrow>
-	</m:mfenced>
-</m:math>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+	<mi>a</mi>
+	<mo>&#8290;</mo>
+	<mfenced open="(" close=")">
+		<mrow>
+			<mi>t</mi>
+			<mo>+</mo>
+			<mi>&#966;</mi>
+		</mrow>
+	</mfenced>
+</math>
 \end{lstlisting}
 for the ''multiplication interpretation'', or
 \begin{lstlisting}[language=HTML]
-<m:math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-	<m:mi>a</m:mi>
-	<m:mo>&#8289;</m:mo>
-	<m:mfenced open="(" close=")">
-		<m:mrow>
-			<m:mi>t</m:mi>
-			<m:mo>+</m:mo>
-			<m:mi>&#966;</m:mi>
-		</m:mrow>
-	</m:mfenced>
-</m:math>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+	<mi>a</mi>
+	<mo>&#8289;</mo>
+	<mfenced open="(" close=")">
+		<mrow>
+			<mi>t</mi>
+			<mo>+</mo>
+			<mi>&#966;</mi>
+		</mrow>
+	</mfenced>
+</math>
 \end{lstlisting}
 for the ''function interpretation''. Note that the only difference is the choice of entity in line~3.
 
@@ -313,31 +313,31 @@ or
 where it is quite clear from the context that multiplication is involved, we \emph{require} that these multiplications are added to the markup. Thus, expression 4 must be marked up as 
 
 \begin{lstlisting}[language=HTML, caption={Invisible multiplication}]
-<m:mfenced open="(" close=")">
-	<m:mrow>
-		<m:mi>x</m:mi>
-		<m:mo>+</m:mo>
-		<m:mi>y</m:mi>
-	</m:mrow>
-</m:mfenced>
-<m:mo>&#8290;</m:mo>
-<m:mfenced open="(" close=")">
-	<m:mrow>
-		<m:mi>x</m:mi>
-		<m:mo>-</m:mo>
-		<m:mi>y</m:mi>
-	</m:mrow>
-</m:mfenced>
+<mfenced open="(" close=")">
+	<mrow>
+		<mi>x</mi>
+		<mo>+</mo>
+		<mi>y</mi>
+	</mrow>
+</mfenced>
+<mo>&#8290;</mo>
+<mfenced open="(" close=")">
+	<mrow>
+		<mi>x</mi>
+		<mo>-</mo>
+		<mi>y</mi>
+	</mrow>
+</mfenced>
 \end{lstlisting}
 while expression 5 must be represented with the following markup:
 \begin{lstlisting}[language=HTML, caption={Function application and invisible multiplication}]
-<m:mn>2</m:mn>
-<m:mo>&#8290;</m:mo>
-<m:mrow>
-	<m:mi>sin</m:mi>
-	<m:mo>&#8289;</m:mo>
-	<m:mi>&#593;</m:mi>
-</m:mrow>
+<mn>2</mn>
+<mo>&#8290;</mo>
+<mrow>
+	<mi>sin</mi>
+	<mo>&#8289;</mo>
+	<mi>&#593;</mi>
+</mrow>
 \end{lstlisting}
 Note the use of \entitet{\#8290} in line~8 and line~2 respectively in these markup snippets.
 
@@ -359,84 +359,84 @@ HTML entities would generally be able to be used for this, but to remove the ris
 \bigskip
 
 \begin{lstlisting}[language=HTML, caption={$9 < 10$}]
-<m:mrow> 
-	<m:mn>9</m:mn>
-	<m:mo>&#60;</m:mo>
-	<m:mi>10</m:mi>
-</m:mrow>
+<mrow> 
+	<mn>9</mn>
+	<mo>&#60;</mo>
+	<mi>10</mi>
+</mrow>
 \end{lstlisting}
 \bigskip
 \begin{lstlisting}[language=HTML, caption={$10 > 9$}]
-<m:mrow> 
-	<m:mn>10</m:mn>
-	<m:mo>&#62;</m:mo>
-	<m:mi>9</m:mi>
-</m:mrow>
+<mrow> 
+	<mn>10</mn>
+	<mo>&#62;</mo>
+	<mi>9</mi>
+</mrow>
 \end{lstlisting}
 \bigskip
 \begin{lstlisting}[language=HTML, caption={$9 \leq 9$}]
-<m:mrow> 
-	<m:mn>9</m:mn>
-	<m:mo>&#8804;</m:mo>
-	<m:mi>9</m:mi>
-</m:mrow>
+<mrow> 
+	<mn>9</mn>
+	<mo>&#8804;</mo>
+	<mi>9</mi>
+</mrow>
 \end{lstlisting}
 \bigskip
 \begin{lstlisting}[language=HTML, caption={$9 \geq 9$}]
-<m:mrow> 
-	<m:mn>9</m:mn>
-	<m:mo>&#8805;</m:mo>
-	<m:mi>9</m:mi>
-</m:mrow>
+<mrow> 
+	<mn>9</mn>
+	<mo>&#8805;</mo>
+	<mi>9</mi>
+</mrow>
 \end{lstlisting}
 
 \subsection{Markup of parenthesis}
 
-Parenthesis shall not be marked up using \verb|<m:mo>(</m:mo>| and \verb|<m:mo>)</m:mo>|. Rather the MathML element \element{mfenced} must be used. 
+Parenthesis shall not be marked up using \verb|<mo>(</mo>| and \verb|<mo>)</mo>|. Rather the MathML element \element{mfenced} must be used. 
 The \element{mfenced} should contain attribute defining what type of parenthesis it, as follows: 
 \begin{lstlisting}[language=HTML]
-<m:mfenced open="(" close=")">
-	<m:mi>x</m:mi>
-</m:mfenced>
+<mfenced open="(" close=")">
+	<mi>x</mi>
+</mfenced>
 \end{lstlisting}
 This is done to clarify what parenthesis we are dealing with.\\
 \bigskip
 There are other parentesis to be aware of:
 
 \begin{lstlisting}[language=HTML, caption={Square bracket}]
-<m:mfenced open="[" close="]">
-	<m:mi>x</m:mi>
-</m:mfenced>
+<mfenced open="[" close="]">
+	<mi>x</mi>
+</mfenced>
 \end{lstlisting}
 
 \begin{lstlisting}[language=HTML, caption={Curly bracket}]
-<m:mfenced open="{" close="}">
-	<m:mi>x</m:mi>
-</m:mfenced>
+<mfenced open="{" close="}">
+	<mi>x</mi>
+</mfenced>
 \end{lstlisting}
 
 This is trivial when there is only one element inside the parenthesis, such as $g(x)$, which should be marked up as
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:mi>g</m:mi>
-	<m:mo>&#8289;</m:mo>
-	<m:mfenced open="(" close=")">
-		<m:mi>x</m:mi>
-	</m:mfenced>
-</m:mrow>
+<mrow>
+	<mi>g</mi>
+	<mo>&#8289;</mo>
+	<mfenced open="(" close=")">
+		<mi>x</mi>
+	</mfenced>
+</mrow>
 \end{lstlisting}
 
 However, when the content of the parenthesis consists of multiple parts, such as $3 \cdot (4 + 9)$, the content of the \element{mfenced} element must be placed inside an \element{mrow} element:
 \begin{lstlisting}[language=HTML]
-<m:mn>3</m:mn>
-<m:mo>&#8901;</m:mo>
-<m:mfenced open="(" close=")">
-	<m:mrow>
-		<m:mn>4</m:mn>
-		<m:mo>+</m:mo>
-		<m:mn>9</m:mn>
-	</m:mrow>
-</m:mfenced>
+<mn>3</mn>
+<mo>&#8901;</mo>
+<mfenced open="(" close=")">
+	<mrow>
+		<mn>4</mn>
+		<mo>+</mo>
+		<mn>9</mn>
+	</mrow>
+</mfenced>
 \end{lstlisting}
 A more complex example, involving nested parenthesis, is
 \begin{equation}
@@ -444,39 +444,39 @@ A more complex example, involving nested parenthesis, is
 \end{equation}
 The correct markup of this expression would be
 \begin{lstlisting}[language=HTML]
-<m:mn>4</m:mn>
-<m:mo>&#8901;</m:mo>
-<m:mfenced open="(" close=")">
-	<m:mrow>
-		<m:mi>x</m:mi>
-		<m:mo>+</m:mo>
-		<m:mi>x</m:mi>
-		<m:mo>&#8901;</m:mo>
-		<m:mfenced open="(" close=")">
-			<m:mrow>
-				<m:mi>x</m:mi>
-				<m:mo>+</m:mo>
-				<m:mi>a</m:mi>
-			</m:mrow>
-		</m:mfenced>
-	</m:mrow>
-</m:mfenced>
-<m:mo>&#8901;</m:mo>
-<m:mfenced open="(" close=")">
-	<m:mrow>
-        <m:mi>x</m:mi>
-        <m:mo>-</m:mo>
-        <m:mi>x</m:mi>
-        <m:mo>&#8901;</m:mo>
-        <m:mfenced open="(" close=")">
-            <m:mrow>
-                <m:mi>x</m:mi>
-                <m:mo>-</m:mo>
-                <m:mi>b</m:mi>
-            </m:mrow>
-        </m:mfenced>
-	</m:mrow>
-</m:mfenced>
+<mn>4</mn>
+<mo>&#8901;</mo>
+<mfenced open="(" close=")">
+	<mrow>
+		<mi>x</mi>
+		<mo>+</mo>
+		<mi>x</mi>
+		<mo>&#8901;</mo>
+		<mfenced open="(" close=")">
+			<mrow>
+				<mi>x</mi>
+				<mo>+</mo>
+				<mi>a</mi>
+			</mrow>
+		</mfenced>
+	</mrow>
+</mfenced>
+<mo>&#8901;</mo>
+<mfenced open="(" close=")">
+	<mrow>
+        <mi>x</mi>
+        <mo>-</mo>
+        <mi>x</mi>
+        <mo>&#8901;</mo>
+        <mfenced open="(" close=")">
+            <mrow>
+                <mi>x</mi>
+                <mo>-</mo>
+                <mi>b</mi>
+            </mrow>
+        </mfenced>
+	</mrow>
+</mfenced>
 \end{lstlisting}
 
 
@@ -490,14 +490,14 @@ The expression
 \begin{equation}|-2| = 2\end{equation}
 must be marked up as
 \begin{lstlisting}[language=HTML, caption={Absolute values}]
-<m:mfenced open="|" close="|">
-	<m:mrow>
-		<m:mo>-</m:mo>
-		<m:mn>2</m:mn>
-	</m:mrow>
-</m:mfenced>
-<m:mo>=</m:mo>
-<m:mn>2</m:mn>
+<mfenced open="|" close="|">
+	<mrow>
+		<mo>-</mo>
+		<mn>2</mn>
+	</mrow>
+</mfenced>
+<mo>=</mo>
+<mn>2</mn>
 \end{lstlisting}
 while the more complex expression
 \begin{equation}
@@ -505,33 +505,33 @@ while the more complex expression
 \end{equation}
 must be marked up as follows:
 \begin{lstlisting}[language=HTML]
-<m:mfenced open="|" close="|">
-	<m:mrow>
-		<m:mi>cos</m:mi>
-		<m:mo>&#8289;</m:mo>
-		<m:mfrac>
-			<m:mi>x</m:mi>
-			<m:mn>2</m:mn>
-		</m:mfrac>
-	</m:mrow>
-</m:mfenced>
-<m:mo>=</m:mo>
-<m:msqrt>
-	<m:mrow>
-		<m:mfrac>
-			<m:mrow>
-				<m:mn>1</m:mn>
-				<m:mo>+</m:mo>
-				<m:mrow>
-					<m:mi>cos</m:mi>
-					<m:mo>&#8289;</m:mo>
-					<m:mi>x</m:mi>
-				</m:mrow>
-			</m:mrow>
-			<m:mn>2</m:mn>
-		</m:mfrac>
-	</m:mrow>
-</m:msqrt>
+<mfenced open="|" close="|">
+	<mrow>
+		<mi>cos</mi>
+		<mo>&#8289;</mo>
+		<mfrac>
+			<mi>x</mi>
+			<mn>2</mn>
+		</mfrac>
+	</mrow>
+</mfenced>
+<mo>=</mo>
+<msqrt>
+	<mrow>
+		<mfrac>
+			<mrow>
+				<mn>1</mn>
+				<mo>+</mo>
+				<mrow>
+					<mi>cos</mi>
+					<mo>&#8289;</mo>
+					<mi>x</mi>
+				</mrow>
+			</mrow>
+			<mn>2</mn>
+		</mfrac>
+	</mrow>
+</msqrt>
 \end{lstlisting}
 
 \subsection{Markup of number of degrees}
@@ -540,10 +540,10 @@ How to mark up a number of degrees, such as such as $\ang{360}$ or $\ang{-273,15
 
 For a positive number, the required markup is simple:
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:mn>[numeric value]</m:mn>
-	<m:mi>&#176;</m:mi>
-</m:mrow>
+<mrow>
+	<mn>[numeric value]</mn>
+	<mi>&#176;</mi>
+</mrow>
 \end{lstlisting}
 
 \kravliste{
@@ -556,13 +556,13 @@ Note also that the \element{msup} element must not be used, as the degree symbol
 \medskip
 For a negative value, the required markup is a bit more complex:
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:mrow>
-		<m:mo>-</m:mo>
-		<m:mn>[numeric value]</m:mn>
-	</m:mrow>
-	<m:mi>&#176;</m:mi>
-</m:mrow>
+<mrow>
+	<mrow>
+		<mo>-</mo>
+		<mn>[numeric value]</mn>
+	</mrow>
+	<mi>&#176;</mi>
+</mrow>
 \end{lstlisting}
 
 \kravliste{
@@ -580,20 +580,20 @@ This kind of markup is relevant both for  temperature and for angular measuremen
 
 The required markup for this kind of angular measurement is either:
 \begin{lstlisting}[language=HTML]
-<m:msup>
-	<m:mn>[numeric value]</m:mn>
-	<m:mtext>g</m:mtext>
-</m:msup>
+<msup>
+	<mn>[numeric value]</mn>
+	<mtext>g</mtext>
+</msup>
 \end{lstlisting}
 or
 \begin{lstlisting}[language=HTML]
-<m:msup>
-	<m:mrow>
-		<m:mo>-</m:mo>
-		<m:mn>[numeric value]</m:mn>
-	</m:mrow>
-	<m:mtext>g</m:mtext>
-</m:msup>
+<msup>
+	<mrow>
+		<mo>-</mo>
+		<mn>[numeric value]</mn>
+	</mrow>
+	<mtext>g</mtext>
+</msup>
 \end{lstlisting}
 depending on the value, as described above.
 
@@ -606,70 +606,70 @@ The markup for the expression
 \end{equation}	
 is
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:mn>0</m:mn>
-	<m:mi>&#176;</m:mi>
-</m:mrow>
-<m:mspace width="0.25em"/>
-<m:mtext>C</m:mtext>
-<m:mo>=</m:mo>
-<m:mrow>
-	<m:mn>32</m:mn>
-	<m:mi>&#176;</m:mi>
-</m:mrow>
-<m:mspace width="0.25em"/>
-<m:mtext>F</m:mtext>
-<m:mo>=</m:mo>
-<m:mn>273</m:mn>
-<m:mspace width="0.25em"/>
-<m:mtext>K</m:mtext>
+<mrow>
+	<mn>0</mn>
+	<mi>&#176;</mi>
+</mrow>
+<mspace width="0.25em"/>
+<mtext>C</mtext>
+<mo>=</mo>
+<mrow>
+	<mn>32</mn>
+	<mi>&#176;</mi>
+</mrow>
+<mspace width="0.25em"/>
+<mtext>F</mtext>
+<mo>=</mo>
+<mn>273</mn>
+<mspace width="0.25em"/>
+<mtext>K</mtext>
 \end{lstlisting}
 Note the use of the \element{mspace} element to insert proper visual spacing between values and the relevant unit.
 
 For clarity, one could use the following markup instead:
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:mrow>
-		<m:mn>0</m:mn>
-		<m:mi>&#176;</m:mi>
-	</m:mrow>
-	<m:mspace width="0.25em"/>
-	<m:mtext>C</m:mtext>
-</m:mrow>
-<m:mo>=</m:mo>
-<m:mrow>
-	<m:mrow>
-		<m:mn>32</m:mn>
-		<m:mi>&#176;</m:mi>
-	</m:mrow>
-	<m:mspace width="0.25em"/>
-	<m:mtext>F</m:mtext>
-</m:mrow>
-<m:mrow>
-	<m:mo>=</m:mo>
-	<m:mn>273</m:mn>
-	<m:mspace width="0.25em"/>
-	<m:mtext>K</m:mtext>
-</m:mrow>
+<mrow>
+	<mrow>
+		<mn>0</mn>
+		<mi>&#176;</mi>
+	</mrow>
+	<mspace width="0.25em"/>
+	<mtext>C</mtext>
+</mrow>
+<mo>=</mo>
+<mrow>
+	<mrow>
+		<mn>32</mn>
+		<mi>&#176;</mi>
+	</mrow>
+	<mspace width="0.25em"/>
+	<mtext>F</mtext>
+</mrow>
+<mrow>
+	<mo>=</mo>
+	<mn>273</mn>
+	<mspace width="0.25em"/>
+	<mtext>K</mtext>
+</mrow>
 \end{lstlisting}
 The only difference is the extra \element{mrow} elements that are used to group together the different parts of the expression.
 
 The expression $T_0 = \ang{-273,15}\;\text{C}$ must be represented by the following markup:
 \begin{lstlisting}[language=HTML]
-<m:msub>
-	<m:mi>T</m:mi>
-	<m:mn>0</m:mn>
-</m:msub>
-<m:mo>=</m:mo>
-<m:mrow>
-	<m:mrow>
-		<m:mo>-</m:mo>
-		<m:mn>273,15</m:mn>
-	</m:mrow>
-	<m:mi>&#176;</m:mi>
-</m:mrow>
-<m:mspace width="0.25em"/>
-<m:mtext>C</m:mtext>
+<msub>
+	<mi>T</mi>
+	<mn>0</mn>
+</msub>
+<mo>=</mo>
+<mrow>
+	<mrow>
+		<mo>-</mo>
+		<mn>273,15</mn>
+	</mrow>
+	<mi>&#176;</mi>
+</mrow>
+<mspace width="0.25em"/>
+<mtext>C</mtext>
 \end{lstlisting}
 
 As a final example, the expression \begin{equation}
@@ -677,39 +677,39 @@ As a final example, the expression \begin{equation}
 \end{equation}
 must be marked up as
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:mi>sin</m:mi>
-	<m:mo>&#8289;</m:mo>
-	<m:mrow>
-		<m:mn>45</m:mn>
-		<m:mi>&#176;</m:mi>
-	</m:mrow>
-</m:mrow>
-<m:mo>=</m:mo>
-<m:mrow>
-	<m:mi>sin</m:mi>
-	<m:mo>&#8289;</m:mo>
-	<m:msup>
-		<m:mn>50</m:mn>
-		<m:mtext>g</m:mtext>
-	</m:msup>
-</m:mrow>
-<m:mo>=</m:mo>
-<m:mrow>
-	<m:mi>sin</m:mi>
-	<m:mo>&#8289;</m:mo>
-	<m:mfrac>
-		<m:mi>&#960;</m:mi>
-		<m:mn>4</m:mn>
-	</m:mfrac>
-</m:mrow>
-<m:mo>=</m:mo>
-<m:mfrac>
-	<m:mn>1</m:mn>
-	<m:msqrt>
-		<m:mn>2</m:mn>
-	</m:msqrt>
-</m:mfrac>
+<mrow>
+	<mi>sin</mi>
+	<mo>&#8289;</mo>
+	<mrow>
+		<mn>45</mn>
+		<mi>&#176;</mi>
+	</mrow>
+</mrow>
+<mo>=</mo>
+<mrow>
+	<mi>sin</mi>
+	<mo>&#8289;</mo>
+	<msup>
+		<mn>50</mn>
+		<mtext>g</mtext>
+	</msup>
+</mrow>
+<mo>=</mo>
+<mrow>
+	<mi>sin</mi>
+	<mo>&#8289;</mo>
+	<mfrac>
+		<mi>&#960;</mi>
+		<mn>4</mn>
+	</mfrac>
+</mrow>
+<mo>=</mo>
+<mfrac>
+	<mn>1</mn>
+	<msqrt>
+		<mn>2</mn>
+	</msqrt>
+</mfrac>
 \end{lstlisting}
 
 \end{eksempler}
@@ -718,21 +718,21 @@ must be marked up as
 The square root must be marked up using the MathML element \element{msqrt}. As the square root of a mathematical expression can be looked upon as a function with \emph{one} argument, one could expect that the \element{sqrt} element always should have \emph{exactly on}e child.
 This would require that $\sqrt{a + b}$ should be marked up as
 \begin{lstlisting}[language=HTML]
-<m:msqrt>
-	<m:mrow>
-		<m:mi>a</m:mi>
-		<m:mo>+</m:mo>
-		<m:mi>b</m:mi>
-	</m:mrow>
-</m:msqrt>
+<msqrt>
+	<mrow>
+		<mi>a</mi>
+		<mo>+</mo>
+		<mi>b</mi>
+	</mrow>
+</msqrt>
 \end{lstlisting}
 And this is indeed perfectly good markup, but the simpler form
 \begin{lstlisting}[language=HTML]
-<m:msqrt>
-	<m:mi>a</m:mi>
-	<m:mo>+</m:mo>
-	<m:mi>b</m:mi>
-</m:msqrt>
+<msqrt>
+	<mi>a</mi>
+	<mo>+</mo>
+	<mi>b</mi>
+</msqrt>
 \end{lstlisting}
 would work just as well.
 
@@ -741,28 +741,28 @@ would work just as well.
 Thus, the expression \begin{equation}\sqrt[3]{8} =2\end{equation}
 must be marked up as
 \begin{lstlisting}[language=HTML]
-<m:mroot>
-	<m:mn>8</m:mn>
-	<m:mn>3</m:mn>
-</m:mroot>
-<m:mo>=</m:mo>
-<m:mn>2</m:mn>
+<mroot>
+	<mn>8</mn>
+	<mn>3</mn>
+</mroot>
+<mo>=</mo>
+<mn>2</mn>
 \end{lstlisting}
 and the expression \begin{equation}\sqrt[n]{x}=x^{1/n} \end{equation}
 must be marked up as
 \begin{lstlisting}[language=HTML]
-<m:mroot>
-	<m:mi>x</m:mi>
-	<m:mn>n</m:mn>
-</m:mroot>
-<m:mo>=</m:mo>
-<m:msup>
-	<m:mi>x</m:mi>
-	<m:mfrac bevelled="true">
-		<m:mn>1</m:mn>
-		<m:mi>n</m:mi>
-	</m:mfrac>
-</m:msup>
+<mroot>
+	<mi>x</mi>
+	<mn>n</mn>
+</mroot>
+<mo>=</mo>
+<msup>
+	<mi>x</mi>
+	<mfrac bevelled="true">
+		<mn>1</mn>
+		<mi>n</mi>
+	</mfrac>
+</msup>
 \end{lstlisting}
 
 \subsection{Markup of exponentiation}
@@ -781,50 +781,50 @@ Another way is to present the vector in some kind of bold font, as in
 \bigskip
 For vector notation with arrows we require the following markup:
 \begin{lstlisting}[language=HTML]
-<m:mover>
+<mover>
 	[a single element representing the vector]
-	<m:mo>&#8594;</m:mo>
-</m:mover>
+	<mo>&#8594;</mo>
+</mover>
 \end{lstlisting}
 
 \begin{eksempler}
 The very simple expression $\vec{v}$ must be represented by
 \begin{lstlisting}[language=HTML]
-<m:mover>
-	<m:mo>v</m:mo>
-	<m:mo>&#8594;</m:mo>
-</m:mover>
+<mover>
+	<mo>v</mo>
+	<mo>&#8594;</mo>
+</mover>
 \end{lstlisting}
 Note that the placeholder \markup{[a single element representing the vector]} may represent more complex notation. This means that $\vec{a} = \vec{a_1} + \vec{a_2}$ must be marked up as:
 \begin{lstlisting}[language=HTML]
-<m:mover>
-	<m:mi>a</m:mi>
-	<m:mo>&#8594;</m:mo>
-</m:mover>
-<m:mo>=</m:mo>
-<m:mover>
-	<m:msub>
-		<m:mi>a</m:mi>
-		<m:mn>1</m:mn>
-	</m:msub>
-	<m:mo>&#8594;</m:mo>
-</m:mover>
-<m:mo>+</m:mo>
-<m:mover>
-	<m:msub>
-		<m:mi>a</m:mi>
-		<m:mn>2</m:mn>
-	</m:msub>
-	<m:mo>&#8594;</m:mo>
-</m:mover>
+<mover>
+	<mi>a</mi>
+	<mo>&#8594;</mo>
+</mover>
+<mo>=</mo>
+<mover>
+	<msub>
+		<mi>a</mi>
+		<mn>1</mn>
+	</msub>
+	<mo>&#8594;</mo>
+</mover>
+<mo>+</mo>
+<mover>
+	<msub>
+		<mi>a</mi>
+		<mn>2</mn>
+	</msub>
+	<mo>&#8594;</mo>
+</mover>
 \end{lstlisting}
 \end{eksempler}
 
 \medskip The required markup for vectors represented by a bold font, is to add the \markup{mathvariant} attribute to the \element{mi} element representing the vector. The attribute value \emph{must} be a string containing the substring \markup{bold}, This will typically mean one of \markup{bold}, \markup{bold-italic}, \markup{bold-sans-serif} or \markup{sans-serif-bold-italic}:
 \begin{lstlisting}[language=HTML]
-<m:mi mathvariant="[string containing the substring 'bold']">
+<mi mathvariant="[string containing the substring 'bold']">
 	[symbol representing the vector]
-</m:mi>
+</mi>
 \end{lstlisting}
 This means that the expression
 \begin{equation}
@@ -832,28 +832,28 @@ This means that the expression
 \end{equation}
 can be marked up as
 \begin{lstlisting}[language=HTML]
-<m:mi mathvariant="bold">v</m:mi>
-<m:mo>=</m:mo>
-<m:msub>
-	<m:mi>v</m:mi>
-	<m:mi>x</m:mi>
-</m:msub>
-<m:mo>&#8290;</m:mo>
-<m:mi mathvariant="bold">i</m:mi>
-<m:mo>+</m:mo>
-<m:msub>
-	<m:mi>v</m:mi>
-	<m:mi>y</m:mi>
-</m:msub>
-<m:mo>&#8290;</m:mo>
-<m:mi mathvariant="bold">j</m:mi>
-<m:mo>+</m:mo>
-<m:msub>
-	<m:mi>v</m:mi>
-	<m:mi>z</m:mi>
-</m:msub>
-<m:mo>&#8290;</m:mo>
-<m:mi mathvariant="bold">k</m:mi>
+<mi mathvariant="bold">v</mi>
+<mo>=</mo>
+<msub>
+	<mi>v</mi>
+	<mi>x</mi>
+</msub>
+<mo>&#8290;</mo>
+<mi mathvariant="bold">i</mi>
+<mo>+</mo>
+<msub>
+	<mi>v</mi>
+	<mi>y</mi>
+</msub>
+<mo>&#8290;</mo>
+<mi mathvariant="bold">j</mi>
+<mo>+</mo>
+<msub>
+	<mi>v</mi>
+	<mi>z</mi>
+</msub>
+<mo>&#8290;</mo>
+<mi mathvariant="bold">k</mi>
 \end{lstlisting}
 Note that another attribute value than \markup{bold} could be used, in order to represent different types of bold font.
 
@@ -862,29 +862,29 @@ The MathML element \element{mfrac} must always be used for markup of fractions.
 
 Even though the expression $1/2 + 1/2 =1$ could be marked up as
 \begin{lstlisting}[language=HTML]
-<m:mn>1</m:mn>
-<m:mo>/</m:mo>
-<m:mn>2</m:mn>
-<m:mo>+</m:mo>
-<m:mn>1</m:mn>
-<m:mo>/</m:mo>
-<m:mn>2</m:mn>
-<m:mo>=</m:mo>
-<m:mn>1</m:mn>
+<mn>1</mn>
+<mo>/</mo>
+<mn>2</mn>
+<mo>+</mo>
+<mn>1</mn>
+<mo>/</mo>
+<mn>2</mn>
+<mo>=</mo>
+<mn>1</mn>
 \end{lstlisting}
 we require the use of \element{mfrac} to represent the fractions:
 \begin{lstlisting}[language=HTML]
-<m:mfrac bevelled="true">
-	<m:mn>1</m:mn>
-	<m:mn>2</m:mn>
-</m:mfrac>
-<m:mo>+</m:mo>
-<m:mfrac bevelled="true">
-	<m:mn>1</m:mn>
-	<m:mn>2</m:mn>
-</m:mfrac>
-<m:mo>=</m:mo>
-<m:mn>1</m:mn>
+<mfrac bevelled="true">
+	<mn>1</mn>
+	<mn>2</mn>
+</mfrac>
+<mo>+</mo>
+<mfrac bevelled="true">
+	<mn>1</mn>
+	<mn>2</mn>
+</mfrac>
+<mo>=</mo>
+<mn>1</mn>
 \end{lstlisting}
 Note the use of the \markup{bevelled} attribute to separate the numerator and denominator  with a slash rather than with a horizontal line.
 
@@ -894,16 +894,16 @@ x = \frac{1}{a + b}
 \end{equation}
 then the \markup{bevelled} attribute should not be used:
 \begin{lstlisting}[language=HTML]
-<m:mi>x</m:mi>
-<m:mo>=</m:mo>
-<m:mfrac>
-	<m:mn>1</m:mn>
-	<m:mrow>
-		<m:mi>a</m:mi>
-		<m:mo>+</m:mo>
-		<m:mi>b</m:mi>
-	</m:mrow>
-</m:mfrac>
+<mi>x</mi>
+<mo>=</mo>
+<mfrac>
+	<mn>1</mn>
+	<mrow>
+		<mi>a</mi>
+		<mo>+</mo>
+		<mi>b</mi>
+	</mrow>
+</mfrac>
 \end{lstlisting}
 
 \bigskip
@@ -915,35 +915,35 @@ For lower indices, as in $A_T = A_1 + A_2$ we use the MathML element \element{ms
 
 For a numeric index, the required markup is 
 \begin{lstlisting}[language=HTML]
-<m:msub>
-	<m:mrow>
-		<m:mi>
+<msub>
+	<mrow>
+		<mi>
 			[a single greek letter 
 			or 
 			a single letter in the reqions a-z or A-Z]
-		</m:mi>
-	</m:mrow>
-	<m:mn>[one or more integers]</m:mn>
-</m:msub>
+		</mi>
+	</mrow>
+	<mn>[one or more integers]</mn>
+</msub>
 \end{lstlisting}
 and for a symbolic index, the required markup is 
 \begin{lstlisting}[language=HTML]
-<m:msub>
-	<m:mrow>
-		<m:mi>
+<msub>
+	<mrow>
+		<mi>
 			[a single greek letter 
 			or 
 			a single letter in the reqions a-z or A-Z]
-		</m:mi>
-	</m:mrow>
-	<m:mrow>
-		<m:mi>
+		</mi>
+	</mrow>
+	<mrow>
+		<mi>
 			[a single greek letter 
 			or 
 			a single letter in the reqions a-z or A-Z]
-		</m:mi>
-	</m:mrow>
-</m:msub>
+		</mi>
+	</mrow>
+</msub>
 \end{lstlisting}
 
 \begin{eksempler}
@@ -951,56 +951,56 @@ Based on this,
 	\begin{equation} A_T = A_1 + A_2 \end{equation}
 	must be marked up as
 \begin{lstlisting}[language=HTML]
-<m:msub>
-	<m:mrow>
-		<m:mi>A</m:mi>
-	</m:mrow>
-	<m:mi>T</m:mi>
-</m:msub>
-<m:mo>=</m:mo>
-<m:msub>
-	<m:mrow>
-		<m:mi>A</m:mi>
-	</m:mrow>
-	<m:mn>1</m:mn>
-</m:msub>
-<m:mo>+</m:mo>
-<m:msub>
-	<m:mrow>
-		<m:mi>A</m:mi>
-	</m:mrow>
-	<m:mn>2</m:mn>
-</m:msub>
+<msub>
+	<mrow>
+		<mi>A</mi>
+	</mrow>
+	<mi>T</mi>
+</msub>
+<mo>=</mo>
+<msub>
+	<mrow>
+		<mi>A</mi>
+	</mrow>
+	<mn>1</mn>
+</msub>
+<mo>+</mo>
+<msub>
+	<mrow>
+		<mi>A</mi>
+	</mrow>
+	<mn>2</mn>
+</msub>
 \end{lstlisting}
 and
 	\begin{equation} I_\alpha = \frac{I_\beta - I_\gamma}{2} \end{equation}
 must be marked up as
 \begin{lstlisting}[language=HTML]
-<m:msub>
-	<m:mrow>
-		<m:mi>I</m:mi>
-	</m:mrow>
-	<m:mi>&#593;</m:mi>
-</m:msub>
-<m:mo>=</m:mo>
-<m:mfrac>
-	<m:mrow>
-		<m:msub>
-			<m:mrow>
-				<m:mi>I</m:mi>
-			</m:mrow>
-			<m:mi>&#976;</m:mi>
-		</m:msub>
-		<m:mo>-</m:mo>
-		<m:msub>
-			<m:mrow>
-				<m:mi>I</m:mi>
-			</m:mrow>
-			<m:mi>&#947;</m:mi>
-		</m:msub>
-	</m:mrow>
-	<m:mn>2</m:mn>
-</m:mfrac>
+<msub>
+	<mrow>
+		<mi>I</mi>
+	</mrow>
+	<mi>&#593;</mi>
+</msub>
+<mo>=</mo>
+<mfrac>
+	<mrow>
+		<msub>
+			<mrow>
+				<mi>I</mi>
+			</mrow>
+			<mi>&#976;</mi>
+		</msub>
+		<mo>-</mo>
+		<msub>
+			<mrow>
+				<mi>I</mi>
+			</mrow>
+			<mi>&#947;</mi>
+		</msub>
+	</mrow>
+	<mn>2</mn>
+</mfrac>
 \end{lstlisting}
 	
 \end{eksempler}
@@ -1008,15 +1008,15 @@ must be marked up as
 \subsection{Markup of functions with one argument}
 A mathematical function, such as $f(x)$, $x(t)$, $F(x)$, $\psi (t)$ and similar, must be marked up as follows:
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:mi>
+<mrow>
+	<mi>
 		[a single greek letter 
 		or 
 		a single letter in the reqions a-z or A-Z]
-	</m:mi>
-	<m:mo>&#8289;</m:mo>
-	<m:mfenced open="(" close=")">[any one child]</m:mfenced>
-</m:mrow>
+	</mi>
+	<mo>&#8289;</mo>
+	<mfenced open="(" close=")">[any one child]</mfenced>
+</mrow>
 \end{lstlisting}
 
 \kravliste{
@@ -1031,44 +1031,44 @@ A mathematical function, such as $f(x)$, $x(t)$, $F(x)$, $\psi (t)$ and similar,
 	\begin{equation}g(x)\end{equation}
 	shall be marked up as
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:mi>g</m:mi>
-	<m:mo>&#8289;</m:mo>
-	<m:mfenced open="(" close=")">
-		<m:mi>x</m:mi>
-	</m:mfenced>
-</m:mrow>
+<mrow>
+	<mi>g</mi>
+	<mo>&#8289;</mo>
+	<mfenced open="(" close=")">
+		<mi>x</mi>
+	</mfenced>
+</mrow>
 \end{lstlisting}
 
 And similar, the expression 
 \begin{equation}\psi(t)\end{equation}
 shall be marked up as
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:mi>&#968;</m:mi>
-	<m:mo>&#8289;</m:mo>
-	<m:mfenced open="(" close=")">
-		<m:mi>t</m:mi>
-	</m:mfenced>
-</m:mrow>
+<mrow>
+	<mi>&#968;</mi>
+	<mo>&#8289;</mo>
+	<mfenced open="(" close=")">
+		<mi>t</mi>
+	</mfenced>
+</mrow>
 \end{lstlisting}
 
 If the argument to the function is more complicated, such as in 
 \begin{equation}f(x + \Delta x)\end{equation} 
 the corresponding markup will also be more complicated:
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:mi>f</m:mi>
-	<m:mo>&#8289;</m:mo>
-	<m:mfenced open="(" close=")">
-		<m:mrow>
-			<m:mi>x</m:mi>
-			<m:mo>+</m:mo>
-			<m:mi>&#916;</m:mi>
-			<m:mi>x</m:mi>
-		</m:mrow>
-	</m:mfenced>
-</m:mrow>
+<mrow>
+	<mi>f</mi>
+	<mo>&#8289;</mo>
+	<mfenced open="(" close=")">
+		<mrow>
+			<mi>x</mi>
+			<mo>+</mo>
+			<mi>&#916;</mi>
+			<mi>x</mi>
+		</mrow>
+	</mfenced>
+</mrow>
 \end{lstlisting}
 
 \end{eksempler}
@@ -1076,15 +1076,15 @@ the corresponding markup will also be more complicated:
 \subsection{Markup of functions with two or more arguments}
 A mathematical function with two or more arguments, such as $f(x,y,z)$, $F(x,t)$, $\psi (r, \theta )$ and similar, must be marked up as follows:
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:mi>
+<mrow>
+	<mi>
 		[a single greek letter 
 		or 
 		a single letter in the reqions a-z or A-Z]
-	</m:mi>
-	<m:mo>&#8289;</m:mo>
-	<m:mfenced open="(" close=")">[two or more children]</m:mfenced>
-</m:mrow>
+	</mi>
+	<mo>&#8289;</mo>
+	<mfenced open="(" close=")">[two or more children]</mfenced>
+</mrow>
 \end{lstlisting}
 
 \kravliste{
@@ -1101,29 +1101,29 @@ A mathematical function with two or more arguments, such as $f(x,y,z)$, $F(x,t)$
 	\begin{equation}f(x,y,z)\end{equation}
 	shall be marked up as
 	\begin{lstlisting}[language=HTML]
-	<m:mrow>
-		<m:mi>f</m:mi>
-		<m:mo>&#8289;</m:mo>
-		<m:mfenced open="(" close=")">
-			<m:mi>x</m:mi>
-			<m:mi>y</m:mi>
-			<m:mi>z</m:mi>
-		</m:mfenced>
-	</m:mrow>
+	<mrow>
+		<mi>f</mi>
+		<mo>&#8289;</mo>
+		<mfenced open="(" close=")">
+			<mi>x</mi>
+			<mi>y</mi>
+			<mi>z</mi>
+		</mfenced>
+	</mrow>
 	\end{lstlisting}
 	
 	And the two-argument function 
 	$\psi (r, \theta )$
 	shall be marked up as
 	\begin{lstlisting}[language=HTML]
-	<m:mrow>
-		<m:mi>&#968;</m:mi>
-		<m:mo>&#8289;</m:mo>
-		<m:mfenced open="(" close=")">
-			<m:mi>r</m:mi>
-			<m:mi>&#977;</m:mi>
-		</m:mfenced>
-	</m:mrow>
+	<mrow>
+		<mi>&#968;</mi>
+		<mo>&#8289;</mo>
+		<mfenced open="(" close=")">
+			<mi>r</mi>
+			<mi>&#977;</mi>
+		</mfenced>
+	</mrow>
 	\end{lstlisting}
 \end{eksempler}
 
@@ -1131,11 +1131,11 @@ A mathematical function with two or more arguments, such as $f(x,y,z)$, $F(x,t)$
 \subsection{Markup of named functions}\label{named-functions}
 A known mathematical function, such as $\sin \alpha$, $\ln x$, $\arccos(x)$ and similar, must be marked up as follows:
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:mi>[function name]</m:mi>
-	<m:mo>&#8289;</m:mo>
+<mrow>
+	<mi>[function name]</mi>
+	<mo>&#8289;</mo>
 	[any one element that represents the argument(s) to the function]
-</m:mrow>
+</mrow>
 \end{lstlisting}
 
 \kravliste{
@@ -1150,19 +1150,19 @@ A known mathematical function, such as $\sin \alpha$, $\ln x$, $\arccos(x)$ and 
 	\begin{equation}g(\alpha) = \sin \alpha\end{equation}
 	shall be marked up as
 	\begin{lstlisting}[language=HTML]
-	<m:mrow>
-		<m:mi>g</m:mi>
-		<m:mo>&#8289;</m:mo>
-		<m:mfenced open="(" close=")">
-			<m:mi>&#593;</m:mi>
-		</m:mfenced>
-	</m:mrow>
-	<m:mo>=</m:mo>
-	<m:mrow>
-		<m:mi>sin</m:mi>
-		<m:mo>&#8289;</m:mo>
-		<m:mi>&#593;</m:mi>
-	</m:mrow>
+	<mrow>
+		<mi>g</mi>
+		<mo>&#8289;</mo>
+		<mfenced open="(" close=")">
+			<mi>&#593;</mi>
+		</mfenced>
+	</mrow>
+	<mo>=</mo>
+	<mrow>
+		<mi>sin</mi>
+		<mo>&#8289;</mo>
+		<mi>&#593;</mi>
+	</mrow>
 	\end{lstlisting}
 
 And, the expression 
@@ -1171,67 +1171,67 @@ And, the expression
 \end{equation}
 shall be marked up as
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:mi>ln</m:mi>
-	<m:mo>&#8289;</m:mo>
-	<m:mfenced open="(" close=")">
-		<m:mrow>
-			<m:mi>x</m:mi>
-			<m:mo>&#8290;</m:mo>
-			<m:mi>y</m:mi>
-		</m:mrow>
-	</m:mfenced>
-</m:mrow>
-<m:mo>=</m:mo>
-<m:mrow>
-	<m:mi>ln</m:mi>
-	<m:mo>&#8289;</m:mo>
-	<m:mi>x</m:mi>
-</m:mrow>
-<m:mo>+</m:mo>
-<m:mrow>
-	<m:mi>ln</m:mi>
-	<m:mo>&#8289;</m:mo>
-	<m:mi>y</m:mi>
-</m:mrow>
+<mrow>
+	<mi>ln</mi>
+	<mo>&#8289;</mo>
+	<mfenced open="(" close=")">
+		<mrow>
+			<mi>x</mi>
+			<mo>&#8290;</mo>
+			<mi>y</mi>
+		</mrow>
+	</mfenced>
+</mrow>
+<mo>=</mo>
+<mrow>
+	<mi>ln</mi>
+	<mo>&#8289;</mo>
+	<mi>x</mi>
+</mrow>
+<mo>+</mo>
+<mrow>
+	<mi>ln</mi>
+	<mo>&#8289;</mo>
+	<mi>y</mi>
+</mrow>
 \end{lstlisting}
 \end{eksempler}
 
 Note that, for an expression on the form $\cos 2 x$, the following markup is \textbf{NOT} correct:
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:mi>cos</m:mi>
-	<m:mo>&#8289;</m:mo>
-	<m:mn>2</m:mn>
-	<m:mo>&#8290;</m:mo>
-	<m:mi>x</m:mi>
-</m:mrow>
+<mrow>
+	<mi>cos</mi>
+	<mo>&#8289;</mo>
+	<mn>2</mn>
+	<mo>&#8290;</mo>
+	<mi>x</mi>
+</mrow>
 \end{lstlisting}
 This markup breaks the requirement that the \element{mrow} element must contain exactly three children. Instead, the markup must be as follows:
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:mi>cos</m:mi>
-	<m:mo>&#8289;</m:mo>
-	<m:mrow>
-		<m:mn>2</m:mn>
-		<m:mo>&#8290;</m:mo>
-		<m:mi>x</m:mi>
-	</m:mrow>
-</m:mrow>
+<mrow>
+	<mi>cos</mi>
+	<mo>&#8289;</mo>
+	<mrow>
+		<mn>2</mn>
+		<mo>&#8290;</mo>
+		<mi>x</mi>
+	</mrow>
+</mrow>
 \end{lstlisting}
 
 \subsection{Markup of limits and the derivative}
 
 The limit of a mathematical expression must generically be marked up as follows:
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:munder>
-		<m:mo>lim</m:mo>
+<mrow>
+	<munder>
+		<mo>lim</mo>
 		[element representing the conditions]
-	</m:munder>
-	<m:mo>&#8289;</m:mo>
+	</munder>
+	<mo>&#8289;</mo>
 	[one element representing some mathematcal function or expression]
-</m:mrow>
+</mrow>
 \end{lstlisting}
 
 \kravliste{
@@ -1253,33 +1253,33 @@ g(x) =\lim_{t \rightarrow T} f(x,t)
 \end{equation}
 shall be marked up as
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:mi>g</m:mi>
-	<m:mo>&#8289;</m:mo>
-	<m:mfenced open="(" close=")">
-		<m:mi>x</m:mi>
-	</m:mfenced>
-</m:mrow>
-<m:mo>=</m:mo>
-<m:mrow>
-	<m:munder>
-		<m:mo>lim</m:mo>
-		<m:mrow>
-			<m:mi>t</m:mi>
-			<m:mo>&#8594;</m:mo>
-			<m:mi>T</m:mi>
-		</m:mrow>
-	</m:munder>
-	<m:mo>&#8289;</m:mo>
-	<m:mrow>
-		<m:mi>f</m:mi>
-		<m:mo>&#8289;</m:mo>
-		<m:mfenced open="(" close=")">
-			<m:mi>x</m:mi>
-			<m:mi>t</m:mi>
-		</m:mfenced>
-	</m:mrow>
-</m:mrow>
+<mrow>
+	<mi>g</mi>
+	<mo>&#8289;</mo>
+	<mfenced open="(" close=")">
+		<mi>x</mi>
+	</mfenced>
+</mrow>
+<mo>=</mo>
+<mrow>
+	<munder>
+		<mo>lim</mo>
+		<mrow>
+			<mi>t</mi>
+			<mo>&#8594;</mo>
+			<mi>T</mi>
+		</mrow>
+	</munder>
+	<mo>&#8289;</mo>
+	<mrow>
+		<mi>f</mi>
+		<mo>&#8289;</mo>
+		<mfenced open="(" close=")">
+			<mi>x</mi>
+			<mi>t</mi>
+		</mfenced>
+	</mrow>
+</mrow>
 \end{lstlisting}
 
 	And, the expression 
@@ -1288,23 +1288,23 @@ shall be marked up as
 	\end{equation}
 	shall be marked up as
 	\begin{lstlisting}[language=HTML]
-	<m:mrow>
-		<m:munder>
-			<m:mo>lim</m:mo>
-			<m:mrow>
-				<m:mi>x</m:mi>
-				<m:mo>&#8594;</m:mo>
-				<m:mn>0</m:mn>
-			</m:mrow>
-		</m:munder>
-		<m:mo>&#8289;</m:mo>
-		<m:mfrac>
-			<m:mn>1</m:mn>
-			<m:mi>x</m:mi>
-		</m:mfrac>
-	</m:mrow>
-	<m:mo>=</m:mo>
-	<m:mi>&#8734;</m:mi>
+	<mrow>
+		<munder>
+			<mo>lim</mo>
+			<mrow>
+				<mi>x</mi>
+				<mo>&#8594;</mo>
+				<mn>0</mn>
+			</mrow>
+		</munder>
+		<mo>&#8289;</mo>
+		<mfrac>
+			<mn>1</mn>
+			<mi>x</mi>
+		</mfrac>
+	</mrow>
+	<mo>=</mo>
+	<mi>&#8734;</mi>
 	\end{lstlisting}
 \end{eksempler}
 
@@ -1323,20 +1323,20 @@ There are several more ways to write the derivative, but these are the most comm
 When we want to write the derivative of a function using \emph{Lagrange's notation}, as in $f'(x)$, the required markup is
 
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:msup>
-		<m:mi>
+<mrow>
+	<msup>
+		<mi>
 			[a single greek letter 
 			or 
 			a single letter in the reqions a-z or A-Z]
-		</m:mi>
-		<m:mo>&#8242;</m:mo>
-	</m:msup>
-	<m:mo>&#8289;</m:mo>
-	<m:mfenced open="(" close=")">
+		</mi>
+		<mo>&#8242;</mo>
+	</msup>
+	<mo>&#8289;</mo>
+	<mfenced open="(" close=")">
 		[markup of one or more arguments]
-	</m:mfenced>
-</m:mrow>
+	</mfenced>
+</mrow>
 \end{lstlisting}
 
 \kravliste{
@@ -1360,52 +1360,52 @@ f'(x) = \lim_{h \rightarrow 0} \frac{f(x+h) - f(h)}{h}
 \end{equation}
 The correct markup of this expression is 
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:msup>
-		<m:mi>f</m:mi>
-		<m:mo>&#8242;</m:mo>
-	</m:msup>
-	<m:mo>&#8289;</m:mo>
-	<m:mfenced open="(" close=")">
-		<m:mi>x</m:mi>
-	</m:mfenced>
-</m:mrow>
-<m:mo>=</m:mo>
-<m:mrow>
-	<m:munder>
-		<m:mo>lim</m:mo>
-		<m:mrow>
-			<m:mi>h</m:mi>
-			<m:mo>&#8594;</m:mo>
-			<m:mn>0</m:mn>
-		</m:mrow>
-	</m:munder>
-	<m:mo>&#8289;</m:mo>
-	<m:mfrac>
-		<m:mrow>
-			<m:mrow>
-				<m:mi>f</m:mi>
-				<m:mo>&#8289;</m:mo>
-				<m:mfenced open="(" close=")">
-					<m:mrow>
-						<m:mi>x</m:mi>
-						<m:mo>+</m:mo>
-						<m:mi>h</m:mi>
-					</m:mrow>
-				</m:mfenced>
-			</m:mrow>
-			<m:mo>-</m:mo>
-			<m:mrow>
-				<m:mi>f</m:mi>
-				<m:mo>&#8289;</m:mo>
-				<m:mfenced open="(" close=")">
-					<m:mi>h</m:mi>
-				</m:mfenced>
-			</m:mrow>
-		</m:mrow>
-		<m:mi>h</m:mi>
-	</m:mfrac>
-</m:mrow>
+<mrow>
+	<msup>
+		<mi>f</mi>
+		<mo>&#8242;</mo>
+	</msup>
+	<mo>&#8289;</mo>
+	<mfenced open="(" close=")">
+		<mi>x</mi>
+	</mfenced>
+</mrow>
+<mo>=</mo>
+<mrow>
+	<munder>
+		<mo>lim</mo>
+		<mrow>
+			<mi>h</mi>
+			<mo>&#8594;</mo>
+			<mn>0</mn>
+		</mrow>
+	</munder>
+	<mo>&#8289;</mo>
+	<mfrac>
+		<mrow>
+			<mrow>
+				<mi>f</mi>
+				<mo>&#8289;</mo>
+				<mfenced open="(" close=")">
+					<mrow>
+						<mi>x</mi>
+						<mo>+</mo>
+						<mi>h</mi>
+					</mrow>
+				</mfenced>
+			</mrow>
+			<mo>-</mo>
+			<mrow>
+				<mi>f</mi>
+				<mo>&#8289;</mo>
+				<mfenced open="(" close=")">
+					<mi>h</mi>
+				</mfenced>
+			</mrow>
+		</mrow>
+		<mi>h</mi>
+	</mfrac>
+</mrow>
 \end{lstlisting}
 And
 \begin{equation}
@@ -1413,36 +1413,36 @@ f''(x) = f'(f'(x))
 \end{equation}
 must be marked up as
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:msup>
-		<m:mi>f</m:mi>
-		<m:mo>&#8243;</m:mo>
-	</m:msup>
-	<m:mo>&#8289;</m:mo>
-	<m:mfenced open="(" close=")">
-		<m:mi>x</m:mi>
-	</m:mfenced>
-</m:mrow>
-<m:mo>=</m:mo>
-<m:mrow>
-	<m:msup>
-		<m:mi>f</m:mi>
-		<m:mo>&#8242;</m:mo>
-	</m:msup>
-	<m:mo>&#8289;</m:mo>
-	<m:mfenced open="(" close=")">
-		<m:mrow>
-			<m:msup>
-				<m:mi>f</m:mi>
-				<m:mo>&#8242;</m:mo>
-			</m:msup>
-			<m:mo>&#8289;</m:mo>
-			<m:mfenced open="(" close=")">
-				<m:mi>x</m:mi>
-			</m:mfenced>
-		</m:mrow>
-	</m:mfenced>
-</m:mrow>
+<mrow>
+	<msup>
+		<mi>f</mi>
+		<mo>&#8243;</mo>
+	</msup>
+	<mo>&#8289;</mo>
+	<mfenced open="(" close=")">
+		<mi>x</mi>
+	</mfenced>
+</mrow>
+<mo>=</mo>
+<mrow>
+	<msup>
+		<mi>f</mi>
+		<mo>&#8242;</mo>
+	</msup>
+	<mo>&#8289;</mo>
+	<mfenced open="(" close=")">
+		<mrow>
+			<msup>
+				<mi>f</mi>
+				<mo>&#8242;</mo>
+			</msup>
+			<mo>&#8289;</mo>
+			<mfenced open="(" close=")">
+				<mi>x</mi>
+			</mfenced>
+		</mrow>
+	</mfenced>
+</mrow>
 \end{lstlisting}
 
 \end{eksempler}
@@ -1451,12 +1451,12 @@ must be marked up as
 When we want to write the derivative of a named function using \emph{Lagrange's notation}, as in $(\sin x)'$, the required markup is
 
 \begin{lstlisting}[language=HTML]
-<m:msup>
-	<m:mfenced open="(" close=")">
+<msup>
+	<mfenced open="(" close=")">
 		[markup representing the function]
-	</m:mfenced>
-	<m:mo>&#8242;</m:mo>
-</m:msup>
+	</mfenced>
+	<mo>&#8242;</mo>
+</msup>
 \end{lstlisting}
 
 \kravliste{
@@ -1476,43 +1476,43 @@ The expression
 \end{equation}
 must be marked up as
 \begin{lstlisting}[language=HTML]
-<m:msup>
-	<m:mfenced open="(" close=")">
-		<m:mrow>
-			<m:mn>3</m:mn>
-			<m:mo>&#8290;</m:mo>
-			<m:mi>a</m:mi>
-			<m:mo>&#8290;</m:mo>
-			<m:msup>
-				<m:mi>x</m:mi>
-				<m:mn>3</m:mn>
-			</m:msup>
-		</m:mrow>
-	</m:mfenced>
-	<m:mo>&#8243;</m:mo>
-</m:msup>
-<m:mo>=</m:mo>
-<m:msup>
-	<m:mfenced open="(" close=")">
-		<m:mrow>
-			<m:mn>9</m:mn>
-			<m:mo>&#8290;</m:mo>
-			<m:mi>a</m:mi>
-			<m:mo>&#8290;</m:mo>
-			<m:msup>
-				<m:mi>x</m:mi>
-				<m:mn>2</m:mn>
-			</m:msup>
-		</m:mrow>
-	</m:mfenced>
-	<m:mo>&#8242;</m:mo>
-</m:msup>
-<m:mo>=</m:mo>
-<m:mn>18</m:mn>
-<m:mo>&#8290;</m:mo>
-<m:mi>a</m:mi>
-<m:mo>&#8290;</m:mo>
-<m:mi>x</m:mi>
+<msup>
+	<mfenced open="(" close=")">
+		<mrow>
+			<mn>3</mn>
+			<mo>&#8290;</mo>
+			<mi>a</mi>
+			<mo>&#8290;</mo>
+			<msup>
+				<mi>x</mi>
+				<mn>3</mn>
+			</msup>
+		</mrow>
+	</mfenced>
+	<mo>&#8243;</mo>
+</msup>
+<mo>=</mo>
+<msup>
+	<mfenced open="(" close=")">
+		<mrow>
+			<mn>9</mn>
+			<mo>&#8290;</mo>
+			<mi>a</mi>
+			<mo>&#8290;</mo>
+			<msup>
+				<mi>x</mi>
+				<mn>2</mn>
+			</msup>
+		</mrow>
+	</mfenced>
+	<mo>&#8242;</mo>
+</msup>
+<mo>=</mo>
+<mn>18</mn>
+<mo>&#8290;</mo>
+<mi>a</mi>
+<mo>&#8290;</mo>
+<mi>x</mi>
 \end{lstlisting}
 
 
@@ -1526,18 +1526,18 @@ When we want to write the derivative of a function using \emph{Leibniz's notatio
 the required markup is
 
 \begin{lstlisting}[language=HTML]
-<m:mfrac>
-	<m:mrow>
-		<m:mo>&#8518;</m:mo>
+<mfrac>
+	<mrow>
+		<mo>&#8518;</mo>
 		[markup required to represent the function]
-	</m:mrow>
-	<m:mrow>
-		<m:mo>&#8518;</m:mo>
-		<m:mi>
+	</mrow>
+	<mrow>
+		<mo>&#8518;</mo>
+		<mi>
 			[a letter in the region a-z]
-		</m:mi>
-	</m:mrow>
-</m:mfrac>
+		</mi>
+	</mrow>
+</mfrac>
 \end{lstlisting}
 
 \kravliste{
@@ -1561,60 +1561,60 @@ f'(x) = \frac{\text{d}f(x)}{\text{d}x}
 \end{equation}
 must be marked up as
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:msup>
-		<m:mi>f</m:mi>
-		<m:mo>&#8242;</m:mo>
-	</m:msup>
-	<m:mo>&#8289;</m:mo>
-	<m:mfenced open="(" close=")">
-		<m:mi>x</m:mi>
-	</m:mfenced>
-</m:mrow>
-<m:mo>=</m:mo>
-<m:mfrac>
-	<m:mrow>
-		<m:mo>&#8518;</m:mo>
-		<m:mrow>
-			<m:mi>f</m:mi>
-			<m:mo>&#8289;</m:mo>
-			<m:mfenced open="(" close=")">
-				<m:mi>x</m:mi>
-			</m:mfenced>
-		</m:mrow>
-	</m:mrow>
-	<m:mrow>
-		<m:mo>&#8518;</m:mo>
-		<m:mi>x</m:mi>
-	</m:mrow>
-</m:mfrac>
+<mrow>
+	<msup>
+		<mi>f</mi>
+		<mo>&#8242;</mo>
+	</msup>
+	<mo>&#8289;</mo>
+	<mfenced open="(" close=")">
+		<mi>x</mi>
+	</mfenced>
+</mrow>
+<mo>=</mo>
+<mfrac>
+	<mrow>
+		<mo>&#8518;</mo>
+		<mrow>
+			<mi>f</mi>
+			<mo>&#8289;</mo>
+			<mfenced open="(" close=")">
+				<mi>x</mi>
+			</mfenced>
+		</mrow>
+	</mrow>
+	<mrow>
+		<mo>&#8518;</mo>
+		<mi>x</mi>
+	</mrow>
+</mfrac>
 \end{lstlisting}
 \end{eksempler}
 
 Markup of higher order derivatives of a function, based on \emph{Leibniz's notation}, is just an extension of the markup of the first derivative:
 \begin{lstlisting}[language=HTML]
-<m:mfrac>
-	<m:mrow>
-		<m:msup>
-			<m:mo>&#8518;</m:mo>
-			<m:mn>
+<mfrac>
+	<mrow>
+		<msup>
+			<mo>&#8518;</mo>
+			<mn>
 				[order of differentiation]
-			</m:mn>
-		</m:msup>
+			</mn>
+		</msup>
 		[markup required to represent the function]
-	</m:mrow>
-	<m:mrow>
-		<m:mo>&#8517;</m:mo>
-		<m:msup>
-			<m:mi>
+	</mrow>
+	<mrow>
+		<mo>&#8517;</mo>
+		<msup>
+			<mi>
 				[a letter in the region a-z]
-			</m:mi>
-			<m:mn>
+			</mi>
+			<mn>
 				[order of differentiation]
-			</m:mn>
-		</m:msup>
-	</m:mrow>
-</m:mfrac>
+			</mn>
+		</msup>
+	</mrow>
+</mfrac>
 \end{lstlisting}
 
 \kravliste{
@@ -1646,37 +1646,37 @@ g''(x) =\frac{\text{d}^2 \sin x}{\text{d} x^2}
 \end{equation}
 must be marked up as
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:msup>
-		<m:mi>g</m:mi>
-		<m:mo>&#8243;</m:mo>
-	</m:msup>
-	<m:mo>&#8289;</m:mo>
-	<m:mfenced open="(" close=")">
-		<m:mi>x</m:mi>
-	</m:mfenced>
-</m:mrow>
-<m:mo>=</m:mo>
-<m:mfrac>
-	<m:mrow>
-		<m:msup>
-			<m:mo>&#8518;</m:mo>
-			<m:mn>2</m:mn>
-		</m:msup>
-		<m:mrow>
-			<m:mi>sin</m:mi>
-			<m:mo>&#8289;</m:mo>
-			<m:mi>x</m:mi>
-		</m:mrow>
-	</m:mrow>
-	<m:mrow>
-		<m:mo>&#8518;</m:mo>
-		<m:msup>
-			<m:mi>x</m:mi>
-			<m:mn>2</m:mn>
-		</m:msup>
-	</m:mrow>
-</m:mfrac>
+<mrow>
+	<msup>
+		<mi>g</mi>
+		<mo>&#8243;</mo>
+	</msup>
+	<mo>&#8289;</mo>
+	<mfenced open="(" close=")">
+		<mi>x</mi>
+	</mfenced>
+</mrow>
+<mo>=</mo>
+<mfrac>
+	<mrow>
+		<msup>
+			<mo>&#8518;</mo>
+			<mn>2</mn>
+		</msup>
+		<mrow>
+			<mi>sin</mi>
+			<mo>&#8289;</mo>
+			<mi>x</mi>
+		</mrow>
+	</mrow>
+	<mrow>
+		<mo>&#8518;</mo>
+		<msup>
+			<mi>x</mi>
+			<mn>2</mn>
+		</msup>
+	</mrow>
+</mfrac>
 \end{lstlisting}
 
 \end{eksempler}
@@ -1702,36 +1702,36 @@ The following entities are relevant for markup of integrals:
 For the \emph{indefinite integral}, with a very simple argument, such as $\int f = g +C$ and $T = \oint f$ and even $a(x) = \iint \cos x$, the following markup will be sufficient:
 
 \begin{lstlisting}[language=HTML]
-<m:mo>&#8747;</m:mo>
-<m:mi>f</m:mi>
-<m:mo>=</m:mo>
-<m:mi>g</m:mi>
-<m:mo>+</m:mo>
-<m:mi>C</m:mi>
+<mo>&#8747;</mo>
+<mi>f</mi>
+<mo>=</mo>
+<mi>g</mi>
+<mo>+</mo>
+<mi>C</mi>
 \end{lstlisting}
 and
 \begin{lstlisting}[language=HTML]
-<m:mi>T</m:mi>
-<m:mo>=</m:mo>
-<m:mo>&#8750;</m:mo>
-<m:mi>g</m:mi>	
+<mi>T</mi>
+<mo>=</mo>
+<mo>&#8750;</mo>
+<mi>g</mi>	
 \end{lstlisting}
 and
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:mi>a</m:mi>
-	<m:mo>&#8289;</m:mo>
-	<m:mfenced open="(" close=")">
-		<m:mi>x</m:mi>
-	</m:mfenced>
-</m:mrow>
-<m:mo>=</m:mo>
-<m:mo>&#8748;</m:mo>
-<m:mrow>
-	<m:mi>cos</m:mi>
-	<m:mo>&#8289;</m:mo>
-	<m:mi>x</m:mi>
-</m:mrow>
+<mrow>
+	<mi>a</mi>
+	<mo>&#8289;</mo>
+	<mfenced open="(" close=")">
+		<mi>x</mi>
+	</mfenced>
+</mrow>
+<mo>=</mo>
+<mo>&#8748;</mo>
+<mrow>
+	<mi>cos</mi>
+	<mo>&#8289;</mo>
+	<mi>x</mi>
+</mrow>
 \end{lstlisting}
 respectively.
 
@@ -1742,12 +1742,12 @@ However, once the expressions get a little more complex, the requirements get mo
 \end{equation}
 will require a very specific markup:
 \begin{lstlisting}[language=HTML]
-<m:mo>&#8747;</m:mo>
+<mo>&#8747;</mo>
 [markup of function to be integrated
-<m:mrow>
-	<m:mo>&#8517;</m:mo>
-	<m:mi>[integration variable]</m:mi>
-</m:mrow>
+<mrow>
+	<mo>&#8517;</mo>
+	<mi>[integration variable]</mi>
+</mrow>
 \end{lstlisting}
 Note that the \entitet{\#8747} entity in the first \element{mo} element could just as well be any of the other integral entities listed \vpageref{integraltegn}.
 
@@ -1757,40 +1757,40 @@ C(z) = \oint \frac{1}{z}\text{d}z
 \end{equation}
 would be
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:mi>C</m:mi>
-	<m:mo>&#8289;</m:mo>
-	<m:mfenced open="(" close=")">
-		<m:mi>z</m:mi>
-	</m:mfenced>
-</m:mrow>
-<m:mo>=</m:mo>
-<m:mo>&#8747;</m:mo>
-<m:mfrac>
-	<m:mn>1</m:mn>
-	<m:mi>z</m:mi>
-</m:mfrac>
-<m:mrow>
-	<m:mo>&#8517;</m:mo>
-	<m:mi>z</m:mi>
-</m:mrow>
+<mrow>
+	<mi>C</mi>
+	<mo>&#8289;</mo>
+	<mfenced open="(" close=")">
+		<mi>z</mi>
+	</mfenced>
+</mrow>
+<mo>=</mo>
+<mo>&#8747;</mo>
+<mfrac>
+	<mn>1</mn>
+	<mi>z</mi>
+</mfrac>
+<mrow>
+	<mo>&#8517;</mo>
+	<mi>z</mi>
+</mrow>
 \end{lstlisting}
 
 \bigskip
 For \emph{definite integrals}, where the interval of the integration is specified, there are further requirements to the markup.
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:munderover>
-		<m:mo>[integration sign]</m:mo>
+<mrow>
+	<munderover>
+		<mo>[integration sign]</mo>
 		[upper limit]
 		[lower limit]
-	</m:munderover>
+	</munderover>
 	[any markup representing the expression to be integrated]
-	<m:mrow>
-		<m:mo>&#8517;</m:mo>
-		<m:mi>[a letter in the region a-z]</m:mi>
-	</m:mrow>
-</m:mrow>
+	<mrow>
+		<mo>&#8517;</mo>
+		<mi>[a letter in the region a-z]</mi>
+	</mrow>
+</mrow>
 \end{lstlisting}
 
 %
@@ -1820,40 +1820,40 @@ For \emph{definite integrals}, where the interval of the integration is specifie
 	\end{equation}
 must be marked up as
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:mi>F</m:mi>
-	<m:mo>&#8289;</m:mo>
-	<m:mfenced open="(" close=")">
-		<m:mi>x</m:mi>
-	</m:mfenced>
-</m:mrow>
-<m:mo>=</m:mo>
-<m:mrow>
-	<m:munderover>
-		<m:mo>&#8747;</m:mo>
-		<m:mrow>
-			<m:mi>t</m:mi>
-			<m:mo>=</m:mo>
-			<m:mi>a</m:mi>
-		</m:mrow>
-		<m:mrow>
-			<m:mi>t</m:mi>
-			<m:mo>=</m:mo>
-			<m:mi>x</m:mi>
-		</m:mrow>
-	</m:munderover>
-	<m:mrow>
-		<m:mi>f</m:mi>
-		<m:mo>&#8289;</m:mo>
-		<m:mfenced open="(" close=")">
-			<m:mi>t</m:mi>
-		</m:mfenced>
-	</m:mrow>
-	<m:mrow>
-		<m:mo>&#8517;</m:mo>
-		<m:mi>t</m:mi>
-	</m:mrow>
-</m:mrow>
+<mrow>
+	<mi>F</mi>
+	<mo>&#8289;</mo>
+	<mfenced open="(" close=")">
+		<mi>x</mi>
+	</mfenced>
+</mrow>
+<mo>=</mo>
+<mrow>
+	<munderover>
+		<mo>&#8747;</mo>
+		<mrow>
+			<mi>t</mi>
+			<mo>=</mo>
+			<mi>a</mi>
+		</mrow>
+		<mrow>
+			<mi>t</mi>
+			<mo>=</mo>
+			<mi>x</mi>
+		</mrow>
+	</munderover>
+	<mrow>
+		<mi>f</mi>
+		<mo>&#8289;</mo>
+		<mfenced open="(" close=")">
+			<mi>t</mi>
+		</mfenced>
+	</mrow>
+	<mrow>
+		<mo>&#8517;</mo>
+		<mi>t</mi>
+	</mrow>
+</mrow>
 \end{lstlisting}
 
 Another example:
@@ -1862,55 +1862,55 @@ Another example:
 \end{equation}
 must be represented by the following markup:
 \begin{lstlisting}[language=HTML]
-<m:mo>&#8750;</m:mo>
-<m:mfrac>
-	<m:mn>1</m:mn>
-	<m:mi>z</m:mi>
-</m:mfrac>
-<m:mrow>
-	<m:mo>&#8517;</m:mo>
-	<m:mi>z</m:mi>
-</m:mrow>
-<m:mo>=</m:mo>
-<m:mrow>
-	<m:munderover>
-		<m:mo>&#8747;</m:mo>
-		<m:mn>0</m:mn>
-		<m:mrow>
-			<m:mn>2</m:mn>
-			<m:mo>&#8290;</m:mo>
-			<m:mi>&#960;</m:mi>
-		</m:mrow>
-	</m:munderover>
-	<m:mrow>
-		<m:mfrac>
-			<m:mn>1</m:mn>
-			<m:msup>
-				<m:mi>e</m:mi>
-				<m:mrow>
-					<m:mi>i</m:mi>
-					<m:mo>&#8290;</m:mo>
-					<m:mi>t</m:mi>
-				</m:mrow>
-			</m:msup>
-		</m:mfrac>
-		<m:mo>&#8290;</m:mo>
-		<m:mi>i</m:mi>
-		<m:mo>&#8290;</m:mo>
-		<m:msup>
-			<m:mi>e</m:mi>
-			<m:mrow>
-				<m:mi>i</m:mi>
-				<m:mo>&#8290;</m:mo>
-				<m:mi>t</m:mi>
-			</m:mrow>
-		</m:msup>
-	</m:mrow>
-	<m:mrow>
-		<m:mo>&#8517;</m:mo>
-		<m:mi>t</m:mi>
-	</m:mrow>
-</m:mrow>
+<mo>&#8750;</mo>
+<mfrac>
+	<mn>1</mn>
+	<mi>z</mi>
+</mfrac>
+<mrow>
+	<mo>&#8517;</mo>
+	<mi>z</mi>
+</mrow>
+<mo>=</mo>
+<mrow>
+	<munderover>
+		<mo>&#8747;</mo>
+		<mn>0</mn>
+		<mrow>
+			<mn>2</mn>
+			<mo>&#8290;</mo>
+			<mi>&#960;</mi>
+		</mrow>
+	</munderover>
+	<mrow>
+		<mfrac>
+			<mn>1</mn>
+			<msup>
+				<mi>e</mi>
+				<mrow>
+					<mi>i</mi>
+					<mo>&#8290;</mo>
+					<mi>t</mi>
+				</mrow>
+			</msup>
+		</mfrac>
+		<mo>&#8290;</mo>
+		<mi>i</mi>
+		<mo>&#8290;</mo>
+		<msup>
+			<mi>e</mi>
+			<mrow>
+				<mi>i</mi>
+				<mo>&#8290;</mo>
+				<mi>t</mi>
+			</mrow>
+		</msup>
+	</mrow>
+	<mrow>
+		<mo>&#8517;</mo>
+		<mi>t</mi>
+	</mrow>
+</mrow>
 \end{lstlisting}
 \end{eksempler}
 
@@ -1928,27 +1928,27 @@ The markup of matrices is the same as described in the W3C standard, except for 
 	\end{equation}
 
 	\begin{lstlisting}[language=HTML]
-		<m:mrow>
-			<m:mfenced open="(" close=")">
-				<m:mtable>
-					<m:mtr>
-						<m:mtd><m:mn>1</m:mn></m:mtd>
-						<m:mtd><m:mn>0</m:mn></m:mtd>
-						<m:mtd><m:mn>0</m:mn></m:mtd>
-					</m:mtr>
-					<m:mtr>
-						<m:mtd><m:mn>0</m:mn></m:mtd>
-						<m:mtd><m:mn>1</m:mn></m:mtd>
-						<m:mtd><m:mn>0</m:mn></m:mtd>
-					</m:mtr>
-					<m:mtr>
-						<m:mtd><m:mn>0</m:mn></m:mtd>
-						<m:mtd><m:mn>0</m:mn></m:mtd>
-						<m:mtd><m:mn>1</m:mn></m:mtd>
-					</m:mtr>
-				</m:mtable>
-			</m:mfenced>
-	  	</m:mrow>
+		<mrow>
+			<mfenced open="(" close=")">
+				<mtable>
+					<mtr>
+						<mtd><mn>1</mn></mtd>
+						<mtd><mn>0</mn></mtd>
+						<mtd><mn>0</mn></mtd>
+					</mtr>
+					<mtr>
+						<mtd><mn>0</mn></mtd>
+						<mtd><mn>1</mn></mtd>
+						<mtd><mn>0</mn></mtd>
+					</mtr>
+					<mtr>
+						<mtd><mn>0</mn></mtd>
+						<mtd><mn>0</mn></mtd>
+						<mtd><mn>1</mn></mtd>
+					</mtr>
+				</mtable>
+			</mfenced>
+	  	</mrow>
 	\end{lstlisting}
 \end{eksempler}
 
@@ -1962,18 +1962,18 @@ When it comes to markup for set delimiters, it should be marked up as follows:
 	\end{equation}
 
 	\begin{lstlisting}[language=HTML]
-		<m:mrow>
-			<m:munder accent="true">
-				<m:mrow>
-					<m:mi>x</m:mi>
-					<m:mo>+</m:mo>
-					<m:mi>y</m:mi>
-					<m:mo>+</m:mo>
-					<m:mi>z</m:mi>
-				</m:mrow>
-				<m:mo>&#x23DF;</m:mo>
-			</m:munder>
-	  	</m:mrow>
+		<mrow>
+			<munder accent="true">
+				<mrow>
+					<mi>x</mi>
+					<mo>+</mo>
+					<mi>y</mi>
+					<mo>+</mo>
+					<mi>z</mi>
+				</mrow>
+				<mo>&#x23DF;</mo>
+			</munder>
+	  	</mrow>
 	\end{lstlisting}
 
 
@@ -1984,18 +1984,18 @@ And similarily
 	\end{equation}
 
 	\begin{lstlisting}[language=HTML]
-		<m:mrow>
-			<m:mover accent="true">
-				<m:mrow>
-					<m:mi>x</m:mi>
-					<m:mo>+</m:mo>
-					<m:mi>y</m:mi>
-					<m:mo>+</m:mo>
-					<m:mi>z</m:mi>
-				</m:mrow>
-				<m:mo>&#x23DE;</m:mo>
-			</m:mover>
-	  	</m:mrow>
+		<mrow>
+			<mover accent="true">
+				<mrow>
+					<mi>x</mi>
+					<mo>+</mo>
+					<mi>y</mi>
+					<mo>+</mo>
+					<mi>z</mi>
+				</mrow>
+				<mo>&#x23DE;</mo>
+			</mover>
+	  	</mrow>
 	\end{lstlisting}
 \end{eksempler}
 
@@ -2018,64 +2018,64 @@ For the following chemical formula for photosynthesis:
 
 The markup would be as follows:
 \begin{lstlisting}[language=HTML]
-	<m:math 
+	<math 
 	  xmlns:m="http://www.w3.org/1998/Math/MathML"
 	  alttext="6 CO_2 + 6 H_2O + light rarr C_6H_12O_6 + 6 O_2"
 	  display="block|inline"
 	  class="chemistry">
-		<m:mrow>
-			<m:mn>6</m:mn>
-			<m:mrow>
-				<m:mtext>C</m:mtext>
-				<m:msub>
-					<m:mtext>O</m:mtext>
-					<m:mn>2</m:mn>
-				</m:msub>
-			</m:mrow>
-		</m:mrow>
-		<m:mo>+</m:mo>
-		<m:mrow>
-			<m:mn>6</m:mn>
-			<m:mrow>
-				<m:msub>
-					<m:mtext>H</m:mtext>
-					<m:mn>2</m:mn>
-				</m:msub>
-				<m:mtext>O</m:mtext>
-			</m:mrow>
-		</m:mrow>
-		<m:mo>+</m:mo>
-		<m:mtext>light</m:mtext>
-		<m:mo>&#8594;</m:mo>
-		<m:mrow>
-			<m:mrow>
-				<m:msub>
-					<m:mtext>C</m:mtext>
-					<m:mn>6</m:mn>
-				</m:msub>
-			</m:mrow>
-			<m:mrow>
-				<m:msub>
-					<m:mtext>H</m:mtext>
-					<m:mn>12</m:mn>
-				</m:msub>
-			</m:mrow>
-			<m:mrow>
-				<m:msub>
-					<m:mtext>O</m:mtext>
-					<m:mn>6</m:mn>
-				</m:msub>
-			</m:mrow>
-		</m:mrow>
-		<m:mo>+</m:mo>
-		<m:mrow>
-			<m:mn>6</m:mn>
-			<m:msub>
-				<m:mtext>O</m:mtext>
-				<m:mn>2</m:mn>
-			</m:msub>
-		</m:mrow>
-	</m:math>
+		<mrow>
+			<mn>6</mn>
+			<mrow>
+				<mtext>C</mtext>
+				<msub>
+					<mtext>O</mtext>
+					<mn>2</mn>
+				</msub>
+			</mrow>
+		</mrow>
+		<mo>+</mo>
+		<mrow>
+			<mn>6</mn>
+			<mrow>
+				<msub>
+					<mtext>H</mtext>
+					<mn>2</mn>
+				</msub>
+				<mtext>O</mtext>
+			</mrow>
+		</mrow>
+		<mo>+</mo>
+		<mtext>light</mtext>
+		<mo>&#8594;</mo>
+		<mrow>
+			<mrow>
+				<msub>
+					<mtext>C</mtext>
+					<mn>6</mn>
+				</msub>
+			</mrow>
+			<mrow>
+				<msub>
+					<mtext>H</mtext>
+					<mn>12</mn>
+				</msub>
+			</mrow>
+			<mrow>
+				<msub>
+					<mtext>O</mtext>
+					<mn>6</mn>
+				</msub>
+			</mrow>
+		</mrow>
+		<mo>+</mo>
+		<mrow>
+			<mn>6</mn>
+			<msub>
+				<mtext>O</mtext>
+				<mn>2</mn>
+			</msub>
+		</mrow>
+	</math>
 \end{lstlisting}
 \end{eksempler}
 
@@ -2086,11 +2086,11 @@ The markup would be as follows:
 		\ce{^{14}C}
 	\end{equation}
 	\begin{lstlisting}[language=HTML]
-		<m:msup>
-			<m:mo>&#32;</m:mo>
-			<m:mn>14</m:mn>
-		</m:msup>
-		<m:mtext>C</m:mtext>
+		<msup>
+			<mo>&#32;</mo>
+			<mn>14</mn>
+		</msup>
+		<mtext>C</mtext>
 	\end{lstlisting}
 	Where \entitet{\#32} represents a blank space.
 \end{eksempler}
@@ -2104,13 +2104,13 @@ Every \element{math} element that is a physics formula, will have to have added 
 \begin{eksempler}
 The markup would be as follows:
 \begin{lstlisting}[language=HTML]
-	<m:math 
+	<math 
 	    xmlns:m="http://www.w3.org/1998/Math/MathML"
 	    alttext="..."
 	    display="block|inline"
 		class="physics">
 		...
-	</m:math>
+	</math>
 \end{lstlisting}
 \end{eksempler}
 
@@ -2123,13 +2123,13 @@ When a \element{math} element is within a code block, we need to make sure the c
 \begin{eksempler}
 The markup would be as follows:
 \begin{lstlisting}[language=HTML]
-	<m:math 
+	<math 
 	    xmlns:m="http://www.w3.org/1998/Math/MathML"
 	    alttext="..."
 	    display="block|inline"
 		class="code">
 		...
-	</m:math>
+	</math>
 \end{lstlisting}
 \end{eksempler}
 
@@ -2149,31 +2149,31 @@ There has been detected very short AsciiMath expressions, whilst the correspondi
 \end{equation}
 
 \begin{lstlisting}[language=HTML, caption={\textbf{Invalid markup}}]
-<m:munder>
-	<m:mtext>index</m:mtext>
-	<m:mrow>
-		<m:mi>m</m:mi>
-		<m:mi>e</m:mi>
-		<m:mi>a</m:mi>
-		<m:mi>n</m:mi>
-	</m:mrow>
-</m:munder>
+<munder>
+	<mtext>index</mtext>
+	<mrow>
+		<mi>m</mi>
+		<mi>e</mi>
+		<mi>a</mi>
+		<mi>n</mi>
+	</mrow>
+</munder>
 \end{lstlisting}
 
 \begin{lstlisting}[language=HTML, caption={Valid markup 1}]
-<m:munder>
-	<m:mtext>index</m:mtext>
-	<m:mtext>mean</m:mtext>
-</m:munder>
+<munder>
+	<mtext>index</mtext>
+	<mtext>mean</mtext>
+</munder>
 \end{lstlisting}
 
 \begin{lstlisting}[language=HTML, caption={Valid markup 2}]
-<m:munder>
-	<m:mtext>index</m:mtext>
-	<m:mrow>
-		<m:mtext>mean</m:mtext>
-	</m:mrow>
-</m:munder>
+<munder>
+	<mtext>index</mtext>
+	<mrow>
+		<mtext>mean</mtext>
+	</mrow>
+</munder>
 \end{lstlisting}
 \end{eksempler}
 
@@ -2196,17 +2196,17 @@ Every decimal needs to be interpreted and decided whether it's a decimal. As obv
 	20,0
 \end{equation}
 \begin{lstlisting}[language=HTML, caption={\textbf{Invalid markup}}]
-	<m:mn>20</m:mn>
-	<m:mo>,</m:mo>
-	<m:mn>0</m:mn>
+	<mn>20</mn>
+	<mo>,</mo>
+	<mn>0</mn>
 \end{lstlisting}
 
 This will cause the TTS to divide the expression into two numbers: 20 and 0, which is not good. Thus should this be avoided one of the following ways:
 \begin{lstlisting}[language=HTML, caption={Valid markup 1}]
-	<m:mn>20,0</m:mn>
+	<mn>20,0</mn>
 \end{lstlisting}
 \begin{lstlisting}[language=HTML, caption={Valid markup 2}]
-	<m:mn>20.0</m:mn>
+	<mn>20.0</mn>
 \end{lstlisting}
 \end{eksempler}
 
@@ -2217,14 +2217,14 @@ There is an issue with thousand separators having the wrong markup, thus there s
 \begin{eksempler}
 	\textsc{164 000}
 	\begin{lstlisting}[language=HTML, caption={\textbf{Invalid markup}}]
-		<m:mn>164</m:mn>
-		<m:mtext> </m:mtext>
-		<m:mn>000</m:mn> 
+		<mn>164</mn>
+		<mtext> </mtext>
+		<mn>000</mn> 
 	\end{lstlisting}
 	
 	This will cause the TTS to divide the expression into two numbers: 164 and 0, which is not good. Thus should this be avoided the following way:
 	\begin{lstlisting}[language=HTML, caption={Valid markup}]
-		<m:mn>164000</m:mn>
+		<mn>164000</mn>
 	\end{lstlisting}
 \end{eksempler}
 
@@ -2237,11 +2237,11 @@ Union must be marked up as \entitet{\#8746} - not the letter U, and it must be w
 	A \cup B
 \end{equation}
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:mtext>A</m:mtext>
-	<m:mo>&#8746;</m:mo>
-	<m:mtext>B</m:mtext>
-</m:mrow>
+<mrow>
+	<mtext>A</mtext>
+	<mo>&#8746;</mo>
+	<mtext>B</mtext>
+</mrow>
 \end{lstlisting}
 \end{eksempler}
 
@@ -2254,11 +2254,11 @@ Intersection must be marked up as \entitet{\#8898} - and it must be within a \el
 	A \cap B
 \end{equation}
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:mtext>A</m:mtext>
-	<m:mo>&#8898;</m:mo>
-	<m:mtext>B</m:mtext>
-</m:mrow>
+<mrow>
+	<mtext>A</mtext>
+	<mo>&#8898;</mo>
+	<mtext>B</mtext>
+</mrow>
 \end{lstlisting}
 \end{eksempler}
 
@@ -2273,10 +2273,10 @@ The tables should be marked up as this:
   <tbody>
     <tr>
       <td>
-        <m:math display="inline"...>...</m:math>
+        <math display="inline"...>...</math>
       </td>
       <td>
-        <m:math display="inline"...>...</m:math>
+        <math display="inline"...>...</math>
       </td>
     </tr>
   </tbody>
@@ -2286,18 +2286,18 @@ The tables should be marked up as this:
 
 \subsection{Identifiers and texts}
 
-Identifiers will always be marked up as \element{<m:mi>} whilst texts \element{<m:mtext>}. The general rule here is that all the identifiers represented in the strings parameter in this file: \url{https://github.com/nlbdev/service-stem/blob/master/conversions/data/text-identifiers.json} are identifiers and should be marked up with \element{<m:mi>}, in addition to this there's function and expression related identifiers, such as \element{<m:mi>x</m:mi>}, \element{<m:mi>f</m:mi>} or \element{<m:mi>g</m:mi>}. The rest, is to be marked up with \element{<m:mtext>}.
+Identifiers will always be marked up as \element{<mi>} whilst texts \element{<mtext>}. The general rule here is that all the identifiers represented in the strings parameter in this file: \url{https://github.com/nlbdev/service-stem/blob/master/conversions/data/text-identifiers.json} are identifiers and should be marked up with \element{<mi>}, in addition to this there's function and expression related identifiers, such as \element{<mi>x</mi>}, \element{<mi>f</mi>} or \element{<mi>g</mi>}. The rest, is to be marked up with \element{<mtext>}.
 
 \begin{eksempler}
 \begin{equation}
 	x * \text{All the values of A}
 \end{equation}
 \begin{lstlisting}[language=HTML]
-<m:mrow>
-	<m:mi>x</m:mi>
-	<m:mo>*</m:mo>
-	<m:mtext>All the values of A</m:mtext>
-</m:mrow>
+<mrow>
+	<mi>x</mi>
+	<mo>*</mo>
+	<mtext>All the values of A</mtext>
+</mrow>
 \end{lstlisting}
 \end{eksempler}
 

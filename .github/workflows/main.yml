@@ -13,13 +13,12 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          working_directory: "src"
-          root_file: "*.tex"
-          glob_root_file: true
+          working_directory: src
+          root_file: latest.tex
           continue_on_error: true
           post_compile: "latexmk -c"
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
         with:
           name: PDF
-          path: guidelines.pdf
+          path: latest.pdf

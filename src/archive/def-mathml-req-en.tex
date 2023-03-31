@@ -1,0 +1,150 @@
+\newcommand{\bunntekst}{
+	\pagestyle{fancy}
+	\renewcommand{\headrulewidth}{0pt}
+	\fancyhead{}
+	%\chead{\relax}
+	%\lhead{\relax}
+	%\rhead{\relax}
+	%	\cfoot{\thepage\quad --\quad \pageref{LastPage}}
+	\cfoot{\rule{8em}{1pt}\\
+		Page \thepage\ of \pageref{LastPage}}
+}
+
+\definecolor{verbalt}{rgb}{0.5,0.0,1.0}
+\newcommand{\verbalt}[1]{\texttt{\ttfamily\guillemotleft\textcolor{verbalt}{#1}\guillemotright}}
+\newcommand{\markert}[1]{\textbf{#1}\xspace}
+
+\definecolor{todo}{rgb}{0.5,0.0,0.0}
+\definecolor{markup}{rgb}{0.0,0.0,1.0}
+\newcommand{\todo}[1]{\par\textcolor{todo}{\bfseries TODO: #1}\par}
+
+\newcommand{\entitet}[1]{\texttt{\textcolor{markup}{\&#1;}}\xspace}
+\newcommand{\numentitet}[1]{\texttt{\textcolor{markup}{\&\#{}#1;}}\xspace}
+
+\newcommand{\xmlblokk}[1]{
+		\begin{verbatimtab}
+		#1
+		\end{verbatimtab}
+}
+\newcommand{\xmlinline}[1]{
+	\begin{verbatimtab}
+		#1
+	\end{verbatimtab}
+}
+
+
+\newenvironment{kodeblokk}{\begin{quote}\color{markup}}{\end{quote}}
+
+\newcommand{\element}[1]{\textcolor{markup}{\texttt{#1}}\xspace}
+
+\newcommand{\markup}[1]{\textcolor{markup}{\texttt{#1}}\xspace}
+
+\newcommand{\kravliste}[1]{
+	\par\bigskip
+	\textbf{Please note the following:}
+	\begin{itemize}
+		#1
+	\end{itemize}
+}
+
+%\newcommand{\eksempler}[1]{
+%	\par\bigskip
+%	\textbf{Examples:}
+%	#1
+%}
+
+\newenvironment{eksempler}{
+	\par\bigskip
+	\textbf{Examples:}\par\medskip
+	}{
+	\par
+}
+
+% Versjonskontroll ---------------------------------
+%\definecolor{endretInnhold}{rgb}{0.7, 0.0, 0.0}
+\definecolor{endretInnhold}{rgb}{0.0, 0.0, 0.0}
+\newcommand{\innholdNyttBlokk}[2]{
+	% #1: dato
+	% #2: innhold
+	\marginpar{%
+		\color{endretInnhold}%
+		\rule{\marginparwidth}{1pt}\par
+%		\vspace{-3pt}
+%		\hfill\rule{1pt}{2ex}\par
+%		\vspace{-4pt}%
+		\hfill\scriptsize #1\;$\downarrow$
+	}
+	{
+		\color{endretInnhold}
+		#2
+	}
+	\marginpar{%
+			\hfill\textcolor{endretInnhold}{$\uparrow$}\par
+%	\hfill\textcolor{endretInnhold}{\rule{1pt}{2ex}}\par
+	\vspace{-8pt}
+	\textcolor{endretInnhold}{\rule{\marginparwidth}{1pt}}
+	}
+}
+
+\newcommand{\innholdNyttBlokkStart}[1]{
+	% #1: dato
+%	\par
+	\hspace{0pt}%
+	\marginpar{%
+		\color{endretInnhold}%
+		\rule{\marginparwidth}{1pt}\par
+		%		\vspace{-3pt}
+		%		\hfill\rule{1pt}{2ex}\par
+		%		\vspace{-4pt}%
+		\hfill\scriptsize #1\;$\downarrow$
+	}%
+	\color{endretInnhold}%
+}
+
+\newcommand{\innholdNyttBlokkSlutt}{
+	\marginpar{%
+		\hfill\textcolor{endretInnhold}{$\uparrow$}\par
+		%	\hfill\textcolor{endretInnhold}{\rule{1pt}{2ex}}\par
+		\vspace{-8pt}
+		\textcolor{endretInnhold}{\rule{\marginparwidth}{1pt}}
+	}
+	\color{black}
+	\par
+}
+
+
+\newcommand{\innholdNyttInline}[2]{%
+	% #1: dato
+	% #2: nytt innhold
+	\marginpar{%
+		\raggedleft
+		\scriptsize \textcolor{endretInnhold}{#1\;$+$}%
+	}%
+	\textcolor{endretInnhold}{#2}%
+}
+
+\newcommand{\innholdEndret}[3]{%
+	% #1: dato
+	% #2: gammelt innhold
+	% #3: nytt innhold
+	\marginpar{%
+		\raggedleft
+		\scriptsize \textcolor{endretInnhold}{#1\;$- +$}%
+	}%
+	\xout{#2} \textcolor{endretInnhold}{#3}%
+}
+
+\newcommand{\innholdSlettet}[2]{%
+	% #1: dato
+	% #2: slettet innhold
+	\marginpar{%
+		\raggedleft
+		\scriptsize \textcolor{endretInnhold}{#1\;$-$}%
+	}%
+	\xout{#2}%
+}
+
+\newcommand{\kodesnippet}[1]{%
+	% #1: kodesnippet
+	\textcolor{blue}{\texttt{#1}}%
+}

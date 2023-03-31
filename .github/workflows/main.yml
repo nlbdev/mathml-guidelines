@@ -17,7 +17,6 @@ jobs:
           root_file: "*.tex"
           glob_root_file: true
           continue_on_error: true
-          pre_compile: "tlmgr update --self && tlmgr update --all"
           post_compile: "latexmk -c"
       - name: Upload PDF file
         uses: actions/upload-artifact@v3

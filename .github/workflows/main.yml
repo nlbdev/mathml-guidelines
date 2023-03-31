@@ -20,5 +20,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: latest
-          path: latest.pdf
+          path: ./src/latest.pdf
         if: always()

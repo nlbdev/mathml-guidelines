@@ -17,8 +17,8 @@ jobs:
           root_file: latest.tex
           continue_on_error: true
       - name: Upload PDF file
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v3
         with:
-          name: latest.pdf
-          path: ./dist/
+          name: latest
+          path: latest.pdf
         if: always()

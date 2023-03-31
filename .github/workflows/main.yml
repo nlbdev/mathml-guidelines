@@ -17,7 +17,6 @@ jobs:
           root_file: "*.tex"
           glob_root_file: true
           continue_on_error: true
-          extra_system_packages: "listings xcolor babel bookman inputenx fontenc xspace lastpage fancyhdr tabularx tikz ulem varioref url moreverb ifthen amsmath siunitx color mhchem geometry esint mathdesign"
           pre_compile: "tlmgr update --self && tlmgr update --all"
           post_compile: "latexmk -c"
       - name: Upload PDF file

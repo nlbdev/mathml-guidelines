@@ -16,9 +16,9 @@ jobs:
           working_directory: src
           root_file: latest.tex
           continue_on_error: true
-          post_compile: "latexmk -c"
       - name: Upload PDF file
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@master
         with:
-          name: PDF
-          path: dist/latest.pdf
+          name: latest.pdf
+          path: ./dist/
+        if: always()

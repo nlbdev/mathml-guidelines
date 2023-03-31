@@ -21,4 +21,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: PDF
-          path: latest.pdf
+          path: dist/latest.pdf

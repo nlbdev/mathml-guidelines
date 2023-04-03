@@ -42,18 +42,17 @@
 	basicstyle=\ttfamily\bfseries\color{black}
 }
 
-\usetikzlibrary{trees,arrows,arrows.meta,intersections,calc,backgrounds,positioning,decorations} % ,shadows,fit,shapes,backgrounds,decorations
+\usetikzlibrary{trees,arrows,arrows.meta,intersections,calc,backgrounds,positioning,decorations}
 \setlength{\parskip}{1ex plus 4pt minus 2pt}
 \setlength{\marginparwidth}{18mm}
-%\setlength{\marginparsep}{3pt}
 \input{def-mathml-req-en.tex}
 
 
-\title{Requirements for MathML markup\\ in EPUB files for NLB}
-\author{Per Sennels, NLB\\Gaute Rønningen, NLB}
+\title{Requirements for MathML markup\\ in EPUB files}
+\author{NLB, MTM, SPSM, Celia, Nota, HBS, Dedicon}
 
 \begin{document}
-	\bunntekst
+	\pagebottomtext
 	\thispagestyle{empty}
 	\raggedright
 	
@@ -107,7 +106,7 @@ Except for the first bullet point, which relies on the math knowledge of a  huma
 	\textbf{For mathematical expressions that are not covered in this document, the personnel involved in the markup process is encouraged to do MathML markup based on a good understanding of mathematics, combined with a solid knowledge of the set of MathML elements and attributes.}
 
 	\item Unless MathML markup of a certain type of mathematical expression is specified in this document, the markup should be based on a good understanding of mathematics, combined with a solid knowledge of the set of MathML elements and attributes.
-	\item Use the numeric XML annotation of an entity, for example: instead of \entitet{ApplyFunction} or \entitet{af}, use \entitet{\#8289}, or it's unicode representation.
+	\item Use the numeric XML annotation of an entity, for example: instead of \entity{ApplyFunction} or \entity{af}, use \entity{\#8289}, or it's unicode representation.
 	\item All MathML markup must be annotated with an AsciiMath expression that represents the mathematical expression printed in the book. Thus, the complete markup of any given mathematical expression must be coded according to the following scheme:
 
 \begin{lstlisting}[language=HTML, caption={Default MathML markup}]
@@ -176,7 +175,7 @@ Please note that, in all of the examples to follow, the markup discussed is the 
 \node[text width=40mm,align=center,draw=black!30] (matte) {In printed book:\\$x =\sqrt{2}$};
 
 \node[text width=40mm,align=center,draw=black!30,right=15mm of matte] (MathML) {Markup:
-\begin{kodeblokk}
+\begin{codeblock}
 \footnotesize
 \begin{verbatimtab}[3]
 <math ...>
@@ -187,11 +186,11 @@ Please note that, in all of the examples to follow, the markup discussed is the 
 	</msqrt>
 </math>
 \end{verbatimtab}
-\end{kodeblokk}
+\end{codeblock}
 };
 
 \node[text width=30mm,align=center,draw=black!30,right=25mm of MathML] (xslt) {XSLT \mbox{transformation}};
-\node[text width=45mm,align=center,draw=black!30,below=25mm of xslt] (tale) {Verbal \mbox{representation}\\\verbalt{x equals square root of two}};
+\node[text width=45mm,align=center,draw=black!30,below=25mm of xslt] (tale) {Verbal \mbox{representation}\\\verbal{x equals square root of two}};
 
 \draw[-latex',thick] (matte) -- (MathML);
 \draw[-latex',thick] (MathML) -- (xslt);
@@ -297,10 +296,10 @@ If there is any risk of ambiguity, the following operators \textbf{must} be used
 \multicolumn{1}{c}{\textbf{Entity}}
 		& \multicolumn{1}{c}{\textbf{Numeric}}
 			& \multicolumn{1}{c}{\textbf{Comment}}\\
-\entitet{ApplyFunction} & \entitet{\#8289} & Function application\\
-\entitet{InvisibleTimes} & \entitet{\#8290} & Invisible multiplication\\
-\entitet{InvisibleComma} & \entitet{\#8291} & Invisible separator\\
- & \entitet{\#8292} & Invisible addition
+\entity{ApplyFunction} & \entity{\#8289} & Function application\\
+\entity{InvisibleTimes} & \entity{\#8290} & Invisible multiplication\\
+\entity{InvisibleComma} & \entity{\#8291} & Invisible separator\\
+ & \entity{\#8292} & Invisible addition
 \end{tabular}
 
 This means that, even for expressions such as 
@@ -340,7 +339,7 @@ while expression 5 must be represented with the following markup:
 	<mi>&#593;</mi>
 </mrow>
 \end{lstlisting}
-Note the use of \entitet{\#8290} in line~8 and line~2 respectively in these markup snippets.
+Note the use of \entity{\#8290} in line~8 and line~2 respectively in these markup snippets.
 
 Multiple examples of use of invisible operators are given in the following sections.
 
@@ -352,10 +351,10 @@ HTML entities would generally be able to be used for this, but to remove the ris
 	\multicolumn{1}{c}{\textbf{Short}}
 		& \multicolumn{1}{c}{\textbf{Numeric}}
 			& \multicolumn{1}{c}{\textbf{Comment}}\\
-	\entitet{lt} & \entitet{\#60} & Less than\\
-	\entitet{gt} & \entitet{\#62} & Greater than\\
-	& \entitet{\#8804} & Less than or equal\\
-    & \entitet{\#8805} & Greater than or equal\\
+	\entity{lt} & \entity{\#60} & Less than\\
+	\entity{gt} & \entity{\#62} & Greater than\\
+	& \entity{\#8804} & Less than or equal\\
+    & \entity{\#8805} & Greater than or equal\\
 \end{tabular}\\
 \bigskip
 
@@ -547,10 +546,10 @@ For a positive number, the required markup is simple:
 </mrow>
 \end{lstlisting}
 
-\kravliste{
+\listofdemands{
 	\item The markup must be placed inside an \element{mrow} element. This \element{mrow} must contain exactly two children.
 	\item The first child of the \element{mrow} element must be an \element{mn} element, containing the relevant value.
-	\item The second child of the \element{mrow} must be an \element{mo} element, containing the degree symbol, represented by the numeric entity \numentitet{176}.
+	\item The second child of the \element{mrow} must be an \element{mo} element, containing the degree symbol, represented by the numeric entity \numentity{176}.
 }
 Note also that the \element{msup} element must not be used, as the degree symbol by itself represents a raised ring.
 
@@ -566,14 +565,14 @@ For a negative value, the required markup is a bit more complex:
 </mrow>
 \end{lstlisting}
 
-\kravliste{
+\listofdemands{
 	\item Once again the markup must be placed inside an \element{mrow} element with exactly two children.
 	\item However, this time the first child of the \element{mrow} element must be another \element{mrow} element:
 	\begin{itemize}
 		\item The first child of this \element{mrow} element must be an \element{mo} element containing the normal hyphen sign.
 		\item The second child of this \element{mrow} element must be an \element{mn} element, containing the relevant absolute value.
 	\end{itemize}
-	\item The second child of the containing \element{mrow} element must be an \element{mo} element, containing the degree symbol, represented by the numeric entity \numentitet{176}.
+	\item The second child of the containing \element{mrow} element must be an \element{mo} element, containing the degree symbol, represented by the numeric entity \numentity{176}.
 }
 
 \medskip
@@ -600,7 +599,7 @@ depending on the value, as described above.
 
 Note the use of the \element{msup} element this time, in order to raise the unit g.
 
-\begin{eksempler}
+\begin{examples}
 The markup for the expression
 \begin{equation}
 \ang{0}\;\text{C} = \ang{32}\;\text{F} = 273\;\text{K}
@@ -713,7 +712,7 @@ must be marked up as
 </mfrac>
 \end{lstlisting}
 
-\end{eksempler}
+\end{examples}
 
 \subsection{Markup of square roots and higher-order roots}
 The square root must be marked up using the MathML element \element{msqrt}. As the square root of a mathematical expression can be looked upon as a function with \emph{one} argument, one could expect that the \element{sqrt} element always should have \emph{exactly on}e child.
@@ -788,7 +787,7 @@ For vector notation with arrows we require the following markup:
 </mover>
 \end{lstlisting}
 
-\begin{eksempler}
+\begin{examples}
 The very simple expression $\vec{v}$ must be represented by
 \begin{lstlisting}[language=HTML]
 <mover>
@@ -819,7 +818,7 @@ Note that the placeholder \markup{[a single element representing the vector]} ma
 	<mo>&#8594;</mo>
 </mover>
 \end{lstlisting}
-\end{eksempler}
+\end{examples}
 
 \medskip The required markup for vectors represented by a bold font, is to add the \markup{mathvariant} attribute to the \element{mi} element representing the vector. The attribute value \emph{must} be a string containing the substring \markup{bold}, This will typically mean one of \markup{bold}, \markup{bold-italic}, \markup{bold-sans-serif} or \markup{sans-serif-bold-italic}:
 \begin{lstlisting}[language=HTML]
@@ -947,7 +946,7 @@ and for a symbolic index, the required markup is
 </msub>
 \end{lstlisting}
 
-\begin{eksempler}
+\begin{examples}
 Based on this,
 	\begin{equation} A_T = A_1 + A_2 \end{equation}
 	must be marked up as
@@ -1004,7 +1003,7 @@ must be marked up as
 </mfrac>
 \end{lstlisting}
 	
-\end{eksempler}
+\end{examples}
 
 \subsection{Markup of functions with one argument}
 A mathematical function, such as $f(x)$, $x(t)$, $F(x)$, $\psi (t)$ and similar, must be marked up as follows:
@@ -1020,14 +1019,14 @@ A mathematical function, such as $f(x)$, $x(t)$, $F(x)$, $\psi (t)$ and similar,
 </mrow>
 \end{lstlisting}
 
-\kravliste{
+\listofdemands{
 \item The markup of the function must be placed inside an \element{mrow} element. This \element{mrow} must contain exactly three children.
 \item The first child of the \element{mrow} must be an \element{mi} element, containing one single Greek or single English letter, in upper or lower case.
-\item The second child of the \element{mrow} must be an \element{mo} element, containing the \emph{Function Application Entity} \entitet{\#8289}.
+\item The second child of the \element{mrow} must be an \element{mo} element, containing the \emph{Function Application Entity} \entity{\#8289}.
 \item The third child of the \element{mrow} must be an \element{mfenced} element, containing the argument to the function. The \element{mfenced} element must have exactly one child. Apart from that, there are no requirements on the content of the \element{mfenced} element.
 }
 
-\begin{eksempler}
+\begin{examples}
 	The expression 
 	\begin{equation}g(x)\end{equation}
 	shall be marked up as
@@ -1072,7 +1071,7 @@ the corresponding markup will also be more complicated:
 </mrow>
 \end{lstlisting}
 
-\end{eksempler}
+\end{examples}
 
 \subsection{Markup of functions with two or more arguments}
 A mathematical function with two or more arguments, such as $f(x,y,z)$, $F(x,t)$, $\psi (r, \theta )$ and similar, must be marked up as follows:
@@ -1088,16 +1087,16 @@ A mathematical function with two or more arguments, such as $f(x,y,z)$, $F(x,t)$
 </mrow>
 \end{lstlisting}
 
-\kravliste{
+\listofdemands{
 	\item The markup of the function must be placed inside an \element{mrow} element. This \element{mrow} element must contain exactly three children.
 	\item The first child of the \element{mrow} element must be an \element{mi} element, containing one single Greek or single English letter, in upper or lower case.
-	\item The second child of the \element{mrow} element must be an \element{mo} element, containing the \emph{Function Application Entity} \entitet{\#8289}.
+	\item The second child of the \element{mrow} element must be an \element{mo} element, containing the \emph{Function Application Entity} \entity{\#8289}.
 	\item The third child of the \element{mrow} element must be an \element{mfenced} element, containing the arguments to the function. The number of children of the \element{mfenced} element must be equal to the number of arguments to the function. Apart from that, there are no requirements on the content of the \element{mfenced} element.
 	
 	Please observe that, when the \element{mfenced} element is rendered correctly, the comma separators are automatically inserted.
 }
 
-\begin{eksempler}
+\begin{examples}
 	The expression 
 	\begin{equation}f(x,y,z)\end{equation}
 	shall be marked up as
@@ -1126,7 +1125,7 @@ A mathematical function with two or more arguments, such as $f(x,y,z)$, $F(x,t)$
 		</mfenced>
 	</mrow>
 	\end{lstlisting}
-\end{eksempler}
+\end{examples}
 
 
 \subsection{Markup of named functions}\label{named-functions}
@@ -1139,14 +1138,14 @@ A known mathematical function, such as $\sin \alpha$, $\ln x$, $\arccos(x)$ and 
 </mrow>
 \end{lstlisting}
 
-\kravliste{
+\listofdemands{
 	\item The markup of the function must be placed inside an \element{mrow} element. This \element{mrow} must contain exactly three children.
 	\item The first child of the \element{mrow} must be an \element{mi} element, containing the name of the function.
-	\item The second child of the \element{mrow} must be an \element{mo} element, containing the \emph{Function Application Entity} \entitet{\#8289}.
+	\item The second child of the \element{mrow} must be an \element{mo} element, containing the \emph{Function Application Entity} \entity{\#8289}.
 	\item There are no particular requirements to the last element, except that it must correctly represent the argument(s) to the function.
 }
 
-\begin{eksempler}
+\begin{examples}
 	The expression 
 	\begin{equation}g(\alpha) = \sin \alpha\end{equation}
 	shall be marked up as
@@ -1196,7 +1195,7 @@ shall be marked up as
 	<mi>y</mi>
 </mrow>
 \end{lstlisting}
-\end{eksempler}
+\end{examples}
 
 Note that, for an expression on the form $\cos 2 x$, the following markup is \textbf{NOT} correct:
 \begin{lstlisting}[language=HTML]
@@ -1235,18 +1234,18 @@ The limit of a mathematical expression must generically be marked up as follows:
 </mrow>
 \end{lstlisting}
 
-\kravliste{
+\listofdemands{
 	\item The construction must be placed inside an \element{mrow} element. This \element{mrow} must contain exactly three children.
 	\item The first child of the \element{mrow} element  must be an \element{munder} element. This \element{munder} element must contain exactly two elements.
 	\begin{itemize}
 		\item The first child of the \element{munder} element must be an \element{mo} element containing the text \markup{lim}.
 		\item The second child of the \element{munder} element must represent the condition for finding the limit. If necessary, place the condition inside an \element{mrow} element to represent it as one element.
 	\end{itemize}
-	\item The second child of the \element{mrow} must be an \element{mo} element, containing the \emph{Function Application Entity} \entitet{\#8289}.
+	\item The second child of the \element{mrow} must be an \element{mo} element, containing the \emph{Function Application Entity} \entity{\#8289}.
 	\item There are no particular requirements to the last element, except that it must correctly represent the expression to find the limit of. If necessary, place the expression inside an \element{mrow} element to represent it as one element.
 }
 
-\begin{eksempler}
+\begin{examples}
 	
 	The expression 
 \begin{equation}
@@ -1307,7 +1306,7 @@ shall be marked up as
 	<mo>=</mo>
 	<mi>&#8734;</mi>
 	\end{lstlisting}
-\end{eksempler}
+\end{examples}
 
 \bigskip
 There are several ways to write the derivative of a mathematical expression. One is to add a prime symbol after the function or expression, as in 
@@ -1340,21 +1339,21 @@ When we want to write the derivative of a function using \emph{Lagrange's notati
 </mrow>
 \end{lstlisting}
 
-\kravliste{
+\listofdemands{
 	\item The markup of the derivative of a function must be placed inside an \element{mrow} element. This \element{mrow} must contain exactly three children.
 	\item The first child of the \element{mrow} element must be an \element{msup} element.
 	\begin{itemize}
 		\item The first child of the \element{msup} element must be an \element{mi} element, containing one single Greek or single English letter, in upper or lower case.
-		\item The second child of the \element{msup} element must be an \element{mo} element, containing the entity for the prime symbol, \entitet{\#8242}.
+		\item The second child of the \element{msup} element must be an \element{mo} element, containing the entity for the prime symbol, \entity{\#8242}.
 		
-		\textbf{Note:} As an alternative to the \entitet{\#8242} entity, we also allow use of the \entitet{\#8243} entity to represent the second derivative, and the \entitet{\#8244} to represent the third derivative.
+		\textbf{Note:} As an alternative to the \entity{\#8242} entity, we also allow use of the \entity{\#8243} entity to represent the second derivative, and the \entity{\#8244} to represent the third derivative.
 	\end{itemize}
 	
-	\item The second child of the \element{mrow} element  must be an \element{mo} element, containing the \emph{Function Application Entity} \entitet{\#8289}.
+	\item The second child of the \element{mrow} element  must be an \element{mo} element, containing the \emph{Function Application Entity} \entity{\#8289}.
 	\item The third child of the \element{mrow} element must be an \element{mfenced} element, containing the argument(s) to the function. 
 }
 
-\begin{eksempler}
+\begin{examples}
 The definition of the derivative of a function $f$ is often given as
 \begin{equation}
 f'(x) = \lim_{h \rightarrow 0} \frac{f(x+h) - f(h)}{h}
@@ -1446,7 +1445,7 @@ must be marked up as
 </mrow>
 \end{lstlisting}
 
-\end{eksempler}
+\end{examples}
 
 \bigskip
 When we want to write the derivative of a named function using \emph{Lagrange's notation}, as in $(\sin x)'$, the required markup is
@@ -1460,17 +1459,17 @@ When we want to write the derivative of a named function using \emph{Lagrange's 
 </msup>
 \end{lstlisting}
 
-\kravliste{
+\listofdemands{
 	\item The markup of the derivative of a named function must be placed inside an \element{msup} element.
 %	\begin{itemize}
 		\item The first child of the \element{msup} element must be an \element{mfenced} element, and that \element{mfenced} element must contain the markup of the function.
-		\item The second child of the \element{msup} element must be an \element{mo} element, containing the entity for the prime symbol, \entitet{prime}.
+		\item The second child of the \element{msup} element must be an \element{mo} element, containing the entity for the prime symbol, \entity{prime}.
 		
-		\textbf{Note:} As an alternative to the \entitet{\#8242} entity, we also allow use of the \entitet{\#8243} entity to represent the second derivative, and the \entitet{\#8244} to represent the third derivative.
+		\textbf{Note:} As an alternative to the \entity{\#8242} entity, we also allow use of the \entity{\#8243} entity to represent the second derivative, and the \entity{\#8244} to represent the third derivative.
 %	\end{itemize}
 }
 
-\begin{eksempler}
+\begin{examples}
 The expression 
 \begin{equation}
 (3 a x^3)'' = (9 ax^2)' = 18 a x
@@ -1517,7 +1516,7 @@ must be marked up as
 \end{lstlisting}
 
 
-\end{eksempler}
+\end{examples}
 
 \subsubsection{The \emph{Leibniz notation}}
 When we want to write the derivative of a function using \emph{Leibniz's notation}, as in
@@ -1541,21 +1540,21 @@ the required markup is
 </mfrac>
 \end{lstlisting}
 
-\kravliste{
+\listofdemands{
 	\item The markup of the derivative of a function, using \emph{Leibniz's notation,} must be placed inside an \element{mfrac} element.
 	\item The first child of the \element{mfrac} element must be an \element{mrow} element.
 	\begin{itemize}
-		\item The first child of this \element{mrow} element must be an \element{mo} element, containing the entity for the \emph{differential d} symbol, \entitet{\#8518}.
+		\item The first child of this \element{mrow} element must be an \element{mo} element, containing the entity for the \emph{differential d} symbol, \entity{\#8518}.
 		\item The rest of this \element{mrow} element must be filled up with the necessary markup to represent the function.
 	\end{itemize}
 	\item The second child of the \element{mfrac} element must also be an \element{mrow} element, with only two children.
 	\begin{itemize}
-		\item The first child of this second \element{mrow} element must again be an \element{mo} element, also this one containing the entity for the \emph{differential d} symbol, \entitet{\#8518}.
+		\item The first child of this second \element{mrow} element must again be an \element{mo} element, also this one containing the entity for the \emph{differential d} symbol, \entity{\#8518}.
 		\item The second (and last) child of the \element{mrow} element must be an \element{mi} element, containg a single letter in the region ''a to 'z''.
 	\end{itemize}
 }
 
-\begin{eksempler}
+\begin{examples}
 The expression
 \begin{equation}
 f'(x) = \frac{\text{d}f(x)}{\text{d}x}
@@ -1590,7 +1589,7 @@ must be marked up as
 	</mrow>
 </mfrac>
 \end{lstlisting}
-\end{eksempler}
+\end{examples}
 
 Markup of higher order derivatives of a function, based on \emph{Leibniz's notation}, is just an extension of the markup of the first derivative:
 \begin{lstlisting}[language=HTML]
@@ -1618,20 +1617,20 @@ Markup of higher order derivatives of a function, based on \emph{Leibniz's notat
 </mfrac>
 \end{lstlisting}
 
-\kravliste{
+\listofdemands{
 	\item The markup of the second derivative of a function, using \emph{Leibniz's notation,} must be placed inside an \element{mfrac} element.
 	\item The first child of the \element{mfrac} element must be an \element{mrow} element.
 	\begin{itemize}
 		\item The first child of this \element{mrow} element must be an \element{msup} element
 		\begin{itemize}
-			\item The first child of this \element{msup} element must be an \element{mo} element, containing the entity for the \emph{differential d} symbol, \entitet{\#8518}.
+			\item The first child of this \element{msup} element must be an \element{mo} element, containing the entity for the \emph{differential d} symbol, \entity{\#8518}.
 			\item The second child of this \element{msup} element must be an \element{mn} element, containing the number representing the order of differentiation.
 		\end{itemize}
 		\item The rest of this \element{mrow} element must be filled up with the necessary markup to represent the function.
 	\end{itemize}
 	\item The second child of the \element{mfrac} element must also be an \element{mrow} element, with only two children.
 	\begin{itemize}
-		\item The first child of this second \element{mrow} element must again be an \element{mo} element, also this one containing the entity for the \emph{differential d} symbol, \entitet{\#8518}.
+		\item The first child of this second \element{mrow} element must again be an \element{mo} element, also this one containing the entity for the \emph{differential d} symbol, \entity{\#8518}.
 		\item The second (and last) child of the \element{mrow} element must be an \element{msup} element
 		\begin{itemize}
 			\item The first child of this \element{msup} element must  be an \element{mi} element, containg a single letter in the region ''a to ''z''.
@@ -1640,7 +1639,7 @@ Markup of higher order derivatives of a function, based on \emph{Leibniz's notat
 	\end{itemize}
 }
 
-\begin{eksempler}
+\begin{examples}
 The expression
 \begin{equation}
 g''(x) =\frac{\text{d}^2 \sin x}{\text{d} x^2}
@@ -1680,7 +1679,7 @@ must be marked up as
 </mfrac>
 \end{lstlisting}
 
-\end{eksempler}
+\end{examples}
 
 \subsection{Markup of the integral}
 The following entities are relevant for markup of integrals:
@@ -1690,14 +1689,14 @@ The following entities are relevant for markup of integrals:
 	& \multicolumn{1}{c}{\textbf{Entity}}
 	& \multicolumn{1}{c}{\textbf{Numeric}}
 	& \multicolumn{1}{c}{\textbf{Description}}\\
-	$\int$ & \entitet{int} & \entitet{\#8747} & Integral\\
-	$\iint$ & \entitet{Int} & \entitet{\#8748} & Double integral\\
-	$\iiint$ & \entitet{tint} & \entitet{\#8749} & Triple integral\\
-%	$\iiiint$ & \entitet{qint} & \entitet{\#10764} & Quadruple integral\\
-	$\oint$ & \entitet{conint} & \entitet{\#8750} & Contour integral
-%	$\varointclockwise$ & \entitet{cwconint} & \entitet{\#8754} & Clockwise contour integral\\
-%	$\oiint$ & \entitet{Conint} & \entitet{\#8751} & Surface integral\\
-%	$\oiiint$ & \entitet{Conint} & \entitet{\#8752} & Volume integral
+	$\int$ & \entity{int} & \entity{\#8747} & Integral\\
+	$\iint$ & \entity{Int} & \entity{\#8748} & Double integral\\
+	$\iiint$ & \entity{tint} & \entity{\#8749} & Triple integral\\
+%	$\iiiint$ & \entity{qint} & \entity{\#10764} & Quadruple integral\\
+	$\oint$ & \entity{conint} & \entity{\#8750} & Contour integral
+%	$\varointclockwise$ & \entity{cwconint} & \entity{\#8754} & Clockwise contour integral\\
+%	$\oiint$ & \entity{Conint} & \entity{\#8751} & Surface integral\\
+%	$\oiiint$ & \entity{Conint} & \entity{\#8752} & Volume integral
 \end{tabular}\label{integraltegn}
 
 For the \emph{indefinite integral}, with a very simple argument, such as $\int f = g +C$ and $T = \oint f$ and even $a(x) = \iint \cos x$, the following markup will be sufficient:
@@ -1750,7 +1749,7 @@ will require a very specific markup:
 	<mi>[integration variable]</mi>
 </mrow>
 \end{lstlisting}
-Note that the \entitet{\#8747} entity in the first \element{mo} element could just as well be any of the other integral entities listed \vpageref{integraltegn}.
+Note that the \entity{\#8747} entity in the first \element{mo} element could just as well be any of the other integral entities listed \vpageref{integraltegn}.
 
 So the complete markup of 
 \begin{equation}
@@ -1795,7 +1794,7 @@ For \emph{definite integrals}, where the interval of the integration is specifie
 \end{lstlisting}
 
 %
-\kravliste{
+\listofdemands{
 	\item The whole expression must be placed inside an \element{mrow} element.
 	\item This \element{mrow} must have three children:
 	\begin{itemize}
@@ -1808,13 +1807,13 @@ For \emph{definite integrals}, where the interval of the integration is specifie
 		\item Second, any element containing the markup of the expression to be integrated.
 		\item Third, an \element{mrow} element, containing exactly two children:
 		\begin{itemize}
-			\item The first child of this \element{mrow} element must be an \element{mo} element, also this one containing the entity for the \emph{differential d} symbol, \entitet{\#8517}.
+			\item The first child of this \element{mrow} element must be an \element{mo} element, also this one containing the entity for the \emph{differential d} symbol, \entity{\#8517}.
 			\item The second child of this \element{mrow} element must  be an \element{mi} element, containing a single letter in the region ''a to ''z''.
 		\end{itemize}
 	\end{itemize}
 }
 
-\begin{eksempler}
+\begin{examples}
 	The expression
 	\begin{equation}
 	F(x) = \int_{t=a}^{t=x} f(t) \text{d}t
@@ -1913,13 +1912,13 @@ must be represented by the following markup:
 	</mrow>
 </mrow>
 \end{lstlisting}
-\end{eksempler}
+\end{examples}
 
 \subsection{Markup of matrices}
 
 The markup of matrices is the same as described in the W3C standard, except for the use of \element{mfenced} instead of \element{mo} for parenthesis.
 
-\begin{eksempler}
+\begin{examples}
 	\begin{equation}
 	\begin{pmatrix}
 		1 & 0 & 0\\
@@ -1951,13 +1950,13 @@ The markup of matrices is the same as described in the W3C standard, except for 
 			</mfenced>
 	  	</mrow>
 	\end{lstlisting}
-\end{eksempler}
+\end{examples}
 
 \subsection{Markup of set delimiters}
 
 When it comes to markup for set delimiters, it should be marked up as follows:
 
-\begin{eksempler}
+\begin{examples}
 	\begin{equation}
 		\underbrace{x+y+z}
 	\end{equation}
@@ -1998,7 +1997,7 @@ And similarily
 			</mover>
 	  	</mrow>
 	\end{lstlisting}
-\end{eksempler}
+\end{examples}
 
 \subsection{Markup of multiline formulas}
 
@@ -2012,7 +2011,7 @@ Every \element{math} element that is a chemical formula, will have to have added
 
 For the following chemical formula for photosynthesis:
 
-\begin{eksempler}
+\begin{examples}
 \begin{equation}
     \ce{6 CO_2 + 6 H_2O + light -> C_6H_12O_6 + 6 O_2}
 \end{equation}
@@ -2078,11 +2077,11 @@ The markup would be as follows:
 		</mrow>
 	</math>
 \end{lstlisting}
-\end{eksempler}
+\end{examples}
 
 \subsubsection{Superscript in upper left to denote isotope}\label{chemistry-isotope}
 
-\begin{eksempler}
+\begin{examples}
 	\begin{equation}
 		\ce{^{14}C}
 	\end{equation}
@@ -2093,8 +2092,8 @@ The markup would be as follows:
 		</msup>
 		<mtext>C</mtext>
 	\end{lstlisting}
-	Where \entitet{\#32} represents a blank space.
-\end{eksempler}
+	Where \entity{\#32} represents a blank space.
+\end{examples}
 
 \subsection{Markup of physics}\label{physics}
 
@@ -2102,7 +2101,7 @@ The markup would be as follows:
 
 Every \element{math} element that is a physics formula, will have to have added the class "physics" to them to stand out from normal MathML notation - because physics formulas might have a different meaning in math.
 
-\begin{eksempler}
+\begin{examples}
 The markup would be as follows:
 \begin{lstlisting}[language=HTML]
 	<math 
@@ -2113,7 +2112,7 @@ The markup would be as follows:
 		...
 	</math>
 \end{lstlisting}
-\end{eksempler}
+\end{examples}
 
 \subsection{Markup of math elements within code blocks}
 
@@ -2121,7 +2120,7 @@ The markup would be as follows:
 
 When a \element{math} element is within a code block, we need to make sure the code is not interrupted by a mathematical formula, and stays valid through a validation of the code. Thus needing a special class for the \element{math} element.
 
-\begin{eksempler}
+\begin{examples}
 The markup would be as follows:
 \begin{lstlisting}[language=HTML]
 	<math 
@@ -2132,7 +2131,7 @@ The markup would be as follows:
 		...
 	</math>
 \end{lstlisting}
-\end{eksempler}
+\end{examples}
 
 \section{Issues and clarifications}
 
@@ -2143,7 +2142,7 @@ These clarifications should cover any ambiguity, and solve issues that have been
 There has been detected very short AsciiMath expressions, whilst the corresponding MathML was very much longer. We are implementing rules to validate such markup, and rendering it invalid.
 
 \subsection{Dividing obvious words into single letters}
-\begin{eksempler}
+\begin{examples}
 	The following equation
 \begin{equation}
 	index_{mean}
@@ -2176,7 +2175,7 @@ There has been detected very short AsciiMath expressions, whilst the correspondi
 	</mrow>
 </munder>
 \end{lstlisting}
-\end{eksempler}
+\end{examples}
 
 Do \textbf{NOT} divide obvious words into single letters.
 
@@ -2192,7 +2191,7 @@ There should not be created any \element{mtext} with just a single space in it, 
 
 Every decimal needs to be interpreted and decided whether it's a decimal. As obvious as this seems, there has been cases of the following happening.
 
-\begin{eksempler}
+\begin{examples}
 \begin{equation}
 	20,0
 \end{equation}
@@ -2209,13 +2208,13 @@ This will cause the TTS to divide the expression into two numbers: 20 and 0, whi
 \begin{lstlisting}[language=HTML, caption={Valid markup 2}]
 	<mn>20.0</mn>
 \end{lstlisting}
-\end{eksempler}
+\end{examples}
 
 \subsection{Thousand separator}
 
 There is an issue with thousand separators having the wrong markup, thus there should not be used any thousand separators.
 
-\begin{eksempler}
+\begin{examples}
 	\textsc{164 000}
 	\begin{lstlisting}[language=HTML, caption={\textbf{Invalid markup}}]
 		<mn>164</mn>
@@ -2227,13 +2226,13 @@ There is an issue with thousand separators having the wrong markup, thus there s
 	\begin{lstlisting}[language=HTML, caption={Valid markup}]
 		<mn>164000</mn>
 	\end{lstlisting}
-\end{eksempler}
+\end{examples}
 
 \subsection{Union}
 
-Union must be marked up as \entitet{\#8746} - not the letter U, and it must be within a \element{mo} element. 
+Union must be marked up as \entity{\#8746} - not the letter U, and it must be within a \element{mo} element. 
 
-\begin{eksempler}
+\begin{examples}
 \begin{equation}
 	A \cup B
 \end{equation}
@@ -2244,13 +2243,13 @@ Union must be marked up as \entitet{\#8746} - not the letter U, and it must be w
 	<mtext>B</mtext>
 </mrow>
 \end{lstlisting}
-\end{eksempler}
+\end{examples}
 
 \subsection{Intersection}
 
-Intersection must be marked up as \entitet{\#8898} - and it must be within a \element{mo} element. 
+Intersection must be marked up as \entity{\#8898} - and it must be within a \element{mo} element. 
 
-\begin{eksempler}
+\begin{examples}
 \begin{equation}
 	A \cap B
 \end{equation}
@@ -2261,13 +2260,13 @@ Intersection must be marked up as \entitet{\#8898} - and it must be within a \el
 	<mtext>B</mtext>
 </mrow>
 \end{lstlisting}
-\end{eksempler}
+\end{examples}
 
 \subsection{Tables}
 
 A table with math elements must always be marked up with math-elements of the inline type.
 
-\begin{eksempler}
+\begin{examples}
 The tables should be marked up as this:
 \begin{lstlisting}[language=HTML]
 <table>
@@ -2283,13 +2282,13 @@ The tables should be marked up as this:
   </tbody>
 </table>
 \end{lstlisting}
-\end{eksempler}
+\end{examples}
 
 \subsection{Identifiers and texts}
 
 Identifiers will always be marked up as \element{<mi>} whilst texts \element{<mtext>}. The general rule here is that all the identifiers represented in the strings parameter in this file: \url{https://github.com/nlbdev/service-stem/blob/master/conversions/data/text-identifiers.json} are identifiers and should be marked up with \element{<mi>}, in addition to this there's function and expression related identifiers, such as \element{<mi>x</mi>}, \element{<mi>f</mi>} or \element{<mi>g</mi>}. The rest, is to be marked up with \element{<mtext>}.
 
-\begin{eksempler}
+\begin{examples}
 \begin{equation}
 	x * \text{All the values of A}
 \end{equation}
@@ -2300,6 +2299,6 @@ Identifiers will always be marked up as \element{<mi>} whilst texts \element{<mt
 	<mtext>All the values of A</mtext>
 </mrow>
 \end{lstlisting}
-\end{eksempler}
+\end{examples}
 
 \end{document}

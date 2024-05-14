@@ -2,7 +2,7 @@
 
 ## Introduction
 
-## When To Use MathML <!--- kanske ändra rubriken senare -->
+## When To Use MathML <!--- maybe change wording later -->
 
 ## MathML Fundamentals
 
@@ -14,7 +14,7 @@
 
 ### Block vs Inline
 
-<!--- displaystyle="true" för block -->
+<!--- displaystyle="true" for block -->
 
 ### Presentation vs Content MathML
 
@@ -40,7 +40,7 @@
 
 #### `<msqrt>` and `<mroot>`
 
-#### `<mpadded>` <!--- måste testa detta med MathCAT först -->
+#### `<mpadded>` <!--- test with MathCAT first -->
 
 ### Script and Limit Schemata
 
@@ -60,9 +60,9 @@
 
 ##### Colspan and Rowspan
 
-#### Labeled Row in Table or Matrix, `<mlabeledtr>` <!--- behöver kolla mer på detta -->
+#### Labeled Row in Table or Matrix, `<mlabeledtr>` <!--- needs investigating -->
 
-## Context-Based Applications <!--- kanske ändra rubriken senare -->
+## Context-Based Applications <!--- maybe change wording later -->
 
 ### Sums, Products, Integrals etc.
 
@@ -72,7 +72,7 @@
 
 ### Chemistry
 
-<!--- fyll på med mer -->
+<!--- these are examples, must fill section with more -->
 
 ## Special Content Requirements
 

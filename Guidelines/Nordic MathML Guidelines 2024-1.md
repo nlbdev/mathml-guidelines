@@ -18,6 +18,10 @@ The basis of this document is the [MathML Core specification](https://www.w3.org
 
 ### alt-attributes
 
+A `<math>` element has two different alt-attributes:
+1. `altimg`
+2. `alttext`.
+
 ### Block vs Inline
 
 <!--- displaystyle="true" for block -->

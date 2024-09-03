@@ -36,6 +36,10 @@ Mathematical expressions, such as calculations, functions, equations etc., are i
 
 ### alt-attributes
 
+A `<math>` element has two different alt-attributes:
+1. `altimg`
+2. `alttext`.
+
 ### Block vs Inline
 
 <!--- displaystyle="true" for block -->
@@ -91,6 +95,17 @@ Mathematical expressions, such as calculations, functions, equations etc., are i
 ### Sums, Products, Integrals etc.
 
 ### Invisible Operators
+
+Insivible operators are used when the meaning of an equation would be ambigious. For example $a(x+1)$ might be the function $a$ of $x+1$ or then it could be the multiplication between a and $(x+1)$.
+
+Using invisible operators makes the mark up unambigious:
+
+- insivible multiplication: `&#x2062;`
+- invisible function application: `&#x2061;`
+- invisible plus: `&#x2064;`
+- invisible comma: `&#x2063;`
+
+(Can be deleted later) Source: [MathML 4 "Invisible operators"](https://www.w3.org/TR/mathml4/#presm_invisibleops).
 
 ### Systems of Equations
 

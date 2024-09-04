@@ -58,6 +58,17 @@ The attribute `altimg` is used to provide an **alternative image** fallback for 
 
 #### `<mn>`
 
+The `<mn>` element is used to mark up all kinds of numeric characters. This also includes decimal and thousand separators. They shouldn't be mark up separate from the number.
+
+There are different ways to mark up the decimal and thousand separators based on the publication. Follow the mark up of the publication unless specifically told otherwise by the Ordering Agency.
+
+
+For example using 
+- comma as a decimal separator: `<mn>3,14</mn>`
+- non-breaking space as a thousand separator: `<mn>89&nbsp;000</mn>`
+- period as a decimal separator: `<mn>2.74</mn>`
+- comma as a thousand separator: `<mn>19,050</mn>`.
+
 #### `<mo>`
 
 #### `<mi>`

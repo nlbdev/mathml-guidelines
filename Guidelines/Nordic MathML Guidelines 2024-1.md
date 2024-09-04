@@ -117,6 +117,7 @@ If there is an actual data formatted in a publication, use the HTML element `<ta
 
 #### Table or Matrix, `<mtable>`
 
+For example a puzzle may be presented in a table ...
 #### Row in Table or Matrix, `<mtr>`
 
 #### Entry in Table or Matrix, `<mtd>`

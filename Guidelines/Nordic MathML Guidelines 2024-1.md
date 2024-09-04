@@ -129,7 +129,7 @@ The same character can be used in a different meaning based on the context. For 
 
 Insivible operators are used when the meaning of an equation would be ambigious. For example $a(x+1)$ might be the function $a$ of $x+1$ or then it could be the multiplication between a and $(x+1)$.
 
-Using invisible operators makes the mark up unambigious:
+Using invisible operators makes the markup unambigious:
 
 - insivible multiplication: `&#x2062;`
 - invisible function application: `&#x2061;`

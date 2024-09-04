@@ -87,7 +87,9 @@ The same character can be used in a different meaning based on the context. For 
 <mo>}</mo>
 ```
 
-#### `<mi>`
+#### `<mi>` element for variables and functions
+
+The `<mi>` element is used to denote variables and other identifiers. An identifier can be just one letter of symbol such as a variable $\alpha$ or $x$, but it can also be multiple letters such as function names: $\tan$, $\sin$ or $\log$.
 
 #### `<mtext>`
 

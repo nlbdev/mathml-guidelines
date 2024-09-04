@@ -111,6 +111,10 @@ The same character can be used in a different meaning based on the context. For 
 
 ### Tabular Math
 
+Math can be presented in a table-like structure and MathML has its own markup to handle this.
+
+If there is an actual data formatted in a publication, use the HTML element `<table>` and not the MathML element `<mtable>`.
+
 #### Table or Matrix, `<mtable>`
 
 #### Row in Table or Matrix, `<mtr>`

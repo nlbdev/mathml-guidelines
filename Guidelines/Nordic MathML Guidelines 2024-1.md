@@ -37,8 +37,10 @@ Mathematical expressions, such as calculations, functions, equations etc., are i
 ### alt-attributes
 
 A `<math>` element has two different alt-attributes:
-1. `altimg`
-2. `alttext`.
+1. `alttext`
+2. `altimg`.
+
+The attribute `alttext` is used to provide an alternative text fallback for mathematical content when a reading system doesn't support MathML markup. The Ordering Agencies may decide which kind of content should be in the `alttext` attribute. Usually it is ASCIIMath or LaTeX as these formats are well known in STEM subjects.
 
 ### Block vs Inline
 

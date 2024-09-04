@@ -40,7 +40,7 @@ A `<math>` element has two different alt-attributes:
 1. `alttext`
 2. `altimg`.
 
-The attribute `alttext` is used to provide an alternative text fallback for mathematical content when a reading system doesn't support MathML markup. The Ordering Agencies may decide which kind of content should be in the `alttext` attribute. Usually it is ASCIIMath or LaTeX as these formats are well known in STEM subjects.
+The attribute `alttext` is used to provide an **alternative text** fallback for mathematical content when a reading system doesn't support MathML markup. Usually it is ASCIIMath or LaTeX as these formats are well known in STEM subjects. The Ordering Agency may decide which kind of content should be in the `alttext` attribute.
 
 The attribute `altimg` is used to provide an **alternative image** fallback for mathematical content. Usually this is just a screenshot of the rendered equation. It should used with caution, since MathML Core does not support the `altimg` attribute. It is also only a visual fallback, because you can't provide an alternative text for the fallback image. The Ordering Agency may decide if the attribute is used.
 

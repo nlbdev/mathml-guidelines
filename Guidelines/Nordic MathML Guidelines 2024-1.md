@@ -93,6 +93,8 @@ For example the sequence $\{1,2,3,...\}$ written in MathML:
 
 The `<mi>` element is used to denote variables and other identifiers. An identifier can be just one letter of symbol such as a variable $\alpha$ or $x$, but it can also be multiple letters such as function names: $\tan$, $\sin$ or $\log$.
 
+The ellipsis or three dots &#x2026; are also an identifier `<mi>&#x2026;</mi>`.
+
 #### `<mtext>`
 
 ### General Layout Schemata

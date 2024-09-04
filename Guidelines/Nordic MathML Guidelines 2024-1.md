@@ -71,6 +71,22 @@ For example using
 
 #### `<mo>`
 
+The `<mo>` element is used to denote operators. The definition of an operator is loose and it can mean the actual mathematical operators plus (+), minus (&minus;), times (&centerdot;) and divided by (/).
+
+In MathML it also means different parentheses and some symbols. For example `<mo>(</mo>`, `<mo>{</mo>` or `<mo>...</mo>`.
+
+In a sequence the comma is an operation: 
+```html
+<mo>{</mo>
+<mn>1</mn>
+<mo>,</mo>
+<mn>2</mn>
+<mo>,</mo>
+<mn>3</mn>
+<mo>...</mo>
+<mo>}</mo>
+```
+
 #### `<mi>`
 
 #### `<mtext>`

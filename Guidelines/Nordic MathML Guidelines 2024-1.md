@@ -73,7 +73,7 @@ For example using
 
 The `<mo>` element is used to denote operators. The definition of an operator is loose and it can mean the actual mathematical operators plus (+), minus (&minus;), times (&centerdot;) and divided by (/).
 
-In MathML it also means different parentheses and some symbols. For example `<mo>(</mo>`, `<mo>{</mo>` or `<mo>...</mo>`.
+In MathML it also means different parentheses and some symbols. For example the parenthesis `<mo>(</mo>`, curly bracket `<mo>{</mo>` or three dots `<mo>...</mo>` are operators.
 
 The same character can be used in a different meaning based on the context. For example the comma can be part of a number, but in a sequence the comma is an operation: 
 ```html

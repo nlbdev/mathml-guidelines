@@ -115,7 +115,7 @@ The ellipsis or three dots &#x2026; are also an identifier `<mi>&#x2026;</mi>`.
 
 #### Prescripts and Postscripts, `<mmultiscripts>`
 
-### Tabular Math
+### Tabular Math (Sami)
 
 Math can be presented in a table-like structure and MathML has its own markup to handle this.
 
@@ -152,7 +152,7 @@ Using invisible operators makes the markup unambigious:
 
 (Can be deleted later) Source: [MathML 4 "Invisible operators"](https://www.w3.org/TR/mathml4/#presm_invisibleops).
 
-### Systems of Equations
+### Systems of Equations (Sami)
 
 ### Chemistry
 

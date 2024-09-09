@@ -123,9 +123,83 @@ If there is an actual data formatted in a publication, use the HTML element `<ta
 
 #### Table or Matrix, `<mtable>`
 
+Use a HTML `<table>` when the it's possible. It should be used with presenting data and when MathML isn't needed (as per section When To Use MathML). Example:
+
+![Example of an 3 times 3 HTML table with just numbers in the cells.](images/html-table.png)
+
+```html
+<table>
+    <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    </tr>
+    <tr>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    </tr>
+    <tr>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+    </tr>
+</table>
+```
+
+
+It is okay to mix HTML and MathML markup inside the HTML `<table>`. Example:
+
+![Example of an 3 times 3 HTML table with numbers and two fractions.](images/html-table-with-mathml.png)
+
+```html
+<table>
+    <tr>
+    <td>
+        <math>
+            <mfrac>
+                <mn>2</mn>
+                <mi>x</mi>
+            </mfrac>
+        </math>
+    </td>
+    <td>2</td>
+    <td>3</td>
+    </tr>
+    <tr>
+    <td>4</td>
+    <td>5</td>
+    <td>
+        <math>
+            <mfrac>
+                <mn>5</mn>
+                <mrow>
+                    <mn>2</mn>
+                    <mo>&#x2062;</mo>
+                    <mi>x</mi>
+                </mrow>
+            </mfrac>
+        </math>
+    </td>
+    </tr>
+    <tr>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+    </tr>
+</table>
+```
+
+
+
+If there is mathematical notation that can't be achieved with just an HTML `<table>`, then use MathML `<mtable>`.
+
+Usually, if there are large parentheses or brackets that need to wrap around a tabular structure, use MathML `<mtable>`. This can be a matrix or a determinant.
+
+
 For example a puzzle may be presented in a table ...
 
-For example a matrix is usually a table-like structure and the element `<mtable>` should be used.
+Matrices are usually a table-like structures and the element `<mtable>` should be used.
 
 #### Row in Table or Matrix, `<mtr>`
 

@@ -236,7 +236,7 @@ Some use cases for tabular math
 - determinants
 - piecewise functions
 - equation solving notation
-- groups of equations.
+- systems of equations.
 
 Inside the `<mtable>` element there are also the row element `<mtr>` and the (data) cell element `<mtd>`. They are equivalent to the HTML `<table>` element's row `<tr>` and cell `<td>` elements.
 

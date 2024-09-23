@@ -105,7 +105,31 @@ The ellipsis or three dots &#x2026; are also an identifier `<mi>&#x2026;</mi>`.
 
 #### `<mrow>`
 
-The `<mrow>` element is used to group mathematical expressions and parts of expressions. It is mainly used by the browser or reading software to render mathematics correctly.
+The `<mrow>` element is used to group mathematical expressions and parts of expressions. This is important when it comes to other elements, which can only have two children. Example of this would be the `<mfrac>` element:
+
+```html
+<math>
+    <mrow>
+      <mo>(</mo>
+      <mfrac>
+        <mrow>
+          <mn>1</mn>
+          <mo>+</mo>
+          <mfrac>
+            <mn>2</mn>
+            <mn>3</mn>
+          </mfrac>
+        </mrow>
+        <mn>4</mn>
+      </mfrac>
+      <mo>)</mo>
+    </mrow>
+</math>
+```
+
+The `<mrow>` has to be used to group the whole numerator expression, so that it is properly part of the `<mfrac>`.
+
+The `<mrow>` element is also used by the browser or reading software to render mathematics correctly. For example in the matrix markup, it is the reason the parentheses stretch to the sides of the matrix.
 
 #### `<mfrac>`
 

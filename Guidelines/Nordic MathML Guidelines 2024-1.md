@@ -361,11 +361,16 @@ Using invisible operators makes the markup unambigious:
 
 ### Systems of Equations (Sami)
 
-Example of a pair of equations:
+Systems of equations are tabular math. See the section Tabular math for more information.
+
+Example rendering and markup of a pair of equations:
+
+![A screenshot of pair of equations. The layout is tabular.](images/pair-of-equations.png)
 
 ```
 <math>
     <mrow>
+        <mo>{</mo>
         <mtable>
             <mtr>
                 <mtd> 
@@ -401,6 +406,113 @@ Example of a pair of equations:
             </mtr>
         </mtable>
     </mrow>
+</math>
+```
+
+### Equation solving notation (Sami)
+
+Equation solving notation is tabular math. See the section Tabular math for more information.
+
+The notation and layout is very similar to systems of equations, but equation solving usually has additional commentary about the equation in question.
+
+Example of rendering and mark up of equation solving notation:
+
+![A screenshot of two lines of equation solving. The first has a notation that means subtracting both sides by three. It is sort of to the side of the actual equations.](images/equation-solving.png)
+
+```html
+<math>
+    <mtable>
+        <mtr>
+            <mtd> 
+                <mrow>
+                    <mn>2</mn
+                    <mo>&#x2062;</mo>
+                    <mi>x</mi>
+                    <mo>+3</mo>
+                </mrow> 
+            </mtd>
+            <mtd>
+                <mo>=</mo>
+            </mtd>
+            <mtd>
+                <mn>7</mn>
+            </mtd>
+            <mtd>
+                <mrow>
+                    <mo>|</mo>
+                    <mo>|</mo>
+                </mrow>
+                <mo>&#x2212;</mo>
+                <mn>3</mn>
+        </mtr>
+        <mtr>
+            <mtd>
+                <mrow>
+                    <mn>2</mn>
+                    <mi>x</mi>
+                </mrow>
+            </mtd>
+            <mtd>
+                <mo>=</mo>
+            </mtd>
+            <mtd>
+                <mn>7</mn>
+                <mo>&#x2212;</mo>
+                <mn>3</mn>
+            </mtd>
+            <mtd><--- Empty cell ---></mtd>
+        </mtr>
+    </mtable>
+</math>
+```
+
+Notice that there is an empty cell underneath the $-3$ notation. This is so that the table cells line up properly.
+
+This kind of mark up can have commentary text instead of the mathematical notation. This should be marked up inside the MathML `<mtable>` as well.
+
+Example of the rendering and mark up of equation solving with commentary text:
+
+![A screenshot of two lines of equation solving. The first has commentary as text that reads 'substract 3 from both sides'. It is sort of to the side of the actual equations.](images/equation-solving-with-commentary.png)
+
+```html
+<math>
+    <mtable>
+        <mtr>
+            <mtd> 
+                <mrow>
+                    <mn>2</mn
+                    <mo>&#x2062;</mo>
+                    <mi>x</mi>
+                    <mo>+3</mo>
+                </mrow> 
+            </mtd>
+            <mtd>
+                <mo>=</mo>
+            </mtd>
+            <mtd>
+                <mn>7</mn>
+            </mtd>
+            <mtd>
+                <mtext>(substract 3 from both sides)</mtext>
+        </mtr>
+        <mtr>
+            <mtd>
+                <mrow>
+                    <mn>2</mn>
+                    <mi>x</mi>
+                </mrow>
+            </mtd>
+            <mtd>
+                <mo>=</mo>
+            </mtd>
+            <mtd>
+                <mn>7</mn>
+                <mo>&#x2212;</mo>
+                <mn>3</mn>
+            </mtd>
+            <mtd><--- Empty cell ---></mtd>
+        </mtr>
+    </mtable>
 </math>
 ```
 

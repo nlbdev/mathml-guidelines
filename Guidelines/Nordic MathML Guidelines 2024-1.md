@@ -157,36 +157,33 @@ Exampe of rendering a determinant when the `<mrow>` hasn't been used at all:
 
 Math can be presented in a table-like structure and MathML has its own markup to handle this.
 
-If there is an actual data formatted in a publication, use the HTML element `<table>` and not the MathML element `<mtable>`.
+#### When to use the regular HTML `<table>`
 
-#### Table or Matrix, `<mtable>`
-
-Use a HTML `<table>` when the it's possible. It should be used with presenting data and when MathML isn't needed (as per section When To Use MathML). Example:
+Use a HTML `<table>` when it's possible. It should be used with presenting data and when MathML isn't needed (as per section When To Use MathML). Example of a table where HTML `<table>` should be used:
 
 ![Example of an 3 times 3 HTML table with just numbers in the cells.](images/html-table.png)
 
 ```html
 <table>
     <tr>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
     </tr>
     <tr>
-    <td>4</td>
-    <td>5</td>
-    <td>6</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
     </tr>
     <tr>
-    <td>7</td>
-    <td>8</td>
-    <td>9</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
     </tr>
 </table>
 ```
 
-
-It is okay to mix HTML and MathML markup inside the HTML `<table>`. Example:
+You can mix HTML and MathML markup inside the HTML `<table>`. Example:
 
 ![Example of an 3 times 3 HTML table with numbers and two fractions.](images/html-table-with-mathml.png)
 
@@ -228,20 +225,54 @@ It is okay to mix HTML and MathML markup inside the HTML `<table>`. Example:
 </table>
 ```
 
-
+### When to use the MathML `<mtable>`
 
 If there is mathematical notation that can't be achieved with just an HTML `<table>`, then use MathML `<mtable>`.
 
-Usually, if there are large parentheses or brackets that need to wrap around a tabular structure, use MathML `<mtable>`. This can be a matrix or a determinant.
+Some use cases for tabular math
+- matrices
+- determinants
+- equation solving notation
+- groups of equations.
 
+Inside the `<mtable>` element there are also the row element `<mtr>` and the (data) cell element `<mtd>`. They are equivalent to the HTML `<table>` element's row `<tr>` and cell `<td>` elements.
 
-For example a puzzle may be presented in a table ...
+Example of the rendering and markup for a determinant:
 
-Matrices are usually a table-like structures and the element `<mtable>` should be used.
+![Example of an 2 times 2 determinant with long bars on either side.](images/determinant.png)
 
-#### Row in Table or Matrix, `<mtr>`
+```html
+<math>
+    <mrow>
+        <mo>|</mo>
+        <mtable>
+            <mtr>
+                <mtd>
+                    <mn>2</mn>
+                </mtd>
+                <mtd>
+                    <mn>1</mn>
+                </mtd>
+            </mtr>
+            <mtr>
+                <mtd>
+                    <mn>7</mn>
+                </mtd>
+                <mtd>
+                    <mn>5</mn>
+                </mtd>
+            </mtr>
+        </mtable>
+        <mo>|</mo>
+    </mrow>
+</math>
+```
 
-#### Entry in Table or Matrix, `<mtd>`
+Some notation might look like tabular math, but isn't. Some possibilities for confusion:
+- absolute value $|x+2|$
+- intervals $[5,15]$.
+
+If there is any confusion, you should reach out to the Ordering Agency.
 
 ##### Colspan and Rowspan
 

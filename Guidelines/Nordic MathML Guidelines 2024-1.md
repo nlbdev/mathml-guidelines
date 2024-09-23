@@ -361,6 +361,49 @@ Using invisible operators makes the markup unambigious:
 
 ### Systems of Equations (Sami)
 
+Example of a pair of equations:
+
+```
+<math>
+    <mrow>
+        <mtable>
+            <mtr>
+                <mtd> 
+                    <mrow> 
+                        <mi>x</mi>
+                        <mo>+</mo>
+                        <mi>y</mi>
+                    </mrow> 
+                </mtd>
+                <mtd>
+                    <mo>=</mo>
+                </mtd>
+                <mtd>
+                    <mn>7</mn>
+                </mtd>
+            </mtr>
+            <mtr>
+                <mtd>
+                    <mrow>
+                        <mn>2</mn>
+                        <mi>x</mi>
+                        <mo>+</mo>
+                        <mn>3</mn>
+                        <mi>y</mi>
+                    </mrow>
+                </mtd>
+                <mtd>
+                    <mo>=</mo>
+                </mtd>
+                <mtd>
+                    <mn>17</mn>
+                </mtd>
+            </mtr>
+        </mtable>
+    </mrow>
+</math>
+```
+
 ### Chemistry
 
 <!--- these are examples, must fill section with more -->

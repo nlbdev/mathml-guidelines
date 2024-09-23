@@ -271,7 +271,7 @@ Example of the rendering and markup for a determinant:
 </math>
 ```
 
-Example of a piecewise function rendering and markup:
+Example of a piecewise function. It is important that the different expressions line up with each other. Here is the rendering and markup:
 
 ![A screenshot of a piecewise function f of x with three lines of expressions. The different parts of the expressions are in the same columns for easy navigation.](images/piecewise-function.png)
 

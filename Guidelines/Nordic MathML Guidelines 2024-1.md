@@ -131,6 +131,14 @@ The `<mrow>` has to be used to group the whole numerator expression, so that it 
 
 The `<mrow>` element is also used by the browser or reading software to render mathematics correctly. For example in the matrix markup, it is the reason the parentheses stretch to the sides of the matrix.
 
+Example of rendering a determinant when the `<mrow>` has been used correctly:
+
+![Example of an 2 times 2 determinant with long bars on both sides.](images/determinant.png)
+
+Exampe of rendering a determinant when the `<mrow>` hasn't been used at all:
+
+![Example of an 2 times 2 determinant with short bars on both sides. The bars should be long.](images/determinant-no-mrow.png)
+
 #### `<mfrac>`
 
 #### `<msqrt>` and `<mroot>`

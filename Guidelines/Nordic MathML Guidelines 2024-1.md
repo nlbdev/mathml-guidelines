@@ -229,9 +229,12 @@ You can mix HTML and MathML markup inside the HTML `<table>`. Example:
 
 If there is mathematical notation that can't be achieved with just an HTML `<table>`, then use MathML `<mtable>`.
 
+Many times any mathematical notation, that spans multiple lines, should be marked up with the MathML `<mtable>`.
+
 Some use cases for tabular math
 - matrices
 - determinants
+- piecewise functions
 - equation solving notation
 - groups of equations.
 
@@ -264,6 +267,67 @@ Example of the rendering and markup for a determinant:
             </mtr>
         </mtable>
         <mo>|</mo>
+    </mrow>
+</math>
+```
+
+Example of a piecewise function rendering and markup:
+
+![A screenshot of a piecewise function f of x with three lines of expressions. The different parts of the expressions are in the same columns for easy navigation.](images/piecewise-function.png)
+
+```html
+<math>
+    <mi>f</mi>
+    <mrow>
+      <mo>(</mo>
+      <mi>x</mi>
+      <mo>)</mo>
+    </mrow>
+    <mo>=</mo>
+    <mrow>
+      <mo>{</mo>
+      <mtable>
+        <mtr>
+            <mtd>
+                <mo>&#x2212;</mo>
+                <mn>1</mn>
+            </mtd>
+            <mtd>
+                <mtext>if</mtext>
+            </mtd>
+            <mtd>
+                <mi>x</mi>
+                <mo>&lt;</mo>
+                <mn>0</mn>
+            </mtd>
+        </mtr>
+        <mtr>
+            <mtd>
+                <mn>0</mn>
+            </mtd>
+            <mtd>
+                <mtext>if</mtext>
+            </mtd>
+            <mtd>
+                <mi>x</mi>
+                <mo>=</mo>
+                <mn>0</mn>
+            </mtd>
+        </mtr>
+        <mtr>
+            <mtd>
+                <mn>1</mn>
+            </mtd>
+            <mtd>
+                <mtext>if</mtext>
+            </mtd>
+            <mtd>
+                <mi>x</mi>
+                <mo>&gt;</mo>
+                <mn>0</mn>
+            </mtd>
+        </mtr>
+      </mtable>
     </mrow>
 </math>
 ```

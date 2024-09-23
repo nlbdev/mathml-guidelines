@@ -348,7 +348,7 @@ If there is any confusion, you should reach out to the Ordering Agency.
 
 ### Invisible Operators
 
-Insivible operators are used when the meaning of an equation would be ambigious. For example $a(x+1)$ might be the function $a$ of $x+1$ or then it could be the multiplication between a and $(x+1)$.
+Insivible operators are used when the meaning of an equation would be ambigious. For example $a(x+1)$ might be the function $a$ of $x+1$ or then it could be the multiplication between $a$ and $(x+1)$.
 
 Using invisible operators makes the markup unambigious:
 

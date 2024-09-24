@@ -338,7 +338,7 @@ Some notation might look like tabular math, but isn't. Some possibilities for co
 
 If there is any confusion, you should reach out to the Ordering Agency.
 
-##### Attributes `rowspan` and `columnspan`
+#### Attributes `rowspan` and `columnspan`
 
 If the rows and columns need to be spanned across multiple cells, use the `rowspan` and `columnspan` attributes. They are equivalent to the HTML attributes `rowspan` and `colspan`.
 

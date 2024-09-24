@@ -338,7 +338,11 @@ Some notation might look like tabular math, but isn't. Some possibilities for co
 
 If there is any confusion, you should reach out to the Ordering Agency.
 
-##### Colspan and Rowspan
+##### Attributes `rowspan` and `columnspan`
+
+If the rows and columns need to be spanned across multiple cells, use the `rowspan` and `columnspan` attributes. They are equivalent to the HTML attributes `rowspan` and `colspan`.
+
+Notice that `columnspan` is written this way, because of backwards compatability for MathML 3.
 
 #### Labeled Row in Table or Matrix, `<mlabeledtr>` <!--- needs investigating -->
 

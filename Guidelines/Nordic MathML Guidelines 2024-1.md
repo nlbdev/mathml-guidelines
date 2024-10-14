@@ -153,7 +153,7 @@ Exampe of rendering a determinant when the `<mrow>` hasn't been used at all:
 
 #### Prescripts and Postscripts, `<mmultiscripts>`
 
-### Tabular Math (Sami)
+### Tabular Math
 
 Math can be presented in a table-like structure and MathML has its own markup to handle this.
 
@@ -363,7 +363,7 @@ Using invisible operators makes the markup unambigious:
 
 (Can be deleted later) Source: [MathML 4 "Invisible operators"](https://www.w3.org/TR/mathml4/#presm_invisibleops).
 
-### Systems of Equations (Sami)
+### Systems of Equations
 
 Systems of equations are tabular math. See the section Tabular math for more information.
 
@@ -413,7 +413,7 @@ Example rendering and markup of a pair of equations:
 </math>
 ```
 
-### Equation solving notation (Sami)
+### Equation solving notation
 
 Equation solving notation is tabular math. See the section Tabular math for more information.
 

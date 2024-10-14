@@ -73,7 +73,7 @@ For example using
 - period as a decimal separator: `<mn>2.74</mn>`
 - comma as a thousand separator: `<mn>19,050</mn>`.
 
-#### `<mo>` for operators
+#### `<mo>` for operators, fences, separators or accents
 
 The `<mo>` element is used to denote operators. The definition of an operator is loose and it can mean the actual mathematical operators plus (+), minus (&minus;), times (&centerdot;) and divided by (/).
 

@@ -371,7 +371,7 @@ Example rendering and markup of a pair of equations:
 
 ![A screenshot of pair of equations. The layout is tabular.](images/pair-of-equations.png)
 
-```
+```html
 <math>
     <mrow>
         <mo>{</mo>

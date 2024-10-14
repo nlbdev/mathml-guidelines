@@ -93,6 +93,17 @@ For example the sequence {1,2,3,...} written in MathML:
 <mo>}</mo>
 ```
 
+Some characters are written with accents. Such as the average <math><mover><mi>x</mi><mo>&#8254;</mo></mover></math> (read as "x bar"). Here the accent "bar" is also an operator. MathML code:
+
+```html
+<mover>
+    <mi>x</mi>
+    <mo>&#8254;</mo>
+</mover>
+```
+
+More about the usage of `<mover>` later on.
+
 #### `<mi>` element for variables and functions
 
 The `<mi>` element is used to denote variables and other identifiers. An identifier can be just one letter of symbol such as a variable $\alpha$ or $x$, but it can also be multiple letters such as function names: $\tan$, $\sin$ or $\log$.

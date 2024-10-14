@@ -79,7 +79,7 @@ The `<mo>` element is used to denote operators. The definition of an operator is
 
 In MathML it also means different parentheses. For example the parenthesis `<mo>(</mo>` and curly bracket `<mo>{</mo>`.
 
-The same character can be used in a different meaning based on the context. For example the comma can be part of a number, but in a sequence the comma is an operation.
+The same character can be used in a different meaning based on the context. For example the comma can be part of a number, but in a sequence the comma is an operator.
 
 For example the sequence {1,2,3,...} written in MathML:
 ```html

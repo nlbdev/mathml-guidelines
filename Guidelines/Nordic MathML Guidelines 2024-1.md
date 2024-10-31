@@ -537,7 +537,11 @@ Example of the rendering and mark up of equation solving with commentary text:
 
 ## Special Content Requirements
 
+Some content requires extra attention. A few recurring cases are listed below.
+
 ### Special Characters
+
+Using the correct Unicode characters is essential for a screen reader or braille display to be able to do its job.
 
 ### Typefaces
 

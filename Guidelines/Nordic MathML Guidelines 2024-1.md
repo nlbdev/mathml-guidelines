@@ -541,12 +541,16 @@ Some content requires extra attention. A few recurring cases are listed below.
 
 ### Special Characters
 
-Using the correct Unicode characters is essential for a screen reader or braille display to be able to do its job.
+Using the correct Unicode characters is essential for a screen reader or braille display to be able to do its job. Even if characters are visually similar, they will be read or displayed wrong if the OCR assigns the wrong Unicode entities.
+
+An example: greek letters such as <math><mi>γ</mi>, <mi>ρ</mi>, <mi>ω</mi></math>. Please refer to a [Unicode character tables](https://symbl.cc/en/unicode-table/). If in doubt about which characters to use, please contact the ordering agency.
 
 ### Typefaces
+
+The MathML core specification supports a multitude of options for adjusting the typeset, e.g. the `<mstyle>` element or making changes in the stylesheet. Please **do not use** any of these since conflicts may arise between the markup and the user agencies' own stylesheets. It is not necessary that mathematical expressions are typeset exactly as in the source.
 
 ### HTML Inside a Math Expression
 
 ## Resources
 
-Text
+* [Unicode character tables](https://symbl.cc/en/unicode-table/)

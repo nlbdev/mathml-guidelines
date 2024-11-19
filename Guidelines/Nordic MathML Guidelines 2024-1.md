@@ -551,6 +551,16 @@ The MathML core specification supports a multitude of options for adjusting the 
 
 ### HTML Inside a Math Expression
 
+In MathML expressions, certain characters need to be escaped to ensure they are correctly interpreted. These characters include:
+
+- & (ampersand) which should be written as \&amp;
+- \< (less than) which should be written as \&lt;
+- \> (greater than) which should be written as \&gt;
+- " (double quote) which should be written as \&quot;
+- ' (single quote) which should be written as \&apos;
+
+These escape sequences are necessary to avoid conflicts with the XML syntax used in MathML.
+
 ## Resources
 
 * [Unicode character tables](https://symbl.cc/en/unicode-table/)

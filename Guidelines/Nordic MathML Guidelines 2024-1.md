@@ -158,9 +158,121 @@ Exampe of rendering a determinant when the `<mrow>` hasn't been used at all:
 
 ### Script and Limit Schemata
 
+
 #### Subscripts and Superscripts, `<msub>`, `<msup>`, `<msubsup>`
 
+Superscript notation is marked up using `<msup>`. The first child element is the base, and the second child element is the superscript. For example, $x^2$ is marked up as follows:
+
+```html
+<math>
+    <msup>
+      <mi>x</mi>
+      <mn>2</mn>
+    </msup>
+</math>
+```
+
+Similarly, subscript notation is marked up using `<msub>`. The first child element is the base, and the second child element is the subscript. For example, $x_i$ is marked up as follows:
+
+```html
+<math>
+    <msub>
+      <mi>x</mi>
+      <mi>i</mi>
+    </msub>
+</math>
+```
+
+For marking up both super- and subscript on the same base, `<msubsup>` is used. The first child element is the base, the second child element is the subscript, and the third child element is the superscript. For example, $x_i^2$ is marked up as follows:
+
+```html
+<math>
+    <msubsup>
+      <mi>x</mi>
+      <mi>i</mi>
+      <mi>2</mi>
+    </msubsup>
+</math>
+```
+
+When a sub- or superscript contains multiple elements they are grouped together using `<mrow>`. For example, $x^{a+b}$ is marked up as follows:
+
+```html
+<math>
+    <msup>
+      <mi>x</mi>
+      <mrow>
+        <mi>a</mi>
+        <mo>+</mo>
+        <mi>b</mi>
+      </mrow>
+    </msup>
+</math>
+```
+
+The same principle applies for `<msubsup>`. Note also that the base can be grouped together using `<mrow>`. For example, $(x+y)^{a+b}_i$ is marked up as follows:
+
+```html
+<math>
+    <msubsup>
+      <mrow>
+        <mo>(</mo>
+        <mi>x</mi>
+        <mo>+</mo>
+        <mi>y</mi>
+        <mo>)</mo>
+      </mrow>
+      <mi>x</mi>
+      <mrow>
+        <mi>a</mi>
+        <mo>+</mo>
+        <mi>b</mi>
+      </mrow>
+    </msubsup>
+</math>
+```
+
 #### Underscripts and Overscripts, `<munder>`, `<mover>`, `<munderover>`
+
+Underscript notation is marked up using the element `<munder>`. The first child element is the base, and the second child element is the underscript. For example, a summation with a lower limit such as $\sum\limits_{i=1}$ is marked up as follows:
+
+```html
+<math>
+    <munder>
+      <mo>∑</mo>
+      <mrow>
+        <mi>i</mi>
+        <mo>=</mo>
+        <mi>1</mi>
+      </mrow>
+    </munder>
+</math>
+```
+
+Overscript notation is marked up using the element `<mover>`. The first child element is the base, and the second child element is the overscript. For example, a vector with an arrow above it ($\vec{x}$) is marked up as follows:
+
+```html
+<math>
+  <mover>
+    <mi>x</mi>
+    <mo>→</mo>
+  </mover>
+</math>
+```
+
+When both an underscript and overscript are needed, the element `<munderover>` is used. The first child element is the base, the second is the underscript and the third is the overscript. For example, an integral with lower and upper limits like $\int_a^b$ is marked up as follows:
+
+```html
+<math>
+    <munderover>
+      <mo>∫</mo>
+      <mi>a</mi>
+      <mi>b</mi>
+    </munderover>
+</math>
+```
+
+Note that `<mrow>` can be used to group together base, underscript or overscript respectively, as explained in [Subscripts and Superscripts](#Subscripts-and-Superscripts,-`<msub>`,-`<msup>`,-`<msubsup>`).
 
 #### Prescripts and Postscripts, `<mmultiscripts>`
 

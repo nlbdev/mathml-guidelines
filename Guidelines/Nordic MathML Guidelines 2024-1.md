@@ -276,6 +276,34 @@ Note that `<mrow>` can be used to group together base, underscript or overscript
 
 #### Prescripts and Postscripts, `<mmultiscripts>`
 
+Sometimes multiple prescripts and postscripts are attached to the same base, e.g. in tensor notation. To mark up this, the element `<mmultiscripts>` is used.  The `<mmultiscripts>` element contains the base element followed by pairs of subscript and superscript elements. The example below explains how.
+
+```html
+<math>
+  <mmultiscripts>
+    <mn>A</mn>
+    <mn>m</mn>
+    <mn>n</mn>
+    <mrow></mrow>
+    <mn>p</mn>
+    <mprescripts/>
+    <mn>q</mn>
+    <mrow></mrow>
+    <mn>s</mn>
+    <mn>t</mn>
+  </mmultiscripts>
+</math>
+```
+
+In the example, A is the base`<mprescripts>` marks where the prescripts begin. 
+- `<mi>A</mi>` is the base element.
+- `<mi>m</mi>` is a postscript subscript.
+- `<mi>n</mi>` and `<mi>p</mi>` are postscript superscripts.
+- `<mrow></mrow>` marks empty sub- or superscript positions.
+- `<mprescripts/>` indicates the start of prescripts.
+- `<mi>q</mi>` and `<mi>s</mi>` are postscript subscripts.
+- `<mi>t</mi>` is a postscript superscript.
+
 ### Tabular Math
 
 Math can be presented in a table-like structure and MathML has its own markup to handle this.

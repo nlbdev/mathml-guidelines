@@ -36,9 +36,11 @@ MathML markup is required to be use for chemistry content in general. However, i
 
 ### The Top-Level `<math>` Element
 
-### Namespace
+The `<math>` element is required to enclose all instances of MathML. It has several possible attributes, most of which are irrelevant in the Nordic production of accessible books. The relevant attributes are explained in the following subsections.
 
-### alt-attributes
+#### Namespace
+
+#### alt-attributes
 
 A `<math>` element has two different alt-attributes:
 1. `alttext`
@@ -48,7 +50,7 @@ The attribute `alttext` is used to provide an **alternative text** fallback for 
 
 The attribute `altimg` is used to provide an **alternative image** fallback for mathematical content. Usually this is just a screenshot of the rendered equation. It should used with caution, since MathML Core does not support the `altimg` attribute. It is also only a visual fallback, because you can't provide an alternative text for the fallback image. The Ordering Agency may decide if the attribute is used.
 
-### Block vs Inline
+#### Block vs Inline
 
 <!--- displaystyle="true" for block -->
 

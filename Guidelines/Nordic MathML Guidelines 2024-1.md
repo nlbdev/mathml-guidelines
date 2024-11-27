@@ -40,6 +40,10 @@ The `<math>` element is required to enclose all instances of MathML. It has seve
 
 #### Namespace
 
+The `<math>` element should use the namespace `http://www.w3.org/1998/Math/MathML`. This namespace is essential for ensuring that the MathML content is correctly interpreted by browsers and other tools that process MathML. To use this namespace, include it in the xmlns attribute: `<math xmlns="http://www.w3.org/1998/Math/MathML">`.
+
+Declaring the namespace in the `<math>` element replaces the deprecated practice of declaring the namespace globally for the document and using the prefix `m:` in all MathML elements.
+
 #### alt-attributes
 
 A `<math>` element has two different alt-attributes:

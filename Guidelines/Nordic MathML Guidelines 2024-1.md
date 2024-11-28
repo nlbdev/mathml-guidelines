@@ -30,7 +30,7 @@ Mathematical expressions, such as calculations, functions, equations etc., are i
 
 ### Chemistry
 
-MathML markup is required to be use for chemistry content in general. However, if the source material contains occasional occurrences of chemical substances written like CO<sub>2</sub> or H<sub>2</sub>O, and no other type of chemistry notation, these can be captured using standard HTML. If MathML is used for other types of chemistry notation, then MathML must be used for all chemistry content in order to ensure a consistent output for the reader.
+MathML markup is required to be use for chemistry content in general. However, if the source material contains occasional occurrences of chemical substances written like CO<sub>2</sub> or H<sub>2</sub>O, and no other type of chemistry notation, these can be captured using standard HTML. If MathML is used for other types of chemistry notation, then MathML must be used for all chemistry content in order to ensure a consistent output for the reader. How to mark up chemistry using MathML is explained here: [Chemistry](#chemistry-in-mathml).
 
 ## MathML Fundamentals
 
@@ -56,7 +56,46 @@ The attribute `altimg` is used to provide an **alternative image** fallback for 
 
 #### Block vs Inline
 
-<!--- displaystyle="true" for block -->
+Please note in the source material whether each instance of math content occurs within the flow of the surrounding text (i.e. _inline_), or as a separate _block_. This is controlled by the `display` attribute.
+
+When the `display` attribute is set to `block`, the mathematical content is rendered as a separate block, which is typically used for larger or more complex equations. This ensures that the equation stands out and is easier to read. Here is an example:
+
+```html
+<p>Here is a block equation:</p>
+<math display="block">
+  <mrow>
+    <mi>a</mi>
+    <mo>+</mo>
+    <mi>b</mi>
+    <mo>=</mo>
+    <mi>c</mi>
+  </mrow>
+</math>
+```
+
+which will render
+
+Here is a block equation:
+```math
+a + b = c
+```
+
+When the `display` attribute is set to `inline`, the mathematical content is rendered within the flow of the surrounding text. This is typically used for shorter mathematical expressions that need to be part of a sentence. Note that the default value of the display attribute is inline, meaning that it doesn't need to be declared for inline math.
+
+An example:
+
+```html
+<p>Here is an inline equation:
+<math>
+  <mi>x</mi>
+  <mo>=</mo>
+  <mn>5</mn>
+</math>.</p>
+```
+
+will display in the following manner:
+
+Here is an inline equation: $x = 5$.
 
 ### Presentation vs Content MathML
 
@@ -282,7 +321,7 @@ Note that `<mrow>` can be used to group together base, underscript or overscript
 
 #### Prescripts and Postscripts, `<mmultiscripts>`
 
-Sometimes multiple prescripts and postscripts are attached to the same base, e.g. in tensor notation. To mark up this, the element `<mmultiscripts>` is used.  The `<mmultiscripts>` element contains the base element followed by pairs of subscript and superscript elements. The example below explains how.
+Sometimes multiple prescripts and postscripts are attached to the same base, e.g. in tensor notation. To mark up this, the element `<mmultiscripts>` is used.  The `<mmultiscripts>` element contains the base element followed by pairs of subscript and superscript elements. The example of $_{qs}^{t}A_{m}^{np}$ below explains how. <!-- HELP I can't get this to render! /Tim-->
 
 ```html
 <math>
@@ -677,7 +716,59 @@ Example of the rendering and mark up of equation solving with commentary text:
 </math>
 ```
 
-### Chemistry
+### Chemistry {#chemistry-in-mathml} 
+<!-- I'm doing this ID thing wrong, aren't I? /Tim -->
+
+To mark up chemistry in MathML, follow these general principles.
+
+- Use `<mi>` to mark up each element in molecules. For example, $\text{NaCl}$ would be marked up as `<mi>Na</mi><mi>Cl</mi>`.
+- Use `<msub>` and `<msup>` to mark up subscripts and superscripts, respectively. For example, to represent $\text{H}_2\text{O}$:
+```html
+<math>
+  <mrow>
+    <msub>
+      <mi>H</mi>
+      <mn>2</mn>
+    </msub>
+    <mi>O</mi>
+  </mrow>
+</math>
+```
+- Use `<mmultiscripts>` to mark up isotopes. For example, to represent $^{14}\text{C}$:
+```html
+<math>
+  <mmultiscripts>
+    <mn>C</mn>
+    <mrow></mrow>
+    <mrow></mrow>
+    <mprescripts/>
+    <mrow></mrow>
+    <mn>14</mn>
+  </mmultiscripts>
+</math>
+```
+- Use `<mo>` for operators like arrows. For example, to represent a chemical reaction like $H_2 + O_2 \rightarrow H_2O$:
+```html
+<math>
+  <mrow>
+    <msub>
+      <mi>H</mi>
+      <mn>2</mn>
+    </msub>
+    <mo>+</mo>
+    <msub>
+      <mi>O</mi>
+      <mn>2</mn>
+    </msub>
+    <mo>&#x2192;</mo>
+    <msub>
+      <mi>H</mi>
+      <mn>2</mn>
+    </msub>
+    <mi>O</mi>
+  </mrow>
+</math>
+```
 
 <!--- these are examples, must fill section with more -->
 

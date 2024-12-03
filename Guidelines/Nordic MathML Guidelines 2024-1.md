@@ -99,7 +99,29 @@ Here is an inline equation: $x = 5$.
 
 ### Presentation vs Content MathML
 
-<!--- Next section is completely based on Presentation MathML -->
+The distinction between Presentation MathML and Content MathML lies in their purpose and how they represent mathematical expressions. Presentation MathML is generally required in production for simplicity. Content MathML, or a combined markup, should only be used if specific instructions to do so are given by the Ordering Agency.
+
+#### Presentation MathML
+
+Purpose: This focuses on how the math should be visually displayed, i.e., the presentation or formatting of the math. It defines how the symbols, operators, and structures should appear on the screen or in print.
+
+Structure: It's more concerned with the layout and appearance, such as how equations are aligned, how fractions are displayed, the spacing between symbols, and other visual aspects.
+
+Ideal for rendering math on a web page or document where the primary concern is how the equation looks visually (like in textbooks or websites).
+
+#### Content MathML
+
+Purpose: This focuses on the meaning and structure of the mathematical expression, rather than how it is displayed. Content MathML defines the logical or semantic structure of the math, making it easier for machines (like computers or search engines) to understand and process the equation.
+
+Structure: It is more abstract and focuses on the underlying mathematical concepts - like functions, variables, and operations - without worrying about visual appearance.
+
+Ideal for situations where the math needs to be processed, interpreted, or manipulated programmatically (e.g., for symbolic computation, automated theorem proving, or accessibility tools).
+
+#### Combined markup
+
+In practice, both types of MathML can be used together. A typical use case involves combining Presentation MathML for the visual rendering of an equation on the web, while Content MathML might be used behind the scenes to represent the mathematical logic for processing or to enhance accessibility (e.g., for screen readers). The presentation and content tags can be used in the same math element.
+
+For example, a webpage might use Presentation MathML to display an equation visually, while also using Content MathML to allow tools to interpret and interact with that equation programmatically.
 
 ## Basic Markup Structure
 

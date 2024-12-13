@@ -575,13 +575,6 @@ Large operators are such as summation $∑$, product $Π$ or integral $∫$. The
 When the large operator is written inline with the other text, you don't have to use any other attributes. Example:
 ![Text: The summation is inline with the text ∑ sub A as you can see.](images/summation-inline.png/)
 
-<blockquote><p>The summation is inline with the text <math>
-        <munder>
-          <mo>∑</mo>
-          <mi>A</mi>
-        </munder>
-      </math> as you can see.</p></blockquote>
-
 Mark up:
 ```html
 <p>The summation is inline with the text 
@@ -600,14 +593,6 @@ The rendering of the large operator changes when it is displayed as a block elem
 
 ![Here is an example of a summation as a block element: (on a new line with large) ∑ sub A.](images/summation-block.png)
 
-<blockquote>
-<p>Here is an example of a summation as a block element: <math display="block">
-        <munder>
-          <mo>∑</mo>
-          <mi>A</mi>
-        </munder></math></p>
-</blockquote>
-
 ```html
 <p>Here is an example of a summation as a block element: 
     <math display="block">
@@ -624,15 +609,6 @@ The rendering of the large operator changes when it is displayed as a block elem
 When the operator should be rendered inline, but as block element, it can be done by using the attribute `displaystyle="true"` on the encompassing element (such as `<munder>`). Example:
 
 ![Text: The summation is inline with the text with large ∑ sub A as you can see.](images/summation-inline-block.png)
-
-<blockquote>
-<p>The summation is inline with the text <math>
-            <munder displaystyle="true">
-              <mo>∑</mo>
-              <mi>A</mi>
-            </munder>
-          </math> as you can see.</p>
-</blockquote>
 
 ```html
 <p>The summation is inline with the text 

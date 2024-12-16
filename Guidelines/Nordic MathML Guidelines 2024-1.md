@@ -570,6 +570,10 @@ Notice that `columnspan` is written this way, because of backwards compatability
 
 Large operators are such as summation $∑$, product $Π$ or integral $∫$. These are marked up as mathematical operators `<mo>`. These operators are rendered differently based on when they are written in inline, block or inline-block.
 
+The rendering of the operator should follow how it is written in the original title, unless specified otherwise by the Ordering agency.
+
+Examples of different markup options below.
+
 #### Inline
 
 When the large operator is written inline with the other text, you don't have to use any other attributes. Example:
@@ -620,8 +624,6 @@ When the operator should be rendered inline, but as block element, it can be don
     </math> as you can see.
 </p>
 ```
-
-The rendering of the operator should follow how it is written in the original title, unless specified otherwise by the Ordering agency.
 
 ### Invisible Operators
 

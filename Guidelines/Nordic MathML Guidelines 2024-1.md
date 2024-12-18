@@ -115,7 +115,7 @@ Purpose: This focuses on the meaning and structure of the mathematical expressio
 
 Structure: It is more abstract and focuses on the underlying mathematical concepts - like functions, variables, and operations - without worrying about visual appearance.
 
-Ideal for situations where the math needs to be processed, interpreted, or manipulated programmatically (e.g., for symbolic computation, automated theorem proving, or accessibility tools).
+Ideal for situations where the math needs to be processed, interpreted, or manipulated programmatically for symbolic computation or automated theorem proving, for instance).
 
 #### Combined markup
 

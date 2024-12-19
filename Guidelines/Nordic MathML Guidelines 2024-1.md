@@ -177,7 +177,56 @@ The `<mi>` element is used to denote variables and other identifiers. An identif
 
 The ellipsis or three dots &#x2026; are also an identifier `<mi>&#x2026;</mi>`.
 
-#### `<mtext>`
+#### Text inside math expressions `<mtext>`
+
+The `<mtext>` element is used to denote text that doesn't have any explicit mathematical meaning. It could be used for notation, commentary or for examples in study books.
+
+Use as little of `<mtext>` as possible. When it is possible to use plain HTML for text, use it.
+
+Here is an example when `<mtext>` has been used in the wrong way:
+
+```html
+<p>After this lemma 
+    <math>[mathematical expression] 
+        <mtext> we can see that this holds for </mtext>
+    [more mathematical expressions]
+    </math>
+and it happens so.</p>
+```
+
+The explanatory text in between the math expressions is regular text and part of the paragraph and should instead be written like this:
+
+```html
+<p>After this lemma 
+    <math>[mathematical expression]</math>
+we can see that this holds for
+    <math>[more mathematical expression]</math>
+and it happens so.</p>
+```
+
+It should only be used in places where the visual rendering requires it. 
+
+Examples of this are in tabular math, such as equations solving, and what is seen often in study books: $\frac{\text{numerator}}{\text{denominator}}$.
+
+```html
+<math>
+    <mfrac>
+        <mtext>numerator</mtext>
+        <mtext>denominator</mtext>
+    </mfrac>
+</math>
+```
+
+When a notation has written words, then you should use `<mtext>` as well. For example in indeces $g_{weight}$. This would be marked up as
+
+```html
+<math>
+    <msub>
+        <mi>g</mi>
+        <mtext>weight</mtext>
+    </msub>
+</math>
+```
 
 ### General Layout Schemata
 

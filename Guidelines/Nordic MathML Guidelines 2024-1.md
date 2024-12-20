@@ -892,6 +892,35 @@ Example of the rendering and mark up of equation solving with commentary text:
 </math>
 ```
 
+### When to use images of mathematical content
+
+There are cases when all of the mathematical content can't be captured with just MathML. Example of such notation in a study book that can't be replicated with just MathML:
+
+![6 by 3 matrix with a arrow on the bottom of it pointing to the first column of the matrix with the text 'Left most nonzero column'.](images/matrix-with-notation-below.png)
+
+Here the arrow and text pointing to the first column can't be replicated. In these cases capture the mathematical content as an image and markup an image description below it. Capture the matrix in MathML inside the image description and extract the text.
+
+Example markup:
+
+```html
+<img src="..." alt="..." />
+<p>Image description. 
+    <math>...</math>
+</p>
+<p>Leftmost nonzero columns.</p>
+```
+
+Follow the Ordering agency's markup for image descriptions. The above is just an example.
+
+<div style="border: 1px solid black;">
+
+<span style="background-color: yellow;">How to handle?</span>
+
+Is this optional for the ordering agencies? Which parts are optional? Shoud we just reference EPUB guidelines, or leave it ambigious?
+
+</div>
+
+
 ### Chemistry {#chemistry-in-mathml} 
 <!-- I'm doing this ID thing wrong, aren't I? /Tim -->
 

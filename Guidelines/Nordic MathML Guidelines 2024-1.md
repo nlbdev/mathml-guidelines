@@ -613,6 +613,8 @@ Notice that `columnspan` is written this way, because of backwards compatability
 
 ### Labeling and referencing equations
 
+**Open question**: Should we have standard spacing with `<mspace>`?
+
 It is common to label equations and then reference these equations later on in mathematical text.
 
 Example markup for a equation with a label:
@@ -645,14 +647,6 @@ It is required that a labeled equation has
 - label in `<mtext>`.
 
 **Note** that the element `<mlabeledtr>` is not allowed to use for labeling.
-
-<div style="border: 1px solid black">
-
-<span style="background-color: yellow;">How to handle?</span>
-- MathJax doesn't reflow. Should we use a div-wrapper (compare to EPUB 2024 guidelines' table-wrapper)
-- Should we have standard spacing with `<mspace>`?
-
-</div>
 
 When the equation is later referenced, use the ID of the `<math>` element to link back to the equation. Example markup of referencing the equation:
 

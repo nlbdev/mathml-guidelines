@@ -635,7 +635,7 @@ Example markup for a block equation with a label:
         <mo>∘<!-- ∘ --></mo>
         <mi>c</mi>
         <mo>)</mo>
-        <mspace width="5em">
+        <mspace width="5em"/>
         <mtext id="label-1-3">(1.3)</mtext>
     </math>
 </div>

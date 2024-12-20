@@ -611,7 +611,7 @@ If the rows and columns need to be spanned across multiple cells, use the `rowsp
 
 Notice that `columnspan` is written this way, because of backwards compatability for MathML 3.
 
-#### Labeling and referencing equations
+### Labeling and referencing equations
 
 It is common to label equations and then reference these equations later on in mathematical text.
 

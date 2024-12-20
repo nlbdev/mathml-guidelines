@@ -56,12 +56,17 @@ The attribute `altimg` is used to provide an **alternative image** fallback for 
 
 #### Block vs Inline
 
-Please note in the source material whether each instance of math content occurs within the flow of the surrounding text (i.e. _inline_), or as a separate _block_. This is controlled by the `display` attribute.
+Mathematical expressions can appear either inline, as part of an ongoing sentence or paragraph, or as a stand-alone block, separate from the surrounding text. This is required to be correctly reflected in the MathML markup. The way in which a math expression is visually rendered is controlled by the `display` attribute of the `<math>` element. When the value of this attribute is set to `block`, the expression will be visually rendered as a separate block. The value `inline` will render the math expression as part of the paragraph it occurs in. Note that the default value of the `display` attribute is `inline`, meaning that it doesn't need to be declared for inline math.
 
-When the `display` attribute is set to `block`, the mathematical content is rendered as a separate block, which is typically used for larger or more complex equations. This ensures that the equation stands out and is easier to read. Here is an example:
+It is important to separate the visual rendering from the structural markup properties of the `<math>` element. Setting `display="block"` doesn't make the `<math>` element into a block element from a structural stand-point. In fact, in order to maintain consistency of which content model the content of the `<math>` element falls into, the `<math>` element must never be placed as a stand-alone block element. Even though, formally, it can be a block element of its own, it is required here to always place it within a paragraph element or something equivalent. Either a separate `<p>` for just the expression, or within an element containing surrounding text.
+
+Also note that even if a math expression is displayed as a separate block in the source material, and thus must have `display` set to `block`, it may still be part of an ongoing sentence, and must therefore not break this ongoing paragraph.
+
+Here are a couple of examples:
 
 ```html
 <p>Here is a block equation:</p>
+<p>
 <math display="block">
   <mrow>
     <mi>a</mi>
@@ -71,6 +76,7 @@ When the `display` attribute is set to `block`, the mathematical content is rend
     <mi>c</mi>
   </mrow>
 </math>
+</p>
 ```
 
 which will render

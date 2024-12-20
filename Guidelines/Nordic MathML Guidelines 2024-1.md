@@ -621,44 +621,46 @@ Notice that `columnspan` is written this way, because of backwards compatability
 
 It is common to label equations and then reference these equations later on in mathematical text.
 
-Example markup for a equation with a label:
+Example markup for a block equation with a label:
 
 ```html
-<math id="eq-1-3">
-    <mo>(</mo>
-    <mi>a</mi>
-    <mo>∘<!-- ∘ --></mo>
-    <mi>b</mi>
-    <mo>)</mo>
-    <mo>∘<!-- ∘ --></mo>
-    <mi>c</mi>
-    <mo>=</mo>
-    <mi>a</mi>
-    <mo>∘<!-- ∘ --></mo>
-    <mo>(</mo>
-    <mi>b</mi>
-    <mo>∘<!-- ∘ --></mo>
-    <mi>c</mi>
-    <mo>)</mo>
-    <mspace width="5em">
-    <mtext>(1.3)</mtext>
-</math>
+<div role="region" class="equation-wrapper" tabindex="0" aria-labelledby="label-1-3" id="eq-1-3">
+    <math display="block">
+        <mo>(</mo>
+        <mi>a</mi>
+        <mo>∘<!-- ∘ --></mo>
+        <mi>b</mi>
+        <mo>)</mo>
+        <mo>∘<!-- ∘ --></mo>
+        <mi>c</mi>
+        <mo>=</mo>
+        <mi>a</mi>
+        <mo>∘<!-- ∘ --></mo>
+        <mo>(</mo>
+        <mi>b</mi>
+        <mo>∘<!-- ∘ --></mo>
+        <mi>c</mi>
+        <mo>)</mo>
+        <mspace width="5em"/>
+        <mtext id="label-1-3">(1.3)</mtext>
+    </math>
+</div>
 ```
 
-It is required that a labeled equation has
-- an ID based on the `<mtext>` label and the ID is in the `<math>` element
-- `<mspace>` for spacing before the label
-- label in `<mtext>`.
+It is required that a labeled block equation has a `div` parent with the attributes
+- `class="equation-wrapper"`
+- `role="region"`
+- `tabindex="0"`
+- `aria-labelledby`, where referenced `id` is the `<mtext>` **label's** `id`.
+- `id` that is based on the `<mtext>` label
+
+These requirements also hold for the labeled block equation:
+- the `<math>` element has the attribute `display="block"`
+- the label of the equation is in the `<mtext>` element and the `<mtext>` element has an `id` that is based on the `<mtext>` content
+- `<mspace>` for spacing between the equationa and the label
+- label is in the `<mtext>`.
 
 **Note** that the element `<mlabeledtr>` is not allowed to use for labeling.
-
-<div style="border: 1px solid black">
-
-<span style="background-color: yellow;">How to handle?</span>
-- MathJax doesn't reflow. Should we use a div-wrapper (compare to EPUB 2024 guidelines' table-wrapper)
-- Should we have standard spacing with `<mspace>`?
-
-</div>
 
 When the equation is later referenced, use the ID of the `<math>` element to link back to the equation. Example markup of referencing the equation:
 
@@ -900,6 +902,8 @@ Example of the rendering and mark up of equation solving with commentary text:
 
 ### When to use images of mathematical content
 
+**Open questions**: Is this optional for the ordering agencies? Which parts are optional? Shoud we just reference EPUB guidelines, or leave it ambigious?
+
 There are cases when all of the mathematical content can't be captured with just MathML. Example of such notation in a study book that can't be replicated with just MathML:
 
 ![6 by 3 matrix with a arrow on the bottom of it pointing to the first column of the matrix with the text 'Left most nonzero column'.](images/matrix-with-notation-below.png)
@@ -917,14 +921,6 @@ Example markup:
 ```
 
 Follow the Ordering agency's markup for image descriptions. The above is just an example.
-
-<div style="border: 1px solid black;">
-
-<span style="background-color: yellow;">How to handle?</span>
-
-Is this optional for the ordering agencies? Which parts are optional? Shoud we just reference EPUB guidelines, or leave it ambigious?
-
-</div>
 
 
 ### Chemistry {#chemistry-in-mathml} 

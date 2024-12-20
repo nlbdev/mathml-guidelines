@@ -613,15 +613,13 @@ Notice that `columnspan` is written this way, because of backwards compatability
 
 ### Labeling and referencing equations
 
-**Open question**: Should we have standard spacing with `<mspace>`?
-
 It is common to label equations and then reference these equations later on in mathematical text.
 
 Example markup for a block equation with a label:
 
 ```html
-<div class="equation-wrapper">
-    <math display="block" id="eq-1-3">
+<div role="region" class="equation-wrapper" tabindex="0" aria-labelledby="label-1-3" id="eq-1-3">
+    <math display="block">
         <mo>(</mo>
         <mi>a</mi>
         <mo>∘<!-- ∘ --></mo>
@@ -638,17 +636,23 @@ Example markup for a block equation with a label:
         <mi>c</mi>
         <mo>)</mo>
         <mspace width="5em">
-        <mtext>(1.3)</mtext>
+        <mtext id="label-1-3">(1.3)</mtext>
     </math>
 </div>
 ```
 
-It is required that a labeled equation has
-- a `<div>` wrapper with the class `equation-wrapper`
-- the `<math>` has the attribute `display="block"`
-- an ID based on the `<mtext>` label and the ID is in the `<math>` element
-- `<mspace>` for spacing before the label
-- label in `<mtext>`.
+It is required that a labeled block equation has a `div` parent with the attributes
+- `class="equation-wrapper"`
+- `role="region"`
+- `tabindex="0"`
+- `aria-labelledby`, where referenced `id` is the `<mtext>` **label's** `id`.
+- `id` that is based on the `<mtext>` label
+
+These requirements also hold for the labeled block equation:
+- the `<math>` element has the attribute `display="block"`
+- the label of the equation is in the `<mtext>` element and the `<mtext>` element has an `id` that is based on the `<mtext>` content
+- `<mspace>` for spacing between the equationa and the label
+- label is in the `<mtext>`.
 
 **Note** that the element `<mlabeledtr>` is not allowed to use for labeling.
 

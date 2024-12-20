@@ -270,7 +270,7 @@ Exampe of rendering a determinant when the `<mrow>` hasn't been used at all:
 
 #### `<msqrt>` and `<mroot>`
 
-#### `<mpadded>` <!--- test with MathCAT first -->
+#### `<mpadded>` and `<mspace>` <!--- test with MathCAT first -->
 
 ### Script and Limit Schemata
 

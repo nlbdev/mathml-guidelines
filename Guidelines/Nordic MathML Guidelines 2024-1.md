@@ -95,7 +95,7 @@ a + b = c
 </math>.</p>
 ```
 
-will display in the following manner:
+This will display in the following manner:
 
 Here is an inline equation: $x = 5$.
 

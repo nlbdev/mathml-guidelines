@@ -611,7 +611,55 @@ If the rows and columns need to be spanned across multiple cells, use the `rowsp
 
 Notice that `columnspan` is written this way, because of backwards compatability for MathML 3.
 
-#### Labeled Row in Table or Matrix, `<mlabeledtr>` <!--- needs investigating -->
+#### Labeling and referencing equations
+
+It is common to label equations and then reference these equations later on in mathematical text.
+
+Example markup for a equation with a label:
+
+```html
+<math id="eq-1-3">
+    <mo>(</mo>
+    <mi>a</mi>
+    <mo>∘<!-- ∘ --></mo>
+    <mi>b</mi>
+    <mo>)</mo>
+    <mo>∘<!-- ∘ --></mo>
+    <mi>c</mi>
+    <mo>=</mo>
+    <mi>a</mi>
+    <mo>∘<!-- ∘ --></mo>
+    <mo>(</mo>
+    <mi>b</mi>
+    <mo>∘<!-- ∘ --></mo>
+    <mi>c</mi>
+    <mo>)</mo>
+    <mspace width="5em">
+    <mtext>(1.3)</mtext>
+</math>
+```
+
+It is required that a labeled equation has
+- an ID based on the `<mtext>` label and the ID is in the `<math>` element
+- `<mspace>` for spacing before the label
+- label in `<mtext>`.
+
+**Note** that the element `<mlabeledtr>` is not allowed to use for labeling.
+
+<div style="border: 1px solid black">
+
+<span style="background-color: yellow;">How to handle?</span>
+- MathJax doesn't reflow. Should we use a div-wrapper (compare to EPUB 2024 guidelines' table-wrapper)
+- Should we have standard spacing with `<mspace>`?
+
+</div>
+
+When the equation is later referenced, use the ID of the `<math>` element to link back to the equation. Example markup of referencing the equation:
+
+```html
+<p>Then it is derived from the equation <a href="#eq-1-3">(1.3)</a>.</p>
+```
+
 
 ## Context-Based Applications <!--- maybe change wording later -->
 

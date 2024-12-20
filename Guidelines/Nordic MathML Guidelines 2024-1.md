@@ -86,10 +86,6 @@ Here is a block equation:
 a + b = c
 ```
 
-When the `display` attribute is set to `inline`, the mathematical content is rendered within the flow of the surrounding text. This is typically used for shorter mathematical expressions that need to be part of a sentence. Note that the default value of the display attribute is inline, meaning that it doesn't need to be declared for inline math.
-
-An example:
-
 ```html
 <p>Here is an inline equation:
 <math>

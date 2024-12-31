@@ -232,7 +232,7 @@ When a notation has written words, then you should use `<mtext>` as well. For ex
 
 ### General Layout Schemata
 
-#### `<mrow>`
+#### Grouping mathematical expressions with `<mrow>`
 
 The `<mrow>` element is used to group mathematical expressions and parts of expressions. This is important when it comes to other elements, which can only have two children. Example of this would be the `<mfrac>` element:
 

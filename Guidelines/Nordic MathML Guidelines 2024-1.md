@@ -268,7 +268,59 @@ Exampe of rendering a determinant when the `<mrow>` hasn't been used at all:
 
 ![Example of an 2 times 2 determinant with short bars on both sides. The bars should be long.](images/determinant-no-mrow.png)
 
-#### `<mfrac>`
+#### Fractions, binomials and other similar layouts with `<mfrac>`
+
+The element `<mfrac>` is used for fractions, but also for other mathematical expressions that have the same visual layout such as the binomial.
+
+Example mark up for a fraction:
+```html
+<math>
+    <mfrac>
+        <mn>5</mn>
+        <mn>2</mn>
+    </mfrac>
+</math>
+```
+
+The fraction rendered: <math>
+    <mfrac>
+        <mn>5</mn>
+        <mn>2</mn>
+    </mfrac>
+</math>.
+
+
+Example mark up for a binomial:
+```html
+<math>
+  <mrow>
+    <mo>(</mo>
+    <mfrac linethickness="0">
+      <mi>n</mi>
+      <mi>k</mi>
+    </mfrac>
+    <mo>)</mo>
+  </mrow>
+</math>
+```
+
+The binomial rendered: <math>
+  <mrow>
+    <mo>(</mo>
+    <mfrac linethickness="0">
+      <mi>n</mi>
+      <mi>k</mi>
+    </mfrac>
+    <mo>)</mo>
+  </mrow>
+</math>.
+
+**Notice** that for the binomial to be rendered correctly you need to use
+- the `<mrow>` to group the expression
+- the `<mfrac>` element with the attribute `linethickness="0"`.
+
+The `linethickness="0"` attribute doesn't render the horizontal line for fractions, so the visual rendering is correct. It is also used by assistive technology to differentiate fractions from binomials.
+
 
 #### `<msqrt>` and `<mroot>`
 

@@ -44,7 +44,11 @@ The `<math>` element should use the namespace `http://www.w3.org/1998/Math/MathM
 
 Declaring the namespace in the `<math>` element replaces the deprecated practice of declaring the namespace globally for the document and using the prefix `m:` in all MathML elements.
 
-#### alt-attributes
+#### MathML `alttext` and `altimg` attributes
+
+Don't use either of the attributes. The support for the attributes is not good, while support for MathML has improved.
+
+<!-- Sami: I didn't have the heart to straight up delete this if we want to return to discussing this, so it is just commented out.
 
 A `<math>` element has two different alt-attributes:
 1. `alttext`
@@ -52,7 +56,7 @@ A `<math>` element has two different alt-attributes:
 
 The attribute `alttext` is used to provide an **alternative text** fallback for mathematical content when a reading system doesn't support MathML markup. Usually it is ASCIIMath or LaTeX as these formats are well known in STEM subjects. The Ordering Agency may decide which kind of content should be in the `alttext` attribute.
 
-The attribute `altimg` is used to provide an **alternative image** fallback for mathematical content. Usually this is just a screenshot of the rendered equation. It should be used with caution, since MathML Core does not support the `altimg` attribute. It is also only a visual fallback, because you can't provide an alternative text for the fallback image. The Ordering Agency may decide if the attribute is used.
+The attribute `altimg` is used to provide an **alternative image** fallback for mathematical content. Usually this is just a screenshot of the rendered equation. It should be used with caution, since MathML Core does not support the `altimg` attribute. It is also only a visual fallback, because you can't provide an alternative text for the fallback image. The Ordering Agency may decide if the attribute is used. -->
 
 #### Block vs Inline
 

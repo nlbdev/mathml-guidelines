@@ -954,26 +954,29 @@ Example of the rendering and mark up of equation solving with commentary text:
 
 ### When to use images of mathematical content
 
-**Open questions**: Is this optional for the ordering agencies? Which parts are optional? Shoud we just reference EPUB guidelines, or leave it ambigious?
-
 There are cases when all of the mathematical content can't be captured with just MathML. Example of such notation in a study book that can't be replicated with just MathML:
 
 ![6 by 3 matrix with a arrow on the bottom of it pointing to the first column of the matrix with the text 'Left most nonzero column'.](images/matrix-with-notation-below.png)
 
-Here the arrow and text pointing to the first column can't be replicated. In these cases capture the mathematical content as an image and markup an image description below it. Capture the matrix in MathML inside the image description and extract the text.
+Here the arrow and text pointing to the first column can't be replicated. In these cases capture the mathematical content as an image and markup as an image description below it. Capture the matrix in MathML inside the image description and extract the text.
 
-Example markup:
+Use the markup that is specified in the [Nordic Guidelines for Production of Accessible EPUB 3 section "text extraction from images"](https://github.com/nlbdev/nordic-accessible-epub-guidelines/blob/main/guidelines/guidelines.md#text-extraction-from-images).
+
+Example markup based on this:
 
 ```html
-<img src="..." alt="..." />
-<p>Image description. 
-    <math>...</math>
-</p>
-<p>Leftmost nonzero columns.</p>
+<figure class="image">
+	<img src="images/X41001A-011.jpg" alt="equation" aria-describedby="desc011" />
+	<aside class="fig-desc" id="desc011">
+		<p>
+            <math>...</math>
+        </p>
+        <p>Leftmost nonzero columns.</p>
+	</aside>
+</figure>
 ```
 
-Follow the Ordering agency's markup for image descriptions. The above is just an example.
-
+**Note** that the `alt` attribute has the value `equation`.
 
 ### Chemistry {#chemistry-in-mathml} 
 <!-- I'm doing this ID thing wrong, aren't I? /Tim -->

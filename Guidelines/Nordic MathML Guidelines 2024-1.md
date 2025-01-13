@@ -69,7 +69,7 @@ Also note that even if a math expression is displayed as a separate block in the
 Here are a couple of examples:
 
 ```html
-<p>Here is a block equation:</p>
+<p>Text preceding a stand-alone block of math content.</p>
 <p>
 <math display="block">
   <mrow>
@@ -85,7 +85,7 @@ Here are a couple of examples:
 
 which will render
 
-Here is a block equation:
+Text preceding a stand-alone block of math content.
 ```math
 a + b = c
 ```

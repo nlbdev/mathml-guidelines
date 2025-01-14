@@ -30,7 +30,7 @@ Mathematical expressions, such as calculations, functions, equations etc., are i
 
 ### Chemistry
 
-MathML markup is required to be use for chemistry content in general. However, if the source material contains occasional occurrences of chemical substances written like CO<sub>2</sub> or H<sub>2</sub>O, and no other type of chemistry notation, these can be captured using standard HTML. If MathML is used for other types of chemistry notation, then MathML must be used for all chemistry content in order to ensure a consistent output for the reader. How to mark up chemistry using MathML is explained here: [Chemistry](#chemistry-in-mathml).
+MathML markup is required to be used for chemistry content in general. However, if the source material contains occasional occurrences of chemical substances written like CO<sub>2</sub> or H<sub>2</sub>O, and no other type of chemistry notation, these can be captured using standard HTML. If MathML is used for other types of chemistry notation, then MathML must be used for all chemistry content in order to ensure a consistent output for the reader. How to mark up chemistry using MathML is explained here: [Chemistry](#chemistry-in-mathml).
 
 ## MathML Fundamentals
 
@@ -85,7 +85,11 @@ Here are a couple of examples:
 
 which will render
 
+<<<<<<< Updated upstream
 Text preceding a stand-alone block of math content.
+=======
+Here is a block equation.
+>>>>>>> Stashed changes
 ```math
 a + b = c
 ```
@@ -102,6 +106,13 @@ a + b = c
 This will display in the following manner:
 
 Here is an inline equation: $x = 5$.
+
+For inline math, be careful to preserve whitespace around the expression. Compare the two following examples:
+
+1. The variable`<math>x</math>`is defined to be 5.
+2. The variable `<math>x</math>` is defined to be 5.
+
+In example 1, the spaces around the math expression are missing, which will affect the visual rendering. It should remain the same as in the original title.
 
 ### Presentation vs Content MathML
 
@@ -185,7 +196,7 @@ The ellipsis or three dots &#x2026; are also an identifier `<mi>&#x2026;</mi>`.
 
 #### Text inside math expressions `<mtext>`
 
-The `<mtext>` element is used to denote text that doesn't have any explicit mathematical meaning. It could be used for notation, commentary or for examples in study books.
+The `<mtext>` element is used to mark up text that doesn't have any explicit mathematical meaning. It can be used for notation, commentary or for examples in study books.
 
 Use as little of `<mtext>` as possible. When it is possible to use plain HTML for text, use it.
 
@@ -233,6 +244,10 @@ When a notation has written words, then you should use `<mtext>` as well. For ex
     </msub>
 </math>
 ```
+
+Note that some automatic MathML markup engines causes text in equations to be captured with each letter inside its own `<mi>` element. Please avoid this and use `<mtext>` instead as examplified above.
+
+The attribute `style` can be used to format text in the `<text>` element to reflect the source.
 
 ### General Layout Schemata
 
@@ -797,7 +812,7 @@ Using invisible operators makes the markup unambigious:
 
 ### Systems of Equations
 
-Systems of equations are tabular math. See the section Tabular math for more information.
+Systems of equations are tabular math. See the section Tabular math for more information. 
 
 Example rendering and markup of a pair of equations:
 
@@ -952,6 +967,7 @@ Example of the rendering and mark up of equation solving with commentary text:
 </math>
 ```
 
+<<<<<<< Updated upstream
 ### When to use images of mathematical content
 
 There are cases when all of the mathematical content can't be captured with just MathML. Example of such notation in a study book that can't be replicated with just MathML:
@@ -980,6 +996,9 @@ Example markup based on this:
 
 ### Chemistry {#chemistry-in-mathml} 
 <!-- I'm doing this ID thing wrong, aren't I? /Tim -->
+=======
+### Chemistry in MathML
+>>>>>>> Stashed changes
 
 To mark up chemistry in MathML, follow these general principles.
 
@@ -1042,11 +1061,38 @@ Some content requires extra attention. A few recurring cases are listed below.
 
 Using the correct Unicode characters is essential for a screen reader or braille display to be able to do its job. Even if characters are visually similar, they will be read or displayed wrong if the OCR assigns the wrong Unicode entities.
 
-An example: greek letters such as <math><mi>γ</mi>, <mi>ρ</mi>, <mi>ω</mi></math>. Please refer to a [Unicode character tables](https://symbl.cc/en/unicode-table/). If in doubt about which characters to use, please contact the ordering agency.
+A few examples of visually similar characters:
+* Greek letter γ and latin y.
+* Greek letter ρ and latin p.
+* Greek letter ω and latin w.
+* ′ (prime) and ' (apostrophe).
+* − (minus) and - (hyphen).
+* ⅆ for derivative and ordinary d.
 
-### Typefaces
+Please refer to a [Unicode character table](https://symbl.cc/en/unicode-table/). If in doubt about which characters to use, please contact the ordering agency.
 
-The MathML core specification supports a multitude of options for adjusting the typeset, e.g. the `<mstyle>` element or making changes in the stylesheet. Please **do not use** any of these since conflicts may arise between the markup and the user agencies' own stylesheets. It is not necessary that mathematical expressions are typeset exactly as in the source.
+### Typefaces and style
+
+The MathML core specification supports a multitude of options for adjusting the typeset, e.g. the `<mstyle>` element or making changes in the stylesheet. Please **do not use** any of these since conflicts may arise between the markup and the user agencies' own stylesheets. It is not necessary that mathematical expressions are typeset exactly as in the source. A few cases, however, need to be taken into consideration.
+
+#### Embellishments
+
+Lines, arrows and other embellishments on variables are often used to denote vectors or other structures which carry meaning. Therefore `<mover>`, `<munder>` or the like should be used to mark up these. For example, the vector $\overline{x}$ should be marked up as follows:
+
+```html
+<math>
+  <mover>
+    <mi>z</mi>
+    <mo accent='false'>¯</mo>
+  </mover>
+</math>
+```
+
+ Note that the attribute `accent` should be set to false in order to specify that the embellishment is not an accent. Avoid using the `style` attribute for these purposes as it will only renderer visually and not be noticed by a screen reader.
+
+ #### Typographical emphasis
+
+ Typeface of letters will default to italics when using MathML, therefore it is not necessary to specify this in the markup. For bold, non-italic typeface, use the attribute `mathvariant` set to bold in the corresponding `<mo>` or `<mi>` element.
 
 ### HTML Inside a Math Expression
 
@@ -1056,10 +1102,16 @@ In MathML expressions, certain characters need to be escaped to ensure they are 
 - \< (less than) which should be written as \&lt;
 - \> (greater than) which should be written as \&gt;
 - " (double quote) which should be written as \&quot;
-- ' (single quote) which should be written as \&apos;
+- ' (single quote) which should be written as \&apos; (not to be confused with ′ (prime), see [Special Characters](#special-characters))
 
 These escape sequences are necessary to avoid conflicts with the XML syntax used in MathML.
+
+## Quality assurance
+
+Automatic tools for MathML markup have tendencies to produce errors. A procedure for quality assurance should include searching for instances where the markup deviates from these guidelines. In addition to the Nordic EPUB validator, we recommend using [this online tool developed by Jan Martin Kvile at Statped](https://kvile.com/blind/kvalidator/). The searches can be modified by clicking the desired list item and editing the corresponding xpath query.
+
 
 ## Resources
 
 * [Unicode character tables](https://symbl.cc/en/unicode-table/)
+* [MathML Validator](https://kvile.com/blind/kvalidator/)

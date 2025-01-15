@@ -110,6 +110,10 @@ For inline math, be careful to preserve whitespace around the expression. Compar
 
 In example 1, the spaces around the math expression are missing, which will affect the visual rendering. It should remain the same as in the original title.
 
+### Semantics and Annotations
+
+MathML expressions can be provided with annotations in various forms. In order to associate an expression with an annotation the expression itself must be wrapped in a `<semantics>` element, placed as the first child element of the `<math>` element.  Subsequent `<annotation>` or `<annotation-xml>` elements then contain the annotation. This markup must not be used unless specific instructions are given by the Ordering Agency. In general, none of the `<semantics>`, `<annotation>` or `<annotation-xml>` elements are to be used.  
+
 ### Presentation vs Content MathML
 
 The distinction between Presentation MathML and Content MathML lies in their purpose and how they represent mathematical expressions. Presentation MathML is generally required in production for simplicity. Content MathML, or a combined markup, should only be used if specific instructions to do so are given by the Ordering Agency.

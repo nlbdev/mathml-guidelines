@@ -85,11 +85,7 @@ Here are a couple of examples:
 
 which will render
 
-<<<<<<< Updated upstream
 Text preceding a stand-alone block of math content.
-=======
-Here is a block equation.
->>>>>>> Stashed changes
 ```math
 a + b = c
 ```

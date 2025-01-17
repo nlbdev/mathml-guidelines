@@ -247,7 +247,7 @@ When a notation has written words, then you should use `<mtext>` as well. For ex
 
 Note that some automatic MathML markup engines causes text in equations to be captured with each letter inside its own `<mi>` element. Please avoid this and use `<mtext>` instead as examplified above.
 
-The attribute `style` can be used to format text in the `<text>` element to reflect the source.
+The attribute `style` can be used to format text in the `<mtext>` element to reflect the source. Also make sure to include whitespace when necessary inside the `<mtext>` markup so that the display matches the source.
 
 ### General Layout Schemata
 

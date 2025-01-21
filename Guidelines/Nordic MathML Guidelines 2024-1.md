@@ -188,11 +188,33 @@ Some characters are written with accents. Such as the average <math><mover><mi>x
 
 More about the usage of `<mover>` later on.
 
-#### `<mi>` element for variables and functions
+#### `<mi>` element for variables, functions and units
 
-The `<mi>` element is used to denote variables and other identifiers. An identifier can be just one letter of symbol such as a variable $\alpha$ or $x$, but it can also be multiple letters such as function names: $\tan$, $\sin$ or $\log$.
+The `<mi>` element is used to denote functions, variables, units and other identifiers. An identifier can be just one letter of symbol such as a variable `<mi>α</mi>` or `<mi>x</mi>`.
 
-The ellipsis or three dots &#x2026; are also an identifier `<mi>&#x2026;</mi>`.
+Functions and function names are identifiers: `<mi>tan</mi>`, `<mi>sin</mi>` or `<mi>log</mi>`.
+
+Units are identifiers. For example the meter `<mi>m</mi>` or second `<mi>s</mi>`. When units are written using multiple letters, you should mark them up as a single element: `<mi>Nm</mi>`. Depending on the layout of the unit, you have to use other MathML elements to markup a single unit such as meters per second to the second: 
+
+```html
+<mfrac>
+    <mi>m</mi>
+    <msup>
+        <mi>s</mi>
+        <mn>2</mn>
+    </msup>
+</mfrac>
+```
+
+Which renders as <mfrac>
+    <mi>m</mi>
+    <msup>
+        <mi>s</mi>
+        <mn>2</mn>
+    </msup>
+</mfrac>.
+
+The ellipsis or three dots &#x2026; is also an identifier `<mi>&#x2026;</mi>`.
 
 #### Text inside math expressions `<mtext>`
 

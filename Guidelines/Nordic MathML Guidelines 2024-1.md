@@ -836,10 +836,10 @@ These requirements also hold for the labeled block equation:
 
 **Note** that the element `<mlabeledtr>` is not allowed to use for labeling.
 
-When the equation is later referenced, use the ID of the `<math>` element to link back to the equation. Example markup of referencing the equation:
+When the equation is later referenced, use the ID of the `<math>` element to link back to the equation. Also use the `role="doc-backlink"` attribute. Example markup of referencing the equation:
 
 ```html
-<p>Then it is derived from the equation <a href="#eq-1-3">(1.3)</a>.</p>
+<p>Then it is derived from the equation <a role="doc-backlink" href="#eq-1-3">(1.3)</a>.</p>
 ```
 
 

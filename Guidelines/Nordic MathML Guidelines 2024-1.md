@@ -271,6 +271,91 @@ Note that some automatic MathML markup engines causes text in equations to be ca
 
 The attribute `style` can be used to format text in the `<mtext>` element to reflect the source. Also make sure to include whitespace when necessary inside the `<mtext>` markup so that the display matches the source.
 
+##### Punctuation
+
+Since mathematical expressions are usually part of sentences (as is described in block vs inline) a punctuation mark such as a period, comma, exclamation mark, question mark and so on can be at the end of a mathematical expression.
+
+For the visual layout of the mathematical expression to be correct, the punctuation has to be included inside the `<math>` element. Example of a sentence ending mathematical expression:
+
+```html
+<p>
+   This can be seen from the quadratic formula
+   <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mi>x</mi>
+      <mo>=</mo>
+      <mfrac>
+         <mrow>
+            <mrow>
+               <mo>−</mo>
+               <mi>b</mi>
+            </mrow>
+            <mo>±</mo>
+            <msqrt>
+               <mrow>
+                  <msup>
+                     <mi>b</mi>
+                     <mn>2</mn>
+                  </msup>
+                  <mrow>
+                     <mo>−</mo>
+                     <mn>4</mn>
+                     <mo>⁢</mo>
+                     <mi>a</mi>
+                     <mo>⁢</mo>
+                     <mi>c</mi>
+                  </mrow>
+               </mrow>
+            </msqrt>
+         </mrow>
+         <mrow>
+            <mn>2</mn>
+            <mo>⁢</mo>
+            <mi>a</mi>
+         </mrow>
+      </mfrac>
+      <mtext>.</mtext>
+   </math>
+</p>
+```
+
+**Note!** If the mathematical expression also ends in text, the punctuation should be wrapped in its own `<mtext>` element and be a sibling to the other text node. Example mark up for this:
+
+```html
+<p>
+   If we have an equation such as
+   <math display="block">
+      <mo>(</mo>
+      <mi>a</mi>
+      <mo>
+         ∘<!-- ∘ -->
+      </mo>
+      <mi>b</mi>
+      <mo>)</mo>
+      <mo>
+         ∘<!-- ∘ -->
+      </mo>
+      <mi>c</mi>
+      <mo>=</mo>
+      <mi>a</mi>
+      <mo>
+         ∘<!-- ∘ -->
+      </mo>
+      <mo>(</mo>
+      <mi>b</mi>
+      <mo>
+         ∘<!-- ∘ -->
+      </mo>
+      <mi>c</mi>
+      <mo>)</mo>
+      <mspace width="5em"></mspace>
+      <mtext>(1.3)</mtext>
+      <mtext>.</mtext>
+   </math>
+</p>
+
+
+```
+
 ### General Layout Schemata
 
 #### Grouping mathematical expressions with `<mrow>`

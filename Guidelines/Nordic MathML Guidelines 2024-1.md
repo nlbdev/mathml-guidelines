@@ -1074,7 +1074,6 @@ Example of the rendering and mark up of equation solving with commentary text:
 </math>
 ```
 
-<<<<<<< Updated upstream
 ### When to use images of mathematical content
 
 There are cases when all of the mathematical content can't be captured with just MathML. Example of such notation in a study book that can't be replicated with just MathML:
@@ -1105,7 +1104,6 @@ Example markup based on this:
 <!-- I'm doing this ID thing wrong, aren't I? /Tim -->
 =======
 ### Chemistry in MathML
->>>>>>> Stashed changes
 
 To mark up chemistry in MathML, follow these general principles.
 

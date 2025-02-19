@@ -842,6 +842,28 @@ When the equation is later referenced, use the ID of the `<math>` element to lin
 <p>Then it is derived from the equation <a role="doc-backlink" href="#eq-1-3">(1.3)</a>.</p>
 ```
 
+### Footnotes in mathematical expressions
+
+IF there are footnotes with the mathematical expressions, then try to write the footnote outside of the `<math>` element.
+
+Example:
+```html
+<math>
+    [mathematical expression]
+</math>
+<p>This is a footnote about the mathemtical expression.</p>
+```
+
+If this can't be avoided, use `<mtext>` to mark up the footnote inside `<math>` element.
+
+```html
+<math>
+    [mathematical expression]
+    <mtext>This is a footnote about the mathemtical expression.</mtext>
+</math>
+```
+
+The ordering agency may have more instruction for the footnotes in the editing instructions.
 
 ## Context-Based Applications <!--- maybe change wording later -->
 

@@ -1195,11 +1195,11 @@ Lines, arrows and other embellishments on variables are often used to denote vec
 </math>
 ```
 
- Note that the attribute `accent` should be set to false in order to specify that the embellishment is not an accent. Avoid using the `style` attribute for these purposes as it will only renderer visually and not be noticed by a screen reader.
+Note that the attribute `accent` should be set to false in order to specify that the embellishment is not an accent. Avoid using the `style` attribute for these purposes as it will only renderer visually and not be noticed by a screen reader.
 
- #### Typographical emphasis
+#### Typographical emphasis
 
- Typeface of letters will default to italics when using MathML, therefore it is not necessary to specify this in the markup. For bold, non-italic typeface, use the attribute `mathvariant` set to bold in the corresponding `<mo>` or `<mi>` element.
+Typeface of letters will default to italics when using MathML, therefore it is not necessary to specify this in the markup. For bold, non-italic typeface, use the attribute `mathvariant` set to bold in the corresponding `<mo>` or `<mi>` element.
 
 ### HTML Inside a Math Expression
 

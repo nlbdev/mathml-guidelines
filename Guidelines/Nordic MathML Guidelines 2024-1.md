@@ -1176,6 +1176,70 @@ A few examples of visually similar characters:
 
 Please refer to a [Unicode character table](https://symbl.cc/en/unicode-table/). If in doubt about which characters to use, please contact the ordering agency.
 
+### Special markup
+
+There are some country-specific mathematical notation that should be taken into account in the MathML markup.
+
+#### Multiplication and division of fractions
+
+This notation means that the numerator and the denominator are multiplied by the same number:
+
+![On the left side of the fraction 3/5 is a superscript '2)'.](images/fraction-multiplication-notation.png)
+
+In MathML it is marked up as
+```html
+<math>
+<mmultiscripts>
+	<mfrac>
+    <mn>3</mn>
+    <mn>5</mn>
+    </mfrac> <!-- base expression -->
+    <mrow></mrow> <!-- empty post-sub-script -->
+    <mrow></mrow> <!-- empty post-sup-script -->
+    <mprescripts/>
+    <mrow></mrow>  <!-- empty pre-sub-script -->
+    <mrow>
+      <mn>2</mn>
+      <mo>)</mo>
+    </mrow> <!-- pre-sup-script -->
+</mmultiscripts>
+</math>
+```
+
+Then the respective division notation:
+
+![The fraction 6/9 has a superscript '(3' on the right side of the fraction.](images/fraction-division-notation.png)
+
+Its mark up in MathML:
+```html
+<math>
+<mmultiscripts>
+	<mfrac>
+    <mn>6</mn>
+    <mn>9</mn>
+    </mfrac> <!-- base expression -->
+    <mrow></mrow> <!-- empty post-sub-script -->
+    <mrow>
+      <mo>(</mo>
+      <mn>3</mn>
+    </mrow> <!-- post-sup-script -->
+    <mprescripts/>
+    <mrow></mrow> <!-- empty pre-sub-script -->
+    <mrow></mrow> <!-- empty pre-sup-script -->
+</mmultiscripts>
+</math>
+```
+
+<!-- Commenting this out, since I'm not totally sure how to implement this /Sami
+
+#### Substitution in integral notation
+
+A slash is used in some countries to denote substitution:
+
+![Integral notation with a big slash and sub a and sup b with the function F(x).](images/integral-substitution.png)
+
+Use the Unicode character ⧸ ("big solidus", U+29F8) for the slash in the integral substitution. It is also important to have the attribute `intent="substitution"`. The attribute is language-specific, so the ordering agency will specify, which word to use instead of 'substitution'.  -->
+
 ### Typefaces and style
 
 The MathML core specification supports a multitude of options for adjusting the typeset, e.g. the `<mstyle>` element or making changes in the stylesheet. Please **do not use** any of these since conflicts may arise between the markup and the user agencies' own stylesheets. It is not necessary that mathematical expressions are typeset exactly as in the source. A few cases, however, need to be taken into consideration.

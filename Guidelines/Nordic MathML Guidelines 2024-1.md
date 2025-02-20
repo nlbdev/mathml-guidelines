@@ -856,6 +856,8 @@ If this can't be avoided, use `<mtext>` to mark up the footnote inside `<math>` 
 
 The ordering agency may have more instruction for the footnotes in the editing instructions.
 
+**Note**: You shouldn't use anchor links `<a>` inside `<math>` elements for referencing footnotes. This doesn't work properly in many reading systems. Mark up these kinds of links with `<mtext>`.
+
 ## Context-Based Applications <!--- maybe change wording later -->
 
 ### Large operators

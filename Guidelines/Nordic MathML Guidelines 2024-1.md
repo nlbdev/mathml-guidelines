@@ -798,41 +798,32 @@ It is common to label equations and then reference these equations later on in m
 Example markup for a block equation with a label:
 
 ```html
-<div role="region" class="equation-wrapper" tabindex="0" aria-labelledby="label-1-3" id="eq-1-3">
-    <math display="block">
-        <mo>(</mo>
-        <mi>a</mi>
-        <mo>∘<!-- ∘ --></mo>
-        <mi>b</mi>
-        <mo>)</mo>
-        <mo>∘<!-- ∘ --></mo>
-        <mi>c</mi>
-        <mo>=</mo>
-        <mi>a</mi>
-        <mo>∘<!-- ∘ --></mo>
-        <mo>(</mo>
-        <mi>b</mi>
-        <mo>∘<!-- ∘ --></mo>
-        <mi>c</mi>
-        <mo>)</mo>
-        <mspace width="5em"/>
-        <mtext id="label-1-3">(1.3)</mtext>
-    </math>
-</div>
+<math display="block" aria-labelledby="label-1-3" id="eq-1-3">
+    <mo>(</mo>
+    <mi>a</mi>
+    <mo>∘<!-- ∘ --></mo>
+    <mi>b</mi>
+    <mo>)</mo>
+    <mo>∘<!-- ∘ --></mo>
+    <mi>c</mi>
+    <mo>=</mo>
+    <mi>a</mi>
+    <mo>∘<!-- ∘ --></mo>
+    <mo>(</mo>
+    <mi>b</mi>
+    <mo>∘<!-- ∘ --></mo>
+    <mi>c</mi>
+    <mo>)</mo>
+    <mspace width="5em"/>
+    <mtext id="label-1-3">(1.3)</mtext>
+</math>
 ```
 
-It is required that a labeled block equation has a `div` parent with the attributes
-- `class="equation-wrapper"`
-- `role="region"`
-- `tabindex="0"`
-- `aria-labelledby`, where referenced `id` is the `<mtext>` **label's** `id`.
-- `id` that is based on the `<mtext>` label
+The `<math>` element should have the attributes
+- `aria-labelledby`, where referenced `id` is the `<mtext>` **label's** `id`
+- `id` that is based on the `<mtext>` label.
 
-These requirements also hold for the labeled block equation:
-- the `<math>` element has the attribute `display="block"`
-- the label of the equation is in the `<mtext>` element and the `<mtext>` element has an `id` that is based on the `<mtext>` content
-- `<mspace>` for spacing between the equationa and the label
-- label is in the `<mtext>`.
+The label of the equation is in the `<mtext>` element and the `<mtext>` element has an `id` that is based on the `<mtext>` content. Use `<mspace>` for spacing between the equation and the `<mtext>`.
 
 **Note** that the element `<mlabeledtr>` is not allowed to use for labeling.
 

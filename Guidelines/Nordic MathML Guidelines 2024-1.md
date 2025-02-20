@@ -844,14 +844,14 @@ When the equation is later referenced, use the ID of the `<math>` element to lin
 
 ### Footnotes in mathematical expressions
 
-IF there are footnotes with the mathematical expressions, then try to write the footnote outside of the `<math>` element.
+If there are footnotes with the mathematical expressions, then try to write the footnote outside of the `<math>` element.
 
 Example:
 ```html
 <math>
     [mathematical expression]
 </math>
-<p>This is a footnote about the mathemtical expression.</p>
+<p>This is a footnote about the mathematical expression.</p>
 ```
 
 If this can't be avoided, use `<mtext>` to mark up the footnote inside `<math>` element.
@@ -859,7 +859,7 @@ If this can't be avoided, use `<mtext>` to mark up the footnote inside `<math>` 
 ```html
 <math>
     [mathematical expression]
-    <mtext>This is a footnote about the mathemtical expression.</mtext>
+    <mtext>This is a footnote about the mathematical expression.</mtext>
 </math>
 ```
 

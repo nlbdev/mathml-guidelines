@@ -206,13 +206,13 @@ Units are identifiers. For example the meter `<mi>m</mi>` or second `<mi>s</mi>`
 </mfrac>
 ```
 
-Which renders as <mfrac>
+Which renders as <math><mfrac>
     <mi>m</mi>
     <msup>
         <mi>s</mi>
         <mn>2</mn>
     </msup>
-</mfrac>.
+</mfrac></math>.
 
 The ellipsis or three dots &#x2026; is also an identifier `<mi>&#x2026;</mi>`.
 

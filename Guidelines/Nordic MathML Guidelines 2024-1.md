@@ -578,8 +578,6 @@ Sometimes multiple prescripts and postscripts are attached to the same base, e.g
   </mmultiscripts>
 </math> below explains how. <!-- HELP I can't get this to render! /Tim-->
 
-
-
 ```html
 <math>
   <mmultiscripts>
@@ -1183,6 +1181,10 @@ A few examples of visually similar characters:
 * Greek letter γ and latin y.
 * Greek letter ρ and latin p.
 * Greek letter ω and latin w.
+* Greek letter χ and latin x.
+* Capital Greek letter Χ and capital latin letter X.
+* Micro µ (U+00B5) and Greek letter mu μ (U+03BC).
+* Alternative epsilons: ε (U+03B5) and ϵ (U+03F5), and latin e, and "element of" ∈ (U+2208).
 * ′ (prime) and ' (apostrophe).
 * − (minus) and - (hyphen).
 * ⅆ for derivative and ordinary d.

@@ -699,28 +699,26 @@ Example of the rendering and markup for a determinant:
 
 ```html
 <math>
-    <mrow>
-        <mo>|</mo>
-        <mtable>
-            <mtr>
-                <mtd>
-                    <mn>2</mn>
-                </mtd>
-                <mtd>
-                    <mn>1</mn>
-                </mtd>
-            </mtr>
-            <mtr>
-                <mtd>
-                    <mn>7</mn>
-                </mtd>
-                <mtd>
-                    <mn>5</mn>
-                </mtd>
-            </mtr>
-        </mtable>
-        <mo>|</mo>
-    </mrow>
+    <mo>|</mo>
+    <mtable>
+        <mtr>
+            <mtd>
+                <mn>2</mn>
+            </mtd>
+            <mtd>
+                <mn>1</mn>
+            </mtd>
+        </mtr>
+        <mtr>
+            <mtd>
+                <mn>7</mn>
+            </mtd>
+            <mtd>
+                <mn>5</mn>
+            </mtd>
+        </mtr>
+    </mtable>
+    <mo>|</mo>
 </math>
 ```
 
@@ -731,15 +729,12 @@ Example of a piecewise function. It is important that the different expressions 
 ```html
 <math>
     <mi>f</mi>
-    <mrow>
-      <mo>(</mo>
-      <mi>x</mi>
-      <mo>)</mo>
-    </mrow>
+    <mo>(</mo>
+    <mi>x</mi>
+    <mo>)</mo>
     <mo>=</mo>
-    <mrow>
-      <mo>{</mo>
-      <mtable>
+    <mo>{</mo>
+    <mtable>
         <mtr>
             <mtd>
                 <mo>&#x2212;</mo>
@@ -780,8 +775,7 @@ Example of a piecewise function. It is important that the different expressions 
                 <mn>0</mn>
             </mtd>
         </mtr>
-      </mtable>
-    </mrow>
+    </mtable>
 </math>
 ```
 

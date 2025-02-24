@@ -364,27 +364,25 @@ The `<mrow>` element is used to group mathematical expressions and parts of expr
 
 ```html
 <math>
+    <mo>(</mo>
+    <mfrac>
     <mrow>
-      <mo>(</mo>
-      <mfrac>
-        <mrow>
-          <mn>1</mn>
-          <mo>+</mo>
-          <mfrac>
-            <mn>2</mn>
-            <mn>3</mn>
-          </mfrac>
-        </mrow>
-        <mn>4</mn>
-      </mfrac>
-      <mo>)</mo>
+        <mn>1</mn>
+        <mo>+</mo>
+        <mfrac>
+        <mn>2</mn>
+        <mn>3</mn>
+        </mfrac>
     </mrow>
+    <mn>4</mn>
+    </mfrac>
+    <mo>)</mo>
 </math>
 ```
 
 The `<mrow>` has to be used to group the whole numerator expression, so that it is properly part of the `<mfrac>`.
 
-The `<mrow>` element is also used by the browser or reading software to render mathematics correctly. For example in the matrix markup, it is the reason the parentheses stretch to the sides of the matrix.
+<!-- The `<mrow>` element is also used by the browser or reading software to render mathematics correctly. For example in the matrix markup, it is the reason the parentheses stretch to the sides of the matrix.
 
 Example of rendering a determinant when the `<mrow>` has been used correctly:
 
@@ -392,7 +390,7 @@ Example of rendering a determinant when the `<mrow>` has been used correctly:
 
 Exampe of rendering a determinant when the `<mrow>` hasn't been used at all:
 
-![Example of an 2 times 2 determinant with short bars on both sides. The bars should be long.](images/determinant-no-mrow.png)
+![Example of an 2 times 2 determinant with short bars on both sides. The bars should be long.](images/determinant-no-mrow.png) -->
 
 #### Fractions, binomials and other similar layouts with `<mfrac>`
 
@@ -419,34 +417,27 @@ The fraction rendered: <math>
 Example mark up for a binomial:
 ```html
 <math>
-  <mrow>
     <mo>(</mo>
     <mfrac linethickness="0">
-      <mi>n</mi>
-      <mi>k</mi>
+        <mi>n</mi>
+        <mi>k</mi>
     </mfrac>
     <mo>)</mo>
-  </mrow>
 </math>
 ```
 
 The binomial rendered: <math>
-  <mrow>
     <mo>(</mo>
     <mfrac linethickness="0">
       <mi>n</mi>
       <mi>k</mi>
     </mfrac>
     <mo>)</mo>
-  </mrow>
 </math>.
 
-**Notice** that for the binomial to be rendered correctly you need to use
-- the `<mrow>` to group the expression
-- the `<mfrac>` element with the attribute `linethickness="0"`.
+**Notice** that for the binomial to be rendered correctly you need to use the `<mfrac>` element with the attribute `linethickness="0"`.
 
 The `linethickness="0"` attribute doesn't render the horizontal line for fractions, so the visual rendering is correct. It is also used by assistive technology to differentiate fractions from binomials.
-
 
 #### `<msqrt>` and `<mroot>`
 

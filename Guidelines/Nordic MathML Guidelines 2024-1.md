@@ -563,7 +563,22 @@ Note that `<mrow>` can be used to group together base, underscript or overscript
 
 #### Prescripts and Postscripts, `<mmultiscripts>`
 
-Sometimes multiple prescripts and postscripts are attached to the same base, e.g. in tensor notation. To mark up this, the element `<mmultiscripts>` is used.  The `<mmultiscripts>` element contains the base element followed by pairs of subscript and superscript elements. The example of $_{qs}^{t}A_{m}^{np}$ below explains how. <!-- HELP I can't get this to render! /Tim-->
+Sometimes multiple prescripts and postscripts are attached to the same base, e.g. in tensor notation. To mark up this, the element `<mmultiscripts>` is used.  The `<mmultiscripts>` element contains the base element followed by pairs of subscript and superscript elements. The example of <math>
+  <mmultiscripts>
+    <mn>A</mn>
+    <mn>m</mn>
+    <mn>n</mn>
+    <mrow></mrow>
+    <mn>p</mn>
+    <mprescripts/>
+    <mn>q</mn>
+    <mrow></mrow>
+    <mn>s</mn>
+    <mn>t</mn>
+  </mmultiscripts>
+</math> below explains how. <!-- HELP I can't get this to render! /Tim-->
+
+
 
 ```html
 <math>

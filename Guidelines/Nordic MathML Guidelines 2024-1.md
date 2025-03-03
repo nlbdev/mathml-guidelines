@@ -446,6 +446,36 @@ The `linethickness="0"` attribute does not render the horizontal line for fracti
 
 #### `<mpadded>` and `<mspace>` <!--- test with MathCAT first -->
 
+#### Visual alignment of expressions
+Expressions should be marked up to display as similar to the source as possible. This means that sometimes the alignment of terms in e.g. a fraction or a system of equations need to be adjusted. `<mphantom>` should be used for this purpose. For example, the fraction 
+
+![example of mphantom used to align terms in a fraction](images/mphantom.png)
+
+is marked up as follows:
+
+```html
+<math>
+  <mfrac>
+    <mrow>
+      <mi>x</mi>
+      <mo>+</mo>
+      <mi>y</mi>
+      <mo>+</mo>
+      <mi>z</mi>
+    </mrow>
+    <mrow>
+      <mi>x</mi>
+      <mphantom>
+        <mo form="infix">+</mo>
+        <mi>y</mi>
+      </mphantom>
+      <mo>+</mo>
+      <mi>z</mi>
+    </mrow>
+  </mfrac>
+</math>
+```
+
 ### Script and Limit Schemata
 
 
@@ -1186,8 +1216,8 @@ A few examples of visually similar characters:
 * Greek letter ω and latin w.
 * Greek letter χ and latin x.
 * Capital Greek letter Χ and capital latin letter X.
-* Micro µ (U+00B5) and Greek letter mu μ (U+03BC).
-* Alternative epsilons: ε (U+03B5) and ϵ (U+03F5), and latin e, and "element of" ∈ (U+2208).
+* Micro µ and Greek letter μ.
+* Alternative Greek letter epsilons: ε and ϵ, latin e, and "element of" ∈.
 * ′ (prime) and ' (apostrophe).
 * − (minus) and - (hyphen).
 * ⅆ for derivative and ordinary d.
@@ -1302,3 +1332,6 @@ Automatic tools for MathML markup have tendencies to produce errors. A procedure
 
 * [Unicode character tables](https://symbl.cc/en/unicode-table/)
 * [MathML Validator](https://kvile.com/blind/kvalidator/)
+
+
+[def]: mphantom.png

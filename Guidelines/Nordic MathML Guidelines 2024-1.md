@@ -444,7 +444,31 @@ The `linethickness="0"` attribute does not render the horizontal line for fracti
 
 #### `<msqrt>` and `<mroot>`
 
-#### `<mpadded>` and `<mspace>` <!--- test with MathCAT first -->
+Use `<msqrt>` to mark up square roots.
+
+```html
+<math>
+    <mqrt>
+        <mn>9</mn>
+    </msqrt>
+    <mo>=</mo>
+    <mn>3</mn>
+</math>
+```
+
+Use `<mroot>` to mark up roots with different indeces.
+
+```html
+<math>
+    <mroot>
+        <mn>9</mn> <-- the radicand -->
+        <mn>3</mn> <-- the index -->
+    </mroot>
+    <mo>=</mo>
+    <mn>2</mn>
+</math>
+```
+
 
 #### Visual alignment of expressions
 Expressions should be marked up to display as similar to the source as possible. This means that sometimes the alignment of terms in e.g. a fraction or a system of equations need to be adjusted. `<mphantom>` should be used for this purpose. For example, the fraction 

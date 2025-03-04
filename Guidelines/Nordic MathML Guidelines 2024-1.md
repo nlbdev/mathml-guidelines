@@ -469,6 +469,11 @@ Use `<mroot>` to mark up roots with different indeces.
 </math>
 ```
 
+#### `<mpadded>` and `<mspace>`
+
+`<mpadded>` is used to visually render space around an element. `<mspace>` is used to visually render space between elements.
+
+Both of the elements accept attributes that can be used to modify the width, height and depth of the expressions. Only use relative units for these attributes such as em or rem unless specified otherwise by the Ordering Agency.
 
 #### Visual alignment of expressions
 Expressions should be marked up to display as similar to the source as possible. This means that sometimes the alignment of terms in e.g. a fraction or a system of equations need to be adjusted. `<mphantom>` should be used for this purpose. For example, the fraction 

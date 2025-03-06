@@ -1147,6 +1147,12 @@ Example of the rendering and mark up of equation solving with commentary text:
 </math>
 ```
 
+### Fill-in-the-blanks
+
+![matrix multiplication with blank squares in the rightmost matrix](images/fill-in-blanks.png)
+
+Equations or expressions may contain space for filling in the blanks, such as in the example above. The blank spaces should be marked up using the Unicode symbol ⎕ (`&#9109;`) in `<mi>` tags. 
+
 ### When to use images of mathematical content
 
 There are instances when the entirety of the mathematical content is impossible to capture using only MathML. An example of such an instance in a text book:

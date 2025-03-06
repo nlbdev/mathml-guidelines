@@ -114,6 +114,8 @@ For inline math, be careful to preserve whitespace around the expression. Compar
 
 In example 1, the spaces around the math expression are missing, which will affect the visual rendering. It should remain the same as in the original title.
 
+
+
 ### Semantics and Annotations
 
 MathML expressions can be provided with annotations in various forms. In order to associate an expression with an annotation, the expression itself must be wrapped in a `<semantics>` element, placed as the first child element of the `<math>` element.  Subsequent `<annotation>` or `<annotation-xml>` elements then contain the annotation. This markup must not be used unless specific instructions are given by the Ordering Agency. In general, none of the `<semantics>`, `<annotation>` or `<annotation-xml>` elements are to be used.  
@@ -1183,7 +1185,7 @@ Another example of content which should be captured as an image is hand-written 
 
 ![image of hand-written calculations](images/handwritten.png)
 
-Capture such content as an image without any text extraction, using the `alt` attribute `drawing`.
+Capture such content as an image without any text extraction, using the `alt` attribute `drawing`. The same applies for calculations containing speech bubbles or the like.
 
 ### Chemistry {#chemistry-in-mathml} 
 <!-- I'm doing this ID thing wrong, aren't I? /Tim -->

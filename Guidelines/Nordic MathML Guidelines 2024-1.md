@@ -1179,6 +1179,12 @@ Example markup based on this:
 
 **Note** that the `alt` attribute has the value `equation`.
 
+Another example of content which should be captured as an image is hand-written calculations such as the following:
+
+![image of hand-written calculations](images/handwritten.png)
+
+Capture such content as an image without any text extraction, using the `alt` attribute `drawing`.
+
 ### Chemistry {#chemistry-in-mathml} 
 <!-- I'm doing this ID thing wrong, aren't I? /Tim -->
 =======

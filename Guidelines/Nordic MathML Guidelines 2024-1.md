@@ -230,22 +230,13 @@ Avoid using `<mtext>` when possible. If the text can be presented using plain HT
 Here is an example when `<mtext>` has been used the wrong way:
 
 ```html
-<p>After this lemma 
-    <math>[mathematical expression] 
-        <mtext> we can see that this holds for </mtext>
-    [more mathematical expressions]
-    </math>
-and it happens so.</p>
+<p>After this lemma <math>[mathematical expression]<mtext> we can see that this holds for </mtext>[more mathematical expressions]</math> and it happens so.</p>
 ```
 
 The explanatory text in between the math expressions should be regular text and part of the paragraph, it should instead be written like this:
 
 ```html
-<p>After this lemma 
-    <math>[mathematical expression]</math>
-we can see that this holds for
-    <math>[more mathematical expression]</math>
-and it happens so.</p>
+<p>After this lemma <math>[mathematical expression]</math> we can see that this holds for <math>[more mathematical expression]</math> and it happens so.</p>
 ```
 
 `<mtext>` should only be used in places where the visual rendering requires it. 

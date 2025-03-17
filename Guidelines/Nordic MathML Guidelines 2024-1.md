@@ -593,6 +593,44 @@ Underscript notation is marked up using the element `<munder>`. The first child 
 </math>
 ```
 
+Sometimes it is necessary to nest multiple `<munder>` elements. For example when you want to mark up text that is underneath an expression:
+![1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10, with bottom brace below, with sum of the first 10 positive integers below](images/nested-munder.PNG)
+
+Mark up for this expression is as follows
+```html
+<math display="block">
+   <munder>
+      <mrow>
+         <munder>
+            <mrow>
+               <mn>1</mn>
+               <mo>+</mo>
+               <mn>2</mn>
+               <mo>+</mo>
+               <mn>3</mn>
+               <mo>+</mo>
+               <mn>4</mn>
+               <mo>+</mo>
+               <mn>5</mn>
+               <mo>+</mo>
+               <mn>6</mn>
+               <mo>+</mo>
+               <mn>7</mn>
+               <mo>+</mo>
+               <mn>8</mn>
+               <mo>+</mo>
+               <mn>9</mn>
+               <mo>+</mo>
+               <mn>10</mn>
+            </mrow>
+            <mo>&#x23DF;</mo>
+         </munder>
+      </mrow>
+      <mtext>Sum of the first ten positive integers</mtext>
+   </munder>
+</math>
+```
+
 Overscript notation is marked up using the element `<mover>`. The first child element is the base, and the second child element is the overscript. For example, a vector with an arrow above it ($\vec{x}$) is marked up as follows:
 
 ```html

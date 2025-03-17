@@ -70,6 +70,8 @@ It is important to separate the visual rendering from the structural markup prop
 
 Also note that even if a math expression is displayed as a separate block in the source material, and thus must have `display` set to `block`, it may still be part of an ongoing sentence, and must therefore not break this ongoing paragraph.
 
+**Note**: it is important to always use the `display="block"` attribute directly on the `<math>` element and not use CSS styling.
+
 Here are a few of examples:
 
 ```html

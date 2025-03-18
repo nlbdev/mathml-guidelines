@@ -930,26 +930,34 @@ When the equation is referenced later, use the `id` of the `<math>` element to l
 
 If there are footnotes with mathematical expressions, write the footnote outside of the `<math>` element.
 
-Example:
+Here is an example what might be written in a book:
+![Simple interest sup 1 end sup equals fraction numerator r times B times m denominator n end fraction. Footnote 1. Simple interest is calculated only on the principal amount…](images/example-footnote.png)
+
+Notice that in the markup the number "1" is written as an `<mtext>` element. This is done to differentiate between note references and exponents.
 ```html
-<math>
-    [mathematical expression]
-</math>
-<p>This is a footnote about the mathematical expression.</p>
+<p><math>
+    <msup>
+        <mtext>Simple interest</mtext>
+        <mtext>1</mtext>
+    </msup>
+    <mo>=</mo>
+    <mfrac>
+        <mrow>
+            <mi>r</mi>
+            <mo>&#183;</mo>
+            <mi>B</mi>
+            <mo>&#183;</mo>
+            <mi>m</mi>
+        </mrow>
+        <mi>n</mi>
+    </mfrac>
+</math></p>
+<p>1. <strong>Simple interest</strong> is calculated on the principal amount...</p>
 ```
 
-If this cannot be achieved, use `<mtext>` to mark up the footnote inside `<math>` element.
+The Ordering Agency may have more instructions for footnotes within editing instructions.
 
-```html
-<math>
-    [mathematical expression]
-    <mtext>This is a footnote about the mathematical expression.</mtext>
-</math>
-```
-
-The ordering agency may have more instructions for footnotes within editing instructions.
-
-**Note**: Do not use anchor links `<a>` inside `<math>` elements for referencing footnotes. This is not supported in most reading systems. Mark up these links with `<mtext>`.
+**Note**: Use only MathML markup inside the `<math>` element. At the moment support for HTML markup inside MathML markup is not good.
 
 ## Context-Based Applications <!--- maybe change wording later -->
 

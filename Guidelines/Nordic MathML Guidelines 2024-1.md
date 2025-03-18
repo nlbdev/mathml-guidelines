@@ -380,6 +380,8 @@ The `<mrow>` element is used to group mathematical expressions and parts of expr
 
 The `<mrow>` has to be used to group the whole numerator expression, so that it is properly part of the `<mfrac>`.
 
+Unnecessary grouping should be avoided. Do not use `<mrow>` when it is not needed to group something together. In the example above, the `<mrow>` is needed to group the numerator together, but even though possible, it is not needed to group the entire fraction together. No further `<mrow>` elements are needed in that expression.
+
 <!-- The `<mrow>` element is also used by the browser or reading software to render mathematics correctly. For example in the matrix markup, it is the reason the parentheses stretch to the sides of the matrix.
 
 Example of rendering a determinant when the `<mrow>` has been used correctly:

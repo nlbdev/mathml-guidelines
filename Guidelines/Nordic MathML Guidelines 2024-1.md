@@ -933,6 +933,7 @@ When the equation is referenced later, use the `id` of the `<math>` element to l
 If there are footnotes with mathematical expressions, write the footnote outside of the `<math>` element.
 
 Here is an example what might be written in a book:
+
 ![Simple interest sup 1 end sup equals fraction numerator r times B times m denominator n end fraction. Footnote 1. Simple interest is calculated only on the principal amount…](images/example-footnote.png)
 
 Notice that in the markup the number "1" is written as an `<mtext>` element. This is done to differentiate between note references and exponents.

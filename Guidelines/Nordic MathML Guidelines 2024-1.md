@@ -458,8 +458,8 @@ Use `<mroot>` to mark up roots with different indeces.
 ```html
 <math>
     <mroot>
-        <mn>9</mn> <-- the radicand -->
-        <mn>3</mn> <-- the index -->
+        <mn>9</mn> <!-- the radicand -->
+        <mn>3</mn> <!-- the index -->
     </mroot>
     <mo>=</mo>
     <mn>2</mn>
@@ -1135,7 +1135,7 @@ Example of rendering and mark up of equation solving notation:
                 <mo>&#x2212;</mo>
                 <mn>3</mn>
             </mtd>
-            <mtd><--- Empty cell ---></mtd>
+            <mtd><!--- Empty cell ---></mtd>
         </mtr>
     </mtable>
 </math>
@@ -1185,7 +1185,7 @@ Example of the rendering and mark up of equation solving with commentary text:
                 <mo>&#x2212;</mo>
                 <mn>3</mn>
             </mtd>
-            <mtd><--- Empty cell ---></mtd>
+            <mtd><!--- Empty cell ---></mtd>
         </mtr>
     </mtable>
 </math>

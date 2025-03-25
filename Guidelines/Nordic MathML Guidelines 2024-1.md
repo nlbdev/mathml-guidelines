@@ -201,13 +201,13 @@ The `<mi>` element is used to denote functions, variables, units, and other iden
 
 Functions and function names are identifiers: `<mi>tan</mi>`, `<mi>sin</mi>` or `<mi>log</mi>`.
 
-Units are identifiers. For example meter `<mi>m</mi>` or second `<mi>s</mi>`. When units are written using multiple letters, you should mark them up as a single element: `<mi>Nm</mi>`. Depending on the layout of the unit, you have to use other MathML elements to mark up a single unit such as meters per second: 
+Units are identifiers. For example meter `<mi mathvariant="normal">m</mi>` or second `<mi mathvariant="normal">s</mi>`. When units are written using multiple letters, you should mark them up as a single element: `<mi>Nm</mi>`. Depending on the layout of the unit, you have to use other MathML elements to mark up a single unit such as meters per second: 
 
 ```html
 <mfrac>
-    <mi>m</mi>
+    <mi mathvariant="normal">m</mi>
     <msup>
-        <mi>s</mi>
+        <mi mathvariant="normal">s</mi>
         <mn>2</mn>
     </msup>
 </mfrac>
@@ -219,7 +219,8 @@ Which renders as <math><mfrac>
         <mi>s</mi>
         <mn>2</mn>
     </msup>
-</mfrac></math>.
+</mfrac></math>. 
+Note that the attribute mathvariant="normal" is necessary for a single-letter unit not to be in italic.
 
 The ellipsis or three dots &#x2026; is also an identifier `<mi>&#x2026;</mi>`.
 

@@ -889,37 +889,73 @@ Note that `columnspan` is written this way due to backwards compatability for Ma
 
 ### Labeling and referencing equations
 
-It is common to label equations and then reference these equations later on in mathematical text.
+It is common to label equations and then reference these equations later on in mathematical text. In MathML the `<mtable>` element is used to mark up labeled equations.
 
-Example markup for a block equation with a label:
+Example of a labeled equation
+
+![(1.4) x+y=2](images/one-labeled-equation.png)
 
 ```html
-<math display="block" aria-labelledby="label-1-3" id="eq-1-3">
-    <mo>(</mo>
-    <mi>a</mi>
-    <mo>∘<!-- ∘ --></mo>
-    <mi>b</mi>
-    <mo>)</mo>
-    <mo>∘<!-- ∘ --></mo>
-    <mi>c</mi>
-    <mo>=</mo>
-    <mi>a</mi>
-    <mo>∘<!-- ∘ --></mo>
-    <mo>(</mo>
-    <mi>b</mi>
-    <mo>∘<!-- ∘ --></mo>
-    <mi>c</mi>
-    <mo>)</mo>
-    <mspace width="5em"/>
-    <mtext id="label-1-3">(1.3)</mtext>
+<math display="block" id="eq-0" tabindex="0" aria-labelledby="label-text-1-4">
+<mtable>
+<mtr>
+  <mtd class="label" intent=":equation-label"><mtext id="label-text-1-4">(1.4)</mtext></mtd>
+  <mtd>
+   <mi>x</mi>
+   <mo>+</mo>
+   <mi>y</mi>
+  </mtd>
+  <mtd><mo>=</mo></mtd>
+  <mtd><mn>2</mn></mtd>
+ </mtr>
+</mtable>
 </math>
 ```
+
+**Very important!** Even if the label for the equation would come after the mathematical expression, it is required that the label is the first child of the `<mtr>` element in the labeled equation row.
+
+The above markup applies to this labeled equation as well
+
+![x+y=2 (1.4)](images/labeled-equation-2.png)
 
 The `<math>` element should have the attributes
 - `aria-labelledby`, where referenced `id` is the `<mtext>` **label's** `id`
 - `id` that is based on the `<mtext>` label.
 
-The label of the equation is in the `<mtext>` element, and the `<mtext>` element has an `id` that is based on the `<mtext>` content. Use `<mspace>` for spacing between the equation and the `<mtext>`.
+The label of the equation is in the `<mtext>` element, and the `<mtext>` element has an `id` that is based on the `<mtext>` content.
+
+Use the attribute `intent=":equation-label"` on the `<mtd>` that is first child of an `<mtr>` with the labeled equation.
+
+If there are multiple equations with a label in the same block element, they can be marked up in the `<mtable>`, but they should be marked up in different `<mtr>` rows of the table. You can also refence multiple `id`s in the `aria-labelledby` attribute. Separate different `id`s with spaces.
+
+Example of multiple labeled expressions in the same block.
+
+```html
+<math display="block" id="eq-1" tabindex="0" aria-labelledby="label-text-1 label-text-2">
+<mtable>
+  <mtr>
+    <mtd intent=":equation-label"><mtext id="label-text-1">(1.4)</mtext></mtd>
+    <mtd>
+     <mi>x</mi>
+     <mo>+</mo>
+     <mi>y</mi>
+    </mtd>
+    <mtd><mo>=</mo></mtd>
+    <mtd><mn>2</mn></mtd>
+   </mtr>
+   <mtr>
+     <mtd intent=":equation-label" id="eq-2"><mtext id="label-text-2">(2.7)</mtext></mtd>
+     <mtd>
+     <mi>x</mi>
+     <mo>&#x2212;</mo>
+     <mi>y</mi>
+    </mtd>
+    <mtd><mo>=</mo></mtd>
+    <mtd><mn>0</mn></mtd>
+   </mtr>
+  </mtable>
+</math>
+```
 
 **Note** that the element `<mlabeledtr>` is not allowed to use for labelling.
 

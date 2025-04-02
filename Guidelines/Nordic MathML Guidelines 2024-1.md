@@ -1269,6 +1269,70 @@ Capture such content as an image without any text extraction, using the `alt` at
 ### Chemistry {#chemistry-in-mathml} 
 <!-- I'm doing this ID thing wrong, aren't I? /Tim -->
 =======
+#### Crossed out math `<menclose>`
+
+It is common in school books to use "crossing out" of elements in expressions. These can't be replicated reliably with just MathML.
+
+If the expression is a block element, use the `<details>` element with the `<summary>` "Image description." Provide the MathML markup for the whole expression. Use the element `<menclose>` to markup crossed out math.
+
+Rendered:
+
+![Example of a fractional with crossed out terms as a block expression. The code example below has the specifics.](image.png)
+
+Markup:
+
+```html
+<p>When looking at the crossing out of the expression
+    <img style="display: block" src="images/fractional-with-crossing-out.png" aria-describedby="img-desc-1" alt="Image description below."></p>
+    <details id="img-desc-1"><summary>Image description.</summary><math display="block">
+      <mfrac>
+        <mrow>
+          <mrow>
+            <mo>(</mo>
+            <msup>
+              <mi>x</mi>
+              <mn>2</mn>
+            </msup>
+            <mo>&#x2212;</mo>
+            <mn>2</mn>
+            <mi>x</mi>
+            <mo>+</mo>
+            <mn>3</mn>
+            <mo>)</mo>
+          </mrow>
+          <menclose notation="updiagonalstrike">
+          <mrow>
+            <mo>(</mo>
+            <mi>x</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+            <mo>)</mo>
+          </mrow>
+        </menclose>
+        </mrow>
+        <menclose notation="updiagonalstrike">
+        <mrow>
+          <mi>x</mi>
+          <mo>+</mo>
+          <mn>1</mn>
+        </mrow>
+      </menclose>
+      </mfrac>
+  </math></details>
+```
+
+If the expression is an inline element, write `equation` into the image's `alt` attribute
+
+Rendered:
+
+![Example of a fraction that is crossed out as an inline expression.](image-1.png)
+
+Markup:
+
+```html
+<p>When looking at the crossing out of the expression <img style="display: inline" src="images/crossed-out.png" alt="equation"> it is easy to see that it doesn't matter.</p>
+```
+
 ### Chemistry in MathML
 
 To mark up chemistry in MathML, follow these general principles.

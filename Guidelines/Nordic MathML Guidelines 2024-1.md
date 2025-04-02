@@ -152,6 +152,8 @@ For example, a webpage might use Presentation MathML to display an equation visu
 
 ### Token Elements
 
+The elements `<mn>`, `<mo>` and `<mi>` are so-called token elements. This means that they are the only MathML elements permitted to contain character data.
+
 #### `<mn>`
 
 The `<mn>` element is used to mark up all kinds of numeric characters. This also includes decimal and thousand separators. Decimal and thousand separators should not be marked up in their own element, separate from the number.
@@ -186,7 +188,7 @@ The sequence {1,2,3,...} written in MathML:
 <mo>}</mo>
 ```
 
-Some characters are written with accents. Such as the average <math><mover><mi>x</mi><mo>&#8254;</mo></mover></math> (read as "x bar"). Here the accent "bar" is also an operator. MathML code:
+Some characters are written with accents, for example the average <math><mover><mi>x</mi><mo>&#8254;</mo></mover></math> (read as "x bar"). Here the accent "bar" is also an operator. MathML code:
 
 ```html
 <mover>
@@ -203,7 +205,7 @@ The `<mi>` element is used to denote functions, variables, units, and other iden
 
 Functions and function names are identifiers: `<mi>tan</mi>`, `<mi>sin</mi>` or `<mi>log</mi>`.
 
-Units are identifiers. For example meter `<mi mathvariant="normal">m</mi>` or second `<mi mathvariant="normal">s</mi>`. When units are written using multiple letters, you should mark them up as a single element: `<mi>Nm</mi>`. Depending on the layout of the unit, you have to use other MathML elements to mark up a single unit such as meters per second: 
+Units are identifiers. For example meter `<mi mathvariant="normal">m</mi>` or second `<mi mathvariant="normal">s</mi>`. When units are written using multiple letters, you should mark them up as a single element: `<mi>Nm</mi>`. Depending on the layout of the unit, you have to use other MathML elements to mark up a single unit such as metre per second squared: 
 
 ```html
 <mfrac>
@@ -323,29 +325,21 @@ For the visual layout of the mathematical expression to be correct, the punctuat
 
 ```html
 <p>
-   If we have an equation such as
+   This is demonstrated by
    <math display="block">
       <mo>(</mo>
       <mi>a</mi>
-      <mo>
-         ∘<!-- ∘ -->
-      </mo>
+      <mo>∘</mo>
       <mi>b</mi>
       <mo>)</mo>
-      <mo>
-         ∘<!-- ∘ -->
-      </mo>
+      <mo>∘</mo>
       <mi>c</mi>
       <mo>=</mo>
       <mi>a</mi>
-      <mo>
-         ∘<!-- ∘ -->
-      </mo>
+      <mo>∘</mo>
       <mo>(</mo>
       <mi>b</mi>
-      <mo>
-         ∘<!-- ∘ -->
-      </mo>
+      <mo>∘</mo>
       <mi>c</mi>
       <mo>)</mo>
       <mspace width="5em"></mspace>
@@ -353,8 +347,6 @@ For the visual layout of the mathematical expression to be correct, the punctuat
       <mtext>.</mtext>
    </math>
 </p>
-
-
 ```
 
 ### General Layout Schemata
@@ -380,6 +372,8 @@ The `<mrow>` element is used to group mathematical expressions and parts of expr
     <mo>)</mo>
 </math>
 ```
+
+This would display as follows: $$\left( \frac{1 + \frac{2}{3}}{4} \right) $$
 
 The `<mrow>` has to be used to group the whole numerator expression, so that it is properly part of the `<mfrac>`.
 
@@ -448,13 +442,15 @@ Use `<msqrt>` to mark up square roots.
 
 ```html
 <math>
-    <mqrt>
+    <msqrt>
         <mn>9</mn>
     </msqrt>
     <mo>=</mo>
     <mn>3</mn>
 </math>
 ```
+
+The square root rendered: $\sqrt{9} = 3$
 
 Use `<mroot>` to mark up roots with different indeces.
 
@@ -469,6 +465,8 @@ Use `<mroot>` to mark up roots with different indeces.
 </math>
 ```
 
+This would render: $\sqrt[3]{9} = 2$
+
 #### `<mpadded>` and `<mspace>`
 
 `<mpadded>` is used to visually render space around an element. `<mspace>` is used to visually render space between elements.
@@ -476,7 +474,7 @@ Use `<mroot>` to mark up roots with different indeces.
 Both of the elements accept attributes that can be used to modify the width, height and depth of the expressions. Only use relative units for these attributes such as em or rem unless specified otherwise by the Ordering Agency.
 
 #### Visual alignment of expressions
-Expressions should be marked up to display as similar to the source as possible. This means that sometimes the alignment of terms in e.g. a fraction or a system of equations need to be adjusted. `<mphantom>` should be used for this purpose. For example, the fraction 
+Expressions should be marked up to display as similar to the source as possible. This means that sometimes the alignment of terms in e.g. a fraction or a system of equations needs to be adjusted. `<mphantom>` should be used for this purpose. For example, the fraction 
 
 ![example of mphantom used to align terms in a fraction](images/mphantom.png)
 
@@ -695,7 +693,7 @@ Sometimes multiple prescripts and postscripts are attached to the same base, e.g
 </math>
 ```
 
-In the example, A is the base`<mprescripts>` marks where the prescripts begin. 
+In the example, A is the base. `<mprescripts>` marks where the prescripts begin. 
 - `<mi>A</mi>` is the base element.
 - `<mi>m</mi>` is a postscript subscript.
 - `<mi>n</mi>` and `<mi>p</mi>` are postscript superscripts.
@@ -971,7 +969,7 @@ When the equation is referenced later, use the `id` of the `<math>` element to l
 
 If there are footnotes with mathematical expressions, write the footnote outside of the `<math>` element.
 
-Here is an example what might be written in a book:
+Here is an example that might be written in a book:
 
 ![Simple interest sup 1 end sup equals fraction numerator r times B times m denominator n end fraction. Footnote 1. Simple interest is calculated only on the principal amount…](images/example-footnote.png)
 
@@ -1005,7 +1003,7 @@ The Ordering Agency may have more instructions for footnotes within editing inst
 
 ### Large operators
 
-Examples of Large operators are summation $∑$, product $Π$, and integral $∫$. These are marked up as mathematical operators `<mo>`. These operators are rendered differently based on whether they are written in inline, block, or inline-block.
+Examples of large operators are summation $∑$, product $Π$, and integral $∫$. These are marked up as mathematical operators `<mo>`. These operators are rendered differently based on whether they are written in inline, block, or inline-block.
 
 The rendering of operators should follow how it is written in the original title, unless otherwise specified by the Ordering agency.
 
@@ -1064,7 +1062,7 @@ When the operator should be rendered inline, but as block element, it can be don
 
 ### Invisible Operators
 
-Insivible operators are used when the meaning of an equation would be ambigious. For example $a(x+1)$ might be the function $a$ of $x+1$ or then it could be the multiplication between $a$ and $(x+1)$.
+Insivible operators should be used used when the meaning of an equation would be ambigious. For example $a(x+1)$ might be the function $a$ of $x+1$, or it could be the multiplication between $a$ and $(x+1)$ depending on the context.
 
 Using invisible operators makes the markup unambigious:
 
@@ -1073,7 +1071,7 @@ Using invisible operators makes the markup unambigious:
 - invisible plus: `&#x2064;`
 - invisible comma: `&#x2063;`
 
-(Can be deleted later) Source: [MathML 4 "Invisible operators"](https://www.w3.org/TR/mathml4/#presm_invisibleops).
+Note that automatic MathML markup might not take context into account, so manual checking of invisible operators may be necessary.
 
 ### Systems of Equations
 
@@ -1393,7 +1391,7 @@ Some content requires extra attention. A few recurring cases are listed below.
 
 ### Special Characters
 
-Using the correct Unicode character is essential for a screen reader or braille display to be able to do its job. Even if characters are visually similar, they will be read or displayed wrong if the OCR assigns the wrong Unicode entities.
+Using the correct Unicode characters is essential for a screen reader or braille display to be able to do its job. Even if characters are visually similar, they will be read or displayed wrong if the OCR assigns the wrong Unicode entities.
 
 A few examples of visually similar characters:
 * Greek letter γ and latin y.

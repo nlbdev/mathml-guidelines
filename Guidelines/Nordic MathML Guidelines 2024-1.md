@@ -1266,9 +1266,6 @@ Another example of content which should be captured as an image is hand-written 
 
 Capture such content as an image without any text extraction, using the `alt` attribute `drawing`. The same applies for calculations containing speech bubbles or the like.
 
-### Chemistry {#chemistry-in-mathml} 
-<!-- I'm doing this ID thing wrong, aren't I? /Tim -->
-=======
 #### Crossed out math `<menclose>`
 
 It is common in school books to use "crossing out" of elements in expressions. These can't be replicated reliably with just MathML.

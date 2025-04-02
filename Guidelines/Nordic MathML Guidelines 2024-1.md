@@ -170,6 +170,8 @@ The `<mo>` element is used to denote operators. The definition of an operator is
 
 In MathML it also means different parentheses. For example the parenthesis `<mo>(</mo>` and curly bracket `<mo>{</mo>`. Please note that the element `<mfenced>` is deprecated and may not be used!
 
+The percentage sign is a `<mo>` element. For example 50 percent should be written as `<mn>50</mn><mo>&#x25;</mo>`.
+
 The same character can be used in a different meaning based on the context. For example, the comma can be part of a number but in a sequence the comma is an operator.
 
 The sequence {1,2,3,...} written in MathML:

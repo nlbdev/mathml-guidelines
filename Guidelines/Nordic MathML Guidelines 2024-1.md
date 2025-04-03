@@ -896,10 +896,10 @@ Example of a labeled equation
 ![(1.4) x+y=2](images/one-labeled-equation.png)
 
 ```html
-<math display="block" id="eq-0" tabindex="0" aria-labelledby="label-text-1-4">
+<math display="block" id="equation-0" tabindex="0">
 <mtable>
 <mtr>
-  <mtd class="label" intent=":equation-label"><mtext id="label-text-1-4">(1.4)</mtext></mtd>
+  <mtd class="label" intent=":equation-label"><mtext>(1.4)</mtext></mtd>
   <mtd>
    <mi>x</mi>
    <mo>+</mo>
@@ -918,23 +918,20 @@ The above markup applies to this labeled equation as well
 
 ![x+y=2 (1.4)](images/labeled-equation-2.png)
 
-The `<math>` element should have the attributes
-- `aria-labelledby`, where referenced `id` is the `<mtext>` **label's** `id`
-- `id` that is based on the `<mtext>` label.
+- The `<math>` element should have the `id` and `tabindex="0"` attributes.
+  - The `id` for the equations should be of the form `equation-[x]` where `x` is a number that increases incrementally.
+- The label of the equation is in the `<mtext>` element.
+- Use the attribute `intent=":equation-label"` on the `<mtd>` that is first child of an `<mtr>` with the labeled equation.
 
-The label of the equation is in the `<mtext>` element, and the `<mtext>` element has an `id` that is based on the `<mtext>` content.
-
-Use the attribute `intent=":equation-label"` on the `<mtd>` that is first child of an `<mtr>` with the labeled equation.
-
-If there are multiple equations with a label in the same block element, they can be marked up in the `<mtable>`, but they should be marked up in different `<mtr>` rows of the table. You can also refence multiple `id`s in the `aria-labelledby` attribute. Separate different `id`s with spaces.
+If there are multiple equations with a label in the same block element, they can be marked up in the `<mtable>`, but they should be marked up in different `<mtr>` rows of the table.
 
 Example of multiple labeled expressions in the same block.
 
 ```html
-<math display="block" id="eq-1" tabindex="0" aria-labelledby="label-text-1 label-text-2">
+<math display="block" id="equation-1" tabindex="0">
 <mtable>
   <mtr>
-    <mtd intent=":equation-label"><mtext id="label-text-1">(1.4)</mtext></mtd>
+    <mtd intent=":equation-label"><mtext>(1.4)</mtext></mtd>
     <mtd>
      <mi>x</mi>
      <mo>+</mo>
@@ -944,7 +941,7 @@ Example of multiple labeled expressions in the same block.
     <mtd><mn>2</mn></mtd>
    </mtr>
    <mtr>
-     <mtd intent=":equation-label" id="eq-2"><mtext id="label-text-2">(2.7)</mtext></mtd>
+     <mtd intent=":equation-label" id="eq-2"><mtext>(2.7)</mtext></mtd>
      <mtd>
      <mi>x</mi>
      <mo>&#x2212;</mo>
@@ -957,12 +954,12 @@ Example of multiple labeled expressions in the same block.
 </math>
 ```
 
-**Note** that the element `<mlabeledtr>` is not allowed to use for labelling.
+**Note**: The element `<mlabeledtr>` is not allowed to use for labelling. It is not used anymore.
 
 When the equation is referenced later, use the `id` of the `<math>` element to link back to the equation. Also use the `role="doc-backlink"` attribute. Example markup of referencing the equation:
 
 ```html
-<p>Then it is derived from the equation <a role="doc-backlink" href="#eq-1-3">(1.3)</a>.</p>
+<p>Then it is derived from the equations <a role="doc-backlink" href="#equation-1">(1.4) and (2.7)</a>.</p>
 ```
 
 ### Footnotes in mathematical expressions

@@ -1315,7 +1315,7 @@ Markup:
   </math></details>
 ```
 
-If the expression is an inline element, write `equation` into the image's `alt` attribute
+If the expression is an inline element, use `alt="equation"` for the `<math>` element.
 
 Rendered:
 

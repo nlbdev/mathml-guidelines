@@ -10,23 +10,38 @@ The basis of this document is the [MathML Core specification](https://www.w3.org
 
 ## When To Use MathML <!--- maybe change wording later -->
 
-As a general rule, every mathematical or scientific expression that cannot be rendered with standard HTML must be captured as MathML. However, objects that can be rendered with standard HTML, like numbers, units, single Unicode characters, and even simple arithmetic expressions, should be captured as HTML. Moreover, there may be a valid point to use MathML more extensively in some cases, especially in STEM content.    
+In general, all mathematics should be marked up with MathML. Even simple arithmetic expressions such as 4 − 1 = 3, should be in MathML. If a mathematical expression is part of a sentence, make sure only to mark up the mathematics with MathML. For example, in the sentence, “the price for three pairs of jeans was 90 euros (30 € × 3), and he paid for them in cash”, the mathematical expression is extra information, expressed by the parentheses. In this case the parentheses is not part of the mathematical expression and should therefore not be marked up with MathML. Only the mathematical expression inside the parentheses should be in MathML.   
 
-### Numbers
+### Numbers and Numbers with Units
 
-Plain numbers, with or without decimal points or commas, are not necessary to mark up with MathML markup. They are required to be captured as plain text, formatted as in the source material. Points, commas, spaces etc. must be preserved.
+Non-negative numbers, like 3 and 5.2, should be in plain text. If a number has a minus, like −4 or −3.1, it should be in MathML. If a number is part of a mathematical expression, it should be in MathML.
 
-### Numbers With Units
+Units should be in plain text, except if there is an exponent, division or Greek letter in it. For example, "10 m" should be in plain text, while "10 m/s<sup>2</sup>" should be in MathML.
 
-In general, numbers with attached units do not require MathML markup. The units should in most cases be captured as plain text using Unicode for any Greek symbols and `<sup>` for any exponents. However, in STEM content the Ordering Agencies may require MathML markup in order for text-to-speech output to be consistent throughout the content.
+### Variables, Parameters and Greek Letters
 
-### Single Variables or Symbols
+Variables and parameters should always be marked up with MathML.
 
-Single occurrences of variables, normally displayed in italics, constants, or other symbols do not require MathML markup. They can in most cases be captured as plain text using the proper characters or Unicode symbols. If they are displayed in italics in the source material they should be styled accordingly, using the standard HTML elements.
+In STEM books Greek letters should always be in MathML. In these books they are variables and parameters. In non-STEM books isolated Greek letters should be in plain text. However, if they are part of an expression, like Δx, the whole expression should be marked up with MathML.
 
-### Simple Arithmetic Expressions in Linear Form
+Variables, Greek letters etc. with a sign above, like <math><mover><mi>x</mi><mo>&#8254;</mo></mover></math> or <math><mover><mi>y</mi><mo>&#x5E;</mo></mover></math>, or with indexes, like β<sub>1</sub> or ℇ<sub>0</sub>, should always be marked up with MathML, using “mover” and “msub” respectively. Note that there are distinct characters like ŷ (U+0177), but these are not intended for mathematics and should not be used.
 
-Mathematical expressions, such as calculations, functions, equations etc., are in general required to be marked up using MathML. However, if there are one or a few isolated simple expressions in a non-STEM context, they may be captured as plain text as long as the expressions are linear and just simple arithmetic expressions such as "1 + 1 = 2" or "3 - 1 = 2". Anything more complex or containing non-standard characters or symbols is required to be captured as MathML.
+### Some Things That Should Be In Plain Text
+
+Things that are not mathematics should not be marked up with MathML. Below is a list with some examples. If it is unclear whether something is mathematics or not, please ask the Ordering Agency.
+
+- Years: “The 1950s” (English), “1950-årene” (Norwegian)
+- Dates: “23.10.2013”, “23/10 - 13”
+- Time periods: “1840–1845”, “June 1–June 4”
+- Intervals like “7–8 children” (7 to 8 children), “90–95% of the participants voted yes”
+- Numbers on journals etc: “Vi menn 1/2025”
+- ISBN: “978-82-7007-515-7”
+- Page numbers: “page 18–19”
+- Laws and paragraphs in laws: “NOU 1991:2”, “lov 1977–06–03 nr. 57”, “§ 2–4”
+- Chapters in the Bible: “2 Mos 33,15–22”
+- Phone numbers, addresses
+- Results: “MANU–LFC: 3–2”
+- Countdown: 3-2-1
 
 ### Chemistry
 

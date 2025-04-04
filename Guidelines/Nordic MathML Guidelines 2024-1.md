@@ -1068,6 +1068,37 @@ Using invisible operators makes the markup unambigious:
 
 Note that automatic MathML markup might not take context into account, so manual checking of invisible operators may be necessary.
 
+### Numbers with Units
+
+Numbers with a unit attached to it should typically be written:
+
+```html
+<math>
+    <mn>100</mn>
+    <mo rspace="0.25em">&#x2062;</mo>
+    <mi mathvariant="normal" intent=":unit">m</mi>
+</math>
+```
+
+The invisible multiplication operator ties the unit to the number and provides the possibility to add a space between the number and the unit symbol. The space should be set to 0.25em unless it is a unit that is placed directly after the number, like the degree symbol. In those cases the space can be set to 0 or the `rspace` attribute omitted completely.
+
+Units that contain operators must be marked up correctly, and the whole unit wrapped in a `<mrow>` element.
+
+```html
+<math>
+    <mn>100</mn>
+    <mo rspace="0.25em">&#x2062;</mo>
+    <mrow>
+        <mi mathvariant="normal" intent=":unit">m</mi>
+        <mo>/</mo>
+        <msup>
+            <mi mathvariant="normal" intent=":unit">s</mi>
+            <mn>2</mn>
+        </msup>
+    </mrow>
+</math>
+```
+
 ### Systems of Equations
 
 Systems of equations are tabular math. See the section Tabular math for more information. 

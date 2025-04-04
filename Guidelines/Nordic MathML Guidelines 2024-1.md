@@ -24,7 +24,7 @@ Variables and parameters should always be marked up with MathML.
 
 In STEM books Greek letters should always be in MathML. In these books they are variables and parameters. In non-STEM books isolated Greek letters should be in plain text. However, if they are part of an expression, like Δx, the whole expression should be marked up with MathML.
 
-Variables, Greek letters etc. with a sign above, like <math><mover><mi>x</mi><mo>&#8254;</mo></mover></math> or <math><mover><mi>y</mi><mo>&#x5E;</mo></mover></math>, or with indexes, like β<sub>1</sub> or ℇ<sub>0</sub>, should always be marked up with MathML, using “mover” and “msub” respectively. Note that there are distinct characters like ŷ (U+0177), but these are not intended for mathematics and should not be used.
+Variables, Greek letters etc. with a sign above, like $\bar{x}$ or $\hat{y}$, or with indexes, like β<sub>1</sub> or ℇ<sub>0</sub>, should always be marked up with MathML, using “mover” and “msub” respectively. Note that there are distinct characters like ŷ (U+0177), but these are not intended for mathematics and should not be used.
 
 ### Some Things That Should Be In Plain Text
 
@@ -93,13 +93,13 @@ Here are a few of examples:
 <p>Text preceding a stand-alone block of math content.</p>
 <p>
 <math display="block">
-  <mrow>
-    <mi>a</mi>
-    <mo>+</mo>
-    <mi>b</mi>
-    <mo>=</mo>
-    <mi>c</mi>
-  </mrow>
+    <mrow>
+        <mi>a</mi>
+        <mo>+</mo>
+        <mi>b</mi>
+        <mo>=</mo>
+        <mi>c</mi>
+    </mrow>
 </math>
 </p>
 ```
@@ -114,9 +114,9 @@ a + b = c
 ```html
 <p>Here is an inline equation:
 <math>
-  <mi>x</mi>
-  <mo>=</mo>
-  <mn>5</mn>
+    <mi>x</mi>
+    <mo>=</mo>
+    <mn>5</mn>
 </math>.</p>
 ```
 
@@ -193,23 +193,27 @@ The same character can be used in a different meaning based on the context. For 
 
 The sequence {1,2,3,...} written in MathML:
 ```html
-<mo>{</mo>
-<mn>1</mn>
-<mo>,</mo>
-<mn>2</mn>
-<mo>,</mo>
-<mn>3</mn>
-<mi>...</mi>
-<mo>}</mo>
+<math>
+    <mo>{</mo>
+    <mn>1</mn>
+    <mo>,</mo>
+    <mn>2</mn>
+    <mo>,</mo>
+    <mn>3</mn>
+    <mi>...</mi>
+    <mo>}</mo>
+</math>
 ```
 
-Some characters are written with accents, for example the average <math><mover><mi>x</mi><mo>&#8254;</mo></mover></math> (read as "x bar"). Here the accent "bar" is also an operator. MathML code:
+Some characters are written with accents, for example the average $\bar{x}$ (read as "x bar"). Here the accent "bar" is also an operator. MathML code:
 
 ```html
-<mover>
-    <mi>x</mi>
-    <mo>&#8254;</mo>
-</mover>
+<math>
+    <mover>
+        <mi>x</mi>
+        <mo>&#8254;</mo>
+    </mover>
+</math>
 ```
 
 More about the usage of `<mover>` later on.
@@ -220,16 +224,18 @@ The `<mi>` element is used to denote functions, variables, units, and other iden
 
 Functions and function names are identifiers: `<mi>tan</mi>`, `<mi>sin</mi>` or `<mi>log</mi>`.
 
-Units are identifiers. For example meter `<mi mathvariant="normal">m</mi>` or second `<mi mathvariant="normal">s</mi>`. When units are written using multiple letters, you should mark them up as a single element: `<mi>Nm</mi>`. Depending on the layout of the unit, you have to use other MathML elements to mark up a single unit such as metre per second squared: 
+Units are identifiers. For example meter `<mi mathvariant="normal">m</mi>` or second `<mi mathvariant="normal">s</mi>`. When units are written using multiple letters, they should be marked up as a single element: `<mi>Nm</mi>`. Depending on the layout of the unit, you have to use other MathML elements to mark up a single unit such as metre per second squared: 
 
 ```html
-<mfrac>
-    <mi mathvariant="normal">m</mi>
-    <msup>
-        <mi mathvariant="normal">s</mi>
-        <mn>2</mn>
-    </msup>
-</mfrac>
+<math>
+    <mfrac>
+        <mi mathvariant="normal">m</mi>
+        <msup>
+            <mi mathvariant="normal">s</mi>
+            <mn>2</mn>
+        </msup>
+    </mfrac>
+</math>
 ```
 
 Which renders as <math><mfrac>
@@ -287,7 +293,7 @@ When a notation has written words, you should use `<mtext>` as well. For example
 
 Note that some automatic MathML markup engines cause text in equations to be captured with each letter inside its own `<mi>` element. Please avoid this and use `<mtext>` as shown above instead.
 
-The attribute `style` can be used to format text in the `<mtext>` element to reflect the source. Also make sure to include whitespace when necessary inside the `<mtext>` markup so that the display matches the source.
+The attribute `style` can be used to format text in the `<mtext>` element to reflect the source. Also make sure to include whitespace when necessary inside the `<mtext>` markup so that the display matches the source. For space inside the `<mtext>` element, use the Unicode Four-Per-Em Space `&#8197;` rather than pressing the space bar.
 
 ##### Punctuation
 
@@ -298,40 +304,34 @@ For the visual layout of the mathematical expression to be correct, the punctuat
 ```html
 <p>
    This can be seen from the quadratic formula
-   <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-      <mi>x</mi>
-      <mo>=</mo>
-      <mfrac>
-         <mrow>
+   <math>
+        <mi>x</mi>
+        <mo>=</mo>
+        <mfrac>
             <mrow>
-               <mo>−</mo>
-               <mi>b</mi>
-            </mrow>
+                <mo>−</mo>
+                <mi>b</mi>
             <mo>±</mo>
             <msqrt>
-               <mrow>
-                  <msup>
-                     <mi>b</mi>
-                     <mn>2</mn>
-                  </msup>
-                  <mrow>
-                     <mo>−</mo>
-                     <mn>4</mn>
-                     <mo>⁢</mo>
-                     <mi>a</mi>
-                     <mo>⁢</mo>
-                     <mi>c</mi>
-                  </mrow>
-               </mrow>
+                <msup>
+                    <mi>b</mi>
+                    <mn>2</mn>
+                </msup>
+                <mo>−</mo>
+                <mn>4</mn>
+                <mo>&#8290;⁢</mo>
+                <mi>a</mi>
+                <mo>&#8290;⁢</mo>
+                <mi>c</mi>
             </msqrt>
-         </mrow>
-         <mrow>
-            <mn>2</mn>
-            <mo>⁢</mo>
-            <mi>a</mi>
-         </mrow>
-      </mfrac>
-      <mtext>.</mtext>
+            </mrow>
+            <mrow>
+                <mn>2</mn>
+                <mo>&#8290;⁢</mo>
+                <mi>a</mi>
+            </mrow>
+        </mfrac>
+        <mtext>.</mtext>
    </math>
 </p>
 ```
@@ -340,27 +340,27 @@ For the visual layout of the mathematical expression to be correct, the punctuat
 
 ```html
 <p>
-   This is demonstrated by
-   <math display="block">
-      <mo>(</mo>
-      <mi>a</mi>
-      <mo>∘</mo>
-      <mi>b</mi>
-      <mo>)</mo>
-      <mo>∘</mo>
-      <mi>c</mi>
-      <mo>=</mo>
-      <mi>a</mi>
-      <mo>∘</mo>
-      <mo>(</mo>
-      <mi>b</mi>
-      <mo>∘</mo>
-      <mi>c</mi>
-      <mo>)</mo>
-      <mspace width="5em"></mspace>
-      <mtext>(1.3)</mtext>
-      <mtext>.</mtext>
-   </math>
+    This is demonstrated by
+    <math display="block">
+        <mo>(</mo>
+        <mi>a</mi>
+        <mo>∘</mo>
+        <mi>b</mi>
+        <mo>)</mo>
+        <mo>∘</mo>
+        <mi>c</mi>
+        <mo>=</mo>
+        <mi>a</mi>
+        <mo>∘</mo>
+        <mo>(</mo>
+        <mi>b</mi>
+        <mo>∘</mo>
+        <mi>c</mi>
+        <mo>)</mo>
+        <mspace width="5em"></mspace>
+        <mtext>(1.3)</mtext>
+        <mtext>.</mtext>
+    </math>
 </p>
 ```
 
@@ -374,15 +374,15 @@ The `<mrow>` element is used to group mathematical expressions and parts of expr
 <math>
     <mo>(</mo>
     <mfrac>
-    <mrow>
-        <mn>1</mn>
-        <mo>+</mo>
-        <mfrac>
-        <mn>2</mn>
-        <mn>3</mn>
-        </mfrac>
-    </mrow>
-    <mn>4</mn>
+        <mrow>
+            <mn>1</mn>
+            <mo>+</mo>
+            <mfrac>
+                <mn>2</mn>
+                <mn>3</mn>
+            </mfrac>
+        </mrow>
+        <mn>4</mn>
     </mfrac>
     <mo>)</mo>
 </math>
@@ -497,24 +497,24 @@ is marked up as follows:
 
 ```html
 <math>
-  <mfrac>
-    <mrow>
-      <mi>x</mi>
-      <mo>+</mo>
-      <mi>y</mi>
-      <mo>+</mo>
-      <mi>z</mi>
-    </mrow>
-    <mrow>
-      <mi>x</mi>
-      <mphantom>
-        <mo form="infix">+</mo>
-        <mi>y</mi>
-      </mphantom>
-      <mo>+</mo>
-      <mi>z</mi>
-    </mrow>
-  </mfrac>
+    <mfrac>
+        <mrow>
+            <mi>x</mi>
+            <mo>+</mo>
+            <mi>y</mi>
+            <mo>+</mo>
+            <mi>z</mi>
+        </mrow>
+        <mrow>
+            <mi>x</mi>
+            <mphantom>
+                <mo form="infix">+</mo>
+                <mi>y</mi>
+            </mphantom>
+            <mo>+</mo>
+            <mi>z</mi>
+        </mrow>
+    </mfrac>
 </math>
 ```
 
@@ -528,8 +528,8 @@ Superscript notation is marked up using `<msup>`. The first child element is the
 ```html
 <math>
     <msup>
-      <mi>x</mi>
-      <mn>2</mn>
+        <mi>x</mi>
+        <mn>2</mn>
     </msup>
 </math>
 ```
@@ -539,8 +539,8 @@ Similarly, subscript notation is marked up using `<msub>`. The first child eleme
 ```html
 <math>
     <msub>
-      <mi>x</mi>
-      <mi>i</mi>
+        <mi>x</mi>
+        <mi>i</mi>
     </msub>
 </math>
 ```
@@ -550,9 +550,9 @@ For marking up both super- and subscript on the same base, `<msubsup>` is used. 
 ```html
 <math>
     <msubsup>
-      <mi>x</mi>
-      <mi>i</mi>
-      <mi>2</mi>
+        <mi>x</mi>
+        <mi>i</mi>
+        <mi>2</mi>
     </msubsup>
 </math>
 ```
@@ -562,12 +562,12 @@ When a sub- or superscript contains multiple elements they are grouped together 
 ```html
 <math>
     <msup>
-      <mi>x</mi>
-      <mrow>
-        <mi>a</mi>
-        <mo>+</mo>
-        <mi>b</mi>
-      </mrow>
+        <mi>x</mi>
+        <mrow>
+            <mi>a</mi>
+            <mo>+</mo>
+            <mi>b</mi>
+        </mrow>
     </msup>
 </math>
 ```
@@ -577,19 +577,19 @@ The same principle applies for `<msubsup>`. Note also that the base can be group
 ```html
 <math>
     <msubsup>
-      <mrow>
-        <mo>(</mo>
+        <mrow>
+            <mo>(</mo>
+            <mi>x</mi>
+            <mo>+</mo>
+            <mi>y</mi>
+            <mo>)</mo>
+        </mrow>
         <mi>x</mi>
-        <mo>+</mo>
-        <mi>y</mi>
-        <mo>)</mo>
-      </mrow>
-      <mi>x</mi>
-      <mrow>
-        <mi>a</mi>
-        <mo>+</mo>
-        <mi>b</mi>
-      </mrow>
+        <mrow>
+            <mi>a</mi>
+            <mo>+</mo>
+            <mi>b</mi>
+        </mrow>
     </msubsup>
 </math>
 ```
@@ -601,12 +601,12 @@ Underscript notation is marked up using the element `<munder>`. The first child 
 ```html
 <math>
     <munder>
-      <mo>∑</mo>
-      <mrow>
-        <mi>i</mi>
-        <mo>=</mo>
-        <mi>1</mi>
-      </mrow>
+        <mo>∑</mo>
+        <mrow>
+            <mi>i</mi>
+            <mo>=</mo>
+            <mi>1</mi>
+        </mrow>
     </munder>
 </math>
 ```
@@ -616,36 +616,36 @@ Sometimes it is necessary to nest multiple `<munder>` elements. For example when
 
 Mark up for this expression is as follows
 ```html
-<math display="block">
-   <munder>
-      <mrow>
-         <munder>
-            <mrow>
-               <mn>1</mn>
-               <mo>+</mo>
-               <mn>2</mn>
-               <mo>+</mo>
-               <mn>3</mn>
-               <mo>+</mo>
-               <mn>4</mn>
-               <mo>+</mo>
-               <mn>5</mn>
-               <mo>+</mo>
-               <mn>6</mn>
-               <mo>+</mo>
-               <mn>7</mn>
-               <mo>+</mo>
-               <mn>8</mn>
-               <mo>+</mo>
-               <mn>9</mn>
-               <mo>+</mo>
-               <mn>10</mn>
-            </mrow>
+<math>
+    <munder>
+        <mrow>
+            <munder>
+                <mrow>
+                    <mn>1</mn>
+                    <mo>+</mo>
+                    <mn>2</mn>
+                    <mo>+</mo>
+                    <mn>3</mn>
+                    <mo>+</mo>
+                    <mn>4</mn>
+                    <mo>+</mo>
+                    <mn>5</mn>
+                    <mo>+</mo>
+                    <mn>6</mn>
+                    <mo>+</mo>
+                    <mn>7</mn>
+                    <mo>+</mo>
+                    <mn>8</mn>
+                    <mo>+</mo>
+                    <mn>9</mn>
+                    <mo>+</mo>
+                    <mn>10</mn>
+                </mrow>
             <mo>&#x23DF;</mo>
-         </munder>
-      </mrow>
-      <mtext>Sum of the first ten positive integers</mtext>
-   </munder>
+            </munder>
+        </mrow>
+        <mtext>Sum of the first ten positive integers</mtext>
+    </munder>
 </math>
 ```
 
@@ -653,10 +653,10 @@ Overscript notation is marked up using the element `<mover>`. The first child el
 
 ```html
 <math>
-  <mover>
-    <mi>x</mi>
-    <mo>→</mo>
-  </mover>
+    <mover>
+        <mi>x</mi>
+        <mo>→</mo>
+    </mover>
 </math>
 ```
 
@@ -665,9 +665,9 @@ When both an underscript and overscript are needed, the element `<munderover>` i
 ```html
 <math>
     <munderover>
-      <mo>∫</mo>
-      <mi>a</mi>
-      <mi>b</mi>
+        <mo>∫</mo>
+        <mi>a</mi>
+        <mi>b</mi>
     </munderover>
 </math>
 ```
@@ -676,35 +676,22 @@ Note that `<mrow>` can be used to group together base, underscript or overscript
 
 #### Prescripts and Postscripts, `<mmultiscripts>`
 
-Sometimes multiple prescripts and postscripts are attached to the same base, e.g. in tensor notation. To mark up this, the element `<mmultiscripts>` is used.  The `<mmultiscripts>` element contains the base element followed by pairs of subscript and superscript elements. The example of <math>
-  <mmultiscripts>
-    <mn>A</mn>
-    <mn>m</mn>
-    <mn>n</mn>
-    <mrow></mrow>
-    <mn>p</mn>
-    <mprescripts/>
-    <mn>q</mn>
-    <mrow></mrow>
-    <mn>s</mn>
-    <mn>t</mn>
-  </mmultiscripts>
-</math> below explains how. <!-- HELP I can't get this to render! /Tim-->
+Sometimes multiple prescripts and postscripts are attached to the same base, e.g. in tensor notation. To mark up this, the element `<mmultiscripts>` is used.  The `<mmultiscripts>` element contains the base element followed by pairs of subscript and superscript elements. The example of $^t_{qs}A_m^{np}$ below explains how.
 
 ```html
 <math>
-  <mmultiscripts>
-    <mn>A</mn>
-    <mn>m</mn>
-    <mn>n</mn>
-    <mrow></mrow>
-    <mn>p</mn>
-    <mprescripts/>
-    <mn>q</mn>
-    <mrow></mrow>
-    <mn>s</mn>
-    <mn>t</mn>
-  </mmultiscripts>
+    <mmultiscripts>
+        <mn>A</mn>
+        <mn>m</mn>
+        <mn>n</mn>
+        <mrow></mrow>
+        <mn>p</mn>
+        <mprescripts/>
+        <mn>q</mn>
+        <mrow></mrow>
+        <mn>s</mn>
+        <mn>t</mn>
+    </mmultiscripts>
 </math>
 ```
 
@@ -912,18 +899,18 @@ Example of a labeled equation
 
 ```html
 <math display="block" id="equation-0" tabindex="0">
-<mtable>
-<mtr>
-  <mtd class="label" intent=":equation-label"><mtext>(1.4)</mtext></mtd>
-  <mtd>
-   <mi>x</mi>
-   <mo>+</mo>
-   <mi>y</mi>
-  </mtd>
-  <mtd><mo>=</mo></mtd>
-  <mtd><mn>2</mn></mtd>
- </mtr>
-</mtable>
+    <mtable>
+        <mtr>
+            <mtd class="label" intent=":equation-label"><mtext>(1.4)</mtext></mtd>
+            <mtd>
+                <mi>x</mi>
+                <mo>+</mo>
+                <mi>y</mi>
+            </mtd>
+            <mtd><mo>=</mo></mtd>
+            <mtd><mn>2</mn></mtd>
+        </mtr>
+    </mtable>
 </math>
 ```
 
@@ -944,28 +931,28 @@ Example of multiple labeled expressions in the same block.
 
 ```html
 <math display="block" id="equation-1" tabindex="0">
-<mtable>
-  <mtr>
-    <mtd intent=":equation-label"><mtext>(1.4)</mtext></mtd>
-    <mtd>
-     <mi>x</mi>
-     <mo>+</mo>
-     <mi>y</mi>
-    </mtd>
-    <mtd><mo>=</mo></mtd>
-    <mtd><mn>2</mn></mtd>
-   </mtr>
-   <mtr>
-     <mtd intent=":equation-label" id="eq-2"><mtext>(2.7)</mtext></mtd>
-     <mtd>
-     <mi>x</mi>
-     <mo>&#x2212;</mo>
-     <mi>y</mi>
-    </mtd>
-    <mtd><mo>=</mo></mtd>
-    <mtd><mn>0</mn></mtd>
-   </mtr>
-  </mtable>
+    <mtable>
+    <mtr>
+        <mtd intent=":equation-label"><mtext>(1.4)</mtext></mtd>
+        <mtd>
+            <mi>x</mi>
+            <mo>+</mo>
+            <mi>y</mi>
+        </mtd>
+        <mtd><mo>=</mo></mtd>
+        <mtd><mn>2</mn></mtd>
+    </mtr>
+    <mtr>
+        <mtd intent=":equation-label" id="eq-2"><mtext>(2.7)</mtext></mtd>
+        <mtd>
+            <mi>x</mi>
+            <mo>&#x2212;</mo>
+            <mi>y</mi>
+        </mtd>
+        <mtd><mo>=</mo></mtd>
+        <mtd><mn>0</mn></mtd>
+    </mtr>
+    </mtable>
 </math>
 ```
 
@@ -1099,11 +1086,9 @@ Example rendering and markup of a pair of equations:
     <mtable>
         <mtr>
             <mtd> 
-                <mrow> 
-                    <mi>x</mi>
-                    <mo>+</mo>
-                    <mi>y</mi>
-                </mrow> 
+                <mi>x</mi>
+                <mo>+</mo>
+                <mi>y</mi>
             </mtd>
             <mtd>
                 <mo>=</mo>
@@ -1114,13 +1099,11 @@ Example rendering and markup of a pair of equations:
         </mtr>
         <mtr>
             <mtd>
-                <mrow>
-                    <mn>2</mn>
-                    <mi>x</mi>
-                    <mo>+</mo>
-                    <mn>3</mn>
-                    <mi>y</mi>
-                </mrow>
+                <mn>2</mn>
+                <mi>x</mi>
+                <mo>+</mo>
+                <mn>3</mn>
+                <mi>y</mi>
             </mtd>
             <mtd>
                 <mo>=</mo>
@@ -1148,12 +1131,10 @@ Example of rendering and mark up of equation solving notation:
     <mtable>
         <mtr>
             <mtd> 
-                <mrow>
-                    <mn>2</mn
-                    <mo>&#x2062;</mo>
-                    <mi>x</mi>
-                    <mo>+3</mo>
-                </mrow> 
+                <mn>2</mn>
+                <mo>&#x2062;</mo>
+                <mi>x</mi>
+                <mo>+3</mo>
             </mtd>
             <mtd>
                 <mo>=</mo>
@@ -1162,19 +1143,16 @@ Example of rendering and mark up of equation solving notation:
                 <mn>7</mn>
             </mtd>
             <mtd>
-                <mrow>
-                    <mo>|</mo>
-                    <mo>|</mo>
-                </mrow>
+                <mo>|</mo>
+                <mo>|</mo>
                 <mo>&#x2212;</mo>
                 <mn>3</mn>
+            </mtd>
         </mtr>
         <mtr>
             <mtd>
-                <mrow>
-                    <mn>2</mn>
-                    <mi>x</mi>
-                </mrow>
+                <mn>2</mn>
+                <mi>x</mi>
             </mtd>
             <mtd>
                 <mo>=</mo>
@@ -1202,13 +1180,11 @@ Example of the rendering and mark up of equation solving with commentary text:
 <math>
     <mtable>
         <mtr>
-            <mtd> 
-                <mrow>
-                    <mn>2</mn
-                    <mo>&#x2062;</mo>
-                    <mi>x</mi>
-                    <mo>+3</mo>
-                </mrow> 
+            <mtd>
+                <mn>2</mn
+                <mo>&#x2062;</mo>
+                <mi>x</mi>
+                <mo>+3</mo>
             </mtd>
             <mtd>
                 <mo>=</mo>
@@ -1221,10 +1197,8 @@ Example of the rendering and mark up of equation solving with commentary text:
         </mtr>
         <mtr>
             <mtd>
-                <mrow>
-                    <mn>2</mn>
-                    <mi>x</mi>
-                </mrow>
+                <mn>2</mn>
+                <mi>x</mi>
             </mtd>
             <mtd>
                 <mo>=</mo>
@@ -1293,39 +1267,40 @@ Markup:
 ```html
 <p>When looking at the crossing out of the expression
     <img style="display: block" src="images/fractional-with-crossing-out.png" aria-describedby="img-desc-1" alt="Image description below."></p>
-    <details id="img-desc-1"><summary>Image description.</summary><math display="block">
-      <mfrac>
-        <mrow>
-          <mrow>
-            <mo>(</mo>
-            <msup>
-              <mi>x</mi>
-              <mn>2</mn>
-            </msup>
-            <mo>&#x2212;</mo>
-            <mn>2</mn>
-            <mi>x</mi>
-            <mo>+</mo>
-            <mn>3</mn>
-            <mo>)</mo>
-          </mrow>
-          <menclose notation="updiagonalstrike">
-          <mrow>
-            <mo>(</mo>
-            <mi>x</mi>
-            <mo>+</mo>
-            <mn>1</mn>
-            <mo>)</mo>
-          </mrow>
-        </menclose>
-        </mrow>
-        <menclose notation="updiagonalstrike">
-        <mrow>
-          <mi>x</mi>
-          <mo>+</mo>
-          <mn>1</mn>
-        </mrow>
-      </menclose>
+    <details id="img-desc-1"><summary>Image description.</summary>
+    <math display="block">
+        <mfrac>
+            <mrow>
+                <mrow>
+                    <mo>(</mo>
+                    <msup>
+                        <mi>x</mi>
+                        <mn>2</mn>
+                    </msup>
+                    <mo>&#x2212;</mo>
+                    <mn>2</mn>
+                    <mi>x</mi>
+                    <mo>+</mo>
+                    <mn>3</mn>
+                    <mo>)</mo>
+                </mrow>
+                <menclose notation="updiagonalstrike">
+                    <mrow>
+                        <mo>(</mo>
+                        <mi>x</mi>
+                        <mo>+</mo>
+                        <mn>1</mn>
+                        <mo>)</mo>
+                    </mrow>
+                </menclose>
+            </mrow>
+            <menclose notation="updiagonalstrike">
+                <mrow>
+                    <mi>x</mi>
+                    <mo>+</mo>
+                    <mn>1</mn>
+                </mrow>
+            </menclose>
       </mfrac>
   </math></details>
 ```
@@ -1350,52 +1325,48 @@ To mark up chemistry in MathML, follow these general principles.
 - Use `<msub>` and `<msup>` to mark up subscripts and superscripts, respectively. For example, to represent $\text{H}_2\text{O}$:
 ```html
 <math>
-  <mrow>
-    <msub>
-      <mi>H</mi>
-      <mn>2</mn>
-    </msub>
-    <mi>O</mi>
-  </mrow>
+    <mrow>
+        <msub>
+            <mi>H</mi>
+            <mn>2</mn>
+        </msub>
+        <mi>O</mi>
+    </mrow>
 </math>
 ```
 - Use `<mmultiscripts>` to mark up isotopes. For example, to represent $^{14}\text{C}$:
 ```html
 <math>
-  <mmultiscripts>
-    <mn>C</mn>
-    <mrow></mrow>
-    <mrow></mrow>
-    <mprescripts/>
-    <mrow></mrow>
-    <mn>14</mn>
-  </mmultiscripts>
+    <mmultiscripts>
+        <mn>C</mn>
+        <mrow></mrow>
+        <mrow></mrow>
+        <mprescripts/>
+        <mrow></mrow>
+        <mn>14</mn>
+    </mmultiscripts>
 </math>
 ```
 - Use `<mo>` for operators like arrows. For example, to represent a chemical reaction like $H_2 + O_2 \rightarrow H_2O$:
 ```html
 <math>
-  <mrow>
     <msub>
-      <mi>H</mi>
-      <mn>2</mn>
+        <mi>H</mi>
+        <mn>2</mn>
     </msub>
     <mo>+</mo>
     <msub>
-      <mi>O</mi>
-      <mn>2</mn>
+        <mi>O</mi>
+        <mn>2</mn>
     </msub>
     <mo>&#x2192;</mo>
     <msub>
-      <mi>H</mi>
-      <mn>2</mn>
+        <mi>H</mi>
+        <mn>2</mn>
     </msub>
     <mi>O</mi>
-  </mrow>
 </math>
 ```
-
-<!--- these are examples, must fill section with more -->
 
 ## Special Content Requirements
 
@@ -1432,20 +1403,20 @@ This notation means that the numerator and the denominator are multiplied by the
 In MathML it is marked up as
 ```html
 <math>
-<mmultiscripts>
-	<mfrac>
-    <mn>3</mn>
-    <mn>5</mn>
-    </mfrac> <!-- base expression -->
-    <mrow></mrow> <!-- empty post-sub-script -->
-    <mrow></mrow> <!-- empty post-sup-script -->
-    <mprescripts/>
-    <mrow></mrow>  <!-- empty pre-sub-script -->
-    <mrow>
-      <mn>2</mn>
-      <mo>)</mo>
-    </mrow> <!-- pre-sup-script -->
-</mmultiscripts>
+    <mmultiscripts>
+        <mfrac>
+            <mn>3</mn>
+            <mn>5</mn>
+        </mfrac> <!-- base expression -->
+        <mrow></mrow> <!-- empty post-sub-script -->
+        <mrow></mrow> <!-- empty post-sup-script -->
+        <mprescripts/>
+        <mrow></mrow>  <!-- empty pre-sub-script -->
+        <mrow>
+            <mn>2</mn>
+            <mo>)</mo>
+        </mrow> <!-- pre-sup-script -->
+    </mmultiscripts>
 </math>
 ```
 
@@ -1456,20 +1427,20 @@ Then the respective division notation:
 The mark up in MathML:
 ```html
 <math>
-<mmultiscripts>
-	<mfrac>
-    <mn>6</mn>
-    <mn>9</mn>
-    </mfrac> <!-- base expression -->
-    <mrow></mrow> <!-- empty post-sub-script -->
-    <mrow>
-      <mo>(</mo>
-      <mn>3</mn>
-    </mrow> <!-- post-sup-script -->
-    <mprescripts/>
-    <mrow></mrow> <!-- empty pre-sub-script -->
-    <mrow></mrow> <!-- empty pre-sup-script -->
-</mmultiscripts>
+    <mmultiscripts>
+        <mfrac>
+            <mn>6</mn>
+            <mn>9</mn>
+        </mfrac> <!-- base expression -->
+        <mrow></mrow> <!-- empty post-sub-script -->
+        <mrow>
+            <mo>(</mo>
+            <mn>3</mn>
+        </mrow> <!-- post-sup-script -->
+        <mprescripts/>
+        <mrow></mrow> <!-- empty pre-sub-script -->
+        <mrow></mrow> <!-- empty pre-sup-script -->
+    </mmultiscripts>
 </math>
 ```
 
@@ -1493,10 +1464,10 @@ Lines, arrows, and other embellishments on variables are often used to denote ve
 
 ```html
 <math>
-  <mover>
-    <mi>z</mi>
-    <mo accent='false'>¯</mo>
-  </mover>
+    <mover>
+        <mi>z</mi>
+        <mo accent='false'>¯</mo>
+    </mover>
 </math>
 ```
 
@@ -1527,6 +1498,3 @@ Automatic tools for MathML markup have tendencies to produce errors. A procedure
 
 * [Unicode character tables](https://symbl.cc/en/unicode-table/)
 * [MathML Validator](https://kvile.com/blind/kvalidator/)
-
-
-[def]: mphantom.png

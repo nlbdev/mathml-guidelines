@@ -1518,7 +1518,7 @@ These escape sequences are necessary to avoid conflicts with the XML syntax used
 
 ## Quality assurance
 
-Automatic tools for MathML markup have tendencies to produce errors. A procedure for quality assurance should include searching for instances where the markup deviates from these guidelines. In addition to the Nordic EPUB validator, we recommend using [this online tool developed by Jan Martin Kvile at Statped](https://kvile.com/blind/kvalidator/). The searches can be modified by clicking the desired list item and editing the corresponding xpath query.
+Automatic tools for MathML markup have tendencies to produce errors. A procedure for quality assurance should include searching for instances where the markup deviates from these guidelines. In addition to the Nordic EPUB validator, we recommend using [this online tool developed by Jan Martin Kvile at Statped](https://kvile.com/kvalidator/index.html). The searches can be modified by clicking the desired list item and editing the corresponding xpath query.
 
 
 ## Resources

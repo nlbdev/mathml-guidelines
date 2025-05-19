@@ -1524,4 +1524,4 @@ Automatic tools for MathML markup have tendencies to produce errors. A procedure
 ## Resources
 
 * [Unicode character tables](https://symbl.cc/en/unicode-table/)
-* [MathML Validator](https://kvile.com/blind/kvalidator/)
+* [MathML Validator](https://kvile.com/kvalidator/index.html)

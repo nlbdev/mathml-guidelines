@@ -681,16 +681,16 @@ Sometimes multiple prescripts and postscripts are attached to the same base, e.g
 ```html
 <math>
     <mmultiscripts>
-        <mn>A</mn>
-        <mn>m</mn>
-        <mn>n</mn>
+        <mi>A</mi>
+        <mi>m</mi>
+        <mi>n</mi>
         <mrow></mrow>
-        <mn>p</mn>
+        <mi>p</mi>
         <mprescripts/>
-        <mn>q</mn>
+        <mi>q</mi>
         <mrow></mrow>
-        <mn>s</mn>
-        <mn>t</mn>
+        <mi>s</mi>
+        <mi>t</mi>
     </mmultiscripts>
 </math>
 ```
@@ -1365,7 +1365,7 @@ To mark up chemistry in MathML, follow these general principles.
 ```html
 <math>
     <mmultiscripts>
-        <mn>C</mn>
+        <mi>C</mi>
         <mrow></mrow>
         <mrow></mrow>
         <mprescripts/>

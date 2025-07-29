@@ -3,7 +3,7 @@ name: Guideline Problem Report
 about: Report a problem or suggest changes to the MathML guidelines
 title: '[GUIDELINE] '
 labels: ['guideline', 'needs-review']
-assignees: []
+assignees: ['MartheGjelstad']
 ---
 
 ## Problem Description

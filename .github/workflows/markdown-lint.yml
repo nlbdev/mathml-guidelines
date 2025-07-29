@@ -1,0 +1,26 @@
+name: Markdown Linting
+on: [push, pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Install markdownlint
+        run: npm install -g markdownlint-cli
+      
+      - name: Lint Markdown files
+        run: |
+          markdownlint "Guidelines/**/*.md" --config .markdownlint.json || true
+      
+      - name: Check for broken links
+        run: |
+          npm install -g markdown-link-check
+          find Guidelines -name "*.md" -exec markdown-link-check {} \; || true

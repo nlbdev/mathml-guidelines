@@ -14,6 +14,7 @@ cat > _pages/guidelines.md << 'EOF'
 layout: page
 title: Nordic Guidelines for Mathematical Content in HTML Files, Using MathML
 description: Comprehensive guidelines for creating accessible mathematical content using MathML
+permalink: /guidelines/
 ---
 
 EOF

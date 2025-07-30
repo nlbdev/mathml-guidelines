@@ -40,7 +40,7 @@ jobs:
           
       - name: Convert Guidelines Markdown to Jekyll Page
         run: |
-          ./scripts/convert-guidelines.sh
+          bash scripts/convert-guidelines.sh
           
       - name: Build with Jekyll
         run: |

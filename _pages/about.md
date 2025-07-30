@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Nordic MathML Guidelines
-description: Guidelines for Mathematical Content in HTML Files, Using MathML
+title: About Nordic MathML Guidelines
+description: Information about the Nordic MathML Guidelines project
 permalink: /about/
 ---
 
-# Welcome to the Nordic MathML Guidelines
+# About the Nordic MathML Guidelines
 
 This document provides comprehensive guidelines for creating accessible mathematical content in HTML files using MathML. It is a joint effort between Nordic agencies dedicated to providing accessible literature in different formats to children and adults with various reading impairments or special needs.
 

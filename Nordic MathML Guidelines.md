@@ -1287,7 +1287,7 @@ If the expression is a block element, use the `<details>` element with the `<sum
 
 Rendered:
 
-![Example of a fractional with crossed out terms as a block expression. The code example below has the specifics.](image.png)
+![Example of a fractional with crossed out terms as a block expression. The code example below has the specifics.](images/example-crossed-out-terms.png)
 
 Markup:
 
@@ -1336,7 +1336,7 @@ If the expression is an inline element, use `alt="equation"` for the `<math>` el
 
 Rendered:
 
-![Example of a fraction that is crossed out as an inline expression.](image-1.png)
+![Example of a fraction that is crossed out as an inline expression.](images/example-crossed-out-fraction.png)
 
 Markup:
 

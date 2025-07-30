@@ -39,7 +39,7 @@ The basis of this document is the [MathML Core specification](https://www.w3.org
 
 ## Getting Started
 
-[Read the full guidelines →](/)
+[Read the full guidelines →](../)
 
 ## Resources
 

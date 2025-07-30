@@ -2,6 +2,7 @@
 layout: page
 title: Nordic MathML Guidelines
 description: Guidelines for Mathematical Content in HTML Files, Using MathML
+permalink: /about/
 ---
 
 # Welcome to the Nordic MathML Guidelines
@@ -38,7 +39,7 @@ The basis of this document is the [MathML Core specification](https://www.w3.org
 
 ## Getting Started
 
-[Read the full guidelines →](/guidelines/)
+[Read the full guidelines →](/)
 
 ## Resources
 

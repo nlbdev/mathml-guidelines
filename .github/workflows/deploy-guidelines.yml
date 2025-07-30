@@ -32,19 +32,13 @@ jobs:
           ruby-version: '3.2'
           bundler-cache: true
           
-      - name: Install Jekyll
-        run: |
-          gem install jekyll
-          gem install jekyll-seo-tag
-          gem install jekyll-sitemap
-          
       - name: Convert Guidelines Markdown to Jekyll Page
         run: |
           bash scripts/convert-guidelines.sh
           
       - name: Build with Jekyll
         run: |
-          jekyll build --baseurl ""
+          bundle exec jekyll build --baseurl ""
         env:
           JEKYLL_ENV: production
           

@@ -12,9 +12,9 @@ permalink: /:title/
 
 # Collections
 collections:
-  guidelines:
+  pages:
     output: true
-    permalink: /:collection/:name/
+    permalink: /:name/
 
 # Plugins
 plugins:
@@ -32,6 +32,7 @@ exclude:
   - vendor/ruby/
   - .github/
   - archive/
+  - scripts/
 
 # Include files
 include:

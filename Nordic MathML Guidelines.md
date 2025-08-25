@@ -167,7 +167,7 @@ For example, a webpage might use Presentation MathML to display an equation visu
 
 ### Token Elements
 
-The elements `<mn>`, `<mo>` and `<mi>` are so-called token elements. This means that they are the only MathML elements permitted to contain character data.
+The token elements that we use are `<mn>`, `<mo>`, `<mi>` and `<mspace>`. Token elements are the only MathML elements permitted to contain character data. More about `<mspace>` can be found here: [`<mpadded>` and `<mspace>`](#mpadded-and-mspace).
 
 #### `<mn>`
 
@@ -191,7 +191,7 @@ The percentage sign is a `<mo>` element. For example 50 percent should be writte
 
 The same character can be used in a different meaning based on the context. For example, the comma can be part of a number but in a sequence the comma is an operator.
 
-The sequence {1,2,3,...} written in MathML:
+The sequence {1,2,3,&#x2026;} written in MathML:
 ```html
 <math>
     <mo>{</mo>
@@ -200,7 +200,7 @@ The sequence {1,2,3,...} written in MathML:
     <mn>2</mn>
     <mo>,</mo>
     <mn>3</mn>
-    <mi>...</mi>
+    <mi>&#x2026;</mi>
     <mo>}</mo>
 </math>
 ```
@@ -1518,7 +1518,7 @@ These escape sequences are necessary to avoid conflicts with the XML syntax used
 
 ## Quality assurance
 
-Automatic tools for MathML markup have tendencies to produce errors. A procedure for quality assurance should include searching for instances where the markup deviates from these guidelines. In addition to the Nordic EPUB validator, we recommend using [this online tool developed by Jan Martin Kvile at Statped](https://kvile.com/kvalidator/index.html). The searches can be modified by clicking the desired list item and editing the corresponding xpath query.
+Automatic tools for MathML markup have tendencies to produce errors. A procedure for quality assurance should include searching for instances where the markup deviates from these guidelines. In addition to the Nordic EPUB validator, we recommend using [this online tool developed by Jan Martin Kvile at Statped](https://kvile.com/kvalidator/index.html). The searches can be modified by clicking the desired list item and editing the corresponding xpath query or css selector.
 
 
 ## Resources

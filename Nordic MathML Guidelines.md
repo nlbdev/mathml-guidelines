@@ -891,7 +891,7 @@ Note that `columnspan` is written this way due to backwards compatability for Ma
 
 ### Labeling and referencing equations
 
-It is common to label equations and then reference these equations later on in mathematical text. In MathML the `<mtable>` element is used to mark up labeled equations.
+It is common to label equations and then reference these equations later on in mathematical text. In MathML the `<mtable>` element is used to mark up labeled equations. **Note:** The `intent` attribute used in this markup is not yet supported by the Nordic epub validator.
 
 Example of a labeled equation
 
@@ -1054,6 +1054,7 @@ When the operator should be rendered inline, but as block element, it can be don
     </math> as you can see.
 </p>
 ```
+**Note**: The attribute `displaystyle` used in this markup is not yet supported by the Nordic epub validator.
 
 ### Invisible Operators
 
@@ -1080,7 +1081,7 @@ Numbers with a unit attached to it should typically be written:
 </math>
 ```
 
-The invisible multiplication operator ties the unit to the number and provides the possibility to add a space between the number and the unit symbol. The space should be set to 0.25em unless it is a unit that is placed directly after the number, like the degree symbol. In those cases the space can be set to 0 or the `rspace` attribute omitted completely.
+The invisible multiplication operator ties the unit to the number and provides the possibility to add a space between the number and the unit symbol. The space should be set to 0.25em unless it is a unit that is placed directly after the number, like the degree symbol. In those cases the space can be set to 0 or the `rspace` attribute omitted completely. **Note:** The `intent` attribute used in this markup is not yet supported by the Nordic epub validator.
 
 Units that contain operators must be marked up correctly, and the whole unit wrapped in a `<mrow>` element.
 

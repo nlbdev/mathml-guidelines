@@ -1479,6 +1479,30 @@ Please refer to a [Unicode character table](https://symbl.cc/en/unicode-table/).
 
 Some country-specific mathematical notation should be taken into account in the MathML markup.
 
+#### Coordinates
+
+The coordinate (1, 2) should be marked up as follows: 
+
+```html
+<math>
+    <mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>)</mo>
+</math>
+```
+
+The coordinate (1,1, 2) should be marked up as follows:
+
+```html
+<math>
+    <mo>(</mo><mn>1,1</mn><mo>,</mo><mn>2</mn><mo>)</mo>
+</math>
+```
+
+**Note:** Notice the difference between the two examples: 
+-  The first example has x-coordinate 1 and y-coordinate 2. 
+- The second example has x-coordinate 1,1 and y-coordinate 2.
+
+It is imporant to separate comma as a decimal separator and comma as an operator.
+
 #### Multiplication and division of fractions
 
 This notation means that the numerator and the denominator are multiplied by the same number:

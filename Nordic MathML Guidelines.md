@@ -100,14 +100,8 @@ A mathematical expression being inline as part of an ongoing sentence or paragra
 </p>
 ```
 The example will be rendered as follows:  
-<p>Here is an inline equation:
-<math>
-    <mi>x</mi>
-    <mo>=</mo>
-    <mn>5</mn>
-    <mtext>.</mtext>
-</math>
-</p>
+
+Here is an inline equation: $x = 5.$
 
 **Note:** Make sure to have space between the normal text and the MathML markup. 
 
@@ -143,29 +137,14 @@ It is common in STEM books for a mathematical expression to be part of a sentenc
 ```
 The example will be rendered as follows: 
 
-<p>To find the mean of a set of observations, add the values and divide by the number of observations: 
-<math display="block">
-<mover><mi>x</mi><mo>&#8254;</mo></mover>
-<mo>=</mo>
-<mfrac>
-    <mrow>
-        <msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><msub><mi>x</mi><mn>2</mn></msub><mo>+</mo><mi>&#x2026;</mi><mo>+</mo><msub><mi>x</mi><mi>n</mi></msub>
-    </mrow>
-    <mi>n</mi>
-</mfrac>
-<mtext>.</mtext>
-</math>
-</p>
-
-<p> This can be written in more compact form: 
-<math display="block">
-<mover><mi>x</mi><mo>&#8254;</mo></mover>
-<mo>=</mo>
-<mfrac><mn>1</mn><mi>n</mi></mfrac>
-<mo>∑</mo><msub><mi>x</mi><mi>i</mi></msub>
-<mtext>.</mtext>
-</math>
-</p>
+To find the mean of a set of observations, add the values and divide by the number of observations:
+``` math
+\bar{x} = \frac{x_1 + x_2 + … + x_n}{n}
+```
+This can be written in more compact form: 
+``` math
+\bar{x} = \frac{1}{n}∑x_i.
+```
 
 Other times the mathematical expression is a stand-alone element, not part of an ongoing sentence or paragraph. In such examples it is important to place the `<math>` element inside a `<p>` element or something similar. Here is an example: 
 
@@ -182,16 +161,11 @@ Other times the mathematical expression is a stand-alone element, not part of an
 </p>
 ```
 The example will be rendered as follows:  
-<p>Text preceding a stand-alone block of math content.</p>
-<p>
-<math display="block">
-        <mi>a</mi>
-        <mo>+</mo>
-        <mi>b</mi>
-        <mo>=</mo>
-        <mi>c</mi>
-</math>
-</p>
+
+Text preceding a stand-alone block of math content.
+``` math
+a + b = c.
+```
 
 Sometimes a mathematical expression consists of multiple mathematical expressions, and they all appear on the same line. Examples are functions where the domain is a restricted interval, or a differential equation, with an intial value. In such cases, all the expressions should be captured in the same `<math>` element separated by `<mspace>`. Here is an example: 
 
@@ -211,19 +185,10 @@ Sometimes a mathematical expression consists of multiple mathematical expression
 </p>
 ```
 The example will be rendered as follows: 
-<p>The curve is represented by the equation 
-    <math display="block">
-    <mi>r</mi>
-    <mo>=</mo>
-    <msqrt>
-            <mo>|</mo><mi>sin</mi><mo>(</mo><mi>n</mi><mi>&#x3B8;</mi><mo>)</mo><mo>|</mo>
-    </msqrt>
-    <mo>,</mo>
-    <mspace width="1em"></mspace>
-    <mn>0</mn><mo>≤</mo><mi>&#x3B8;</mi><mo>≤</mo><mn>2</mn><mi>π</mi>
-    <mtext>.</mtext>
-</math>
-</p>
+
+``` math
+r = \sqrt{|\text{sin}(nθ)|}, \hspace{1em} 0 ≤ θ ≤ 2π
+```
 
 ### Semantics and Annotations
 

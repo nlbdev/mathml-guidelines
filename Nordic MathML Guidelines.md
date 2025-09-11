@@ -79,37 +79,15 @@ The Ordering Agency may decide if the `alttext` and `altimg` attributes should b
 
 #### Block vs Inline
 
-Mathematical expressions can appear either inline as part of an ongoing sentence or paragraph, or as a stand-alone block, separate from the surrounding text. This is required to be correctly reflected in the MathML markup. The way in which a math expression is visually rendered is controlled by the `display` attribute of the `<math>` element. When the value of this attribute is set to `block`, the expression will be visually rendered as a separate block. The value `inline` will render the math expression as part of the paragraph it occurs in. Note that the default value of the `display` attribute is `inline`, meaning that it does not need to be declared for inline math.
+Mathematical expressions can occur in three different ways: 
 
-It is important to separate the visual rendering from the structural markup properties of the `<math>` element. Setting `display="block"` does not make the `<math>` element into a block element from a structural standpoint. In order to maintain consistency of which content model the content of the `<math>` element falls into, the `<math>` element must never be placed as a standalone block element. Though it can, formally, be a block element of its own, it is required here to always place it within a paragraph element or an equivalent element. Either a separate `<p>` for just the expression, or within an element containing surrounding text.
+- as part of a sentence or paragraph as an inline element
+- as part of a sentence or paragraph as a block element
+- as a stand-alone element in a separate paragraph as a block element
 
-Also note that even if a math expression is displayed as a separate block in the source material, and thus must have `display` set to `block`, it may still be part of an ongoing sentence, and must therefore not break this ongoing paragraph.
+The way in which a math expression is visually rendered is controlled by the `display` attribute of the `<math>` element. When the value of this attribute is set to `block`, the expression will be visually rendered as a separate block. The value `inline` will render the math expression as part of the paragraph it occurs in. Note that the default value of the `display` attribute is `inline`, meaning that it does not need to be declared for inline math.
 
-**Note**: it is important to always use the `display="block"` attribute directly on the `<math>` element and not use CSS styling.
-
-Here are a few of examples:
-
-```html
-<p>Text preceding a stand-alone block of math content.</p>
-<p>
-<math display="block">
-    <mrow>
-        <mi>a</mi>
-        <mo>+</mo>
-        <mi>b</mi>
-        <mo>=</mo>
-        <mi>c</mi>
-    </mrow>
-</math>
-</p>
-```
-
-which will render
-
-Text preceding a stand-alone block of math content.
-```math
-a + b = c
-```
+A mathematical expression being inline as part of an ongoing sentence or paragraph should be marked up as follows: 
 
 ```html
 <p>Here is an inline equation:
@@ -117,21 +95,135 @@ a + b = c
     <mi>x</mi>
     <mo>=</mo>
     <mn>5</mn>
-</math>.</p>
+    <mtext>.</mtext>
+</math>
+</p>
 ```
+The example will be rendered as follows:  
+<p>Here is an inline equation:
+<math>
+    <mi>x</mi>
+    <mo>=</mo>
+    <mn>5</mn>
+    <mtext>.</mtext>
+</math>
+</p>
 
-This will display in the following manner:
+**Note:** Make sure to have space between the normal text and the MathML markup. 
 
-Here is an inline equation: $x = 5$.
+It is common in STEM books for a mathematical expression to be part of a sentence or paragraph, yet displayed as a separate block element. In such examples it is important to place the `<math>` element inside the ongoing paragraph and use `display="block"`. Here is an example: 
 
-For inline math, be careful to preserve whitespace around the expression. Compare the two following examples:
+```html
+<p>To find the mean of a set of observations, add the values and divide by the number of observations: 
+<math display="block">
+<mover><mi>x</mi><mo>&#8254;</mo></mover>
+<mo>=</mo>
+<mfrac>
+    <mrow>
+    <msub><mi>x</mi><mn>1</mn></msub><mo>+</mo>
+    <msub><mi>x</mi><mn>2</mn></msub><mo>+</mo>
+    <mi>&#x2026;</mi><mo>+</mo>
+    <msub><mi>x</mi><mi>n</mi></msub>
+    </mrow>
+    <mi>n</mi>
+    <mtext>.</mtext>
+</mfrac>
+</math>
+</p>
 
-1. The variable`<math>x</math>`is defined to be 5.
-2. The variable `<math>x</math>` is defined to be 5.
+<p> This can be written in more compact form: 
+<math display="block">
+<mover><mi>x</mi><mo>&#8254;</mo></mover>
+<mo>=</mo>
+<mfrac><mn>1</mn><mi>n</mi></mfrac>
+<mo>∑</mo><msub><mi>x</mi><mi>i</mi></msub>
+<mtext>.</mtext>
+</math>
+</p>
+```
+The example will be rendered as follows: 
 
-In example 1, the spaces around the math expression are missing, which will affect the visual rendering. It should remain the same as in the original title.
+<p>To find the mean of a set of observations, add the values and divide by the number of observations: 
+<math display="block">
+<mover><mi>x</mi><mo>&#8254;</mo></mover>
+<mo>=</mo>
+<mfrac>
+    <mrow>
+        <msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><msub><mi>x</mi><mn>2</mn></msub><mo>+</mo><mi>&#x2026;</mi><mo>+</mo><msub><mi>x</mi><mi>n</mi></msub>
+    </mrow>
+    <mi>n</mi>
+</mfrac>
+<mtext>.</mtext>
+</math>
+</p>
 
+<p> This can be written in more compact form: 
+<math display="block">
+<mover><mi>x</mi><mo>&#8254;</mo></mover>
+<mo>=</mo>
+<mfrac><mn>1</mn><mi>n</mi></mfrac>
+<mo>∑</mo><msub><mi>x</mi><mi>i</mi></msub>
+<mtext>.</mtext>
+</math>
+</p>
 
+Other times the mathematical expression is a stand-alone element, not part of an ongoing sentence or paragraph. In such examples it is important to place the `<math>` element inside a `<p>` element or something similar. Here is an example: 
+
+```html
+<p>Text preceding a stand-alone block of math content.</p>
+<p>
+<math display="block">
+        <mi>a</mi>
+        <mo>+</mo>
+        <mi>b</mi>
+        <mo>=</mo>
+        <mi>c</mi>
+</math>
+</p>
+```
+The example will be rendered as follows:  
+<p>Text preceding a stand-alone block of math content.</p>
+<p>
+<math display="block">
+        <mi>a</mi>
+        <mo>+</mo>
+        <mi>b</mi>
+        <mo>=</mo>
+        <mi>c</mi>
+</math>
+</p>
+
+Sometimes a mathematical expression consists of multiple mathematical expressions, and they all appear on the same line. Examples are functions where the domain is a restricted interval, or a differential equation, with an intial value. In such cases, all the expressions should be captured in the same `<math>` element separated by `<mspace>`. Here is an example: 
+
+```html
+<p>The curve is represented by the equation 
+    <math display="block">
+    <mi>r</mi>
+    <mo>=</mo>
+    <msqrt>
+            <mo>|</mo><mi>sin</mi><mo>(</mo><mi>n</mi><mi>&#x3B8;</mi><mo>)</mo><mo>|</mo>
+    </msqrt>
+    <mo>,</mo>
+    <mspace width="1em"></mspace>
+    <mn>0</mn><mo>≤</mo><mi>&#x3B8;</mi><mo>≤</mo><mn>2</mn><mi>π</mi>
+    <mtext>.</mtext>
+</math>
+</p>
+```
+The example will be rendered as follows: 
+<p>The curve is represented by the equation 
+    <math display="block">
+    <mi>r</mi>
+    <mo>=</mo>
+    <msqrt>
+            <mo>|</mo><mi>sin</mi><mo>(</mo><mi>n</mi><mi>&#x3B8;</mi><mo>)</mo><mo>|</mo>
+    </msqrt>
+    <mo>,</mo>
+    <mspace width="1em"></mspace>
+    <mn>0</mn><mo>≤</mo><mi>&#x3B8;</mi><mo>≤</mo><mn>2</mn><mi>π</mi>
+    <mtext>.</mtext>
+</math>
+</p>
 
 ### Semantics and Annotations
 

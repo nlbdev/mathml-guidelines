@@ -167,7 +167,7 @@ Text preceding a stand-alone block of math content.
 a + b = c.
 ```
 
-Sometimes a mathematical expression consists of multiple mathematical expressions, and they all appear on the same line. Examples are functions where the domain is a restricted interval, or a differential equation, with an intial value. In such cases, all the expressions should be captured in the same `<math>` element separated by `<mspace>`. Here is an example: 
+Sometimes a mathematical expression consists of multiple mathematical expressions, and they all appear on the same line. Examples are functions where the domain is a restricted interval, or a differential equation with an intial value. In such cases, all the expressions should be captured in the same `<math>` element separated by `<mspace>`. Here is an example: 
 
 ```html
 <p>The curve is represented by the equation 
@@ -295,13 +295,7 @@ Units are identifiers. For example meter `<mi mathvariant="normal">m</mi>` or se
 </math>
 ```
 
-Which renders as <math><mfrac>
-    <mi>m</mi>
-    <msup>
-        <mi>s</mi>
-        <mn>2</mn>
-    </msup>
-</mfrac></math>. 
+Which renders as $\frac{\text{m}}{\text{s}^2}$. 
 Note that the attribute mathvariant="normal" is necessary for a single-letter unit not to be in italic.
 
 The ellipsis or three dots &#x2026; is also an identifier `<mi>&#x2026;</mi>`.
@@ -337,7 +331,7 @@ Examples of this are in tabular math, such as equation solving, and what is ofte
 </math>
 ```
 
-When a notation has written words, you should use `<mtext>` as well. For example in indeces $g_{weight}$. This would be marked up as
+When a notation has written words, you should use `<mtext>` as well. For example in indeces $g_{\text{weight}}$. This would be marked up as
 
 ```html
 <math>
@@ -475,12 +469,7 @@ Example mark up for a fraction:
 </math>
 ```
 
-The fraction rendered: <math>
-    <mfrac>
-        <mn>5</mn>
-        <mn>2</mn>
-    </mfrac>
-</math>.
+The fraction rendered: $\frac{5}{2}$.
 
 
 Example mark up for a binomial:
@@ -495,14 +484,7 @@ Example mark up for a binomial:
 </math>
 ```
 
-The binomial rendered: <math>
-    <mo>(</mo>
-    <mfrac linethickness="0">
-      <mi>n</mi>
-      <mi>k</mi>
-    </mfrac>
-    <mo>)</mo>
-</math>.
+The binomial rendered: $\binom{n}{k}$.
 
 **Note** that for the binomial to be rendered correctly, you need to use the `<mfrac>` element with the attribute `linethickness="0"`.
 

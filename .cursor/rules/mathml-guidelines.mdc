@@ -1,0 +1,245 @@
+---
+description: Cursor AI guidelines for this repo
+alwaysApply: true
+---
+
+# MathML Guidelines Project - Cursor Rules
+
+## Project Overview
+
+This is a Jekyll-based documentation site for Nordic MathML Guidelines, featuring:
+
+- Jekyll static site generation with GitHub Pages deployment
+- Python scripts for LaTeX to MathML conversion
+- Comprehensive testing infrastructure
+- Markdown-based content with MathML examples
+
+## File Structure & Conventions
+
+### Core Files
+
+- `_config.yml` - Jekyll configuration
+- `Gemfile` - Ruby dependencies for Jekyll
+- `Nordic MathML Guidelines.md` - Source markdown content
+- `_pages/` - Generated Jekyll pages
+- `images/` - Documentation images and examples
+
+### Scripts Directory
+
+- `scripts/convert-guidelines.sh` - Main conversion script (Bash)
+- `scripts/convert-mathml.py` - LaTeX to MathML converter (Python 3)
+
+### Testing
+
+- `tests/` - All test files
+- `tests/test-conversion-workflow.py` - Main test suite
+- `tests/test-conversion.sh` - Conversion testing
+- `tests/test-local.sh` - Local testing
+
+## Coding Standards
+
+### Python Scripts
+
+- Use Python 3.9+ with type hints where appropriate
+- Follow PEP 8 style guidelines
+- Use descriptive function and variable names
+- Include comprehensive docstrings for functions
+- Handle encoding explicitly (UTF-8)
+- Use regex patterns for LaTeX to MathML conversion
+- Implement conservative conversion to avoid breaking existing MathML
+
+### Bash Scripts
+
+- Use `set -e` for error handling
+- Quote variables properly
+- Use `mktemp` for temporary files
+- Include proper error messages and status reporting
+- Check for command availability before use
+
+### Markdown Content
+
+- Use proper Jekyll front matter
+- Include MathML namespace: `xmlns="http://www.w3.org/1998/Math/MathML"`
+- Preserve existing MathML examples in documentation
+- Use code blocks for HTML and MathML examples
+- Maintain accessibility standards for mathematical content
+
+## Testing Requirements
+
+### Test Coverage
+
+- File existence and size validation
+- MathML conversion accuracy
+- Namespace compliance
+- Code block preservation
+- LaTeX pattern conversion
+- Error handling and edge cases
+
+### Test Execution
+
+- Run tests before any deployment
+- Use descriptive test output with emojis for clarity
+- Include both unit and integration tests
+- Test conversion workflow end-to-end
+
+## MathML Guidelines
+
+### Conversion Rules
+
+- Convert simple LaTeX patterns: `$x = 5$` → x = 5
+- Preserve existing MathML documentation examples
+- Add MathML namespace to all `<math>` elements
+- Handle fractions, superscripts, subscripts, and common symbols
+- Convert display math `$$...$$` to code blocks
+- Be conservative to avoid breaking documentation
+
+### Accessibility
+
+- Ensure all MathML includes proper namespace
+- Use semantic MathML elements (`<mi>`, `<mo>`, `<mn>`, etc.)
+- Maintain proper structure for screen readers
+- Include text alternatives where appropriate
+
+## Development Workflow
+
+### Local Development
+
+1. Run `bash tests/test-local.sh` for quick validation
+2. Use `bash scripts/convert-guidelines.sh` for conversion
+3. Test with `python tests/test-conversion-workflow.py`
+4. Verify Jekyll build with `bundle exec jekyll build`
+
+### GitHub Actions
+
+- Automated conversion and testing on push/PR
+- Jekyll build and deployment to GitHub Pages
+- Python 3.9 and Ruby 3.2 environment
+- Comprehensive test suite execution
+
+## Error Handling
+
+### Python Scripts
+
+- Validate input file existence
+- Handle encoding errors gracefully
+- Provide clear error messages
+- Exit with appropriate status codes
+- Log conversion statistics
+
+### Bash Scripts
+
+- Check for required commands (python, sed)
+- Validate file operations
+- Clean up temporary files
+- Provide fallback processing when possible
+
+## Security & Best Practices
+
+### File Operations
+
+- Use temporary files with proper cleanup
+- Validate file paths and permissions
+- Handle large files efficiently
+- Avoid shell injection vulnerabilities
+
+### Content Processing
+
+- Preserve original content structure
+- Validate MathML syntax
+- Sanitize user input in conversions
+- Maintain content integrity
+
+## Documentation Standards
+
+### Code Comments
+
+- Explain complex regex patterns
+- Document conversion logic
+- Include usage examples
+- Note edge cases and limitations
+
+### Markdown Content
+
+- Use clear, descriptive headings
+- Include practical MathML examples
+- Provide conversion guidelines
+- Maintain consistent formatting
+
+## Performance Considerations
+
+### Conversion Efficiency
+
+- Use compiled regex patterns
+- Minimize file I/O operations
+- Process content in chunks for large files
+- Cache repeated operations where possible
+
+### Jekyll Build
+
+- Optimize image assets
+- Minimize build time
+- Use appropriate Jekyll plugins
+- Configure proper exclusions
+
+## Maintenance
+
+### Regular Tasks
+
+- Update dependencies (Ruby gems, Python packages)
+- Review and update conversion patterns
+- Validate test coverage
+- Update documentation examples
+
+### Monitoring
+
+- Check GitHub Actions build status
+- Monitor conversion accuracy
+- Validate MathML output
+- Review user feedback and issues
+
+## Tools & Dependencies
+
+### Required Tools
+
+- Python 3.9+ with regex support
+- Ruby 3.2+ with Jekyll 4.3+
+- Bash shell with standard utilities
+- Git for version control
+
+### Key Dependencies
+
+- Jekyll and Jekyll plugins
+- Python standard library (re, sys, os)
+- Standard Unix utilities (sed, grep, wc)
+
+## Quality Assurance
+
+### Code Quality
+
+- Follow language-specific style guides
+- Include comprehensive error handling
+- Write maintainable, readable code
+- Document complex algorithms
+
+### Content Quality
+
+- Validate MathML syntax
+- Ensure accessibility compliance
+- Test conversion accuracy
+- Maintain documentation consistency
+
+## Troubleshooting
+
+### Common Issues
+
+- LaTeX patterns not converting
+- MathML namespace missing
+- File encoding problems
+- Jekyll build failures
+
+### Debugging
+
+- Use verbose output in scripts
+- Check file permissions and paths
+- Validate input file format
+- Test conversion patterns individually

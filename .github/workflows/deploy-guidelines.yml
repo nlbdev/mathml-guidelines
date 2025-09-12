@@ -32,9 +32,18 @@ jobs:
           ruby-version: '3.2'
           bundler-cache: true
           
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          
       - name: Convert Guidelines Markdown to Jekyll Page
         run: |
           bash scripts/convert-guidelines.sh
+          
+      - name: Test Conversion Output
+        run: |
+          python tests/test-conversion-workflow.py
           
       - name: Build with Jekyll
         run: |

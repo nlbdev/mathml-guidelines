@@ -2,8 +2,6 @@
 
 A collaboration on the MathML guidelines for marking up accessible math
 
-Available at <https://nlbdev.github.io/mathml-guidelines/>
-
 ## Nordic MathML guidelines: Use, validation and feedback
 
 We now have clear, detailed, and shared guidelines for MathML markup. To keep using a common set of guidelines going forward, we should establish shared procedures for how we validate, give feedback to the Indian suppliers and report issues.

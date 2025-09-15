@@ -512,7 +512,7 @@ Use `<mroot>` to mark up roots with different indeces.
 ```html
 <math>
     <mroot>
-        <mn>9</mn> <!-- the radicand -->
+        <mn>8</mn> <!-- the radicand -->
         <mn>3</mn> <!-- the index -->
     </mroot>
     <mo>=</mo>

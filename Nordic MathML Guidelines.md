@@ -157,6 +157,7 @@ Other times the mathematical expression is a stand-alone element, not part of an
         <mi>b</mi>
         <mo>=</mo>
         <mi>c</mi>
+        <mtext>.</mtext>
 </math>
 </p>
 ```
@@ -187,7 +188,7 @@ Sometimes a mathematical expression consists of multiple mathematical expression
 The example will be rendered as follows: 
 
 ``` math
-r = \sqrt{|\text{sin}(nθ)|}, \hspace{1em} 0 ≤ θ ≤ 2π
+r = \sqrt{|\text{sin}(nθ)|}, \hspace{1em} 0 ≤ θ ≤ 2π.
 ```
 
 ### Semantics and Annotations
@@ -519,7 +520,7 @@ Use `<mroot>` to mark up roots with different indeces.
 </math>
 ```
 
-This would render: $\sqrt[3]{9} = 2$
+This would render: $\sqrt[3]{8} = 2$
 
 #### `<mpadded>` and `<mspace>`
 
@@ -591,7 +592,7 @@ For marking up both super- and subscript on the same base, `<msubsup>` is used. 
     <msubsup>
         <mi>x</mi>
         <mi>i</mi>
-        <mi>2</mi>
+        <mn>2</mn>
     </msubsup>
 </math>
 ```
@@ -623,7 +624,7 @@ The same principle applies for `<msubsup>`. Note also that the base can be group
             <mi>y</mi>
             <mo>)</mo>
         </mrow>
-        <mi>x</mi>
+        <mi>i</mi>
         <mrow>
             <mi>a</mi>
             <mo>+</mo>
@@ -644,7 +645,7 @@ Underscript notation is marked up using the element `<munder>`. The first child 
         <mrow>
             <mi>i</mi>
             <mo>=</mo>
-            <mi>1</mi>
+            <mn>1</mn>
         </mrow>
     </munder>
 </math>
@@ -1199,9 +1200,9 @@ Example of rendering and mark up of equation solving notation:
         <mtr>
             <mtd> 
                 <mn>2</mn>
-                <mo>&#x2062;</mo>
                 <mi>x</mi>
-                <mo>+3</mo>
+                <mo>+</mo>
+                <mn>3</mn>
             </mtd>
             <mtd>
                 <mo>=</mo>
@@ -1248,10 +1249,10 @@ Example of the rendering and mark up of equation solving with commentary text:
     <mtable>
         <mtr>
             <mtd>
-                <mn>2</mn
-                <mo>&#x2062;</mo>
+                <mn>2</mn>
                 <mi>x</mi>
-                <mo>+3</mo>
+                <mo>+</mo>
+                <mn>3</mn>
             </mtd>
             <mtd>
                 <mo>=</mo>
@@ -1392,13 +1393,11 @@ To mark up chemistry in MathML, follow these general principles.
 - Use `<msub>` and `<msup>` to mark up subscripts and superscripts, respectively. For example, to represent $\text{H}_2\text{O}$:
 ```html
 <math>
-    <mrow>
         <msub>
             <mi>H</mi>
             <mn>2</mn>
         </msub>
         <mi>O</mi>
-    </mrow>
 </math>
 ```
 - Use `<mmultiscripts>` to mark up isotopes. For example, to represent $^{14}\text{C}$:

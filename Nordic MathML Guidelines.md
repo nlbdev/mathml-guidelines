@@ -332,7 +332,7 @@ Examples of this are in tabular math, such as equation solving, and what is ofte
 </math>
 ```
 
-When a notation has written words, you should use `<mtext>` as well. For example in indeces $g_{\text{weight}}$. This would be marked up as
+When a notation has written words, you should use `<mtext>` as well. For example in indices $g_{\text{weight}}$. This would be marked up as
 
 ```html
 <math>

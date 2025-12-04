@@ -1333,9 +1333,12 @@ Rendered:
 Markup:
 
 ```html
-<p>When looking at the crossing out of the expression
-    <img style="display: block" src="images/fractional-with-crossing-out.png" aria-describedby="img-desc-1" alt="Image description below."></p>
-    <details id="img-desc-1"><summary>Image description.</summary>
+<p>When looking at the crossing out of the expression</p>
+<figure class="image">
+    <img src="images/fractional-with-crossing-out.png" aria-details="img-desc-1" alt="Image description below.">
+</figure>
+<details id="img-desc-1">
+    <summary>Image description.</summary>
     <math display="block">
         <mfrac>
             <mrow>
@@ -1370,7 +1373,8 @@ Markup:
                 </mrow>
             </menclose>
       </mfrac>
-  </math></details>
+  </math>
+</details>
 ```
 
 If the expression is an inline element, use `alt="equation"` for the `<math>` element.

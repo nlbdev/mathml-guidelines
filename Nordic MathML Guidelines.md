@@ -1335,7 +1335,7 @@ Markup:
 ```html
 <p>When looking at the crossing out of the expression</p>
 <figure class="image">
-    <img src="images/fractional-with-crossing-out.png" aria-details="img-desc-1" alt="Image description below.">
+    <img src="images/fractional-with-crossing-out.png" aria-details="img-desc-1" alt="Image description below." />
 </figure>
 <details id="img-desc-1">
     <summary>Image description.</summary>

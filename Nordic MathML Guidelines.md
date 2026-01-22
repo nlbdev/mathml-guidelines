@@ -634,6 +634,17 @@ The same principle applies for `<msubsup>`. Note also that the base can be group
 </math>
 ```
 
+Or $\int_a^b$:
+
+```html
+<math>
+    <mo>∫</mo>
+    <mi>a</mi>
+    <mi>b</mi>
+</math>
+```
+
+
 #### Underscripts and Overscripts, `<munder>`, `<mover>`, `<munderover>`
 
 Underscript notation is marked up using the element `<munder>`. The first child element is the base, and the second child element is the underscript. For example, a summation with a lower limit such as $\sum\limits_{i=1}$ is marked up as follows:
@@ -647,6 +658,7 @@ Underscript notation is marked up using the element `<munder>`. The first child 
             <mo>=</mo>
             <mn>1</mn>
         </mrow>
+        <mi>∞</mi>
     </munder>
 </math>
 ```
@@ -700,14 +712,18 @@ Overscript notation is marked up using the element `<mover>`. The first child el
 </math>
 ```
 
-When both an underscript and overscript are needed, the element `<munderover>` is used. The first child element is the base, the second is the underscript and the third is the overscript. For example, an integral with lower and upper limits like $\int_a^b$ is marked up as follows:
+When both an underscript and overscript are needed, the element `<munderover>` is used. The first child element is the base, the second is the underscript and the third is the overscript:
 
 ```html
 <math>
     <munderover>
-        <mo>∫</mo>
-        <mi>a</mi>
-        <mi>b</mi>
+            <mo>∑</mo>
+        <mrow>
+            <mi>i</mi>
+            <mo>=</mo>
+            <mn>1</mn>
+        </mrow>
+        <mi></mi>
     </munderover>
 </math>
 ```

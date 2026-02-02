@@ -1022,7 +1022,7 @@ When the equation is referenced later, use the `id` of the `<math>` element to l
 
 ### Footnotes in mathematical expressions
 
-If there are footnotes with mathematical expressions, write the footnote outside of the `<math>` element and remove the note reference from the `<math>` expression. Add the word "Note", or the equivalent word in the main langauge of the book, at the start of the paragraph containing the footnote.
+If there are footnotes with mathematical expressions, write the footnote outside of the `<math>` element and remove the note reference from the `<math>` expression. Add the word "Note", or the equivalent word written in the main language of the book, at the start of the paragraph containing the footnote.
 
 Here is an example that might be written in a book:
 
@@ -1046,9 +1046,33 @@ Here is an example that might be written in a book:
 <p>Note 1. <strong>Simple interest</strong> is calculated on the principal amount...</p>
 ```
 
+Another example of a hyperlink inside a footnote:
+
+![Bar x plus y bar less than bar x bar plus bar y bar superscript link 'Triangle inequality (Wikipedia)'.](images/footnote-triangle-inequality.png)
+
+```html
+<p><math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mo>|</mo>
+        <mi>x</mi>
+        <mo>+</mo>
+        <mi>y</mi>
+        <mo>|</mo>
+        <mo>&lt;</mo>
+        <mo>|</mo>
+        <mi>x</mi>
+        <mo>|</mo>
+        <mo>+</mo>
+        <mo>|</mo>
+        <mi>y</mi>
+        <mo>|</mo>
+</math></p>
+<p>Note: <a href="https://en.wikipedia.org/wiki/Triangle_inequality">Triangle inequality (Wikipedia)</a></p>
+```
+
+
 The Ordering Agency may have more instructions for footnotes within editing instructions.
 
-**Note**: Use only MathML markup inside the `<math>` element. At the moment support for HTML markup inside MathML markup is not good.
+**Note**: Use only MathML markup inside the `<math>` element. At the moment support for HTML markup inside MathML markup is not good in reading systems.
 
 ## Context-Based Applications <!--- maybe change wording later -->
 

@@ -91,7 +91,7 @@ A mathematical expression being inline as part of an ongoing sentence or paragra
 
 ```html
 <p>Here is an inline equation:
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <mi>x</mi>
     <mo>=</mo>
     <mn>5</mn>
@@ -109,7 +109,7 @@ It is common in STEM books for a mathematical expression to be part of a sentenc
 
 ```html
 <p>To find the mean of a set of observations, add the values and divide by the number of observations: 
-<math display="block">
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
 <mover><mi>x</mi><mo>&#8254;</mo></mover>
 <mo>=</mo>
 <mfrac>
@@ -126,7 +126,7 @@ It is common in STEM books for a mathematical expression to be part of a sentenc
 </p>
 
 <p> This can be written in more compact form: 
-<math display="block">
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
 <mover><mi>x</mi><mo>&#8254;</mo></mover>
 <mo>=</mo>
 <mfrac><mn>1</mn><mi>n</mi></mfrac>
@@ -151,7 +151,7 @@ Other times the mathematical expression is a stand-alone element, not part of an
 ```html
 <p>Text preceding a stand-alone block of math content.</p>
 <p>
-<math display="block">
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
         <mi>a</mi>
         <mo>+</mo>
         <mi>b</mi>
@@ -172,7 +172,7 @@ Sometimes a mathematical expression consists of multiple mathematical expression
 
 ```html
 <p>The curve is represented by the equation 
-    <math display="block">
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
     <mi>r</mi>
     <mo>=</mo>
     <msqrt>
@@ -251,7 +251,7 @@ The same character can be used in a different meaning based on the context. For 
 
 The sequence {1,2,3,&#x2026;} written in MathML:
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <mo>{</mo>
     <mn>1</mn>
     <mo>,</mo>
@@ -266,7 +266,7 @@ The sequence {1,2,3,&#x2026;} written in MathML:
 Some characters are written with accents, for example the average $\bar{x}$ (read as "x bar"). Here the accent "bar" is also an operator. MathML code:
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <mover>
         <mi>x</mi>
         <mo>&#8254;</mo>
@@ -285,7 +285,7 @@ Functions and function names are identifiers: `<mi>tan</mi>`, `<mi>sin</mi>` or 
 Units are identifiers. For example meter `<mi mathvariant="normal">m</mi>` or second `<mi mathvariant="normal">s</mi>`. When units are written using multiple letters, they should be marked up as a single element: `<mi>Nm</mi>`. Depending on the layout of the unit, you have to use other MathML elements to mark up a single unit such as metre per second squared: 
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <mfrac>
         <mi mathvariant="normal">m</mi>
         <msup>
@@ -310,13 +310,13 @@ Avoid using `<mtext>` when possible. If the text can be presented using plain HT
 Here is an example when `<mtext>` has been used the wrong way:
 
 ```html
-<p>After this lemma <math>[mathematical expression]<mtext> we can see that this holds for </mtext>[more mathematical expressions]</math> and it happens so.</p>
+<p>After this lemma <math xmlns="http://www.w3.org/1998/Math/MathML">[mathematical expression]<mtext> we can see that this holds for </mtext>[more mathematical expressions]</math> and it happens so.</p>
 ```
 
 The explanatory text in between the math expressions should be regular text and part of the paragraph, it should instead be written like this:
 
 ```html
-<p>After this lemma <math>[mathematical expression]</math> we can see that this holds for <math>[more mathematical expression]</math> and it happens so.</p>
+<p>After this lemma <math xmlns="http://www.w3.org/1998/Math/MathML">[mathematical expression]</math> we can see that this holds for <math xmlns="http://www.w3.org/1998/Math/MathML">[more mathematical expression]</math> and it happens so.</p>
 ```
 
 `<mtext>` should only be used in places where the visual rendering requires it. 
@@ -324,7 +324,7 @@ The explanatory text in between the math expressions should be regular text and 
 Examples of this are in tabular math, such as equation solving, and what is often seen in text books: $\frac{\text{numerator}}{\text{denominator}}$.
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <mfrac>
         <mtext>numerator</mtext>
         <mtext>denominator</mtext>
@@ -335,7 +335,7 @@ Examples of this are in tabular math, such as equation solving, and what is ofte
 When a notation has written words, you should use `<mtext>` as well. For example in indices $g_{\text{weight}}$. This would be marked up as
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <msub>
         <mi>g</mi>
         <mtext>weight</mtext>
@@ -356,7 +356,7 @@ For the visual layout of the mathematical expression to be correct, the punctuat
 ```html
 <p>
    This can be seen from the quadratic formula
-   <math>
+   <math xmlns="http://www.w3.org/1998/Math/MathML">
         <mi>x</mi>
         <mo>=</mo>
         <mfrac>
@@ -393,7 +393,7 @@ For the visual layout of the mathematical expression to be correct, the punctuat
 ```html
 <p>
     This is demonstrated by
-    <math display="block">
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
         <mo>(</mo>
         <mi>a</mi>
         <mo>∘</mo>
@@ -423,7 +423,7 @@ For the visual layout of the mathematical expression to be correct, the punctuat
 The `<mrow>` element is used to group mathematical expressions and parts of expressions. This is important when it comes to other elements, which can only have two children. Example of this would be the `<mfrac>` element:
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <mo>(</mo>
     <mfrac>
         <mrow>
@@ -462,7 +462,7 @@ The element `<mfrac>` is used for fractions, but also for other mathematical exp
 
 Example mark up for a fraction:
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <mfrac>
         <mn>5</mn>
         <mn>2</mn>
@@ -475,7 +475,7 @@ The fraction rendered: $\frac{5}{2}$.
 
 Example mark up for a binomial:
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <mo>(</mo>
     <mfrac linethickness="0">
         <mi>n</mi>
@@ -496,7 +496,7 @@ The `linethickness="0"` attribute does not render the horizontal line for fracti
 Use `<msqrt>` to mark up square roots.
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <msqrt>
         <mn>9</mn>
     </msqrt>
@@ -510,7 +510,7 @@ The square root rendered: $\sqrt{9} = 3$
 Use `<mroot>` to mark up roots with different indeces.
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <mroot>
         <mn>8</mn> <!-- the radicand -->
         <mn>3</mn> <!-- the index -->
@@ -536,7 +536,7 @@ Expressions should be marked up to display as similar to the source as possible.
 is marked up as follows:
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <mfrac>
         <mrow>
             <mi>x</mi>
@@ -566,7 +566,7 @@ is marked up as follows:
 Superscript notation is marked up using `<msup>`. The first child element is the base, and the second child element is the superscript. For example, $x^2$ is marked up as follows:
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <msup>
         <mi>x</mi>
         <mn>2</mn>
@@ -577,7 +577,7 @@ Superscript notation is marked up using `<msup>`. The first child element is the
 Similarly, subscript notation is marked up using `<msub>`. The first child element is the base, and the second child element is the subscript. For example, $x_i$ is marked up as follows:
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <msub>
         <mi>x</mi>
         <mi>i</mi>
@@ -588,7 +588,7 @@ Similarly, subscript notation is marked up using `<msub>`. The first child eleme
 For marking up both super- and subscript on the same base, `<msubsup>` is used. The first child element is the base, the second child element is the subscript, and the third child element is the superscript. For example, $x_i^2$ is marked up as follows:
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <msubsup>
         <mi>x</mi>
         <mi>i</mi>
@@ -600,7 +600,7 @@ For marking up both super- and subscript on the same base, `<msubsup>` is used. 
 When a sub- or superscript contains multiple elements they are grouped together using `<mrow>`. For example, $x^{a+b}$ is marked up as follows:
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <msup>
         <mi>x</mi>
         <mrow>
@@ -615,7 +615,7 @@ When a sub- or superscript contains multiple elements they are grouped together 
 The same principle applies for `<msubsup>`. Note also that the base can be grouped together using `<mrow>`. For example, $(x+y)^{a+b}_i$ is marked up as follows:
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <msubsup>
         <mrow>
             <mo>(</mo>
@@ -637,7 +637,7 @@ The same principle applies for `<msubsup>`. Note also that the base can be group
 Or $\int_a^b$:
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <mo>∫</mo>
     <mi>a</mi>
     <mi>b</mi>
@@ -650,7 +650,7 @@ Or $\int_a^b$:
 Underscript notation is marked up using the element `<munder>`. The first child element is the base, and the second child element is the underscript. For example, a summation with a lower limit such as $\sum\limits_{i=1}$ is marked up as follows:
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <munder>
         <mo>∑</mo>
         <mrow>
@@ -668,7 +668,7 @@ Sometimes it is necessary to nest multiple `<munder>` elements. For example when
 
 Mark up for this expression is as follows
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <munder>
         <mrow>
             <munder>
@@ -704,7 +704,7 @@ Mark up for this expression is as follows
 Overscript notation is marked up using the element `<mover>`. The first child element is the base, and the second child element is the overscript. For example, a vector with an arrow above it ($\vec{x}$) is marked up as follows:
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <mover>
         <mi>x</mi>
         <mo>→</mo>
@@ -715,7 +715,7 @@ Overscript notation is marked up using the element `<mover>`. The first child el
 When both an underscript and overscript are needed, the element `<munderover>` is used. The first child element is the base, the second is the underscript and the third is the overscript:
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <munderover>
             <mo>∑</mo>
         <mrow>
@@ -735,7 +735,7 @@ Note that `<mrow>` can be used to group together base, underscript or overscript
 Sometimes multiple prescripts and postscripts are attached to the same base, e.g. in tensor notation. To mark up this, the element `<mmultiscripts>` is used.  The `<mmultiscripts>` element contains the base element followed by pairs of subscript and superscript elements. The example of $^t_{qs}A_m^{np}$ below explains how.
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <mmultiscripts>
         <mi>A</mi>
         <mi>m</mi>
@@ -798,7 +798,7 @@ You can mix HTML and MathML markup inside the HTML `<table>`. Example:
 <table>
     <tr>
     <td>
-        <math>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
             <mfrac>
                 <mn>2</mn>
                 <mi>x</mi>
@@ -812,7 +812,7 @@ You can mix HTML and MathML markup inside the HTML `<table>`. Example:
     <td>4</td>
     <td>5</td>
     <td>
-        <math>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
             <mfrac>
                 <mn>5</mn>
                 <mrow>
@@ -852,7 +852,7 @@ Example of the rendering and markup for a determinant:
 ![Example of a 2 times 2 determinant with long bars on either side.](images/determinant.png)
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <mo>|</mo>
     <mtable>
         <mtr>
@@ -881,7 +881,7 @@ Example of a piecewise function. It is important that the different expressions 
 ![A screenshot of a piecewise function f of x with three lines of expressions. The different parts of the expressions are in the same columns for easy navigation.](images/piecewise-function.png)
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <mi>f</mi>
     <mo>(</mo>
     <mi>x</mi>
@@ -954,7 +954,7 @@ Example of a labeled equation
 ![(1.4) x+y=2](images/one-labeled-equation.png)
 
 ```html
-<math display="block" id="equation-0" tabindex="0">
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="equation-0" tabindex="0">
     <mtable>
         <mtr>
             <mtd class="label" intent=":equation-label"><mtext>(1.4)</mtext></mtd>
@@ -986,7 +986,7 @@ If there are multiple equations with a label in the same block element, they can
 Example of multiple labeled expressions in the same block.
 
 ```html
-<math display="block" id="equation-1" tabindex="0">
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="equation-1" tabindex="0">
     <mtable>
     <mtr>
         <mtd intent=":equation-label"><mtext>(1.4)</mtext></mtd>
@@ -1029,7 +1029,7 @@ Here is an example that might be written in a book:
 ![Simple interest sup 1 end sup equals fraction numerator r times B times m denominator n end fraction. Footnote 1. Simple interest is calculated only on the principal amount…](images/example-footnote.png)
 
 ```html
-<p><math>
+<p><math xmlns="http://www.w3.org/1998/Math/MathML">
     <mtext>Simple interest</mtext>
     <mo>=</mo>
     <mfrac>
@@ -1092,7 +1092,7 @@ When the large operator is written inline with the other text, there is no need 
 Mark up:
 ```html
 <p>The summation is inline with the text 
-    <math>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
         <munder>
             <mo>∑</mo>
             <mi>A</mi>
@@ -1109,7 +1109,7 @@ The rendering of the large operator changes when it is displayed as a block elem
 
 ```html
 <p>Here is an example of a summation as a block element: 
-    <math display="block">
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
         <munder>
           <mo>∑</mo>
           <mi>A</mi>
@@ -1126,7 +1126,7 @@ When the operator should be rendered inline, but as block element, it can be don
 
 ```html
 <p>The summation is inline with the text 
-    <math>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
         <munder displaystyle="true">
             <mo>∑</mo>
             <mi>A</mi>
@@ -1154,7 +1154,7 @@ Note that automatic MathML markup might not take context into account, so manual
 Numbers with a unit attached to it should typically be written:
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <mn>100</mn>
     <mo rspace="0.25em">&#x2062;</mo>
     <mi mathvariant="normal" intent=":unit">m</mi>
@@ -1166,7 +1166,7 @@ The invisible multiplication operator ties the unit to the number and provides t
 Units that contain operators must be marked up correctly, and the whole unit wrapped in a `<mrow>` element.
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <mn>100</mn>
     <mo rspace="0.25em">&#x2062;</mo>
     <mrow>
@@ -1189,7 +1189,7 @@ Example rendering and markup of a pair of equations:
 ![A screenshot of pair of equations. The layout is tabular.](images/pair-of-equations.png)
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <mo>{</mo>
     <mtable>
         <mtr>
@@ -1235,7 +1235,7 @@ Example of rendering and mark up of equation solving notation:
 ![A screenshot of two lines of equation solving. The first has a notation that means subtracting both sides by three. It is sort of to the side of the actual equations.](images/equation-solving.png)
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <mtable>
         <mtr>
             <mtd> 
@@ -1285,7 +1285,7 @@ Example of the rendering and mark up of equation solving with commentary text:
 ![A screenshot of two lines of equation solving. The first has commentary as text that reads 'substract 3 from both sides'. It is sort of to the side of the actual equations.](images/equation-solving-with-commentary.png)
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <mtable>
         <mtr>
             <mtd>
@@ -1345,7 +1345,7 @@ Example markup based on this:
 	<img src="images/X41001A-011.jpg" alt="equation" aria-describedby="desc011" />
 	<aside class="fig-desc" id="desc011">
 		<p>
-            <math>...</math>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">...</math>
         </p>
         <p>Leftmost nonzero columns.</p>
 	</aside>
@@ -1379,7 +1379,7 @@ Markup:
 </figure>
 <details id="img-desc-1">
     <summary>Image description.</summary>
-    <math display="block">
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
         <mfrac>
             <mrow>
                 <mrow>
@@ -1436,7 +1436,7 @@ To mark up chemistry in MathML, follow these general principles.
 - Use `<mi>` to mark up each element in molecules. For example, $\text{NaCl}$ would be marked up as `<mi>Na</mi><mi>Cl</mi>`.
 - Use `<msub>` and `<msup>` to mark up subscripts and superscripts, respectively. For example, to represent $\text{H}_2\text{O}$:
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
         <msub>
             <mi>H</mi>
             <mn>2</mn>
@@ -1446,7 +1446,7 @@ To mark up chemistry in MathML, follow these general principles.
 ```
 - Use `<mmultiscripts>` to mark up isotopes. For example, to represent $^{14}\text{C}$:
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <mmultiscripts>
         <mi>C</mi>
         <mrow></mrow>
@@ -1459,7 +1459,7 @@ To mark up chemistry in MathML, follow these general principles.
 ```
 - Use `<mo>` for operators like arrows. For example, to represent a chemical reaction like $H_2 + O_2 \rightarrow H_2O$:
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <msub>
         <mi>H</mi>
         <mn>2</mn>
@@ -1509,7 +1509,7 @@ Some country-specific mathematical notation should be taken into account in the 
 The coordinate (1, 2) should be marked up as follows: 
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>)</mo>
 </math>
 ```
@@ -1517,7 +1517,7 @@ The coordinate (1, 2) should be marked up as follows:
 The coordinate (1,1, 2) should be marked up as follows:
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <mo>(</mo><mn>1,1</mn><mo>,</mo><mn>2</mn><mo>)</mo>
 </math>
 ```
@@ -1536,7 +1536,7 @@ This notation means that the numerator and the denominator are multiplied by the
 
 In MathML it is marked up as
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <mmultiscripts>
         <mfrac>
             <mn>3</mn>
@@ -1560,7 +1560,7 @@ Then the respective division notation:
 
 The mark up in MathML:
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <mmultiscripts>
         <mfrac>
             <mn>6</mn>
@@ -1597,7 +1597,7 @@ The MathML core specification supports a multitude of options for adjusting the 
 Lines, arrows, and other embellishments on variables are often used to denote vectors or other structures which carry meaning. Therefore `<mover>`, `<munder>` or the like should be used to mark up these. For example, the vector $\overline{x}$ should be marked up as follows:
 
 ```html
-<math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
     <mover>
         <mi>z</mi>
         <mo accent='false'>¯</mo>

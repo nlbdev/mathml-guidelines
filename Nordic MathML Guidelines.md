@@ -722,7 +722,7 @@ When both an underscript and overscript are needed, the element `<munderover>` i
             <mo>=</mo>
             <mn>1</mn>
         </mrow>
-        <mi></mi>
+        <mi>∞</mi>
     </munderover>
 </math>
 ```

@@ -658,7 +658,6 @@ Underscript notation is marked up using the element `<munder>`. The first child 
             <mo>=</mo>
             <mn>1</mn>
         </mrow>
-        <mi>∞</mi>
     </munder>
 </math>
 ```

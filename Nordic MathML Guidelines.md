@@ -756,8 +756,8 @@ In the example, A is the base. `<mprescripts>` marks where the prescripts begin.
 - `<mi>n</mi>` and `<mi>p</mi>` are postscript superscripts.
 - `<mrow></mrow>` marks empty sub- or superscript positions.
 - `<mprescripts/>` indicates the start of prescripts.
-- `<mi>q</mi>` and `<mi>s</mi>` are postscript subscripts.
-- `<mi>t</mi>` is a postscript superscript.
+- `<mi>q</mi>` and `<mi>s</mi>` are prescript subscripts.
+- `<mi>t</mi>` is a prescript superscript.
 
 ### Tabular Math
 

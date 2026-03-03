@@ -1433,21 +1433,22 @@ Markup:
 To mark up chemistry in MathML, follow these general principles.
 
 - Use `<mi>` to mark up each element in molecules. For example, $\text{NaCl}$ would be marked up as `<mi>Na</mi><mi>Cl</mi>`.
+  - Use `<mi mathvariant="normal">` for singular elements. Examples below.
 - Use `<msub>` and `<msup>` to mark up subscripts and superscripts, respectively. For example, to represent $\text{H}_2\text{O}$:
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
         <msub>
-            <mi>H</mi>
+            <mi mathvariant="normal">H</mi>
             <mn>2</mn>
         </msub>
-        <mi>O</mi>
+        <mi mathvariant="normal">O</mi>
 </math>
 ```
 - Use `<mmultiscripts>` to mark up isotopes. For example, to represent $^{14}\text{C}$:
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
     <mmultiscripts>
-        <mi>C</mi>
+        <mi mathvariant="normal">C</mi>
         <mrow></mrow>
         <mrow></mrow>
         <mprescripts/>
@@ -1460,20 +1461,20 @@ To mark up chemistry in MathML, follow these general principles.
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
     <msub>
-        <mi>H</mi>
+        <mi mathvariant="normal">H</mi>
         <mn>2</mn>
     </msub>
     <mo>+</mo>
     <msub>
-        <mi>O</mi>
+        <mi mathvariant="normal">O</mi>
         <mn>2</mn>
     </msub>
     <mo>&#x2192;</mo>
     <msub>
-        <mi>H</mi>
+        <mi mathvariant="normal">H</mi>
         <mn>2</mn>
     </msub>
-    <mi>O</mi>
+    <mi mathvariant="normal">O</mi>
 </math>
 ```
 

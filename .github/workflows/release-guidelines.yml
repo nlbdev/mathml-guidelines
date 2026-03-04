@@ -1,0 +1,60 @@
+name: Release Guidelines
+
+on:
+  push:
+    tags:
+      - 'release-*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract release notes from CHANGELOG
+        id: release_notes
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          VERSION="${TAG#release-}"
+
+          if [ -f "CHANGELOG.md" ]; then
+            # Extract the section for this version (between two ## headings)
+            awk -v ver="$VERSION" '
+              /^## / {
+                if (found) exit
+                if (index($0, ver)) found=1; next
+              }
+              found { print }
+            ' CHANGELOG.md > release-body.md
+          fi
+
+          # Fallback: if no content was extracted, use a placeholder
+          if [ ! -s "release-body.md" ]; then
+            echo "Release ${VERSION}" > release-body.md
+          fi
+
+      - name: Setup Pandoc
+        uses: pandoc/actions/setup@v1
+
+      - name: Build docx
+        run: |
+          pandoc "Nordic MathML Guidelines.md" \
+            --from markdown \
+            --to docx \
+            --resource-path=. \
+            -o "Nordic MathML Guidelines.docx"
+
+      - name: Create draft release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          body_path: release-body.md
+          files: |
+            Nordic MathML Guidelines.docx
+            Nordic MathML Guidelines.md

@@ -638,12 +638,21 @@ Or $\int_a^b$:
 
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
-    <mo>∫</mo>
-    <mi>a</mi>
-    <mi>b</mi>
+    <msubsup>
+        <mo>∫</mo>
+        <mi>a</mi>
+        <mi>b</mi>
+    </msubsup>
+    <mi>f</mi>
+    <mo>(</mo>
+    <mi>x</mi>
+    <mo>)</mo>
+    <mo rspace="0.25em">&#x2062;</mo>
+    <mi>d</mi>
+    <mi>x</mi>
 </math>
 ```
-
+Note the markup of the space between the integrand $f(x)$, and $dx$. Mark up $dx$ in two separate `<mi>` elements. It is also possible to use `<munderover>` for integrals. Use the markup that matches the original source.
 
 #### Underscripts and Overscripts, `<munder>`, `<mover>`, `<munderover>`
 

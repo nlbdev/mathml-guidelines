@@ -954,8 +954,60 @@ If the rows and columns need to be spanned across multiple cells, use the `rowsp
 Note that `columnspan` is written this way due to backwards compatability for MathML 3.
 
 ### Labeling and referencing equations
+It is common to label equations and then reference these equations later on in mathematical text. In MathML the `<mtable>` element is used to mark up labeled equations.
 
-It is common to label equations and then reference these equations later on in mathematical text. In MathML the `<mtable>` element is used to mark up labeled equations. **Note:** The `intent` attribute used in this markup is not yet supported by the Nordic epub validator.
+For labeled equations that are part of a paragraph, place the `<math>` element inside a `<span>` element, and place the id for the equation on the `<span>` element.
+
+```html
+<p>The equation that follows is part of this paragraph 
+    <span id="equation-1.1">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <mtable>
+                <mtr>
+                    <mtd><mtext>(1.1)</mtext></mtd>
+                    <mtd>
+                        <mi>x</mi>
+                        <mo>+</mo>
+                        <mi>y</mi>
+                    </mtd>
+                    <mtd><mo>=</mo></mtd>
+                    <mtd><mn>2</mn></mtd>
+                </mtr>
+            </mtable>
+        </math>
+    </span>
+</p>
+```
+
+To reference the equation, use the anchor tag and the href attribute. For example: 
+
+```html 
+<p>From equation <a href="#equation-1.1">(1.1)</a> we can see that...</p>
+```
+Place the id for the equation on the `<p>` element if the `<math>` element is the only element inside the `<p>` element.
+
+```html
+<p>Text preceeding a stand-alone block of math content containing a labeled equation.</p>
+<p id="equation-1.2">
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mtable>
+            <mtr>
+                <mtd><mtext>(1.2)</mtext></mtd>
+                <mtd>
+                    <mi>x</mi>
+                    <mo>+</mo>
+                    <mi>y</mi>
+                </mtd>
+                <mtd><mo>=</mo></mtd>
+                <mtd><mn>2</mn></mtd>
+            </mtr>
+        </mtable>
+    </math> 
+</p>
+```
+
+
+<!--It is common to label equations and then reference these equations later on in mathematical text. In MathML the `<mtable>` element is used to mark up labeled equations. **Note:** The `intent` attribute used in this markup is not yet supported by the Nordic epub validator.
 
 Example of a labeled equation
 
@@ -1026,7 +1078,7 @@ When the equation is referenced later, use the `id` of the `<math>` element to l
 
 ```html
 <p>Then it is derived from the equations <a role="doc-backlink" href="#equation-1">(1.4) and (2.7)</a>.</p>
-```
+```-->
 
 ### Footnotes in mathematical expressions
 

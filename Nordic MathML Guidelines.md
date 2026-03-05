@@ -10,7 +10,7 @@ The basis of this document is the [MathML Core specification](https://www.w3.org
 
 ## When To Use MathML <!--- maybe change wording later -->
 
-In general, all mathematics should be marked up with MathML. Even simple arithmetic expressions such as 4 − 1 = 3, should be in MathML. If a mathematical expression is part of a sentence, make sure only to mark up the mathematics with MathML. For example, in the sentence, “the price for three pairs of jeans was 90 euros (30 € × 3), and he paid for them in cash”, the mathematical expression is extra information, expressed by the parentheses. In this case the parentheses is not part of the mathematical expression and should therefore not be marked up with MathML. Only the mathematical expression inside the parentheses should be in MathML.   
+In general, all mathematics should be marked up with MathML. Even simple arithmetic expressions such as 4 − 1 = 3, should be in MathML. Sometimes a mathematical expression is additional information, and the expression is placed inside parentheses. For consistency, always include the parentheses inside the MathML markup. For example, in the sentence “the price for three pairs of jeans was 90 euros (30 € × 3), and he paid for them in cash”, include the parentheses in the MathML markup.   
 
 ### Numbers and Numbers with Units
 
@@ -245,7 +245,7 @@ The `<mo>` element is used to denote operators. The definition of an operator is
 
 In MathML it also means different parentheses. For example the parenthesis `<mo>(</mo>` and curly bracket `<mo>{</mo>`. Please note that the element `<mfenced>` is deprecated and may not be used!
 
-The percentage sign is a `<mo>` element. For example 50 percent should be written as `<mn>50</mn><mo>&#x25;</mo>`. If there is space between the number and the percent sign in the original book, use `<mo rspace="0.25em">&#x2062;</mo>` to mark up the space. For example: `<mn>50</mn><mo rspace="0.25em">&#x2062;</mo><mo>&#x25;</mo>`
+The percent sign is a `<mo>` element. For example 50 percent should be written as `<mn>50</mn><mo>&#x25;</mo>`. If there is space between the number and the percent sign in the original book, use `<mo rspace="0.25em">&#x2062;</mo>` to mark up the space. For example: `<mn>50</mn><mo rspace="0.25em">&#x2062;</mo><mo>&#x25;</mo>`
 
 The same character can be used in a different meaning based on the context. For example, the comma can be part of a number but in a sequence the comma is an operator.
 

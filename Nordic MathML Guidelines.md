@@ -345,7 +345,7 @@ When a notation has written words, you should use `<mtext>` as well. For example
 
 Note that some automatic MathML markup engines cause text in equations to be captured with each letter inside its own `<mi>` element. Please avoid this and use `<mtext>` as shown above instead.
 
-The attribute `style` can be used to format text in the `<mtext>` element to reflect the source. Also make sure to include whitespace when necessary inside the `<mtext>` markup so that the display matches the source. For space inside the `<mtext>` element, use the Unicode Four-Per-Em Space `&#8197;` rather than pressing the space bar.
+The attribute `style` can be used to format text in the `<mtext>` element to reflect the source. Also make sure to include whitespace when necessary inside the `<mtext>` markup so that the display matches the source. If you press spacebar at the beginning or end of an `<mtext>` element, there will be no visible space. Therefore, you need to use the Unicode Four-Per-Em Space, `&#x2005;`. However, between words in an `<mtext>` element, the spacebar works.
 
 ##### Punctuation
 

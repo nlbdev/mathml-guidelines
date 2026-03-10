@@ -1023,7 +1023,6 @@ Place the id for the equation on the `<p>` element if the `<math>` element is th
 </p>
 ```
 
-
 <!--It is common to label equations and then reference these equations later on in mathematical text. In MathML the `<mtable>` element is used to mark up labeled equations. **Note:** The `intent` attribute used in this markup is not yet supported by the Nordic epub validator.
 
 Example of a labeled equation
@@ -1145,7 +1144,6 @@ Another example of a hyperlink inside a footnote:
 </math></p>
 <p>Note: <a href="https://en.wikipedia.org/wiki/Triangle_inequality">Triangle inequality (Wikipedia)</a></p>
 ```
-
 
 The Ordering Agency may have more instructions for footnotes within editing instructions.
 

@@ -1421,13 +1421,13 @@ Example markup based on this:
 
 ```html
 <figure class="image">
-	<img src="images/X41001A-011.jpg" alt="equation" aria-describedby="desc011" />
-	<aside class="fig-desc" id="desc011">
-		<p>
+ <img src="images/X41001A-011.jpg" alt="equation" aria-describedby="desc011" />
+ <aside class="fig-desc" id="desc011">
+  <p>
             <math xmlns="http://www.w3.org/1998/Math/MathML">...</math>
         </p>
         <p>Leftmost nonzero columns.</p>
-	</aside>
+ </aside>
 </figure>
 ```
 

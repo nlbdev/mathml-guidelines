@@ -140,13 +140,16 @@ It is common in STEM books for a mathematical expression to be part of a sentenc
 The example will be rendered as follows:
 
 To find the mean of a set of observations, add the values and divide by the number of observations:
-``` math
+
+$$
 \bar{x} = \frac{x_1 + x_2 + … + x_n}{n}
-```
-This can be written in more compact form: 
-``` math
+$$
+
+This can be written in more compact form:
+
+$$
 \bar{x} = \frac{1}{n}∑x_i.
-```
+$$
 
 Other times the mathematical expression is a stand-alone element, not part of an ongoing sentence or paragraph. In such examples it is important to place the `<math>` element inside a `<p>` element or something similar. Here is an example:
 
@@ -167,9 +170,10 @@ Other times the mathematical expression is a stand-alone element, not part of an
 The example will be rendered as follows:  
 
 Text preceding a stand-alone block of math content.
-``` math
+
+$$
 a + b = c.
-```
+$$
 
 Sometimes a mathematical expression consists of multiple mathematical expressions, and they all appear on the same line. Examples are functions where the domain is a restricted interval, or a differential equation with an intial value. In such cases, all the expressions should be captured in the same `<math>` element separated by `<mspace>`. Here is an example:
 
@@ -191,9 +195,9 @@ Sometimes a mathematical expression consists of multiple mathematical expression
 
 The example will be rendered as follows:
 
-``` math
+$$
 r = \sqrt{|\text{sin}(nθ)|}, \hspace{1em} 0 ≤ θ ≤ 2π.
-```
+$$
 
 ### Semantics and Annotations
 

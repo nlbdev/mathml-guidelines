@@ -99,6 +99,7 @@ A mathematical expression being inline as part of an ongoing sentence or paragra
 </math>
 </p>
 ```
+
 The example will be rendered as follows:  
 
 Here is an inline equation: $x = 5.$
@@ -135,7 +136,8 @@ It is common in STEM books for a mathematical expression to be part of a sentenc
 </math>
 </p>
 ```
-The example will be rendered as follows: 
+
+The example will be rendered as follows:
 
 To find the mean of a set of observations, add the values and divide by the number of observations:
 ``` math
@@ -161,6 +163,7 @@ Other times the mathematical expression is a stand-alone element, not part of an
 </math>
 </p>
 ```
+
 The example will be rendered as follows:  
 
 Text preceding a stand-alone block of math content.
@@ -185,7 +188,8 @@ Sometimes a mathematical expression consists of multiple mathematical expression
 </math>
 </p>
 ```
-The example will be rendered as follows: 
+
+The example will be rendered as follows:
 
 ``` math
 r = \sqrt{|\text{sin}(nθ)|}, \hspace{1em} 0 ≤ θ ≤ 2π.
@@ -234,6 +238,7 @@ The `<mn>` element is used to mark up all kinds of numeric characters. This also
 There are different ways to mark up the decimal and thousand separators based on the publication. Follow the mark up of the publication unless specifically told otherwise by the Ordering Agency.
 
 Examples of decimal and thousand separator markup includes
+
 - comma as a decimal separator: `<mn>3,14</mn>`
 - non-breaking space as a thousand separator: `<mn>89&nbsp;000</mn>`
 - period as a decimal separator: `<mn>2.74</mn>`
@@ -250,6 +255,7 @@ The percent sign is a `<mo>` element. For example 50 percent should be written a
 The same character can be used in a different meaning based on the context. For example, the comma can be part of a number but in a sequence the comma is an operator.
 
 The sequence {1,2,3,&#x2026;} written in MathML:
+
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
     <mo>{</mo>
@@ -461,6 +467,7 @@ Exampe of rendering a determinant when the `<mrow>` hasn't been used at all:
 The element `<mfrac>` is used for fractions, but also for other mathematical expressions that have the same visual layout such as the binomial.
 
 Example mark up for a fraction:
+
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
     <mfrac>
@@ -472,8 +479,8 @@ Example mark up for a fraction:
 
 The fraction rendered: $\frac{5}{2}$.
 
-
 Example mark up for a binomial:
+
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
     <mo>(</mo>
@@ -675,6 +682,7 @@ Sometimes it is necessary to nest multiple `<munder>` elements. For example when
 ![1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10, with bottom brace below, with sum of the first 10 positive integers below](images/nested-munder.PNG)
 
 Mark up for this expression is as follows
+
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
     <munder>
@@ -848,6 +856,7 @@ If there is mathematical notation that cannot be achieved with an HTML `<table>`
 Any mathematical notation that spans multiple lines should be marked up with the MathML `<mtable>`.
 
 Some use cases for tabular math include:
+
 - matrices
 - determinants
 - piecewise functions
@@ -943,6 +952,7 @@ Example of a piecewise function. It is important that the different expressions 
 ```
 
 Some notation might look like tabular math, but is not. Some possibilities for confusion:
+
 - absolute value $|x+2|$
 - intervals $[5,15]$.
 
@@ -955,6 +965,7 @@ If the rows and columns need to be spanned across multiple cells, use the `rowsp
 Note that `columnspan` is written this way due to backwards compatability for MathML 3.
 
 ### Labeling and referencing equations
+
 It is common to label equations and then reference these equations later on in mathematical text. In MathML the `<mtable>` element is used to mark up labeled equations.
 
 For labeled equations that are part of a paragraph, place the `<math>` element inside a `<span>` element, and place the id for the equation on the `<span>` element.
@@ -1152,6 +1163,7 @@ When the large operator is written inline with the other text, there is no need 
 ![Text: The summation is inline with the text ∑ sub A as you can see.](images/summation-inline.png/)
 
 Mark up:
+
 ```html
 <p>The summation is inline with the text 
     <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1196,6 +1208,7 @@ When the operator should be rendered inline, but as block element, it can be don
     </math> as you can see.
 </p>
 ```
+
 **Note**: The attribute `displaystyle` used in this markup is not yet supported by the Nordic epub validator.
 
 ### Invisible Operators
@@ -1498,6 +1511,7 @@ To mark up chemistry in MathML, follow these general principles.
 - Use `<mi>` to mark up each element in molecules. For example, $\text{NaCl}$ would be marked up as `<mi>Na</mi><mi>Cl</mi>`.
   - Use `<mi mathvariant="normal">` for singular elements. Examples below.
 - Use `<msub>` and `<msup>` to mark up subscripts and superscripts, respectively. For example, to represent $\text{H}_2\text{O}$:
+
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
         <msub>
@@ -1507,7 +1521,9 @@ To mark up chemistry in MathML, follow these general principles.
         <mi mathvariant="normal">O</mi>
 </math>
 ```
+
 - Use `<mmultiscripts>` to mark up isotopes. For example, to represent $^{14}\text{C}$:
+
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
     <mmultiscripts>
@@ -1520,7 +1536,9 @@ To mark up chemistry in MathML, follow these general principles.
     </mmultiscripts>
 </math>
 ```
+
 - Use `<mo>` for operators like arrows. For example, to represent a chemical reaction like $H_2 + O_2 \rightarrow H_2O$:
+
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
     <msub>
@@ -1599,6 +1617,7 @@ This notation means that the numerator and the denominator are multiplied by the
 ![On the left side of the fraction 3/5 is a superscript '2)'.](images/fraction-multiplication-notation.png)
 
 In MathML it is marked up as
+
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
     <mmultiscripts>
@@ -1623,6 +1642,7 @@ Then the respective division notation:
 ![The fraction 6/9 has a superscript '(3' on the right side of the fraction.](images/fraction-division-notation.png)
 
 The mark up in MathML:
+
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
     <mmultiscripts>

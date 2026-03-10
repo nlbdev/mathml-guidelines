@@ -1572,16 +1572,17 @@ Some content requires extra attention. A few recurring cases are listed below.
 Using the correct Unicode characters is essential for a screen reader or braille display to be able to do its job. Even if characters are visually similar, they will be read or displayed wrong if the OCR assigns the wrong Unicode entities.
 
 A few examples of visually similar characters:
-* Greek letter γ and latin y.
-* Greek letter ρ and latin p.
-* Greek letter ω and latin w.
-* Greek letter χ and latin x.
-* Capital Greek letter Χ and capital latin letter X.
-* Micro µ and Greek letter μ.
-* Alternative Greek letter epsilons: ε and ϵ, latin e, and "element of" ∈.
-* ′ (prime) and ' (apostrophe).
-* − (minus) and - (hyphen).
-* ⅆ for derivative and ordinary d.
+
+- Greek letter γ and latin y.
+- Greek letter ρ and latin p.
+- Greek letter ω and latin w.
+- Greek letter χ and latin x.
+- Capital Greek letter Χ and capital latin letter X.
+- Micro µ and Greek letter μ.
+- Alternative Greek letter epsilons: ε and ϵ, latin e, and "element of" ∈.
+- ′ (prime) and ' (apostrophe).
+- − (minus) and - (hyphen).
+- ⅆ for derivative and ordinary d.
 
 Please refer to a [Unicode character table](https://symbl.cc/en/unicode-table/). If in doubt about which characters to use, please contact the Ordering Agency.
 
@@ -1718,5 +1719,5 @@ Automatic tools for MathML markup have tendencies to produce errors. A procedure
 
 ## Resources
 
-* [Unicode character tables](https://symbl.cc/en/unicode-table/)
-* [MathML Validator](https://kvile.com/kvalidator/index.html)
+- [Unicode character tables](https://symbl.cc/en/unicode-table/)
+- [MathML Validator](https://kvile.com/kvalidator/index.html)

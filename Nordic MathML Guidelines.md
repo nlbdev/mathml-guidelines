@@ -16,7 +16,7 @@ In general, all mathematics should be marked up with MathML. Even simple arithme
 
 Non-negative numbers, like 3 and 5.2, should be in plain text. If a number has a minus, like −4 or −3.1, it should be in MathML. If a number is part of a mathematical expression, it should be in MathML.
 
-Units should be in plain text, except if there is an exponent, division or Greek letter in it. For example, "10 m" should be in plain text, while "$10 \hspace{0.25em} \mathrm{m/s^2}$" should be in MathML.
+Units should be in plain text, except if there is an exponent, division or Greek letter in it. For example, 10 m should be in plain text, while $10 \hspace{0.25em} \mathrm{m/s^2}$ should be in MathML.
 
 ### Variables, Parameters and Greek Letters
 

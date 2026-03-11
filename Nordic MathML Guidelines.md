@@ -16,7 +16,7 @@ In general, all mathematics should be marked up with MathML. Even simple arithme
 
 Non-negative numbers, like 3 and 5.2, should be in plain text. If a number has a minus, like −4 or −3.1, it should be in MathML. If a number is part of a mathematical expression, it should be in MathML.
 
-Units should be in plain text, except if there is an exponent, division or Greek letter in it. For example, "10 m" should be in plain text, while "10 m/s<sup>2</sup>" should be in MathML.
+Units should be in plain text, except if there is an exponent, division or Greek letter in it. For example, "10 m" should be in plain text, while "$10 \hspace{0.25em} \mathrm{m/s^2}$" should be in MathML.
 
 ### Variables, Parameters and Greek Letters
 
@@ -24,7 +24,7 @@ Variables and parameters should always be marked up with MathML.
 
 In STEM books Greek letters should always be in MathML. In these books they are variables and parameters. In non-STEM books isolated Greek letters should be in plain text. However, if they are part of an expression, like Δx, the whole expression should be marked up with MathML.
 
-Variables, Greek letters etc. with a sign above, like $\bar{x}$ or $\hat{y}$, or with indexes, like β<sub>1</sub> or ℇ<sub>0</sub>, should always be marked up with MathML, using “mover” and “msub” respectively. Note that there are distinct characters like ŷ (U+0177), but these are not intended for mathematics and should not be used.
+Variables, Greek letters etc. with a sign above, like $\bar{x}$ or $\hat{y}$, or with indexes, like $β_1$ or $ℇ_0$, should always be marked up with MathML, using “mover” and “msub” respectively. Note that there are distinct characters like ŷ (U+0177), but these are not intended for mathematics and should not be used.
 
 ### Some Things That Should Be In Plain Text
 
@@ -45,7 +45,7 @@ Things that are not mathematics should not be marked up with MathML. Below is a 
 
 ### Chemistry
 
-MathML markup is required to be used for all chemistry content in general. However, if the source material contains occasional occurrences of chemical substances written like CO<sub>2</sub> or H<sub>2</sub>O, and no other type of chemistry notation, these can be captured using standard HTML. If MathML is used for other types of chemistry notation, then MathML must be used for all chemistry content in order to ensure a consistent output for the reader. How to mark up chemistry using MathML is explained here: [Chemistry](#chemistry-in-mathml).
+MathML markup is required to be used for all chemistry content in general. However, if the source material contains occasional occurrences of chemical substances written like $\mathrm{CO_2}$ or $\mathrm{H_2O}$, and no other type of chemistry notation, these can be captured using standard HTML. If MathML is used for other types of chemistry notation, then MathML must be used for all chemistry content in order to ensure a consistent output for the reader. How to mark up chemistry using MathML is explained here: [Chemistry](#chemistry-in-mathml).
 
 ## MathML Fundamentals
 
@@ -540,7 +540,8 @@ This would render: $\sqrt[3]{8} = 2$
 Both of the elements accept attributes that can be used to modify the width, height and depth of the expressions. Only use relative units for these attributes such as em or rem unless specified otherwise by the Ordering Agency.
 
 #### Visual alignment of expressions
-Expressions should be marked up to display as similar to the source as possible. This means that sometimes the alignment of terms in e.g. a fraction or a system of equations needs to be adjusted. `<mphantom>` should be used for this purpose. For example, the fraction 
+
+Expressions should be marked up to display as similar to the source as possible. This means that sometimes the alignment of terms in e.g. a fraction or a system of equations needs to be adjusted. `<mphantom>` should be used for this purpose. For example, the fraction
 
 ![example of mphantom used to align terms in a fraction](images/mphantom.png)
 
@@ -570,7 +571,6 @@ is marked up as follows:
 ```
 
 ### Script and Limit Schemata
-
 
 #### Subscripts and Superscripts, `<msub>`, `<msup>`, `<msubsup>`
 
@@ -663,6 +663,7 @@ Or $\int_a^b$:
     <mi>x</mi>
 </math>
 ```
+
 Note the markup of the space between the integrand $f(x)$, and $dx$. Mark up $dx$ in two separate `<mi>` elements. It is also possible to use `<munderover>` for integrals. Use the markup that matches the original source.
 
 #### Underscripts and Overscripts, `<munder>`, `<mover>`, `<munderover>`
@@ -748,7 +749,7 @@ When both an underscript and overscript are needed, the element `<munderover>` i
 </math>
 ```
 
-Note that `<mrow>` can be used to group together base, underscript or overscript respectively, as explained in [Subscripts and Superscripts](#Subscripts-and-Superscripts,-`<msub>`,-`<msup>`,-`<msubsup>`).
+Note that `<mrow>` can be used to group together base, underscript or overscript respectively, as explained in [Subscripts and Superscripts](#subscripts-and-superscripts-msub-msup-msubsup).
 
 #### Prescripts and Postscripts, `<mmultiscripts>`
 
@@ -1713,7 +1714,6 @@ These escape sequences are necessary to avoid conflicts with the XML syntax used
 ## Quality assurance
 
 Automatic tools for MathML markup have tendencies to produce errors. A procedure for quality assurance should include searching for instances where the markup deviates from these guidelines. In addition to the Nordic EPUB validator, we recommend using [this online tool developed by Jan Martin Kvile at Statped](https://kvile.com/kvalidator/index.html). The searches can be modified by clicking the desired list item and editing the corresponding xpath query or css selector.
-
 
 ## Resources
 

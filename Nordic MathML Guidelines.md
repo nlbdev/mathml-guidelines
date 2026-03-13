@@ -24,7 +24,7 @@ Variables and parameters should always be marked up with MathML.
 
 In STEM books Greek letters should always be in MathML. In these books they are variables and parameters. In non-STEM books isolated Greek letters should be in plain text. However, if they are part of an expression, like $Δx$, the whole expression should be marked up with MathML.
 
-Variables, Greek letters etc. with a sign above, like $\bar{x}$ or $\hat{y}$, or with indexes, like $β_1$ or $ℇ_0$, should always be marked up with MathML, using “mover” and “msub” respectively. Note that there are distinct characters like ŷ (U+0177), but these are not intended for mathematics and should not be used.
+Variables, Greek letters etc. with a sign above, like $\bar{x}$ or $\hat{y}$, or with indexes, like $β_1$ or $ε_0$, should always be marked up with MathML, using “mover” and “msub” respectively. Note that there are distinct characters like ŷ (U+0177), but these are not intended for mathematics and should not be used.
 
 ### Some Things That Should Be In Plain Text
 

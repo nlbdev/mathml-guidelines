@@ -258,7 +258,7 @@ The percent sign is a `<mo>` element. For example 50 percent should be written a
 
 The same character can be used in a different meaning based on the context. For example, the comma can be part of a number but in a sequence the comma is an operator.
 
-The sequence $ \{ 1,2,3, … \}$ written in MathML:
+The sequence $\{1,2,3, \ldots \}$ written in MathML:
 
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">

@@ -1217,7 +1217,7 @@ When the operator should be rendered inline, but as block element, it can be don
 
 ### Invisible Operators
 
-Insivible operators should be used used when the meaning of an equation would be ambigious. For example $a(x+1)$ might be the function $a$ of $x+1$, or it could be the multiplication between $a$ and $(x+1)$ depending on the context.
+Invisible operators should be used used when the meaning of an equation would be ambigious. For example $a(x+1)$ might be the function $a$ of $x+1$, or it could be the multiplication between $a$ and $(x+1)$ depending on the context.
 
 Using invisible operators makes the markup unambigious:
 
@@ -1613,7 +1613,7 @@ The coordinate (1,1, 2) should be marked up as follows:
 - The first example has $x$-coordinate 1 and $y$-coordinate 2.
 - The second example has $x$-coordinate 1,1 and $y$-coordinate 2.
 
-It is imporant to separate comma as a decimal separator and comma as an operator.
+It is important to separate comma as a decimal separator and comma as an operator.
 
 #### Multiplication and division of fractions
 

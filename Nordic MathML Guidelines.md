@@ -1382,6 +1382,7 @@ Example of the rendering and mark up of equation solving with commentary text:
             </mtd>
             <mtd>
                 <mtext>(substract 3 from both sides)</mtext>
+            </mtd>
         </mtr>
         <mtr>
             <mtd>

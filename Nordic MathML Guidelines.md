@@ -1164,7 +1164,7 @@ Examples of different markup options below.
 #### Inline
 
 When the large operator is written inline with the other text, there is no need for any other attributes. Example:
-![Text: The summation is inline with the text ∑ sub A as you can see.](images/summation-inline.png/)
+![Text: The summation is inline with the text ∑ sub A as you can see.](images/summation-inline.png)
 
 Mark up:
 

@@ -293,7 +293,7 @@ The `<mi>` element is used to denote functions, variables, units, and other iden
 
 Functions and function names are identifiers: `<mi>tan</mi>`, `<mi>sin</mi>` or `<mi>log</mi>`.
 
-Units are identifiers. For example meter `<mi mathvariant="normal">m</mi>` or second `<mi mathvariant="normal">s</mi>`. When units are written using multiple letters, they should be marked up as a single element: `<mi>Nm</mi>`. Depending on the layout of the unit, you have to use other MathML elements to mark up a single unit such as metre per second squared:
+Units are identifiers. For example meter `<mi mathvariant="normal">m</mi>` or second `<mi mathvariant="normal">s</mi>`. When units are written using multiple letters, they should be marked up as a single element: `<mi>Nm</mi>`. Depending on the layout of the unit, you have to use other MathML elements to mark up a single unit such as meter per second squared:
 
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -544,7 +544,7 @@ Both of the elements accept attributes that can be used to modify the width, hei
 
 Expressions should be marked up to display as similar to the source as possible. This means that sometimes the alignment of terms in e.g. a fraction or a system of equations needs to be adjusted. `<mphantom>` should be used for this purpose. For example, the fraction
 
-![example of mphantom used to align terms in a fraction](images/mphantom.png)
+![Example of mphantom used to align terms in a fraction](images/mphantom.png)
 
 is marked up as follows:
 
@@ -646,7 +646,7 @@ The same principle applies for `<msubsup>`. Note also that the base can be group
 </math>
 ```
 
-Or $\int_a^b$:
+Or $\int_a^b f(x) \hspace{0.25em} dx$:
 
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1164,6 +1164,7 @@ Examples of different markup options below.
 #### Inline
 
 When the large operator is written inline with the other text, there is no need for any other attributes. Example:
+
 ![Text: The summation is inline with the text ∑ sub A as you can see.](images/summation-inline.png)
 
 Mark up:
@@ -1217,11 +1218,11 @@ When the operator should be rendered inline, but as block element, it can be don
 
 ### Invisible Operators
 
-Invisible operators should be used used when the meaning of an equation would be ambigious. For example $a(x+1)$ might be the function $a$ of $x+1$, or it could be the multiplication between $a$ and $(x+1)$ depending on the context.
+Invisible operators should be used when the meaning of an equation would be ambigious. For example $a(x+1)$ might be the function $a$ of $x+1$, or it could be the multiplication between $a$ and $(x+1)$ depending on the context.
 
 Using invisible operators makes the markup unambigious:
 
-- insivible multiplication: `&#x2062;`
+- invisible multiplication: `&#x2062;`
 - invisible function application: `&#x2061;`
 - invisible plus: `&#x2064;`
 - invisible comma: `&#x2063;`
@@ -1403,7 +1404,7 @@ Example of the rendering and mark up of equation solving with commentary text:
 
 ### Fill-in-the-blanks
 
-![matrix multiplication with blank squares in the rightmost matrix](images/fill-in-blanks.png)
+![Matrix multiplication with blank squares in the rightmost matrix](images/fill-in-blanks.png)
 
 Equations or expressions may contain space for filling in the blanks, such as in the example above. The blank spaces should be marked up using the Unicode symbol ⎕ (`&#9109;`) in `<mi>` tags.
 
@@ -1411,7 +1412,7 @@ Equations or expressions may contain space for filling in the blanks, such as in
 
 There are instances when the entirety of the mathematical content is impossible to capture using only MathML. An example of such an instance in a text book:
 
-![6 by 3 matrix with a arrow on the bottom of it pointing to the first column of the matrix with the text 'Left most nonzero column'.](images/matrix-with-notation-below.png)
+![6 by 3 matrix with an arrow on the bottom of it pointing to the first column of the matrix with the text 'Leftmost nonzero column'.](images/matrix-with-notation-below.png)
 
 The arrow and text pointing to the first column here cannot be replicated with MathML. In these cases, capture the mathematical content as an image and mark up as an image description below it. Capture the matrix in MathML inside the image description and extract the text.
 
@@ -1435,7 +1436,7 @@ Example markup based on this:
 
 Another example of content which should be captured as an image is hand-written calculations such as the following:
 
-![image of hand-written calculations](images/handwritten.png)
+![Image of hand-written calculations](images/handwritten.png)
 
 Capture such content as an image without any text extraction, using the `alt` attribute `drawing`. The same applies for calculations containing speech bubbles or the like.
 

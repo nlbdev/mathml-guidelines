@@ -43,6 +43,10 @@ Things that are not mathematics should not be marked up with MathML. Below is a 
 - Results: “MANU–LFC: 3–2”
 - Countdown: 3-2-1
 
+#### The Navigation Document
+
+Headings that contain mathematic expressions should obviously have MathML in the content documents. However, the Navigation document may not contain any MathML. Such headings must be entered into the Navigation document using plain text, `<sub>` and `<sup>`, when needed, and appropriate Unicode characters. 
+
 ### Chemistry
 
 MathML markup is required to be used for all chemistry content in general. However, if the source material contains occasional occurrences of chemical substances written like CO<sub>2</sub> or H<sub>2</sub>O, and no other type of chemistry notation, these can be captured using standard HTML. If MathML is used for other types of chemistry notation, then MathML must be used for all chemistry content in order to ensure a consistent output for the reader. How to mark up chemistry using MathML is explained here: [Chemistry](#chemistry-in-mathml).

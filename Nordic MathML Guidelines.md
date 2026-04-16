@@ -45,7 +45,7 @@ Things that are not mathematics should not be marked up with MathML. Below is a 
 
 ### Chemistry
 
-MathML markup is required to be used for all chemistry content in general. However, if the source material contains occasional occurrences of chemical substances written like $\text{C}\text{O}_2$ or $\text{H}_2\text{O}$, and no other type of chemistry notation, these can be captured using standard HTML. If MathML is used for other types of chemistry notation, then MathML must be used for all chemistry content in order to ensure a consistent output for the reader. How to mark up chemistry using MathML is explained here: [Chemistry](#chemistry-in-mathml).
+MathML markup is required to be used for all chemistry content in general. However, if the source material contains occasional occurrences of chemical substances written like CO<sub>2</sub> or H<sub>2</sub>O, and no other type of chemistry notation, these can be captured using standard HTML. If MathML is used for other types of chemistry notation, then MathML must be used for all chemistry content in order to ensure a consistent output for the reader. How to mark up chemistry using MathML is explained here: [Chemistry](#chemistry-in-mathml).
 
 ## MathML Fundamentals
 

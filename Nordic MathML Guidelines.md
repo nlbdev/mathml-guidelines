@@ -293,7 +293,7 @@ The `<mi>` element is used to denote functions, variables, units, and other iden
 
 Functions and function names are identifiers: `<mi>tan</mi>`, `<mi>sin</mi>` or `<mi>log</mi>`.
 
-Units are identifiers. For example meter `<mi mathvariant="normal">m</mi>` or second `<mi mathvariant="normal">s</mi>`. When units are written using multiple letters, they should be marked up as a single element: `<mi>Nm</mi>`. Depending on the layout of the unit, you have to use other MathML elements to mark up a single unit such as meter per second squared:
+Units are identifiers. For example metre `<mi mathvariant="normal">m</mi>` or second `<mi mathvariant="normal">s</mi>`. When units are written using multiple letters, they should be marked up as a single element: `<mi>Nm</mi>`. Depending on the layout of the unit, you have to use other MathML elements to mark up a single unit such as metre per second squared:
 
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -968,7 +968,7 @@ If there is any confusion, always reach out to the Ordering Agency.
 
 If the rows and columns need to be spanned across multiple cells, use the `rowspan` and `columnspan` attributes. They are equivalent to the HTML attributes `rowspan` and `colspan`.
 
-Note that `columnspan` is written this way due to backwards compatability for MathML 3.
+Note that `columnspan` is written this way due to backwards compatibility for MathML 3.
 
 ### Labeling and referencing equations
 
@@ -1445,7 +1445,7 @@ Capture such content as an image without any text extraction, using the `alt` at
 
 It is common in school books to use "crossing out" of elements in expressions. These can't be replicated reliably with just MathML.
 
-If the expression is a block element, use the `<details>` element with the `<summary>` "Image description." Provide the MathML markup for the whole expression. Use the element `<menclose>` to markup crossed out math.
+If the expression is a block element, use the `<details>` element with the `<summary>` "Image description." Provide the MathML markup for the whole expression. Use the element `<menclose>` to mark up crossed out math.
 
 Rendered:
 
@@ -1584,7 +1584,6 @@ A few examples of visually similar characters:
 - Alternative Greek letter epsilons: ε and ϵ, latin e, and "element of" ∈.
 - ′ (prime) and ' (apostrophe).
 - − (minus) and - (hyphen).
-- ⅆ for derivative and ordinary d.
 
 Please refer to a [Unicode character table](https://symbl.cc/en/unicode-table/). If in doubt about which characters to use, please contact the Ordering Agency.
 

@@ -1741,6 +1741,134 @@ Use the Unicode character ⧸ ("big solidus", U+29F8) for the slash in the integ
 
 The MathML core specification supports a multitude of options for adjusting the typeset, e.g. the `<mstyle>` element or making changes in the stylesheet. Please **do not use** any of these since conflicts may arise between the markup and the user agencies' own stylesheets. It is not necessary that mathematical expressions are typeset exactly as in the source. A few cases, however, need to be taken into consideration.
 
+#### Nested fractions inside HTML tables or `<mtable>`s
+
+Nested fractions inside an HTML table or an `<mtable>` could appear small. In such cases, in could be necessary to use `<mstyle>` with the attribute `scriptlevel`. The value of `scriptlevel` should be set to a negative value. The more negative the value is, the larger the fraction appears visually. In most cases, setting the value to minus 1 will be sufficient.
+
+Below is the markup and rendering of a nested fraction inside an HTML table.
+
+```html
+<table>
+    <thead>
+        <tr>
+            <th>Textual description</th>
+            <th>Mathematical expression</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                A nested fraction inside a table cell.
+            </td>
+            <td>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mstyle scriptlevel="-1">
+                    <mfrac>
+                        <mrow>
+                            <mi>p</mi><mo>&#x2212;</mo><msub><mi>&#x3C0;</mi><mn>0</mn></msub>
+                        </mrow>
+                        <mfrac>
+                            <msqrt>
+                                <msub><mi>&#x3C0;</mi><mn>0</mn></msub>
+                                <mo>&#x22C5;</mo>
+                                <mo>(</mo><mn>1</mn><mo>&#x2212;</mo><msub><mi>&#x3C0;</mi><mn>0</mn></msub><mo>)</mo>
+                            </msqrt>
+                            <mi>n</mi>
+                        </mfrac>
+                    </mfrac>
+                </mstyle>
+                </math>
+            </td>
+        </tr>
+    </tbody>
+</table>
+```
+
+![Table with text in the first column and a nested fraction in the second column.](images/fraction_in_HTML_table.png)
+
+Below is the markup and rendering of a nested fraction inside an `<mtable>`.
+
+```html
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mtable>
+            <mtr>
+                <mtd>
+                    <mstyle scriptlevel="-1">
+                    <mfrac>
+                        <mrow>
+                            <mn>1</mn><mo>+</mo><mi>x</mi>
+                        </mrow>
+                        <mfrac>
+                            <msqrt>
+                                <msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><msup><mi>x</mi><mn>2</mn></msup>
+                            </msqrt>
+                            <mi>x</mi>
+                        </mfrac>
+                    </mfrac>
+                    </mstyle>
+                    <mo>+</mo>
+                    <mi>y</mi>
+                </mtd>
+                <mtd><mo>=</mo></mtd>
+                <mtd>
+                    <mstyle scriptlevel="-1">
+                    <mfrac>
+                        <mrow>
+                            <mn>1</mn><mo>+</mo><mi>x</mi>
+                        </mrow>
+                        <mfrac>
+                            <msqrt>
+                                <mn>4</mn><msup><mi>x</mi><mn>2</mn></msup>
+                            </msqrt>
+                            <mi>x</mi>
+                        </mfrac>
+                    </mfrac>
+                    </mstyle>
+                    <mo>+</mo>
+                    <mi>y</mi>
+                </mtd>
+            </mtr>
+            <mtr>
+                <mtd></mtd>
+                <mtd><mo>=</mo></mtd>
+                <mtd>
+                    <mstyle scriptlevel="-1">
+                    <mfrac>
+                        <mrow>
+                            <mn>1</mn><mo>+</mo><mi>x</mi>
+                        </mrow>
+                        <mfrac>
+                            <mrow>
+                                <mn>2</mn><mi>x</mi>
+                            </mrow>
+                            <mi>x</mi>
+                        </mfrac>
+                    </mfrac>
+                    </mstyle>
+                    <mo>+</mo>
+                    <mi>y</mi>
+                </mtd>
+            </mtr>
+            <mtr>
+                <mtd></mtd>
+                <mtd><mo>=</mo></mtd>
+                <mtd>
+                    <mfrac>
+                        <mrow>
+                            <mn>1</mn><mo>+</mo><mi>x</mi>
+                        </mrow>
+                        <mn>2</mn>
+                    </mfrac>
+                    <mo>+</mo>
+                    <mi>y</mi>
+                </mtd>
+            </mtr>
+        </mtable>
+    </math>
+```
+
+![Calculation spanning multiple lines. The calculation simplifies the following nested fraction: Fraction with numerator one plus x, and denominator fraction with numerator the square root of x squared plus three x squared, and deniminator x.](images/fraction_in_mtable.png)
+
 #### Embellishments
 
 Lines, arrows, and other embellishments on variables are often used to denote vectors or other structures which carry meaning. Therefore `<mover>`, `<munder>` or the like should be used to mark up these. For example, the vector $\overline{x}$ should be marked up as follows:

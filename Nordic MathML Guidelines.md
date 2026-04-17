@@ -1117,7 +1117,7 @@ Example of the rendering and mark up of equation solving with commentary text:
 </math>
 ```
 
-Sometimes a mathematical calculation span many lines. It is important to mark up the whole calculation in the same `<math>` element and use an `<mtable>` to mark up the lines. Do not split a calculation in multiple `<math>` elements. Below is an example:
+Sometimes a mathematical calculation spans many lines. It is important to mark up the whole calculation in the same `<math>` element and use an `<mtable>` to mark up the lines. Do not split a calculation in multiple `<math>` elements. Below is an example:
 
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1132,7 +1132,8 @@ Sometimes a mathematical calculation span many lines. It is important to mark up
                 <mtd>
                     <mfrac>
                         <mrow><mn>3</mn><mo>&#x22C5;</mo><mn>1</mn></mrow>
-                        <mrow><mn>3</mn><mo>&#x22C5;</mo><mn>2</mn></mrow></mfrac>
+                        <mrow><mn>3</mn><mo>&#x22C5;</mo><mn>2</mn></mrow>
+                    </mfrac>
                     <mo>+</mo>
                     <mfrac>
                         <mrow><mn>2</mn><mo>&#x22C5;</mo><mn>2</mn></mrow>
@@ -1743,9 +1744,9 @@ The MathML core specification supports a multitude of options for adjusting the 
 
 #### Nested fractions inside HTML tables or `<mtable>`s
 
-Nested fractions inside an HTML table or an `<mtable>` could appear small. In such cases, in could be necessary to use `<mstyle>` with the attribute `scriptlevel`. The value of `scriptlevel` should be set to a negative value. The more negative the value is, the larger the fraction appears visually. In most cases, setting the value to minus 1 will be sufficient.
+Nested fractions inside an HTML table or an `<mtable>` could appear small. In such cases, it could be necessary to use `<mstyle>` with the attribute `scriptlevel`. The value of `scriptlevel` should be set to a negative value. The more negative the value is, the larger the fraction appears visually. In most cases, setting the value to minus 1 will be sufficient.
 
-Below is the markup and rendering of a nested fraction inside an HTML table.
+Below are the markup and rendering of a nested fraction inside an HTML table.
 
 ```html
 <table>
@@ -1786,7 +1787,7 @@ Below is the markup and rendering of a nested fraction inside an HTML table.
 
 ![Table with text in the first column and a nested fraction in the second column.](images/fraction_in_HTML_table.png)
 
-Below is the markup and rendering of a nested fraction inside an `<mtable>`.
+Below are the markup and rendering of a nested fraction inside an `<mtable>`.
 
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">

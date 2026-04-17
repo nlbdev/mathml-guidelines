@@ -787,11 +787,11 @@ In the example, A is the base. `<mprescripts>` marks where the prescripts begin.
 - `<mi>q</mi>` and `<mi>s</mi>` are prescript subscripts.
 - `<mi>t</mi>` is a prescript superscript.
 
-### Tabular Math
+## Tabular Math
 
 Math can be presented in a table-like structure and MathML has its own markup to handle this.
 
-#### When to use the regular HTML `<table>`
+### When to use the regular HTML `<table>`
 
 Use an HTML `<table>` when possible. It should be used with presenting data and when MathML is not needed (as per section When To Use MathML). Example of a table where HTML `<table>` should be used:
 
@@ -974,7 +974,205 @@ If the rows and columns need to be spanned across multiple cells, use the `rowsp
 
 Note that `columnspan` is written this way due to backwards compatibility for MathML 3.
 
-### Labeling and referencing equations
+#### Systems of Equations
+
+Systems of equations are tabular math.
+
+Example rendering and markup of a pair of equations:
+
+![A screenshot of pair of equations. The layout is tabular.](images/pair-of-equations.png)
+
+```html
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+    <mo>{</mo>
+    <mtable>
+        <mtr>
+            <mtd> 
+                <mi>x</mi>
+                <mo>+</mo>
+                <mi>y</mi>
+            </mtd>
+            <mtd>
+                <mo>=</mo>
+            </mtd>
+            <mtd>
+                <mn>7</mn>
+            </mtd>
+        </mtr>
+        <mtr>
+            <mtd>
+                <mn>2</mn>
+                <mi>x</mi>
+                <mo>+</mo>
+                <mn>3</mn>
+                <mi>y</mi>
+            </mtd>
+            <mtd>
+                <mo>=</mo>
+            </mtd>
+            <mtd>
+                <mn>17</mn>
+            </mtd>
+        </mtr>
+    </mtable>
+</math>
+```
+
+#### Equation solving notation
+
+Equation solving notation is tabular math.
+
+The notation and layout is very similar to systems of equations, but equation solving usually has additional commentary about the equation in question.
+
+Example of rendering and mark up of equation solving notation:
+
+![A screenshot of two lines of equation solving. The first has a notation that means subtracting both sides by three. It is sort of to the side of the actual equations.](images/equation-solving.png)
+
+```html
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+    <mtable>
+        <mtr>
+            <mtd> 
+                <mn>2</mn>
+                <mi>x</mi>
+                <mo>+</mo>
+                <mn>3</mn>
+            </mtd>
+            <mtd>
+                <mo>=</mo>
+            </mtd>
+            <mtd>
+                <mn>7</mn>
+            </mtd>
+            <mtd>
+                <mo>|</mo>
+                <mo>|</mo>
+                <mo>&#x2212;</mo>
+                <mn>3</mn>
+            </mtd>
+        </mtr>
+        <mtr>
+            <mtd>
+                <mn>2</mn>
+                <mi>x</mi>
+            </mtd>
+            <mtd>
+                <mo>=</mo>
+            </mtd>
+            <mtd>
+                <mn>7</mn>
+                <mo>&#x2212;</mo>
+                <mn>3</mn>
+            </mtd>
+            <mtd><!--- Empty cell ---></mtd>
+        </mtr>
+    </mtable>
+</math>
+```
+
+Notice that there is an empty cell underneath the $-3$ notation. This is so that the table cells line up properly.
+
+This kind of mark up can have commentary text instead of the mathematical notation. This should be marked up inside the MathML `<mtable>` as well.
+
+Example of the rendering and mark up of equation solving with commentary text:
+
+![A screenshot of two lines of equation solving. The first has commentary as text that reads 'substract 3 from both sides'. It is sort of to the side of the actual equations.](images/equation-solving-with-commentary.png)
+
+```html
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+    <mtable>
+        <mtr>
+            <mtd>
+                <mn>2</mn>
+                <mi>x</mi>
+                <mo>+</mo>
+                <mn>3</mn>
+            </mtd>
+            <mtd>
+                <mo>=</mo>
+            </mtd>
+            <mtd>
+                <mn>7</mn>
+            </mtd>
+            <mtd>
+                <mtext>(substract 3 from both sides)</mtext>
+            </mtd>
+        </mtr>
+        <mtr>
+            <mtd>
+                <mn>2</mn>
+                <mi>x</mi>
+            </mtd>
+            <mtd>
+                <mo>=</mo>
+            </mtd>
+            <mtd>
+                <mn>7</mn>
+                <mo>&#x2212;</mo>
+                <mn>3</mn>
+            </mtd>
+            <mtd><!--- Empty cell ---></mtd>
+        </mtr>
+    </mtable>
+</math>
+```
+
+Sometimes a mathematical calculation span many lines. It is important to mark up the whole calculation in the same `<math>` element and use an `<mtable>` to mark up the lines. Do not split a calculation in multiple `<math>` elements. Below is an example:
+
+```html
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mtable>
+            <mtr>
+                <mtd>
+                    <mfrac><mn>1</mn><mn>2</mn></mfrac>
+                    <mo>+</mo>
+                    <mfrac><mn>2</mn><mn>3</mn></mfrac>
+                </mtd>
+                <mtd><mo>=</mo></mtd>
+                <mtd>
+                    <mfrac>
+                        <mrow><mn>3</mn><mo>&#x22C5;</mo><mn>1</mn></mrow>
+                        <mrow><mn>3</mn><mo>&#x22C5;</mo><mn>2</mn></mrow></mfrac>
+                    <mo>+</mo>
+                    <mfrac>
+                        <mrow><mn>2</mn><mo>&#x22C5;</mo><mn>2</mn></mrow>
+                        <mrow><mn>2</mn><mo>&#x22C5;</mo><mn>3</mn></mrow>
+                    </mfrac>
+                </mtd>
+            </mtr>
+            <mtr>
+                <mtd></mtd>
+                <mtd><mo>=</mo></mtd>
+                <mtd>
+                    <mfrac><mn>3</mn><mn>6</mn></mfrac>
+                    <mo>+</mo>
+                    <mfrac><mn>4</mn><mn>6</mn></mfrac>
+                </mtd>
+            </mtr>
+            <mtr>
+                <mtd></mtd>
+                <mtd><mo>=</mo></mtd>
+                <mtd>
+                    <mfrac>
+                        <mrow><mn>3</mn><mo>+</mo><mn>4</mn></mrow>
+                        <mn>6</mn>
+                    </mfrac>
+                </mtd>
+            </mtr>
+            <mtr>
+                <mtd></mtd>
+                <mtd><mo>=</mo></mtd>
+                <mtd><mfrac><mn>7</mn><mn>6</mn></mfrac></mtd>
+            </mtr>
+        </mtable>
+    </math>
+```
+
+This will render as
+
+![The calculation of one half plus two thirds. The calculation spans four lines.](images/calculation_spanning_multiple_lines.png)
+
+#### Labeling and referencing equations
 
 It is common to label equations and then reference these equations later on in mathematical text. In MathML the `<mtable>` element is used to mark up labeled equations.
 
@@ -1102,7 +1300,7 @@ When the equation is referenced later, use the `id` of the `<math>` element to l
 <p>Then it is derived from the equations <a role="doc-backlink" href="#equation-1">(1.4) and (2.7)</a>.</p>
 ```-->
 
-### Footnotes in mathematical expressions
+## Footnotes in mathematical expressions
 
 If there are footnotes with mathematical expressions, write the footnote outside of the `<math>` element and remove the note reference from the `<math>` expression. Add the word "Note", or the equivalent word written in the main language of the book, at the start of the paragraph containing the footnote.
 
@@ -1261,149 +1459,6 @@ Units that contain operators must be marked up correctly, and the whole unit wra
             <mn>2</mn>
         </msup>
     </mrow>
-</math>
-```
-
-### Systems of Equations
-
-Systems of equations are tabular math. See the section [Tabular math](#tabular-math) for more information.
-
-Example rendering and markup of a pair of equations:
-
-![A screenshot of pair of equations. The layout is tabular.](images/pair-of-equations.png)
-
-```html
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-    <mo>{</mo>
-    <mtable>
-        <mtr>
-            <mtd> 
-                <mi>x</mi>
-                <mo>+</mo>
-                <mi>y</mi>
-            </mtd>
-            <mtd>
-                <mo>=</mo>
-            </mtd>
-            <mtd>
-                <mn>7</mn>
-            </mtd>
-        </mtr>
-        <mtr>
-            <mtd>
-                <mn>2</mn>
-                <mi>x</mi>
-                <mo>+</mo>
-                <mn>3</mn>
-                <mi>y</mi>
-            </mtd>
-            <mtd>
-                <mo>=</mo>
-            </mtd>
-            <mtd>
-                <mn>17</mn>
-            </mtd>
-        </mtr>
-    </mtable>
-</math>
-```
-
-### Equation solving notation
-
-Equation solving notation is tabular math. See the section [Tabular math](#tabular-math) for more information.
-
-The notation and layout is very similar to systems of equations, but equation solving usually has additional commentary about the equation in question.
-
-Example of rendering and mark up of equation solving notation:
-
-![A screenshot of two lines of equation solving. The first has a notation that means subtracting both sides by three. It is sort of to the side of the actual equations.](images/equation-solving.png)
-
-```html
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-    <mtable>
-        <mtr>
-            <mtd> 
-                <mn>2</mn>
-                <mi>x</mi>
-                <mo>+</mo>
-                <mn>3</mn>
-            </mtd>
-            <mtd>
-                <mo>=</mo>
-            </mtd>
-            <mtd>
-                <mn>7</mn>
-            </mtd>
-            <mtd>
-                <mo>|</mo>
-                <mo>|</mo>
-                <mo>&#x2212;</mo>
-                <mn>3</mn>
-            </mtd>
-        </mtr>
-        <mtr>
-            <mtd>
-                <mn>2</mn>
-                <mi>x</mi>
-            </mtd>
-            <mtd>
-                <mo>=</mo>
-            </mtd>
-            <mtd>
-                <mn>7</mn>
-                <mo>&#x2212;</mo>
-                <mn>3</mn>
-            </mtd>
-            <mtd><!--- Empty cell ---></mtd>
-        </mtr>
-    </mtable>
-</math>
-```
-
-Notice that there is an empty cell underneath the $-3$ notation. This is so that the table cells line up properly.
-
-This kind of mark up can have commentary text instead of the mathematical notation. This should be marked up inside the MathML `<mtable>` as well.
-
-Example of the rendering and mark up of equation solving with commentary text:
-
-![A screenshot of two lines of equation solving. The first has commentary as text that reads 'substract 3 from both sides'. It is sort of to the side of the actual equations.](images/equation-solving-with-commentary.png)
-
-```html
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-    <mtable>
-        <mtr>
-            <mtd>
-                <mn>2</mn>
-                <mi>x</mi>
-                <mo>+</mo>
-                <mn>3</mn>
-            </mtd>
-            <mtd>
-                <mo>=</mo>
-            </mtd>
-            <mtd>
-                <mn>7</mn>
-            </mtd>
-            <mtd>
-                <mtext>(substract 3 from both sides)</mtext>
-            </mtd>
-        </mtr>
-        <mtr>
-            <mtd>
-                <mn>2</mn>
-                <mi>x</mi>
-            </mtd>
-            <mtd>
-                <mo>=</mo>
-            </mtd>
-            <mtd>
-                <mn>7</mn>
-                <mo>&#x2212;</mo>
-                <mn>3</mn>
-            </mtd>
-            <mtd><!--- Empty cell ---></mtd>
-        </mtr>
-    </mtable>
 </math>
 ```
 

@@ -24,7 +24,7 @@ Variables and parameters should always be marked up with MathML.
 
 In STEM books Greek letters should always be in MathML. In these books they are variables and parameters. In non-STEM books isolated Greek letters should be in plain text. However, if they are part of an expression, like $Δx$, the whole expression should be marked up with MathML.
 
-Variables, Greek letters etc. with a sign above, like $\bar{x}$ or $\hat{y}$, or with indexes, like $β_1$ or $ε_0$, should always be marked up with MathML, using “mover” and “msub” respectively. Note that there are distinct characters like ŷ (U+0177), but these are not intended for mathematics and should not be used.
+Variables, Greek letters etc. with a sign above, like $\bar{x}$ or $\hat{y}$, or with indices, like $β_1$ or $ε_0$, should always be marked up with MathML, using “mover” and “msub” respectively. Note that there are distinct characters like ŷ (U+0177), but these are not intended for mathematics and should not be used.
 
 ### Some Things That Should Be In Plain Text
 
@@ -45,7 +45,7 @@ Things that are not mathematics should not be marked up with MathML. Below is a 
 
 #### The Navigation Document
 
-Headings that contain mathematic expressions should obviously have MathML in the content documents. However, the Navigation document may not contain any MathML. Such headings must be entered into the Navigation document using plain text, `<sub>` and `<sup>`, when needed, and appropriate Unicode characters. 
+Headings that contain mathematical expressions should obviously have MathML in the content documents. However, the Navigation document may not contain any MathML. Such headings must be entered into the Navigation document using plain text, `<sub>` and `<sup>`, when needed, and appropriate Unicode characters. 
 
 ### Chemistry
 
@@ -199,6 +199,8 @@ Sometimes a mathematical expression consists of multiple mathematical expression
 
 The example will be rendered as follows:
 
+The curve is represented by the equation
+
 $$
 r = \sqrt{|\text{sin}(nθ)|}, \hspace{1em} 0 ≤ θ ≤ 2π.
 $$
@@ -239,7 +241,7 @@ For example, a webpage might use Presentation MathML to display an equation visu
 
 The token elements that we use are `<mn>`, `<mo>`, `<mi>` and `<mspace>`. Token elements are the only MathML elements permitted to contain character data. More about `<mspace>` can be found here: [`<mpadded>` and `<mspace>`](#mpadded-and-mspace).
 
-#### `<mn>`
+#### `<mn>` for numeric characters
 
 The `<mn>` element is used to mark up all kinds of numeric characters. This also includes decimal and thousand separators. Decimal and thousand separators should not be marked up in their own element, separate from the number.
 
@@ -328,7 +330,7 @@ Here is an example when `<mtext>` has been used the wrong way:
 <p>After this lemma <math xmlns="http://www.w3.org/1998/Math/MathML">[mathematical expression]<mtext> we can see that this holds for </mtext>[more mathematical expressions]</math> and it happens so.</p>
 ```
 
-The explanatory text in between the math expressions should be regular text and part of the paragraph, it should instead be written like this:
+The explanatory text in between the math expressions should be regular text and part of the paragraph. It should instead be written like this:
 
 ```html
 <p>After this lemma <math xmlns="http://www.w3.org/1998/Math/MathML">[mathematical expression]</math> we can see that this holds for <math xmlns="http://www.w3.org/1998/Math/MathML">[more mathematical expression]</math> and it happens so.</p>
@@ -347,7 +349,7 @@ Examples of this are in tabular math, such as equation solving, and what is ofte
 </math>
 ```
 
-When a notation has written words, you should use `<mtext>` as well. For example in indices $g_{\text{weight}}$. This would be marked up as
+When a notation has written words, you should use `<mtext>` as well. For example in indices, like $g_{\text{weight}}$. This would be marked up as
 
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -475,7 +477,7 @@ Exampe of rendering a determinant when the `<mrow>` hasn't been used at all:
 
 The element `<mfrac>` is used for fractions, but also for other mathematical expressions that have the same visual layout such as the binomial.
 
-Example mark up for a fraction:
+Example markup for a fraction:
 
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -488,7 +490,7 @@ Example mark up for a fraction:
 
 The fraction rendered: $\frac{5}{2}$.
 
-Example mark up for a binomial:
+Example markup for a binomial:
 
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -501,7 +503,7 @@ Example mark up for a binomial:
 </math>
 ```
 
-The binomial rendered: $\binom{n}{k}$.
+The binomial rendered: $\binom{n}{k}.$
 
 **Note** that for the binomial to be rendered correctly, you need to use the `<mfrac>` element with the attribute `linethickness="0"`.
 
@@ -521,9 +523,9 @@ Use `<msqrt>` to mark up square roots.
 </math>
 ```
 
-The square root rendered: $\sqrt{9} = 3$
+The square root rendered: $\sqrt{9} = 3.$
 
-Use `<mroot>` to mark up roots with different indeces.
+Use `<mroot>` to mark up roots with different indices.
 
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -536,7 +538,7 @@ Use `<mroot>` to mark up roots with different indeces.
 </math>
 ```
 
-This would render: $\sqrt[3]{8} = 2$
+This would render: $\sqrt[3]{8} = 2.$
 
 #### `<mpadded>` and `<mspace>`
 
@@ -650,7 +652,7 @@ The same principle applies for `<msubsup>`. Note also that the base can be group
 </math>
 ```
 
-Or $\int_a^b f(x) \hspace{0.25em} dx$:
+`<msubsup>` is also used to mark up integrals like $\int_a^b f(x) \hspace{0.25em} dx$:
 
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -669,7 +671,7 @@ Or $\int_a^b f(x) \hspace{0.25em} dx$:
 </math>
 ```
 
-Note the markup of the space between the integrand $f(x)$, and $dx$. Mark up $dx$ in two separate `<mi>` elements. It is also possible to use `<munderover>` for integrals. Use the markup that matches the original source.
+Note the markup of the space between the integrand $f(x)$, and $dx.$ Mark up $dx$ in two separate `<mi>` elements. It is also possible to use `<munderover>` for integrals. Use the markup that matches the original source.
 
 #### Underscripts and Overscripts, `<munder>`, `<mover>`, `<munderover>`
 
@@ -689,6 +691,7 @@ Underscript notation is marked up using the element `<munder>`. The first child 
 ```
 
 Sometimes it is necessary to nest multiple `<munder>` elements. For example when you want to mark up text that is underneath an expression:
+
 ![1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10, with bottom brace below, with sum of the first 10 positive integers below](images/nested-munder.PNG)
 
 Markup for this expression is as follows
@@ -777,7 +780,7 @@ Sometimes multiple prescripts and postscripts are attached to the same base, e.g
 </math>
 ```
 
-In the example, A is the base. `<mprescripts>` marks where the prescripts begin.
+In the example, A is the base. `<mprescripts/>` marks where the prescripts begin.
 
 - `<mi>A</mi>` is the base element.
 - `<mi>m</mi>` is a postscript subscript.
@@ -793,7 +796,7 @@ Math can be presented in a table-like structure and MathML has its own markup to
 
 ### When to use the regular HTML `<table>`
 
-Use an HTML `<table>` when possible. It should be used with presenting data and when MathML is not needed (as per section When To Use MathML). Example of a table where HTML `<table>` should be used:
+Use an HTML `<table>` when possible. It should be used with presenting data and when MathML is not needed (as per section [When To Use MathML](#when-to-use-mathml)). Example of a table where HTML `<table>` should be used:
 
 ![Example of a 3 times 3 HTML table with just numbers in the cells.](images/html-table.png)
 
@@ -873,7 +876,7 @@ Some use cases for tabular math include:
 - equation solving notation
 - systems of equations
 
-Inside the `<mtable>` element there is also the row element `<mtr>`, and the (data) cell element `<mtd>`. They are equivalent to the HTML `<table>` element's row `<tr>` and cell `<td>` elements.
+Inside the `<mtable>` element there are also the row element `<mtr>`, and the (data) cell element `<mtd>`. They are equivalent to the HTML `<table>` element's row `<tr>` and cell `<td>` elements.
 
 Example of the rendering and markup for a determinant:
 
@@ -964,7 +967,7 @@ Example of a piecewise function. It is important that the different expressions 
 Some notation might look like tabular math, but is not. Some possibilities for confusion:
 
 - absolute value $|x+2|$
-- intervals $[5,15]$.
+- intervals $[5,15]$
 
 If there is any confusion, always reach out to the Ordering Agency.
 
@@ -1024,7 +1027,7 @@ Equation solving notation is tabular math.
 
 The notation and layout is very similar to systems of equations, but equation solving usually has additional commentary about the equation in question.
 
-Example of rendering and mark up of equation solving notation:
+Example of rendering and markup of equation solving notation:
 
 ![A screenshot of two lines of equation solving. The first has a notation that means subtracting both sides by three. It is sort of to the side of the actual equations.](images/equation-solving.png)
 
@@ -1074,7 +1077,7 @@ Notice that there is an empty cell underneath the $-3$ notation. This is so that
 
 This kind of mark up can have commentary text instead of the mathematical notation. This should be marked up inside the MathML `<mtable>` as well.
 
-Example of the rendering and mark up of equation solving with commentary text:
+Example of the rendering and markup of equation solving with commentary text:
 
 ![A screenshot of two lines of equation solving. The first has commentary as text that reads 'substract 3 from both sides'. It is sort of to the side of the actual equations.](images/equation-solving-with-commentary.png)
 
@@ -1121,52 +1124,52 @@ Sometimes a mathematical calculation spans many lines. It is important to mark u
 
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <mtable>
-            <mtr>
-                <mtd>
-                    <mfrac><mn>1</mn><mn>2</mn></mfrac>
-                    <mo>+</mo>
-                    <mfrac><mn>2</mn><mn>3</mn></mfrac>
-                </mtd>
-                <mtd><mo>=</mo></mtd>
-                <mtd>
-                    <mfrac>
-                        <mrow><mn>3</mn><mo>&#x22C5;</mo><mn>1</mn></mrow>
-                        <mrow><mn>3</mn><mo>&#x22C5;</mo><mn>2</mn></mrow>
-                    </mfrac>
-                    <mo>+</mo>
-                    <mfrac>
-                        <mrow><mn>2</mn><mo>&#x22C5;</mo><mn>2</mn></mrow>
-                        <mrow><mn>2</mn><mo>&#x22C5;</mo><mn>3</mn></mrow>
-                    </mfrac>
-                </mtd>
-            </mtr>
-            <mtr>
-                <mtd></mtd>
-                <mtd><mo>=</mo></mtd>
-                <mtd>
-                    <mfrac><mn>3</mn><mn>6</mn></mfrac>
-                    <mo>+</mo>
-                    <mfrac><mn>4</mn><mn>6</mn></mfrac>
-                </mtd>
-            </mtr>
-            <mtr>
-                <mtd></mtd>
-                <mtd><mo>=</mo></mtd>
-                <mtd>
-                    <mfrac>
-                        <mrow><mn>3</mn><mo>+</mo><mn>4</mn></mrow>
-                        <mn>6</mn>
-                    </mfrac>
-                </mtd>
-            </mtr>
-            <mtr>
-                <mtd></mtd>
-                <mtd><mo>=</mo></mtd>
-                <mtd><mfrac><mn>7</mn><mn>6</mn></mfrac></mtd>
-            </mtr>
-        </mtable>
-    </math>
+    <mtable>
+        <mtr>
+            <mtd>
+                <mfrac><mn>1</mn><mn>2</mn></mfrac>
+                <mo>+</mo>
+                <mfrac><mn>2</mn><mn>3</mn></mfrac>
+            </mtd>
+            <mtd><mo>=</mo></mtd>
+            <mtd>
+                <mfrac>
+                    <mrow><mn>3</mn><mo>&#x22C5;</mo><mn>1</mn></mrow>
+                    <mrow><mn>3</mn><mo>&#x22C5;</mo><mn>2</mn></mrow>
+                </mfrac>
+                <mo>+</mo>
+                <mfrac>
+                    <mrow><mn>2</mn><mo>&#x22C5;</mo><mn>2</mn></mrow>
+                    <mrow><mn>2</mn><mo>&#x22C5;</mo><mn>3</mn></mrow>
+                </mfrac>
+            </mtd>
+        </mtr>
+        <mtr>
+            <mtd></mtd>
+            <mtd><mo>=</mo></mtd>
+            <mtd>
+                <mfrac><mn>3</mn><mn>6</mn></mfrac>
+                <mo>+</mo>
+                <mfrac><mn>4</mn><mn>6</mn></mfrac>
+            </mtd>
+        </mtr>
+        <mtr>
+            <mtd></mtd>
+            <mtd><mo>=</mo></mtd>
+            <mtd>
+                <mfrac>
+                    <mrow><mn>3</mn><mo>+</mo><mn>4</mn></mrow>
+                    <mn>6</mn>
+                </mfrac>
+            </mtd>
+        </mtr>
+        <mtr>
+            <mtd></mtd>
+            <mtd><mo>=</mo></mtd>
+            <mtd><mfrac><mn>7</mn><mn>6</mn></mfrac></mtd>
+        </mtr>
+    </mtable>
+</math>
 ```
 
 This will render as
@@ -1209,7 +1212,7 @@ To reference the equation, use the anchor tag and the href attribute. For exampl
 Place the id for the equation on the `<p>` element if the `<math>` element is the only element inside the `<p>` element.
 
 ```html
-<p>Text preceeding a stand-alone block of math content containing a labeled equation.</p>
+<p>Text preceding a stand-alone block of math content containing a labeled equation.</p>
 <p id="equation-1.2">
     <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
         <mtable>
@@ -1358,7 +1361,7 @@ The Ordering Agency may have more instructions for footnotes within editing inst
 
 ### Large operators
 
-Examples of large operators are summation $∑$, product $∏$, and integral $∫$. These are marked up as mathematical operators `<mo>`. These operators are rendered differently based on whether they are written in inline, block, or inline-block.
+Examples of large operators are summation $∑$, product $∏$, and integral $∫.$ These are marked up as mathematical operators `<mo>`. These operators are rendered differently based on whether they are written in inline, block, or inline-block.
 
 The rendering of operators should follow how it is written in the original title, unless otherwise specified by the Ordering agency.
 
@@ -1446,7 +1449,7 @@ Numbers with a unit attached to it should typically be written:
 
 The invisible multiplication operator ties the unit to the number and provides the possibility to add a space between the number and the unit symbol. The space should be set to 0.25em unless it is a unit that is placed directly after the number, like the degree symbol. In those cases the space can be set to 0 or the `rspace` attribute omitted completely. **Note:** The `intent` attribute used in this markup is not yet supported by the Nordic epub validator.
 
-Units that contain operators must be marked up correctly, and the whole unit wrapped in a `<mrow>` element.
+Units that contain operators must be marked up correctly, and the whole unit wrapped in an `<mrow>` element.
 
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1553,8 +1556,8 @@ Markup:
                     <mn>1</mn>
                 </mrow>
             </menclose>
-      </mfrac>
-  </math>
+        </mfrac>
+    </math>
 </details>
 ```
 
@@ -1674,7 +1677,7 @@ The coordinate (1,1, 2) should be marked up as follows:
 - The first example has $x$-coordinate 1 and $y$-coordinate 2.
 - The second example has $x$-coordinate 1,1 and $y$-coordinate 2.
 
-It is important to separate comma as a decimal separator and comma as an operator.
+It is important to distinguish between comma as a decimal separator and comma as an operator.
 
 #### Multiplication and division of fractions
 

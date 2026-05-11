@@ -8,7 +8,7 @@ Making book content accessible starts in well-structured and granular semantic m
 
 The basis of this document is the [MathML Core specification](https://www.w3.org/TR/mathml-core/). The aim is to provide a better understanding of how to use the MathML standard in the context of the services provided by the Nordic Agencies. The target audience of the document is mainly the Nordic agencies’ contracted EPUB 3 suppliers, but the guidelines will also be used by staff at the Nordic agencies, other vendors and interested parties, etc. Note that this document is not a beginner's introduction to MathML. A certain familiarity with the format is required, as well as a good understanding of basic mathematics.
 
-## When To Use MathML <!--- maybe change wording later -->
+## When To Use MathML
 
 In general, all mathematics should be marked up with MathML. Even simple arithmetic expressions such as $4 − 1 = 3$, should be in MathML. Sometimes a mathematical expression is additional information, and the expression is placed inside parentheses. For consistency, always include the parentheses inside the MathML markup. For example, in the sentence “the price for three pairs of jeans was 90 euros $(30 € × 3)$, and he paid for them in cash”, include the parentheses in the MathML markup.
 
@@ -1332,7 +1332,7 @@ Here is an example that might be written in a book:
 
 Another example of a hyperlink inside a footnote:
 
-![Bar x plus y bar less than bar x bar plus bar y bar superscript link 'Triangle inequality (Wikipedia)'.](images/footnote-triangle-inequality.png)
+![The absolute value of x plus y, end absolute value, less than, the absolute value of x, plus the absolute value of y, superscript link 'Triangle inequality (Wikipedia)'.](images/footnote-triangle-inequality.png)
 
 ```html
 <p><math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -1363,7 +1363,7 @@ The Ordering Agency may have more instructions for footnotes within editing inst
 
 Examples of large operators are summation $∑$, product $∏$, and integral $∫.$ These are marked up as mathematical operators `<mo>`. These operators are rendered differently based on whether they are written in inline, block, or inline-block.
 
-The rendering of operators should follow how it is written in the original title, unless otherwise specified by the Ordering agency.
+The rendering of operators should follow how it is written in the original title, unless otherwise specified by the Ordering Agency.
 
 Examples of different markup options below.
 
@@ -1871,7 +1871,7 @@ Below are the markup and rendering of a nested fraction inside an `<mtable>`.
     </math>
 ```
 
-![Calculation spanning multiple lines. The calculation simplifies the following nested fraction: Fraction with numerator one plus x, and denominator fraction with numerator the square root of x squared plus three x squared, and deniminator x.](images/fraction_in_mtable.png)
+![Calculation spanning multiple lines. The calculation simplifies the following nested fraction: Fraction with numerator one plus x, and denominator fraction with numerator the square root of x squared plus three x squared, and denominator x.](images/fraction_in_mtable.png)
 
 #### Embellishments
 

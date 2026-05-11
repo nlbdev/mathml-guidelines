@@ -45,7 +45,7 @@ Things that are not mathematics should not be marked up with MathML. Below is a 
 
 #### The Navigation Document
 
-Headings that contain mathematical expressions should obviously have MathML in the content documents. However, the Navigation document may not contain any MathML. Such headings must be entered into the Navigation document using plain text, `<sub>` and `<sup>`, when needed, and appropriate Unicode characters. 
+Headings that contain mathematical expressions should obviously have MathML in the content documents. However, the Navigation document may not contain any MathML. Such headings must be entered into the Navigation document using plain text, `<sub>` and `<sup>`, when needed, and appropriate Unicode characters.
 
 ### Chemistry
 

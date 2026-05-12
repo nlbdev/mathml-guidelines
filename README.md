@@ -1,6 +1,8 @@
 # MathML Guidelines
 
-A collaboration on the MathML guidelines for marking up accessible math
+A collaboration on the MathML guidelines for marking up accessible math.
+
+The latest version of the guidelines can be found here: [MathML guidelines releases](https://github.com/nlbdev/mathml-guidelines/releases).
 
 ## Nordic MathML guidelines: Use, validation and feedback
 

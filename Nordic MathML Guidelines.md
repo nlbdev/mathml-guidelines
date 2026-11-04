@@ -12,11 +12,11 @@ The basis of this document is the [MathML Core specification](https://www.w3.org
 
 In general, all mathematics should be marked up with MathML. Even simple arithmetic expressions such as $4 − 1 = 3$, should be in MathML. Sometimes a mathematical expression is additional information, and the expression is placed inside parentheses. For consistency, always include the parentheses inside the MathML markup. For example, in the sentence “the price for three pairs of jeans was 90 euros $(30 € × 3)$, and he paid for them in cash”, include the parentheses in the MathML markup.
 
-### Numbers and Numbers with Units
+### Numbers and Units
 
 Non-negative numbers, like 3 and 5.2, should be in plain text. If a number has a minus, like $−4$ or $−3.1$, it should be in MathML. If a number is part of a mathematical expression, it should be in MathML.
 
-Units should be in plain text, except if there is an exponent, division or Greek letter in it. For example, 10 m should be in plain text, while $10 \hspace{0.25em} \text{m}/\text{s}^2$ should be in MathML.
+In STEM books, numbers followed by a unit should be marked up with MathML, see section [Units](#units). In non-STEM books (which contain no other MathML content), numbers with units should be in plain text.
 
 ### Variables, Parameters and Greek Letters
 
@@ -299,23 +299,6 @@ The `<mi>` element is used to denote functions, variables, units, and other iden
 
 Functions and function names are identifiers: `<mi>tan</mi>`, `<mi>sin</mi>` or `<mi>log</mi>`.
 
-Units are identifiers. For example metre `<mi mathvariant="normal">m</mi>` or second `<mi mathvariant="normal">s</mi>`. When units are written using multiple letters, they should be marked up as a single element: `<mi>Nm</mi>`. Depending on the layout of the unit, you have to use other MathML elements to mark up a single unit such as metre per second squared:
-
-```html
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-    <mfrac>
-        <mi mathvariant="normal">m</mi>
-        <msup>
-            <mi mathvariant="normal">s</mi>
-            <mn>2</mn>
-        </msup>
-    </mfrac>
-</math>
-```
-
-Which renders as $\frac{\text{m}}{\text{s}^2}$.
-Note that the attribute mathvariant="normal" is necessary for a single-letter unit not to be in italic.
-
 The ellipsis or three dots &#x2026; is also an identifier `<mi>&#x2026;</mi>`.
 
 #### Text inside math expressions `<mtext>`
@@ -576,6 +559,8 @@ is marked up as follows:
     </mfrac>
 </math>
 ```
+
+Note the use of the `infix` form of the plus operator to make sure it is spaced as an operator instead of a prefix.
 
 ### Script and Limit Schemata
 
@@ -1435,31 +1420,42 @@ Using invisible operators makes the markup unambigious:
 
 Note that automatic MathML markup might not take context into account, so manual checking of invisible operators may be necessary.
 
-### Numbers with Units
+### Units
 
-Numbers with a unit attached to it should typically be written:
+Units are identifiers. For example metre `<mi mathvariant="normal">m</mi>` or second `<mi mathvariant="normal">s</mi>`. The attribute `mathvariant="normal"` must be used for single-letter units to be rendered upright (not in italics). Multi-letter units such as hertz (`<mi>Hz</mi>`) will be rendered upright automatically.
+
+Compound units should be marked up in separate `<mi>` elements. For example, newton-metres would be marked up as follows:
+
+```html
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<mi mathvariant="normal">N</mi>
+<mi mathvariant="normal">m</mi>
+</math>
+```
+
+Prefixed units, however, should be marked up in one single `<mi>` element. For example: `<mi>kg</mi>`.
+
+Numbers with a unit attached to it should use the invisible multiplication operator in between them: `<mo>&#x2062;</mo>`. If there is space between the number and the unit, the `<mo>` element should have the attribute rspace="0.25em", like this:
 
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
     <mn>100</mn>
     <mo rspace="0.25em">&#x2062;</mo>
-    <mi mathvariant="normal" intent=":unit">m</mi>
+    <mi mathvariant="normal">m</mi>
 </math>
 ```
 
-The invisible multiplication operator ties the unit to the number and provides the possibility to add a space between the number and the unit symbol. The space should be set to 0.25em unless it is a unit that is placed directly after the number, like the degree symbol. In those cases the space can be set to 0 or the `rspace` attribute omitted completely. **Note:** The `intent` attribute used in this markup is not yet supported by the Nordic epub validator.
-
-Units that contain operators must be marked up correctly, and the whole unit wrapped in an `<mrow>` element.
+Units that contain operators must be marked up correctly, and the whole unit wrapped in an `<mrow>` element. For example:
 
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
     <mn>100</mn>
     <mo rspace="0.25em">&#x2062;</mo>
     <mrow>
-        <mi mathvariant="normal" intent=":unit">m</mi>
+        <mi mathvariant="normal">m</mi>
         <mo>/</mo>
         <msup>
-            <mi mathvariant="normal" intent=":unit">s</mi>
+            <mi mathvariant="normal">s</mi>
             <mn>2</mn>
         </msup>
     </mrow>

@@ -1161,7 +1161,7 @@ This will render as
 
 ![The calculation of one half plus two thirds. The calculation spans four lines.](images/calculation_spanning_multiple_lines.png)
 
-#### Labeling and referencing equations
+#### Labelling and referencing equations
 
 It is common to label equations and then reference these equations later on in mathematical text. In MathML the `<mtable>` element is used to mark up labeled equations.
 
@@ -1557,7 +1557,7 @@ Markup:
 </details>
 ```
 
-If the expression is an inline element, use `alt="equation"` for the `<math>` element.
+If the expression is an inline element, use `alt="equation"` for the `<img>` element.
 
 Rendered:
 

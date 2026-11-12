@@ -12,19 +12,103 @@ The basis of this document is the [MathML Core specification](https://www.w3.org
 
 In general, all mathematics should be marked up with MathML. Even simple arithmetic expressions such as $4 − 1 = 3$, should be in MathML. Sometimes a mathematical expression is additional information, and the expression is placed inside parentheses. For consistency, always include the parentheses inside the MathML markup. For example, in the sentence “the price for three pairs of jeans was 90 euros $(30 € × 3)$, and he paid for them in cash”, include the parentheses in the MathML markup.
 
-### Numbers and Units
+### Numbers and Numbers with Units
 
 Non-negative numbers, like 3 and 5.2, should be in plain text. If a number has a minus, like $−4$ or $−3.1$, it should be in MathML. If a number is part of a mathematical expression, it should be in MathML.
 
-In STEM books, numbers followed by a unit should be marked up with MathML, see section [Units](#units). In non-STEM books (which contain no other MathML content), numbers with units should be in plain text.
+For consistency, all units should be marked up in MathML. Always include both the number and the unit in the MathML markup. Below are some examples.
+
+- A number with a simple unit: $10 \hspace{0.25em} \text{m}$
+- A number with a compound unit: $10 \hspace{0.25em} \text{m}/\text{s}^2$
+- An interval followed by a unit: $10–20 \hspace{0.25em} \text{m}$
+
+See the section [Units](#units) for how to mark up units in MathML.
+
+### Intervals
+
+- An interval where both the start value and the end value are positive numbers should be marked up as plain text. For example: 10.1–20.2.
+- An interval followed by some text should be marked up in plain text. For example 7–8 children.
+- An interval in which either the start value, the end value, or both are negative must be marked up in MathML. The MathML markup of $−10–20$ is shown below.
+
+```html
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+    <mo>&#x2212;</mo><mn>10</mn><mtext>&#x2013;</mtext><mn>20</mn>
+</math>
+```
+
+- An interval followed by a unit must be marked up in MathML. For example 10–20 m. The MathML markup is shown below.
+
+```html
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+    <mn>10</mn><mtext>&#x2013;</mtext><mn>20</mn><mo rspace="0.25em">&#x2062;</mo><mi mathvariant="normal">m</mi>
+</math>
+```
+
+Always use the unicode U+2013 (en dash) for the dash that indicates the interval. When inside MathML, mark up the en dash in an `<mtext>` element.
+
+Intervals can also be denoted using the words "from" and "to". Below are some examples and how they should be marked up.
+
+- "from 10 to 20". Mark up in plain text.
+- "from −10 to 20". Mark up the negative number in MathML and the rest as plain text.
+- "from 10 to 20m". Markup "20m" in MathML and the rest as plain text.
 
 ### Variables, Parameters and Greek Letters
 
-Variables and parameters should always be marked up with MathML.
+Variables and parameters should always be marked up with MathML. For example, Greek letters are often variables. Below are some examples.
 
-In STEM books Greek letters should always be in MathML. In these books they are variables and parameters. In non-STEM books isolated Greek letters should be in plain text. However, if they are part of an expression, like $Δx$, the whole expression should be marked up with MathML.
+#### Example 1 – Markup of Variables
+
+"Solve the equation and find the value of $x$." should be marked up as follows: 
+
+```html
+<p>
+Solve the equation and find the value of 
+<math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi><mtext>.</mtext></math>
+</p>
+```
+
+#### Example 2 – Markup of Variables
+
+"If $a$ is negative, the equation has no solution." should be marked up as follows: 
+
+```html
+<p>
+If 
+<math xmlns="http://www.w3.org/1998/Math/MathML"><mi>a</mi></math> 
+is negative, the equation has no solution.
+</p>
+```
 
 Variables, Greek letters etc. with a sign above, like $\bar{x}$ or $\hat{y}$, or with indices, like $β_1$ or $ε_0$, should always be marked up with MathML, using “mover” and “msub” respectively. Note that there are distinct characters like ŷ (U+0177), but these are not intended for mathematics and should not be used.
+
+### Percent
+<!--Remove percent from the section `<mo>` for operators, fences, separators or accents-->
+
+A positive number followed by a percent sign should be in plain text. The same applies for intervals. For example 10–20 %.
+
+Percent signs in a context which otherwise requires MathML, for example a negative number or a variable followed by a percent sign, should be in MathML. Below are two examples.
+
+#### Example 1 – Markup of Percent
+
+```html
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+    <mo>&#x2212;</mo><mn>10</mn><mo>%</mo>
+</math>
+```
+
+which is rendered as −10%.
+
+#### Example 2 – Markup of Percent
+
+```html
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+    <mo>&#x2212;</mo><mn>10</mn><mo rspace="0.25em">&#x2062;</mo><mo>%</mo>
+</math>
+```
+
+which is rendered as −10 %.
+
+If there is space between the number and the percent sign in the original source, use `<mo rspace="0.25em">&#x2062;</mo>` to mark up the space. Always mark up the percent sign in a `<mo>` element.
 
 ### Some Things That Should Be In Plain Text
 
@@ -33,7 +117,6 @@ Things that are not mathematics should not be marked up with MathML. Below is a 
 - Years: “The 1950s” (English), “1950-årene” (Norwegian)
 - Dates: “23.10.2013”, “2013-10-23”
 - Time periods: “1840–1845”, “June 1–June 4”
-- Intervals like “7–8 children” (7 to 8 children), “90–95% of the participants voted yes”
 - Numbers on journals etc: “Vi menn 1/2025”
 - ISBN: “978-82-7007-515-7”
 - Page numbers: “page 18–19”
@@ -259,8 +342,6 @@ Examples of decimal and thousand separator markup includes
 The `<mo>` element is used to denote operators. The definition of an operator is loose and it can mean the actual mathematical operators plus (+), minus (&minus;), times (⋅) and divided by (/).
 
 In MathML it also means different parentheses. For example the parenthesis `<mo>(</mo>` and curly bracket `<mo>{</mo>`. Please note that the element `<mfenced>` is deprecated and may not be used!
-
-The percent sign is a `<mo>` element. For example 50 percent should be written as `<mn>50</mn><mo>&#x25;</mo>`. If there is space between the number and the percent sign in the original book, use `<mo rspace="0.25em">&#x2062;</mo>` to mark up the space. For example: `<mn>50</mn><mo rspace="0.25em">&#x2062;</mo><mo>&#x25;</mo>`
 
 The same character can be used in a different meaning based on the context. For example, the comma can be part of a number but in a sequence the comma is an operator.
 
